@@ -10,20 +10,13 @@
 <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
 <style>
 :root {
-  --navy: #163087;
-  --navy-deep: #0f2466;
-  --cream: #faf3e6;
-  --warm: #f0e8d5;
-  --ink: #2c2416;
-  --muted: #7a6e5f;
-  --border: #d8cbb8;
-  --accent: #c9873a;
-  --error: #b83232;
+  --navy: #163087; --navy-deep: #0f2466; --cream: #faf3e6; --warm: #f0e8d5;
+  --ink: #2c2416; --muted: #7a6e5f; --border: #d8cbb8; --error: #b83232; --draft: #7a5c1e;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Lora', Georgia, serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
 
-/* ── Login ── */
+/* Login */
 #login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
 .login-box {
   background: white; border: 1px solid var(--border); border-radius: 14px;
@@ -36,20 +29,19 @@ body { font-family: 'Lora', Georgia, serif; background: var(--cream); color: var
 .login-box input[type="password"] {
   width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 8px;
   font-family: 'Lora', Georgia, serif; font-size: 1rem; margin-bottom: 1rem;
-  background: var(--cream); color: var(--ink); transition: border-color 0.2s;
+  background: var(--cream); color: var(--ink);
 }
 .login-box input[type="password"]:focus { outline: none; border-color: var(--navy); }
 .login-box button {
   width: 100%; padding: 0.9rem; background: var(--navy); color: white; border: none;
   border-radius: 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem;
-  cursor: pointer; letter-spacing: 0.03em; transition: background 0.2s;
+  cursor: pointer; transition: background 0.2s;
 }
 .login-box button:hover { background: var(--navy-deep); }
 .login-error { color: var(--error); font-size: 0.85rem; margin-top: 0.75rem; display: none; }
 
-/* ── Admin Panel ── */
+/* Admin */
 #admin-panel { display: none; padding-bottom: 6rem; }
-
 .admin-bar {
   background: var(--navy); color: white; padding: 0.9rem 2rem;
   display: flex; align-items: center; justify-content: space-between;
@@ -72,18 +64,15 @@ body { font-family: 'Lora', Georgia, serif; background: var(--cream); color: var
   margin-bottom: 0.5rem; display: block;
 }
 .field { margin-bottom: 1.6rem; }
-
-input[type="text"], select, textarea {
+input[type="text"], textarea {
   width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px;
   font-family: 'Lora', Georgia, serif; font-size: 1rem; background: white; color: var(--ink);
   transition: border-color 0.2s;
 }
-input[type="text"]:focus, select:focus, textarea:focus { outline: none; border-color: var(--navy); }
+input[type="text"]:focus, textarea:focus { outline: none; border-color: var(--navy); }
 textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-
-/* Thumbnail upload */
+/* Thumbnail */
 .thumb-zone {
   border: 2px dashed var(--border); border-radius: 10px; padding: 1.75rem 1rem;
   text-align: center; cursor: pointer; background: white; transition: border-color 0.2s;
@@ -102,28 +91,52 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 .ql-editor { min-height: 420px; padding: 1.5rem 1.75rem; font-family: 'Lora', Georgia, serif; font-size: 1.05rem; line-height: 1.85; color: var(--ink); }
 .ql-editor.ql-blank::before { font-style: italic; color: var(--muted); }
 
-/* Sticky publish bar */
+/* Publish bar */
 .publish-bar {
   position: fixed; bottom: 0; left: 0; right: 0; background: white;
   border-top: 1px solid var(--border); padding: 1rem 2rem;
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  z-index: 99;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; z-index: 99;
 }
-.pub-status { color: var(--muted); font-size: 0.88rem; font-style: italic; }
-.pub-actions { display: flex; gap: 0.75rem; align-items: center; }
-.btn-clear {
+.pub-status { color: var(--muted); font-size: 0.88rem; font-style: italic; flex: 1; }
+.pub-actions { display: flex; gap: 0.6rem; align-items: center; flex-shrink: 0; }
+.btn-secondary {
   background: transparent; color: var(--muted); border: 1px solid var(--border);
-  border-radius: 8px; padding: 0.7rem 1.25rem; font-family: 'Lora', Georgia, serif;
-  font-size: 0.9rem; cursor: pointer; transition: color 0.2s, border-color 0.2s;
+  border-radius: 8px; padding: 0.7rem 1.1rem; font-family: 'Lora', Georgia, serif;
+  font-size: 0.88rem; cursor: pointer; white-space: nowrap; transition: color 0.2s, border-color 0.2s;
 }
-.btn-clear:hover { color: var(--ink); border-color: var(--ink); }
+.btn-secondary:hover { color: var(--ink); border-color: var(--ink); }
+.btn-draft {
+  background: #fdf3e3; color: var(--draft); border: 1px solid #e8c87a;
+  border-radius: 8px; padding: 0.7rem 1.1rem; font-family: 'Lora', Georgia, serif;
+  font-size: 0.88rem; cursor: pointer; white-space: nowrap; transition: background 0.2s;
+}
+.btn-draft:hover { background: #f9e8c0; }
+.btn-draft:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-publish {
   background: var(--navy); color: white; border: none; border-radius: 8px;
-  padding: 0.8rem 2.25rem; font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.1rem; cursor: pointer; letter-spacing: 0.02em; transition: background 0.2s;
+  padding: 0.8rem 2rem; font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem; cursor: pointer; white-space: nowrap; transition: background 0.2s;
 }
 .btn-publish:hover { background: var(--navy-deep); }
 .btn-publish:disabled { background: var(--muted); cursor: not-allowed; }
+
+/* Posts & drafts lists */
+.list-section { margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+.list-section h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 1rem; }
+.list-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px;
+  background: white; margin-bottom: 0.5rem; gap: 1rem;
+}
+.list-item-info { flex: 1; min-width: 0; }
+.list-item-info a { color: var(--navy); text-decoration: none; font-size: 0.95rem; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list-item-info a:hover { text-decoration: underline; }
+.list-item-meta { color: var(--muted); font-size: 0.8rem; margin-top: 0.2rem; }
+.list-item-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+.btn-load { background: #fdf3e3; color: var(--draft); border: 1px solid #e8c87a; border-radius: 6px; padding: 0.3rem 0.75rem; font-size: 0.8rem; cursor: pointer; font-family: 'Lora', Georgia, serif; }
+.btn-load:hover { background: #f9e8c0; }
+.btn-del { background: transparent; color: #c0392b; border: 1px solid #e0b0b0; border-radius: 6px; padding: 0.3rem 0.6rem; font-size: 0.8rem; cursor: pointer; }
+.btn-del:hover { background: #fdecea; }
 
 /* Toast */
 .toast {
@@ -135,18 +148,7 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 }
 .toast.show { transform: translateY(0); opacity: 1; }
 .toast.err { background: var(--error); }
-
-/* Post list */
-.posts-section { margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; }
-.posts-section h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 1rem; }
-.post-list-item {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px;
-  background: white; margin-bottom: 0.5rem;
-}
-.post-list-item a { color: var(--navy); text-decoration: none; font-size: 0.95rem; }
-.post-list-item a:hover { text-decoration: underline; }
-.post-list-meta { color: var(--muted); font-size: 0.8rem; }
+.toast.ok { background: #2d6a4f; }
 </style>
 </head>
 <body>
@@ -166,9 +168,7 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 <!-- Admin -->
 <div id="admin-panel">
   <div class="admin-bar">
-    <div class="admin-bar-left">
-      Sentimentalica <span>writing space</span>
-    </div>
+    <div class="admin-bar-left">Sentimentalica <span>writing space</span></div>
     <button class="bar-btn" onclick="doLogout()">Log out</button>
   </div>
 
@@ -179,31 +179,14 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
       <input type="text" id="f-title" placeholder="Write your title here…">
     </div>
 
-    <div class="two-col">
-      <div class="field">
-        <span class="section-label">Category</span>
-        <select id="f-category">
-          <option>Junk Journaling</option>
-          <option>Art Journaling</option>
-          <option>Scrapbooking</option>
-          <option>How To</option>
-          <option>Behind the Shop</option>
-        </select>
-      </div>
-      <div class="field">
-        <span class="section-label">Read time</span>
-        <input type="text" id="f-readtime" placeholder="e.g. 5 min read">
-      </div>
-    </div>
-
     <div class="field">
-      <span class="section-label">Short excerpt <em style="font-size:0.8rem;color:var(--muted)">(shown on blog listing page)</em></span>
+      <span class="section-label">Short excerpt <em style="font-size:0.8rem;color:var(--muted)">(shown on blog listing — optional)</em></span>
       <textarea id="f-excerpt" placeholder="One or two sentences describing this post…"></textarea>
     </div>
 
     <div class="field">
       <span class="section-label">Thumbnail image <em style="font-size:0.8rem;color:var(--muted)">(optional — shown on blog listing)</em></span>
-      <div class="thumb-zone" id="thumb-zone">
+      <div class="thumb-zone">
         <input type="file" id="thumb-file" accept="image/*" onchange="onThumb(this)">
         <div class="thumb-zone-text"><strong>Click to upload</strong> or drag a photo here<br><span style="font-size:0.8rem">JPG, PNG, WEBP — any size</span></div>
         <img id="thumb-preview">
@@ -217,7 +200,14 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
       </div>
     </div>
 
-    <div class="posts-section" id="posts-section" style="display:none">
+    <!-- Drafts -->
+    <div class="list-section" id="drafts-section" style="display:none">
+      <h2>Saved drafts</h2>
+      <div id="drafts-list"></div>
+    </div>
+
+    <!-- Published -->
+    <div class="list-section" id="posts-section" style="display:none">
       <h2>Published posts</h2>
       <div id="posts-list"></div>
     </div>
@@ -225,11 +215,12 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
   </div>
 </div>
 
-<div class="publish-bar">
-  <div class="pub-status" id="pub-status">Write your post above, then publish when ready.</div>
+<div class="publish-bar" style="display:none">
+  <div class="pub-status" id="pub-status">Write your post above, then save a draft or publish.</div>
   <div class="pub-actions">
-    <button class="btn-clear" onclick="doClear()">Clear form</button>
-    <button class="btn-publish" id="pub-btn" onclick="doPublish()">Publish post →</button>
+    <button class="btn-secondary" onclick="doClear()">Clear</button>
+    <button class="btn-draft" id="draft-btn" onclick="doSaveDraft()">Save draft</button>
+    <button class="btn-publish" id="pub-btn" onclick="doPublish()">Publish →</button>
   </div>
 </div>
 
@@ -238,6 +229,8 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
 <script>
 const API = 'https://sentimentalica-admin-api.teter-album.workers.dev';
+let thumbData = null;
+let currentDraftSlug = null; // track if editing a loaded draft
 
 /* ── Auth ─────────────────────────────────────────────────────────── */
 async function doLogin() {
@@ -245,8 +238,7 @@ async function doLogin() {
   if (!pwd) return;
   try {
     const r = await fetch(API + '/ping', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password: pwd })
     });
     const d = await r.json();
@@ -255,20 +247,14 @@ async function doLogin() {
       document.getElementById('login-screen').style.display = 'none';
       document.getElementById('admin-panel').style.display = 'block';
       document.querySelector('.publish-bar').style.display = 'flex';
-      loadPosts();
+      loadAll();
     } else {
       document.getElementById('login-err').style.display = 'block';
     }
-  } catch {
-    document.getElementById('login-err').style.display = 'block';
-  }
+  } catch { document.getElementById('login-err').style.display = 'block'; }
 }
 document.getElementById('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
-
-function doLogout() {
-  sessionStorage.removeItem('sp');
-  location.reload();
-}
+function doLogout() { sessionStorage.removeItem('sp'); location.reload(); }
 
 /* ── Quill ────────────────────────────────────────────────────────── */
 const quill = new Quill('#editor', {
@@ -289,7 +275,6 @@ const quill = new Quill('#editor', {
   }
 });
 
-/* Image handler — reads file locally, embeds base64 (uploaded on publish) */
 quill.getModule('toolbar').addHandler('image', () => {
   const inp = document.createElement('input');
   inp.type = 'file'; inp.accept = 'image/*';
@@ -307,36 +292,106 @@ quill.getModule('toolbar').addHandler('image', () => {
 });
 
 /* ── Thumbnail ────────────────────────────────────────────────────── */
-let thumbData = null;
 function onThumb(inp) {
   const file = inp.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = e => {
     thumbData = { name: file.name, data: e.target.result };
-    const prev = document.getElementById('thumb-preview');
-    prev.src = e.target.result; prev.style.display = 'block';
+    document.getElementById('thumb-preview').src = e.target.result;
+    document.getElementById('thumb-preview').style.display = 'block';
     document.querySelector('.thumb-zone-text').style.display = 'none';
   };
   reader.readAsDataURL(file);
 }
 
 /* ── Slug ─────────────────────────────────────────────────────────── */
-function slug(title) {
+function makeSlug(title) {
   return title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim()
     .replace(/\s+/g, '-').replace(/-+/g, '-').substring(0, 80);
 }
 
+/* ── Save draft ───────────────────────────────────────────────────── */
+async function doSaveDraft() {
+  const title = document.getElementById('f-title').value.trim();
+  if (!title) { toast('Add a title before saving a draft.', true); return; }
+
+  const draftBtn = document.getElementById('draft-btn');
+  draftBtn.disabled = true; draftBtn.textContent = 'Saving…';
+
+  const draftSlug = currentDraftSlug || makeSlug(title);
+  try {
+    const res = await fetch(API + '/save-draft', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        password: sessionStorage.getItem('sp'),
+        slug: draftSlug,
+        title,
+        excerpt: document.getElementById('f-excerpt').value.trim(),
+        content: quill.root.innerHTML,
+        thumbnail: thumbData
+      })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      currentDraftSlug = draftSlug;
+      toast('Draft saved.', false, true);
+      setStatus('Draft saved — continue writing or publish when ready.');
+      loadAll();
+    } else throw new Error(data.error);
+  } catch (err) { toast('Error saving draft: ' + err.message, true); }
+  finally { draftBtn.disabled = false; draftBtn.textContent = 'Save draft'; }
+}
+
+/* ── Load draft ───────────────────────────────────────────────────── */
+async function loadDraft(draftSlug) {
+  try {
+    const r = await fetch(API + '/get-draft', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionStorage.getItem('sp'), slug: draftSlug })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error);
+
+    document.getElementById('f-title').value = d.draft.title || '';
+    document.getElementById('f-excerpt').value = d.draft.excerpt || '';
+    quill.root.innerHTML = d.draft.content || '';
+
+    if (d.draft.thumbnail) {
+      thumbData = d.draft.thumbnail;
+      document.getElementById('thumb-preview').src = d.draft.thumbnail.data;
+      document.getElementById('thumb-preview').style.display = 'block';
+      document.querySelector('.thumb-zone-text').style.display = 'none';
+    }
+
+    currentDraftSlug = draftSlug;
+    setStatus('Draft loaded — continue editing, then publish or save again.');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    toast('Draft loaded.');
+  } catch (err) { toast('Could not load draft: ' + err.message, true); }
+}
+
+/* ── Delete draft ─────────────────────────────────────────────────── */
+async function deleteDraft(draftSlug) {
+  if (!confirm('Delete this draft? This cannot be undone.')) return;
+  try {
+    const res = await fetch(API + '/delete-draft', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionStorage.getItem('sp'), slug: draftSlug })
+    });
+    const d = await res.json();
+    if (d.ok) { if (currentDraftSlug === draftSlug) currentDraftSlug = null; loadAll(); toast('Draft deleted.'); }
+    else throw new Error(d.error);
+  } catch (err) { toast('Error: ' + err.message, true); }
+}
+
 /* ── Publish ──────────────────────────────────────────────────────── */
 async function doPublish() {
-  const title    = document.getElementById('f-title').value.trim();
-  const category = document.getElementById('f-category').value;
-  const readTime = document.getElementById('f-readtime').value.trim() || '5 min read';
-  const excerpt  = document.getElementById('f-excerpt').value.trim();
-  const content  = quill.root.innerHTML;
-  const pwd      = sessionStorage.getItem('sp');
+  const title   = document.getElementById('f-title').value.trim();
+  const excerpt = document.getElementById('f-excerpt').value.trim();
+  const content = quill.root.innerHTML;
+  const pwd     = sessionStorage.getItem('sp');
 
   if (!title) { toast('Please add a title first.', true); return; }
-  if (quill.getText().trim().length < 30) { toast('Content is too short to publish.', true); return; }
 
   const btn = document.getElementById('pub-btn');
   btn.disabled = true; btn.textContent = 'Publishing…';
@@ -344,67 +399,96 @@ async function doPublish() {
 
   try {
     const res = await fetch(API + '/publish', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: pwd, title, slug: slug(title), category, readTime, excerpt, content, thumbnail: thumbData })
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        password: pwd, title, slug: makeSlug(title),
+        excerpt, content, thumbnail: thumbData,
+        draftSlug: currentDraftSlug
+      })
     });
     const data = await res.json();
     if (data.ok) {
-      toast('✓ Published! Live at /blog/' + data.slug + '.html in ~60 seconds.');
+      toast('✓ Published! Live in ~60 seconds.', false, true);
       setStatus('Published — live in about 1 minute at /blog/' + data.slug + '.html');
       btn.textContent = 'Published ✓';
-      loadPosts();
-    } else {
-      throw new Error(data.error || 'Unknown error');
-    }
+      currentDraftSlug = null;
+      loadAll();
+    } else throw new Error(data.error || 'Unknown error');
   } catch (err) {
     toast('Error: ' + err.message, true);
-    btn.disabled = false; btn.textContent = 'Publish post →';
+    btn.disabled = false; btn.textContent = 'Publish →';
     setStatus('Something went wrong. Try again.');
   }
 }
 
 /* ── Clear ────────────────────────────────────────────────────────── */
 function doClear() {
-  if (!confirm('Clear the form? Your writing will be lost.')) return;
+  if (!confirm('Clear the form? Any unsaved changes will be lost.')) return;
   document.getElementById('f-title').value = '';
   document.getElementById('f-excerpt').value = '';
-  document.getElementById('f-readtime').value = '';
   quill.setText('');
-  thumbData = null;
+  thumbData = null; currentDraftSlug = null;
   document.getElementById('thumb-preview').style.display = 'none';
   document.querySelector('.thumb-zone-text').style.display = 'block';
   const btn = document.getElementById('pub-btn');
-  btn.disabled = false; btn.textContent = 'Publish post →';
-  setStatus('Write your post above, then publish when ready.');
+  btn.disabled = false; btn.textContent = 'Publish →';
+  setStatus('Write your post above, then save a draft or publish.');
 }
 
-/* ── Posts list ───────────────────────────────────────────────────── */
+/* ── Load posts & drafts ──────────────────────────────────────────── */
+async function loadAll() {
+  await Promise.all([loadPosts(), loadDrafts()]);
+}
+
 async function loadPosts() {
   try {
     const r = await fetch('/blog/index.json?t=' + Date.now());
     const d = await r.json();
-    if (!d.posts || d.posts.length === 0) return;
     const section = document.getElementById('posts-section');
     const list = document.getElementById('posts-list');
+    if (!d.posts || d.posts.length === 0) { section.style.display = 'none'; return; }
     section.style.display = 'block';
     list.innerHTML = d.posts.map(p => `
-      <div class="post-list-item">
-        <div>
+      <div class="list-item">
+        <div class="list-item-info">
           <a href="/blog/${p.slug}.html" target="_blank">${p.title}</a>
-          <div class="post-list-meta">${p.category} · ${p.dateDisplay || p.date}</div>
+          <div class="list-item-meta">${p.dateDisplay || p.date}</div>
         </div>
       </div>`).join('');
-  } catch { /* not logged in yet or no posts */ }
+  } catch { }
+}
+
+async function loadDrafts() {
+  try {
+    const r = await fetch(API + '/list-drafts', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionStorage.getItem('sp') })
+    });
+    const d = await r.json();
+    const section = document.getElementById('drafts-section');
+    const list = document.getElementById('drafts-list');
+    if (!d.ok || !d.drafts || d.drafts.length === 0) { section.style.display = 'none'; return; }
+    section.style.display = 'block';
+    list.innerHTML = d.drafts.map(dr => `
+      <div class="list-item">
+        <div class="list-item-info">
+          <a href="#" onclick="loadDraft('${dr.slug}');return false">${dr.title}</a>
+          <div class="list-item-meta">Saved ${dr.savedAt ? new Date(dr.savedAt).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) : ''}</div>
+        </div>
+        <div class="list-item-actions">
+          <button class="btn-load" onclick="loadDraft('${dr.slug}')">Load</button>
+          <button class="btn-del" onclick="deleteDraft('${dr.slug}')" title="Delete draft">✕</button>
+        </div>
+      </div>`).join('');
+  } catch { }
 }
 
 /* ── Helpers ──────────────────────────────────────────────────────── */
 function setStatus(msg) { document.getElementById('pub-status').textContent = msg; }
-
-function toast(msg, err = false) {
+function toast(msg, err = false, ok = false) {
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className = 'toast show' + (err ? ' err' : '');
+  t.className = 'toast show' + (err ? ' err' : ok ? ' ok' : '');
   setTimeout(() => { t.className = 'toast'; }, 5000);
 }
 </script>
