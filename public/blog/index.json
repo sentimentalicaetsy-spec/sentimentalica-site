@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "slug": "starting-junk-journal",
+      "title": "How to start a junk journal when you don't know where to begin",
+      "category": "Junk Journaling",
+      "excerpt": "A gentle, no-rules beginner's guide to making your first pages — and giving yourself permission to make them imperfect.",
+      "date": "2026-05-24",
+      "dateDisplay": "May 24",
+      "readTime": "6 min read",
+      "thumb": null
+    },
+    {
+      "slug": "printing-digital-papers",
+      "title": "The best way to print digital papers at home",
+      "category": "How To",
+      "excerpt": "Paper weights, printer settings, and small tricks that make the difference between flat and beautiful.",
+      "date": "2026-05-18",
+      "dateDisplay": "May 18",
+      "readTime": "4 min read",
+      "thumb": null
+    },
+    {
+      "slug": "art-journal-prompts",
+      "title": "Twelve quiet art journal prompts for slow mornings",
+      "category": "Art Journaling",
+      "excerpt": "Prompts for the days you want to make something but don't know what — gentle ideas to begin with.",
+      "date": "2026-05-11",
+      "dateDisplay": "May 11",
+      "readTime": "5 min read",
+      "thumb": null
+    }
+  ]
+}

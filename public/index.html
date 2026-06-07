@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentimentalica — Junk Journal, Art Journal & Scrapbook Digital Papers</title>
+<meta name="description" content="Beautifully designed digital papers and printables for junk journaling, art journaling, and scrapbooking. Crafted with care by Sentimentalica.">
+<meta property="og:title" content="Sentimentalica — Junk Journal & Art Journal Digital Papers">
+<meta property="og:description" content="Beautifully designed digital papers and printables for junk journaling, art journaling, and scrapbooking.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sentimentalica.com">
+<meta property="og:image" content="https://sentimentalica.com/assets/logo.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<meta name="p:domain_verify" content="2df16e7970c89985d1f99be0087cded7"/>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="logo-link">
+    <img src="assets/logo.png" alt="Sentimentalica" class="logo-mark">
+    <span class="logo-text">Sentimentalica</span>
+  </a>
+  <ul>
+    <li><a href="blog.html">Journal</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a class="nav-shop" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Shop on Etsy</a></li>
+  </ul>
+</nav>
+
+<section class="hero-logo">
+  <img src="assets/logo.png" alt="Sentimentalica dove logo">
+  <div class="hero-wordmark">Sentimentalica</div>
+  <div class="hero-tagline">Junk Journal, Art Journal &amp; Scrapbook Digital Papers</div>
+</section>
+
+<section class="hero-intro">
+  <h1>Digital papers made for <em>quiet, beautiful</em> creative work.</h1>
+  <p class="hero-sub">Vintage-inspired printables for junk journalers, art journalers, and scrapbookers who care about the smallest details. Designed slowly. Made to be cherished.</p>
+  <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">Browse the shop on Etsy</a>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>From the <em>journal</em></h2>
+    <a href="blog.html" class="more">All posts →</a>
+  </div>
+  <div class="post-grid" id="home-post-grid">
+    <!-- loaded dynamically -->
+  </div>
+</section>
+
+<section class="etsy-band">
+  <h2>The shop is <em>open.</em></h2>
+  <p>Digital paper packs, ephemera printables, and beautifully aged designs for your next junk journal, art journal, or scrapbook spread. Instantly downloadable on Etsy.</p>
+  <a href="https://www.etsy.com/shop/sentimentalica" class="etsy-cta" target="_blank" rel="noopener">Shop Sentimentalica →</a>
+</section>
+
+<footer>
+  <div>© 2026 Sentimentalica · made with care in Kraków</div>
+  <div>
+    <a href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Etsy</a>
+    <a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a>
+    <a href="mailto:hello@sentimentalica.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+const THUMBS = ['t1','t2','t3'];
+
+async function loadRecentPosts() {
+  try {
+    const r = await fetch('blog/index.json?t=' + Date.now());
+    const d = await r.json();
+    const posts = (d.posts || []).slice(0, 3);
+    const grid = document.getElementById('home-post-grid');
+    if (posts.length === 0) { grid.innerHTML = ''; return; }
+    grid.innerHTML = posts.map((p, i) => {
+      const thumb = p.thumb
+        ? `<img class="post-thumb-img" src="${p.thumb}" alt="${p.title}" loading="lazy">`
+        : `<div class="post-thumb ${THUMBS[i % THUMBS.length]}"></div>`;
+      return `
+        <a href="blog/${p.slug}.html" class="post-card">
+          ${thumb}
+          <div class="post-cat">${p.category}</div>
+          <h3>${p.title}</h3>
+          <p>${p.excerpt || ''}</p>
+          <div class="post-meta">${p.dateDisplay || p.date}${p.readTime ? ' · ' + p.readTime : ''}</div>
+        </a>`;
+    }).join('');
+  } catch { }
+}
+
+loadRecentPosts();
+</script>
+</body>
+</html>

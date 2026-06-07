@@ -1,0 +1,16 @@
+/* Styles for blog posts generated via the admin editor */
+.ql-content { font-family: 'Lora', Georgia, serif; font-size: 1.05rem; line-height: 1.85; color: #2c2416; }
+.ql-content h1, .ql-content h2, .ql-content h3 { font-family: 'Cormorant Garamond', Georgia, serif; color: #163087; margin: 2rem 0 0.75rem; line-height: 1.25; }
+.ql-content h1 { font-size: 2rem; }
+.ql-content h2 { font-size: 1.55rem; }
+.ql-content h3 { font-size: 1.25rem; }
+.ql-content p { margin-bottom: 1.25rem; }
+.ql-content a { color: #163087; text-decoration: underline; }
+.ql-content a:hover { color: #c9873a; }
+.ql-content img { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; }
+.ql-content blockquote { border-left: 3px solid #163087; padding: 0.5rem 1.5rem; margin: 2rem 0; font-style: italic; color: #7a6e5f; background: #f0e8d5; border-radius: 0 8px 8px 0; }
+.ql-content ul, .ql-content ol { padding-left: 1.75rem; margin-bottom: 1.25rem; }
+.ql-content li { margin-bottom: 0.4rem; }
+.ql-content pre { background: #2c2416; color: #faf3e6; padding: 1.25rem 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; margin-bottom: 1.25rem; }
+.ql-content iframe { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; }
+.ql-content .ql-video { width: 100%; aspect-ratio: 16/9; border-radius: 8px; margin: 1.5rem 0; }

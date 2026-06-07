@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Sentimentalica</title>
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+<style>
+:root {
+  --navy: #163087;
+  --navy-deep: #0f2466;
+  --cream: #faf3e6;
+  --warm: #f0e8d5;
+  --ink: #2c2416;
+  --muted: #7a6e5f;
+  --border: #d8cbb8;
+  --accent: #c9873a;
+  --error: #b83232;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lora', Georgia, serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+
+/* ── Login ── */
+#login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+.login-box {
+  background: white; border: 1px solid var(--border); border-radius: 14px;
+  padding: 3rem 2.5rem; width: 100%; max-width: 380px; text-align: center;
+  box-shadow: 0 8px 40px rgba(22,48,135,0.10);
+}
+.login-box img { width: 60px; margin-bottom: 1.25rem; }
+.login-box h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.9rem; color: var(--navy); margin-bottom: 0.35rem; }
+.login-box p { color: var(--muted); font-size: 0.88rem; margin-bottom: 2rem; font-style: italic; }
+.login-box input[type="password"] {
+  width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 8px;
+  font-family: 'Lora', Georgia, serif; font-size: 1rem; margin-bottom: 1rem;
+  background: var(--cream); color: var(--ink); transition: border-color 0.2s;
+}
+.login-box input[type="password"]:focus { outline: none; border-color: var(--navy); }
+.login-box button {
+  width: 100%; padding: 0.9rem; background: var(--navy); color: white; border: none;
+  border-radius: 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem;
+  cursor: pointer; letter-spacing: 0.03em; transition: background 0.2s;
+}
+.login-box button:hover { background: var(--navy-deep); }
+.login-error { color: var(--error); font-size: 0.85rem; margin-top: 0.75rem; display: none; }
+
+/* ── Admin Panel ── */
+#admin-panel { display: none; padding-bottom: 6rem; }
+
+.admin-bar {
+  background: var(--navy); color: white; padding: 0.9rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.admin-bar-left { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.3rem; display: flex; align-items: center; gap: 0.75rem; }
+.admin-bar-left span { opacity: 0.5; font-size: 0.85rem; font-family: 'Lora', Georgia, serif; font-style: italic; }
+.bar-btn {
+  background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 6px; padding: 0.4rem 1rem; cursor: pointer;
+  font-family: 'Lora', Georgia, serif; font-size: 0.85rem; transition: background 0.2s;
+}
+.bar-btn:hover { background: rgba(255,255,255,0.22); }
+
+.admin-body { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+.section-label {
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.78rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 0.5rem; display: block;
+}
+.field { margin-bottom: 1.6rem; }
+
+input[type="text"], select, textarea {
+  width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px;
+  font-family: 'Lora', Georgia, serif; font-size: 1rem; background: white; color: var(--ink);
+  transition: border-color 0.2s;
+}
+input[type="text"]:focus, select:focus, textarea:focus { outline: none; border-color: var(--navy); }
+textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+/* Thumbnail upload */
+.thumb-zone {
+  border: 2px dashed var(--border); border-radius: 10px; padding: 1.75rem 1rem;
+  text-align: center; cursor: pointer; background: white; transition: border-color 0.2s;
+  position: relative; overflow: hidden;
+}
+.thumb-zone:hover { border-color: var(--navy); }
+.thumb-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+.thumb-zone-text { color: var(--muted); font-size: 0.9rem; pointer-events: none; }
+.thumb-zone-text strong { color: var(--navy); }
+#thumb-preview { width: 100%; max-height: 220px; object-fit: cover; border-radius: 6px; margin-top: 1rem; display: none; }
+
+/* Editor */
+.editor-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: white; }
+.ql-toolbar.ql-snow { border: none !important; border-bottom: 1px solid var(--border) !important; background: var(--warm); }
+.ql-container.ql-snow { border: none !important; }
+.ql-editor { min-height: 420px; padding: 1.5rem 1.75rem; font-family: 'Lora', Georgia, serif; font-size: 1.05rem; line-height: 1.85; color: var(--ink); }
+.ql-editor.ql-blank::before { font-style: italic; color: var(--muted); }
+
+/* Sticky publish bar */
+.publish-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; background: white;
+  border-top: 1px solid var(--border); padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  z-index: 99;
+}
+.pub-status { color: var(--muted); font-size: 0.88rem; font-style: italic; }
+.pub-actions { display: flex; gap: 0.75rem; align-items: center; }
+.btn-clear {
+  background: transparent; color: var(--muted); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.7rem 1.25rem; font-family: 'Lora', Georgia, serif;
+  font-size: 0.9rem; cursor: pointer; transition: color 0.2s, border-color 0.2s;
+}
+.btn-clear:hover { color: var(--ink); border-color: var(--ink); }
+.btn-publish {
+  background: var(--navy); color: white; border: none; border-radius: 8px;
+  padding: 0.8rem 2.25rem; font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem; cursor: pointer; letter-spacing: 0.02em; transition: background 0.2s;
+}
+.btn-publish:hover { background: var(--navy-deep); }
+.btn-publish:disabled { background: var(--muted); cursor: not-allowed; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 5.5rem; right: 1.5rem;
+  background: var(--navy); color: white; padding: 0.9rem 1.4rem;
+  border-radius: 8px; font-size: 0.9rem; max-width: 340px;
+  transform: translateY(20px); opacity: 0; transition: all 0.3s; z-index: 200;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast.err { background: var(--error); }
+
+/* Post list */
+.posts-section { margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+.posts-section h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 1rem; }
+.post-list-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px;
+  background: white; margin-bottom: 0.5rem;
+}
+.post-list-item a { color: var(--navy); text-decoration: none; font-size: 0.95rem; }
+.post-list-item a:hover { text-decoration: underline; }
+.post-list-meta { color: var(--muted); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<!-- Login -->
+<div id="login-screen">
+  <div class="login-box">
+    <img src="../assets/logo.png" alt="Sentimentalica">
+    <h1>Sentimentalica</h1>
+    <p>Admin writing space</p>
+    <input type="password" id="pwd" placeholder="Password" autocomplete="current-password">
+    <button onclick="doLogin()">Enter the journal</button>
+    <div class="login-error" id="login-err">Wrong password. Try again.</div>
+  </div>
+</div>
+
+<!-- Admin -->
+<div id="admin-panel">
+  <div class="admin-bar">
+    <div class="admin-bar-left">
+      Sentimentalica <span>writing space</span>
+    </div>
+    <button class="bar-btn" onclick="doLogout()">Log out</button>
+  </div>
+
+  <div class="admin-body">
+
+    <div class="field">
+      <span class="section-label">Post title</span>
+      <input type="text" id="f-title" placeholder="Write your title here…">
+    </div>
+
+    <div class="two-col">
+      <div class="field">
+        <span class="section-label">Category</span>
+        <select id="f-category">
+          <option>Junk Journaling</option>
+          <option>Art Journaling</option>
+          <option>Scrapbooking</option>
+          <option>How To</option>
+          <option>Behind the Shop</option>
+        </select>
+      </div>
+      <div class="field">
+        <span class="section-label">Read time</span>
+        <input type="text" id="f-readtime" placeholder="e.g. 5 min read">
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="section-label">Short excerpt <em style="font-size:0.8rem;color:var(--muted)">(shown on blog listing page)</em></span>
+      <textarea id="f-excerpt" placeholder="One or two sentences describing this post…"></textarea>
+    </div>
+
+    <div class="field">
+      <span class="section-label">Thumbnail image <em style="font-size:0.8rem;color:var(--muted)">(optional — shown on blog listing)</em></span>
+      <div class="thumb-zone" id="thumb-zone">
+        <input type="file" id="thumb-file" accept="image/*" onchange="onThumb(this)">
+        <div class="thumb-zone-text"><strong>Click to upload</strong> or drag a photo here<br><span style="font-size:0.8rem">JPG, PNG, WEBP — any size</span></div>
+        <img id="thumb-preview">
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="section-label">Post content</span>
+      <div class="editor-wrap">
+        <div id="editor"></div>
+      </div>
+    </div>
+
+    <div class="posts-section" id="posts-section" style="display:none">
+      <h2>Published posts</h2>
+      <div id="posts-list"></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="publish-bar">
+  <div class="pub-status" id="pub-status">Write your post above, then publish when ready.</div>
+  <div class="pub-actions">
+    <button class="btn-clear" onclick="doClear()">Clear form</button>
+    <button class="btn-publish" id="pub-btn" onclick="doPublish()">Publish post →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+<script>
+const API = 'https://sentimentalica-admin-api.sentimentalicaetsy-spec.workers.dev';
+
+/* ── Auth ─────────────────────────────────────────────────────────── */
+async function doLogin() {
+  const pwd = document.getElementById('pwd').value.trim();
+  if (!pwd) return;
+  try {
+    const r = await fetch(API + '/ping', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pwd })
+    });
+    const d = await r.json();
+    if (d.ok) {
+      sessionStorage.setItem('sp', pwd);
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('admin-panel').style.display = 'block';
+      document.querySelector('.publish-bar').style.display = 'flex';
+      loadPosts();
+    } else {
+      document.getElementById('login-err').style.display = 'block';
+    }
+  } catch {
+    document.getElementById('login-err').style.display = 'block';
+  }
+}
+document.getElementById('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+function doLogout() {
+  sessionStorage.removeItem('sp');
+  location.reload();
+}
+
+/* ── Quill ────────────────────────────────────────────────────────── */
+const quill = new Quill('#editor', {
+  theme: 'snow',
+  placeholder: 'Write your post here…',
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, 3, false] }],
+      [{ font: [] }, { size: ['small', false, 'large', 'huge'] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ color: [] }, { background: [] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      [{ align: [] }],
+      ['blockquote', 'code-block'],
+      ['link', 'image', 'video'],
+      ['clean']
+    ]
+  }
+});
+
+/* Image handler — reads file locally, embeds base64 (uploaded on publish) */
+quill.getModule('toolbar').addHandler('image', () => {
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = 'image/*';
+  inp.onchange = () => {
+    const file = inp.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const range = quill.getSelection(true);
+      quill.insertEmbed(range.index, 'image', e.target.result);
+      quill.setSelection(range.index + 1);
+    };
+    reader.readAsDataURL(file);
+  };
+  inp.click();
+});
+
+/* ── Thumbnail ────────────────────────────────────────────────────── */
+let thumbData = null;
+function onThumb(inp) {
+  const file = inp.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    thumbData = { name: file.name, data: e.target.result };
+    const prev = document.getElementById('thumb-preview');
+    prev.src = e.target.result; prev.style.display = 'block';
+    document.querySelector('.thumb-zone-text').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ── Slug ─────────────────────────────────────────────────────────── */
+function slug(title) {
+  return title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim()
+    .replace(/\s+/g, '-').replace(/-+/g, '-').substring(0, 80);
+}
+
+/* ── Publish ──────────────────────────────────────────────────────── */
+async function doPublish() {
+  const title    = document.getElementById('f-title').value.trim();
+  const category = document.getElementById('f-category').value;
+  const readTime = document.getElementById('f-readtime').value.trim() || '5 min read';
+  const excerpt  = document.getElementById('f-excerpt').value.trim();
+  const content  = quill.root.innerHTML;
+  const pwd      = sessionStorage.getItem('sp');
+
+  if (!title) { toast('Please add a title first.', true); return; }
+  if (quill.getText().trim().length < 30) { toast('Content is too short to publish.', true); return; }
+
+  const btn = document.getElementById('pub-btn');
+  btn.disabled = true; btn.textContent = 'Publishing…';
+  setStatus('Sending to Cloudflare…');
+
+  try {
+    const res = await fetch(API + '/publish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pwd, title, slug: slug(title), category, readTime, excerpt, content, thumbnail: thumbData })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      toast('✓ Published! Live at /blog/' + data.slug + '.html in ~60 seconds.');
+      setStatus('Published — live in about 1 minute at /blog/' + data.slug + '.html');
+      btn.textContent = 'Published ✓';
+      loadPosts();
+    } else {
+      throw new Error(data.error || 'Unknown error');
+    }
+  } catch (err) {
+    toast('Error: ' + err.message, true);
+    btn.disabled = false; btn.textContent = 'Publish post →';
+    setStatus('Something went wrong. Try again.');
+  }
+}
+
+/* ── Clear ────────────────────────────────────────────────────────── */
+function doClear() {
+  if (!confirm('Clear the form? Your writing will be lost.')) return;
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-excerpt').value = '';
+  document.getElementById('f-readtime').value = '';
+  quill.setText('');
+  thumbData = null;
+  document.getElementById('thumb-preview').style.display = 'none';
+  document.querySelector('.thumb-zone-text').style.display = 'block';
+  const btn = document.getElementById('pub-btn');
+  btn.disabled = false; btn.textContent = 'Publish post →';
+  setStatus('Write your post above, then publish when ready.');
+}
+
+/* ── Posts list ───────────────────────────────────────────────────── */
+async function loadPosts() {
+  try {
+    const r = await fetch('/blog/index.json?t=' + Date.now());
+    const d = await r.json();
+    if (!d.posts || d.posts.length === 0) return;
+    const section = document.getElementById('posts-section');
+    const list = document.getElementById('posts-list');
+    section.style.display = 'block';
+    list.innerHTML = d.posts.map(p => `
+      <div class="post-list-item">
+        <div>
+          <a href="/blog/${p.slug}.html" target="_blank">${p.title}</a>
+          <div class="post-list-meta">${p.category} · ${p.dateDisplay || p.date}</div>
+        </div>
+      </div>`).join('');
+  } catch { /* not logged in yet or no posts */ }
+}
+
+/* ── Helpers ──────────────────────────────────────────────────────── */
+function setStatus(msg) { document.getElementById('pub-status').textContent = msg; }
+
+function toast(msg, err = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (err ? ' err' : '');
+  setTimeout(() => { t.className = 'toast'; }, 5000);
+}
+</script>
+</body>
+</html>
