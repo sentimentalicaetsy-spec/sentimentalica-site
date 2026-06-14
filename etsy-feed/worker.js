@@ -39,7 +39,7 @@ export default {
     if (limit > MAX_LIMIT) limit = MAX_LIMIT;
 
     // Edge cache keyed by the limit so different sizes don't collide.
-    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=2&limit=${limit}`, request);
+    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=3&limit=${limit}`, request);
     const cache = caches.default;
     const cached = await cache.match(cacheKey);
     if (cached) return withCors(cached);
@@ -78,6 +78,7 @@ async function fetchListings(env, limit) {
   const listings = [];
   for (const l of results) {
     const image = await fetchPrimaryImage(l.listing_id, l.title, headers);
+    const video = await fetchPrimaryVideo(l.listing_id, headers);
     const p = l.price || {};
     const amount = p.amount != null && p.divisor ? p.amount / p.divisor : null;
     listings.push({
@@ -87,6 +88,7 @@ async function fetchListings(env, limit) {
       price: amount != null ? amount.toFixed(2) : null,
       currency: p.currency_code || 'USD',
       image,
+      video,
     });
   }
 
@@ -114,6 +116,27 @@ async function fetchPrimaryImage(listingId, title, headers, attempts = 3) {
         continue;
       }
       return null; // other error — give up on this one
+    } catch (_) {
+      await sleep(200 * (i + 1));
+    }
+  }
+  return null;
+}
+
+async function fetchPrimaryVideo(listingId, headers, attempts = 3) {
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const res = await fetch(`${ETSY}/listings/${listingId}/videos`, { headers });
+      if (res.ok) {
+        const data = await res.json();
+        const v = (data.results || []).find((x) => x.video_state === 'active') || (data.results || [])[0];
+        return v && v.video_url ? { src: v.video_url, poster: v.thumbnail_url || null } : null;
+      }
+      if (res.status === 429 || res.status >= 500) {
+        await sleep(250 * (i + 1));
+        continue;
+      }
+      return null;
     } catch (_) {
       await sleep(200 * (i + 1));
     }

@@ -48,7 +48,7 @@
     <div class="product-skeleton"></div>
   </div>
   <div class="shop-fresh-foot">
-    <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">See all 60+ designs on Etsy →</a>
+    <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">See more designs on Etsy →</a>
   </div>
 </section>
 
@@ -76,7 +76,7 @@
 </section>
 
 <footer>
-  <div>© 2026 Sentimentalica · made with care in Kraków</div>
+  <div>© 2026 Sentimentalica</div>
   <div>
     <a href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Etsy</a>
     <a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a>
@@ -120,11 +120,34 @@ function escapeHtml(s) {
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+function wireVideoHover(grid) {
+  grid.querySelectorAll('.product-card.has-video').forEach(card => {
+    const video = card.querySelector('.product-video');
+    if (!video) return;
+    let playing = false;
+    const start = () => {
+      if (playing) return;
+      playing = true;
+      card.classList.add('playing');
+      const p = video.play();
+      if (p) p.catch(() => { /* autoplay blocked — ignore */ });
+    };
+    const stop = () => {
+      playing = false;
+      card.classList.remove('playing');
+      video.pause();
+      try { video.currentTime = 0; } catch {}
+    };
+    card.addEventListener('mouseenter', start);
+    card.addEventListener('mouseleave', stop);
+  });
+}
+
 async function loadEtsyListings() {
   const grid = document.getElementById('etsy-grid');
   if (!grid) return;
   try {
-    const r = await fetch(ETSY_FEED);
+    const r = await fetch(ETSY_FEED, { cache: 'no-store' });
     const d = await r.json();
     const items = d.listings || [];
     if (!items.length) throw new Error('empty');
@@ -132,14 +155,18 @@ async function loadEtsyListings() {
       const img = l.image && l.image.src
         ? `<img src="${escapeHtml(l.image.src)}" alt="${escapeHtml(l.image.alt)}" loading="lazy">`
         : `<div class="product-img-placeholder"></div>`;
+      const video = l.video && l.video.src
+        ? `<video class="product-video" muted loop playsinline preload="none" src="${escapeHtml(l.video.src)}"${l.video.poster ? ` poster="${escapeHtml(l.video.poster)}"` : ''}></video>`
+        : '';
       return `
-        <a class="product-card" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">
-          <div class="product-img">${img}<span class="product-badge">Shop on Etsy →</span></div>
+        <a class="product-card${video ? ' has-video' : ''}" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">
+          <div class="product-img">${img}${video}<span class="product-badge">Shop on Etsy →</span></div>
           <h3 class="product-title">${escapeHtml(l.title)}</h3>
           <span class="product-link">Get it on Etsy →</span>
         </a>`;
     }).join('');
     grid.removeAttribute('aria-busy');
+    wireVideoHover(grid);
   } catch {
     // Graceful fallback: send people to the shop rather than show a broken grid.
     grid.classList.add('product-grid-fallback');
