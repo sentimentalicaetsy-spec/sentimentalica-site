@@ -27,28 +27,17 @@ body {
     radial-gradient(circle at 80% 70%, rgba(22, 48, 135, 0.03) 0%, transparent 50%);
 }
 
-/* Nav — a torn sheet of lined paper layered over other paper scraps */
+/* Nav — clean header for now; custom banner PNG will drop in here */
 .site-nav {
-  padding: 22px 60px 46px;
+  padding: 20px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--pale-blue);
   position: relative;
-  background: transparent;
+  box-shadow: 0 2px 10px rgba(42, 42, 58, 0.06);
+  border-bottom: 1px solid var(--line);
   z-index: 3;
-}
-/* the paper artwork sits behind the nav content and extends past the
-   bottom edge so the torn edge + scraps reveal the cream page below */
-.site-nav::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: -14px;
-  background: url('header-paper.svg') center top / cover no-repeat;
-  z-index: -1;
-  pointer-events: none;
 }
 .site-nav .logo-link {
   display: flex;
