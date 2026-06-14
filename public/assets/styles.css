@@ -10,6 +10,7 @@
   --line: #c9b896;
   --accent: #b8956a;
   --rose: #c47b7b;
+  --pale-blue: #e6ecf7;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -33,7 +34,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--cream);
+  background: var(--pale-blue);
   position: relative;
 }
 .site-nav .logo-link {
@@ -307,6 +308,36 @@ body {
   font-family: 'Lora', serif;
 }
 
+/* Compact hero — short, gets the products on screen fast */
+.hero-compact {
+  padding: 54px 60px 40px;
+  text-align: center;
+  background: var(--cream);
+}
+.hero-compact h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--navy);
+  max-width: 760px;
+  margin: 0 auto 32px;
+  letter-spacing: -0.5px;
+}
+.hero-compact h1 em { font-style: italic; font-weight: 400; }
+
+/* "Newest in the shop" supporting copy + footer CTA */
+.shop-fresh .section-head { margin-bottom: 14px; }
+.shop-fresh-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 620px;
+}
+.shop-fresh-foot { text-align: center; margin-top: 52px; }
+
 /* Live Etsy product grid — "Fresh from the shop" */
 .product-grid {
   display: grid;
@@ -338,6 +369,27 @@ body {
 }
 .product-card:hover .product-img img { transform: scale(1.04); }
 .product-img-placeholder { width: 100%; height: 100%; background: var(--cream-warm); }
+.product-badge {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  padding: 11px 8px;
+  transform: translateY(100%);
+  transition: transform 0.28s ease;
+}
+.product-card:hover .product-badge,
+.product-card:focus-visible .product-badge { transform: translateY(0); }
+/* Touch devices can't hover — keep the CTA visible there */
+@media (hover: none) {
+  .product-badge { transform: translateY(0); opacity: 0.96; }
+}
 .product-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 19px;
@@ -620,6 +672,10 @@ footer a:hover { color: var(--navy); }
   .post-grid, .post-grid-wide { grid-template-columns: 1fr; }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
   .product-title { font-size: 17px; }
+  .hero-compact { padding: 30px 24px 26px; }
+  .hero-compact h1 { font-size: 33px; margin-bottom: 24px; }
+  .hero-eyebrow { margin-bottom: 16px; }
+  .shop-fresh-sub { font-size: 17px; margin-bottom: 28px; }
   .about-hero { grid-template-columns: 1fr; padding: 50px 24px; gap: 36px; }
   .about-text-block h1 { font-size: 36px; }
   .post-hero h1 { font-size: 34px; }

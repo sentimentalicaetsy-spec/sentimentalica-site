@@ -32,29 +32,26 @@
   </ul>
 </nav>
 
-<section class="hero-logo">
-  <img src="assets/logo.png" alt="Sentimentalica dove logo">
-  <div class="hero-wordmark">Sentimentalica</div>
-  <div class="hero-tagline">Junk Journal, Art Journal &amp; Scrapbook Digital Papers</div>
-</section>
-
-<section class="hero-intro">
+<section class="hero-compact">
   <div class="hero-eyebrow">Instant-download printables · new designs every week</div>
-  <h1>Digital papers made for <em>quiet, beautiful</em> creative work.</h1>
-  <p class="hero-sub">Vintage-inspired printables for junk journalers, art journalers, and scrapbookers who care about the smallest details. Designed slowly. Made to be cherished.</p>
+  <h1>Vintage digital papers for your <em>next beautiful page.</em></h1>
   <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">Shop all designs on Etsy →</a>
 </section>
 
 <section class="section shop-fresh">
   <div class="section-head">
-    <h2>Fresh from the <em>shop</em></h2>
+    <h2>Newest in the <em>shop</em></h2>
     <a href="https://www.etsy.com/shop/sentimentalica" class="more" target="_blank" rel="noopener">View all on Etsy →</a>
   </div>
+  <p class="shop-fresh-sub">Tap any design to open it on Etsy — instant download, ready to print.</p>
   <div class="product-grid" id="etsy-grid" aria-busy="true">
     <div class="product-skeleton"></div>
     <div class="product-skeleton"></div>
     <div class="product-skeleton"></div>
     <div class="product-skeleton"></div>
+  </div>
+  <div class="shop-fresh-foot">
+    <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">See all 60+ designs on Etsy →</a>
   </div>
 </section>
 
@@ -131,13 +128,11 @@ async function loadEtsyListings() {
       const img = l.image && l.image.src
         ? `<img src="${escapeHtml(l.image.src)}" alt="${escapeHtml(l.image.alt)}" loading="lazy">`
         : `<div class="product-img-placeholder"></div>`;
-      const price = l.price ? `<div class="product-price">${escapeHtml(l.currency === 'USD' ? '$' : l.currency + ' ')}${escapeHtml(l.price)}</div>` : '';
       return `
         <a class="product-card" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">
-          <div class="product-img">${img}</div>
+          <div class="product-img">${img}<span class="product-badge">Shop on Etsy →</span></div>
           <h3 class="product-title">${escapeHtml(l.title)}</h3>
-          ${price}
-          <span class="product-link">View on Etsy →</span>
+          <span class="product-link">Get it on Etsy →</span>
         </a>`;
     }).join('');
     grid.removeAttribute('aria-busy');
