@@ -334,6 +334,8 @@ body {
   font-family: 'Lora', serif;
 }
 
+.about-cta { margin-top: 14px; }
+
 /* Compact hero — short, gets the products on screen fast */
 .hero-compact {
   padding: 54px 60px 40px;
