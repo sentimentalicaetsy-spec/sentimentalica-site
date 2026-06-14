@@ -27,54 +27,17 @@ body {
     radial-gradient(circle at 80% 70%, rgba(22, 48, 135, 0.03) 0%, transparent 50%);
 }
 
-/* Nav — a delicate sheet of lined paper resting on a few scraps */
+/* Nav — clean, soft header (banner image goes here next) */
 .site-nav {
   padding: 20px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background:
-    /* faint ruled lines */
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 27px,
-      rgba(22, 48, 135, 0.06) 27px,
-      rgba(22, 48, 135, 0.06) 28px
-    ),
-    /* soft paper tint */
-    linear-gradient(180deg, #f1f4fb 0%, var(--pale-blue) 100%);
+  background: var(--pale-blue);
   position: relative;
-  /* the paper sheet lifts off the page */
-  box-shadow: 0 6px 14px rgba(42, 42, 58, 0.12), 0 1px 0 rgba(255, 255, 255, 0.6) inset;
-  border-bottom: 1px solid rgba(201, 184, 150, 0.7);
+  box-shadow: 0 2px 10px rgba(42, 42, 58, 0.06);
+  border-bottom: 1px solid var(--line);
   z-index: 3;
-}
-/* torn / scrap papers peeking out beneath the header sheet */
-.site-nav::before,
-.site-nav::after {
-  content: '';
-  position: absolute;
-  bottom: -7px;
-  height: 14px;
-  background: var(--cream-warm);
-  border: 1px solid rgba(201, 184, 150, 0.6);
-  box-shadow: 0 4px 8px rgba(42, 42, 58, 0.1);
-  z-index: -1;
-  border-radius: 1px;
-}
-.site-nav::before {
-  left: 7%;
-  width: 32%;
-  transform: rotate(-0.8deg);
-  background: #efe6d2;
-}
-.site-nav::after {
-  right: 9%;
-  width: 26%;
-  bottom: -9px;
-  transform: rotate(1.1deg);
-  background: #e9ddc4;
 }
 .site-nav .logo-link {
   display: flex;
