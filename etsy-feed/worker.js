@@ -39,7 +39,7 @@ export default {
     if (limit > MAX_LIMIT) limit = MAX_LIMIT;
 
     // Edge cache keyed by the limit so different sizes don't collide.
-    const cacheKey = new Request(`https://etsy-feed.cache/listings?limit=${limit}`, request);
+    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=2&limit=${limit}`, request);
     const cache = caches.default;
     const cached = await cache.match(cacheKey);
     if (cached) return withCors(cached);
@@ -73,39 +73,56 @@ async function fetchListings(env, limit) {
   const listJson = await listRes.json();
   const results = listJson.results || [];
 
-  // 2. Primary image per listing (cached for hours, so N small calls are fine).
-  const listings = await Promise.all(
-    results.map(async (l) => {
-      let image = null;
-      try {
-        const imgRes = await fetch(`${ETSY}/listings/${l.listing_id}/images`, { headers });
-        if (imgRes.ok) {
-          const imgJson = await imgRes.json();
-          const first = (imgJson.results || [])[0];
-          if (first) {
-            image = {
-              src: first.url_570xN,
-              srcLarge: first.url_fullxfull,
-              alt: first.alt_text || l.title,
-            };
-          }
-        }
-      } catch (_) { /* image is optional */ }
-
-      const p = l.price || {};
-      const amount = p.amount != null && p.divisor ? p.amount / p.divisor : null;
-      return {
-        id: l.listing_id,
-        title: l.title,
-        url: l.url,
-        price: amount != null ? amount.toFixed(2) : null,
-        currency: p.currency_code || 'USD',
-        image,
-      };
-    })
-  );
+  // 2. Primary image per listing. Etsy rate-limits bursts, so fetch
+  // sequentially with a small retry — the result is cached for hours.
+  const listings = [];
+  for (const l of results) {
+    const image = await fetchPrimaryImage(l.listing_id, l.title, headers);
+    const p = l.price || {};
+    const amount = p.amount != null && p.divisor ? p.amount / p.divisor : null;
+    listings.push({
+      id: l.listing_id,
+      title: l.title,
+      url: l.url,
+      price: amount != null ? amount.toFixed(2) : null,
+      currency: p.currency_code || 'USD',
+      image,
+    });
+  }
 
   return { updated: new Date().toISOString(), count: listings.length, listings };
+}
+
+async function fetchPrimaryImage(listingId, title, headers, attempts = 3) {
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const res = await fetch(`${ETSY}/listings/${listingId}/images`, { headers });
+      if (res.ok) {
+        const data = await res.json();
+        const first = (data.results || [])[0];
+        if (first) {
+          return {
+            src: first.url_570xN,
+            srcLarge: first.url_fullxfull,
+            alt: first.alt_text || title,
+          };
+        }
+        return null; // listing genuinely has no image
+      }
+      if (res.status === 429 || res.status >= 500) {
+        await sleep(250 * (i + 1)); // back off and retry
+        continue;
+      }
+      return null; // other error — give up on this one
+    } catch (_) {
+      await sleep(200 * (i + 1));
+    }
+  }
+  return null;
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
 function json(obj, status = 200, extraHeaders = {}) {
