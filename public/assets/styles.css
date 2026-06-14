@@ -658,6 +658,13 @@ footer a:hover { color: var(--navy); }
   max-width: 1200px;
   margin: 0 auto;
 }
+/* text-only variant: single centered column */
+.about-hero--text {
+  display: block;
+  max-width: 720px;
+  padding: 80px 24px 70px;
+}
+.about-hero--text .about-text-block p { font-size: 17px; }
 .about-hero-img {
   aspect-ratio: 3/4;
   background:
