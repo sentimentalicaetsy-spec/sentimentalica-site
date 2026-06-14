@@ -325,8 +325,17 @@ body {
   letter-spacing: -0.5px;
 }
 .hero-compact h1 em { font-style: italic; font-weight: 400; }
+.hero-compact-sub {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 540px;
+  margin: -14px auto 30px;
+  line-height: 1.6;
+}
 
 /* "Newest in the shop" supporting copy + footer CTA */
+.shop-fresh { padding-top: 40px; }
 .shop-fresh .section-head { margin-bottom: 14px; }
 .shop-fresh-sub {
   font-family: 'Cormorant Garamond', serif;
@@ -675,7 +684,9 @@ footer a:hover { color: var(--navy); }
   .hero-compact { padding: 30px 24px 26px; }
   .hero-compact h1 { font-size: 33px; margin-bottom: 24px; }
   .hero-eyebrow { margin-bottom: 16px; }
-  .shop-fresh-sub { font-size: 17px; margin-bottom: 28px; }
+  .hero-compact-sub { font-size: 15px; margin: -8px auto 22px; }
+  .shop-fresh { padding-top: 22px; }
+  .shop-fresh-sub { font-size: 17px; margin-bottom: 22px; }
   .about-hero { grid-template-columns: 1fr; padding: 50px 24px; gap: 36px; }
   .about-text-block h1 { font-size: 36px; }
   .post-hero h1 { font-size: 34px; }
