@@ -100,6 +100,81 @@ body {
   border: 1px solid var(--navy);
 }
 .nav-shop:hover { background: var(--navy-deep); color: var(--cream) !important; }
+.nav-freebie {
+  color: var(--rose) !important;
+  font-weight: 600 !important;
+}
+.nav-freebie:hover { color: var(--navy) !important; }
+
+/* ===== Free Gift page ===== */
+.freebie-hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 70px 60px 60px;
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.freebie-art {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(184,149,106,0.16), transparent 65%),
+    var(--pale-blue);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.freebie-art svg { width: 100%; max-width: 280px; height: auto; }
+.freebie-copy h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  margin-bottom: 22px;
+}
+.freebie-copy h1 em { font-style: italic; }
+.freebie-sub {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+.freebie-form { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.freebie-form input[type="email"] {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px 18px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.freebie-form input[type="email"]:focus { border-color: var(--navy); }
+.freebie-form .hero-cta { border: none; cursor: pointer; }
+.freebie-fineprint { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.freebie-message { font-size: 15px; font-family: 'Cormorant Garamond', serif; font-style: italic; min-height: 1px; }
+.freebie-message.ok { color: var(--navy); }
+.freebie-message.err { color: var(--rose); }
+.freebie-message.note { color: var(--accent); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.freebie-inside { max-width: 1080px; margin: 0 auto; }
+.freebie-list { list-style: none; display: grid; gap: 16px; margin-bottom: 34px; }
+.freebie-list li { font-size: 17px; color: var(--ink); display: flex; gap: 14px; align-items: baseline; }
+.freebie-list li span { color: var(--accent); }
+.freebie-foot { font-size: 16px; color: var(--muted); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+.freebie-foot a { color: var(--navy); }
 
 /* HERO with logo + wordmark */
 .hero-logo {
@@ -722,6 +797,11 @@ footer a:hover { color: var(--navy); }
   .hero-compact-sub { font-size: 15px; margin: -8px auto 22px; }
   .shop-fresh { padding-top: 22px; }
   .shop-fresh-sub { font-size: 17px; margin-bottom: 22px; }
+  .freebie-hero { grid-template-columns: 1fr; padding: 40px 24px 40px; gap: 30px; }
+  .freebie-art { padding: 24px; }
+  .freebie-art svg { max-width: 200px; }
+  .freebie-copy h1 { font-size: 34px; }
+  .freebie-form input[type="email"], .freebie-form .hero-cta { width: 100%; max-width: none; text-align: center; }
   .about-hero { grid-template-columns: 1fr; padding: 50px 24px; gap: 36px; }
   .about-text-block h1 { font-size: 36px; }
   .post-hero h1 { font-size: 34px; }
