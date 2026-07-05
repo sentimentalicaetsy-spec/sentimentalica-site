@@ -13,3 +13,14 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: f8ad0de6193a285dec8719ac848a991c
+
+  # Deploys the etsy-feed worker whenever its source changes (idempotent).
+  deploy-etsy-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: f8ad0de6193a285dec8719ac848a991c
+          workingDirectory: etsy-feed

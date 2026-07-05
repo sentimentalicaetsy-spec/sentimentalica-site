@@ -17,6 +17,8 @@ const ETSY = 'https://openapi.etsy.com/v3/application';
 const CACHE_SECONDS = 3 * 60 * 60; // 3 hours
 const DEFAULT_LIMIT = 8;
 const MAX_LIMIT = 12;
+const MAX_IDS = 6;        // max specific listings per ?ids= request
+const MEDIA_CONCURRENCY = 4; // parallel image/video lookups (Etsy-rate-safe)
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -34,18 +36,29 @@ export default {
     }
 
     const url = new URL(request.url);
+
+    // ?ids=123,456 — specific listings (used by blog post inline product
+    // cards). Otherwise: newest ?limit=N listings (homepage grid).
+    const idsParam = (url.searchParams.get('ids') || '')
+      .split(',').map((s) => parseInt(s.trim(), 10))
+      .filter((n) => Number.isFinite(n) && n > 0).slice(0, MAX_IDS);
+
     let limit = parseInt(url.searchParams.get('limit') || DEFAULT_LIMIT, 10);
     if (!Number.isFinite(limit) || limit < 1) limit = DEFAULT_LIMIT;
     if (limit > MAX_LIMIT) limit = MAX_LIMIT;
 
-    // Edge cache keyed by the limit so different sizes don't collide.
-    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=3&limit=${limit}`, request);
+    // Edge cache keyed by the query shape so variants don't collide.
+    const cacheSuffix = idsParam.length
+      ? `ids=${idsParam.join(',')}` : `limit=${limit}`;
+    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=4&${cacheSuffix}`, request);
     const cache = caches.default;
     const cached = await cache.match(cacheKey);
     if (cached) return withCors(cached);
 
     try {
-      const data = await fetchListings(env, limit);
+      const data = idsParam.length
+        ? await fetchListingsByIds(env, idsParam)
+        : await fetchListings(env, limit);
       const res = json(data, 200, {
         'Cache-Control': `public, max-age=${CACHE_SECONDS}`,
       });
@@ -73,26 +86,61 @@ async function fetchListings(env, limit) {
   const listJson = await listRes.json();
   const results = listJson.results || [];
 
-  // 2. Primary image per listing. Etsy rate-limits bursts, so fetch
-  // sequentially with a small retry — the result is cached for hours.
-  const listings = [];
-  for (const l of results) {
-    const image = await fetchPrimaryImage(l.listing_id, l.title, headers);
-    const video = await fetchPrimaryVideo(l.listing_id, headers);
-    const p = l.price || {};
-    const amount = p.amount != null && p.divisor ? p.amount / p.divisor : null;
-    listings.push({
-      id: l.listing_id,
-      title: l.title,
-      url: l.url,
-      price: amount != null ? amount.toFixed(2) : null,
-      currency: p.currency_code || 'USD',
-      image,
-      video,
-    });
-  }
-
+  const listings = await attachMedia(results, headers);
   return { updated: new Date().toISOString(), count: listings.length, listings };
+}
+
+async function fetchListingsByIds(env, ids) {
+  const key = env.ETSY_API_KEY;
+  if (!key) throw new Error('Missing ETSY_API_KEY');
+  const headers = { 'x-api-key': key };
+
+  // Batch endpoint: one call for all requested listings.
+  const res = await fetch(
+    `${ETSY}/listings/batch?listing_ids=${ids.join(',')}`,
+    { headers }
+  );
+  if (!res.ok) throw new Error(`batch ${res.status}`);
+  const data = await res.json();
+  // Preserve the order the caller asked for (post layout order).
+  const byId = new Map((data.results || []).map((l) => [l.listing_id, l]));
+  const ordered = ids.map((id) => byId.get(id)).filter(Boolean)
+    .filter((l) => l.state === 'active');
+
+  const listings = await attachMedia(ordered, headers);
+  return { updated: new Date().toISOString(), count: listings.length, listings };
+}
+
+// Attach primary image + video to each listing, MEDIA_CONCURRENCY at a time
+// (Etsy rate-limits bursts; results are edge-cached for hours anyway).
+async function attachMedia(results, headers) {
+  const out = new Array(results.length);
+  let next = 0;
+  async function workerLoop() {
+    while (next < results.length) {
+      const i = next++;
+      const l = results[i];
+      const [image, video] = await Promise.all([
+        fetchPrimaryImage(l.listing_id, l.title, headers),
+        fetchPrimaryVideo(l.listing_id, headers),
+      ]);
+      const p = l.price || {};
+      const amount = p.amount != null && p.divisor ? p.amount / p.divisor : null;
+      out[i] = {
+        id: l.listing_id,
+        title: l.title,
+        url: l.url,
+        price: amount != null ? amount.toFixed(2) : null,
+        currency: p.currency_code || 'USD',
+        image,
+        video,
+      };
+    }
+  }
+  await Promise.all(
+    Array.from({ length: Math.min(MEDIA_CONCURRENCY, results.length) }, workerLoop)
+  );
+  return out;
 }
 
 async function fetchPrimaryImage(listingId, title, headers, attempts = 3) {

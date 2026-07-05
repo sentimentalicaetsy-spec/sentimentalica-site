@@ -1,4 +1,18 @@
 /* Styles for blog posts generated via the admin editor */
+
+/* Inline Etsy product cards inside a post (hydrated by assets/post.js).
+   Reuses the homepage .product-card look; sized for the narrower post column. */
+.post-products {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 22px;
+  margin: 2.5rem 0;
+}
+.post-products .product-title { font-size: 0.95rem; }
+@media (max-width: 900px) {
+  .post-products { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+}
+.etsy-products:empty { min-height: 120px; }
+
 .post-etsy-cta { background: #f0e8d5; border: 1px solid #d8cbb8; border-radius: 10px; padding: 1.75rem 2rem; margin: 3rem 0 1rem; text-align: center; }
 .post-etsy-cta p { color: #7a6e5f; font-style: italic; margin-bottom: 0.75rem; }
 .post-etsy-cta a { display: inline-block; background: #163087; color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; transition: background 0.2s; }
