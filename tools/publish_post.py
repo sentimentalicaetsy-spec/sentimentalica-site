@@ -43,7 +43,7 @@ PUBLIC = REPO / "public"
 BLOG = PUBLIC / "blog"
 SITE = "https://sentimentalica.com"
 
-STATIC_PAGES = ["index.html", "blog.html", "about.html", "freebie.html"]
+STATIC_PAGES = ["index.html", "blog.html", "world.html", "about.html", "freebie.html"]
 
 
 # ── Front matter ──────────────────────────────────────────────────────────────
@@ -217,6 +217,7 @@ def render_page(meta, slug, body_html):
   <ul>
     <li><a href="../index.html">Home</a></li>
     <li><a href="../blog.html">Journal</a></li>
+    <li><a href="../world.html">World</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a class="nav-freebie" href="../freebie.html">Free Gift</a></li>
     <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>

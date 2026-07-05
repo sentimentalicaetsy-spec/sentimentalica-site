@@ -244,18 +244,40 @@ async function doLogin() {
     });
     const d = await r.json();
     if (d.ok) {
-      sessionStorage.setItem('sp', pwd);
-      document.getElementById('login-screen').style.display = 'none';
-      document.getElementById('admin-panel').style.display = 'block';
-      document.querySelector('.publish-bar').style.display = 'flex';
-      loadAll();
+      localStorage.setItem('sp', pwd);
+      enterAdmin();
     } else {
       document.getElementById('login-err').style.display = 'block';
     }
   } catch { document.getElementById('login-err').style.display = 'block'; }
 }
 document.getElementById('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
-function doLogout() { sessionStorage.removeItem('sp'); location.reload(); }
+function doLogout() { localStorage.removeItem('sp'); sessionStorage.removeItem('sp'); location.reload(); }
+
+function enterAdmin() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('admin-panel').style.display = 'block';
+  document.querySelector('.publish-bar').style.display = 'flex';
+  loadAll();
+  // Deep link from a post page: /admin/?edit=<slug> opens it in the editor.
+  const editSlug = new URLSearchParams(location.search).get('edit');
+  if (editSlug) editPost(editSlug);
+}
+
+// Already logged in (localStorage persists across tabs) → straight to work.
+(async () => {
+  const saved = localStorage.getItem('sp') || localStorage.getItem('sp');
+  if (!saved) return;
+  try {
+    const r = await fetch(API + '/ping', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: saved })
+    });
+    const d = await r.json();
+    if (d.ok) { localStorage.setItem('sp', saved); enterAdmin(); }
+    else localStorage.removeItem('sp');
+  } catch { }
+})();
 
 /* ── Quill ────────────────────────────────────────────────────────── */
 const quill = new Quill('#editor', {
@@ -289,7 +311,7 @@ quill.getModule('toolbar').addHandler('image', () => {
         // Upload as a real file in the repo (fast pages, no base64 bloat).
         const r = await fetch(API + '/upload-image', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password: sessionStorage.getItem('sp'),
+          body: JSON.stringify({ password: localStorage.getItem('sp'),
                                  name: file.name, data: e.target.result })
         });
         const d = await r.json();
@@ -340,7 +362,7 @@ async function doSaveDraft() {
     const res = await fetch(API + '/save-draft', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        password: sessionStorage.getItem('sp'),
+        password: localStorage.getItem('sp'),
         slug: draftSlug,
         title,
         excerpt: document.getElementById('f-excerpt').value.trim(),
@@ -364,7 +386,7 @@ async function loadDraft(draftSlug) {
   try {
     const r = await fetch(API + '/get-draft', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: sessionStorage.getItem('sp'), slug: draftSlug })
+      body: JSON.stringify({ password: localStorage.getItem('sp'), slug: draftSlug })
     });
     const d = await r.json();
     if (!d.ok) throw new Error(d.error);
@@ -393,7 +415,7 @@ async function deleteDraft(draftSlug) {
   try {
     const res = await fetch(API + '/delete-draft', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: sessionStorage.getItem('sp'), slug: draftSlug })
+      body: JSON.stringify({ password: localStorage.getItem('sp'), slug: draftSlug })
     });
     const d = await res.json();
     if (d.ok) { if (currentDraftSlug === draftSlug) currentDraftSlug = null; loadAll(); toast('Draft deleted.'); }
@@ -406,7 +428,7 @@ async function doPublish() {
   const title   = document.getElementById('f-title').value.trim();
   const excerpt = document.getElementById('f-excerpt').value.trim();
   const content = quill.root.innerHTML;
-  const pwd     = sessionStorage.getItem('sp');
+  const pwd     = localStorage.getItem('sp');
 
   if (!title) { toast('Please add a title first.', true); return; }
 
@@ -486,7 +508,7 @@ async function editPost(slug) {
     setStatus('Loading post…');
     const r = await fetch(API + '/get-post', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: sessionStorage.getItem('sp'), slug })
+      body: JSON.stringify({ password: localStorage.getItem('sp'), slug })
     });
     const d = await r.json();
     if (!d.ok) throw new Error(d.error);
@@ -506,7 +528,7 @@ async function loadDrafts() {
   try {
     const r = await fetch(API + '/list-drafts', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: sessionStorage.getItem('sp') })
+      body: JSON.stringify({ password: localStorage.getItem('sp') })
     });
     const d = await r.json();
     const section = document.getElementById('drafts-section');

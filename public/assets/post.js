@@ -101,9 +101,44 @@
       .catch(function () { sec.remove(); });
   }
 
+  /* Admin affordance — if Ksenia is logged in (localStorage 'sp' from /admin/),
+     every post page gets a floating "Edit" pill that opens this post in the
+     editor. Invisible to normal visitors. */
+  function adminEditPill() {
+    if (!localStorage.getItem('sp')) return;
+    var m = location.pathname.match(/\/blog\/([a-z0-9-]+)\.html$/);
+    if (!m) return;
+    var a = document.createElement('a');
+    a.className = 'admin-edit-pill';
+    a.href = '/admin/?edit=' + m[1];
+    a.textContent = '✎ Edit this post';
+    document.body.appendChild(a);
+  }
+
+  /* Hero image — if the post has a thumbnail in blog/index.json and no hero
+     yet, show it big under the title (works on all posts, old and new). */
+  function heroImage() {
+    var m = location.pathname.match(/\/blog\/([a-z0-9-]+)\.html$/);
+    if (!m || document.querySelector('.post-hero-img')) return;
+    var header = document.querySelector('.post-hero');
+    if (!header) return;
+    fetch('/blog/index.json').then(function (r) { return r.json(); })
+      .then(function (d) {
+        var p = (d.posts || []).find(function (x) { return x.slug === m[1]; });
+        if (!p || !p.thumb) return;
+        var img = document.createElement('img');
+        img.className = 'post-hero-img';
+        img.src = '/' + p.thumb.replace(/^\//, '');
+        img.alt = p.title || '';
+        header.parentNode.insertBefore(img, header.nextSibling);
+      }).catch(function () {});
+  }
+
   function init() {
     document.querySelectorAll('.etsy-products[data-ids]').forEach(hydrate);
     shopStrip();
+    adminEditPill();
+    heroImage();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

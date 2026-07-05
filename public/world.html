@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Journal — Sentimentalica</title>
-<meta name="description" content="Notes on junk journaling, art journaling, scrapbooking, and the slow art of making beautiful paper things.">
+<title>Sentimentalica World — Sentimentalica</title>
+<meta name="description" content="A wandering place for everything Sentimentalica — themes, moods, and paper worlds. Something lovely is being made here.">
+<link rel="canonical" href="https://sentimentalica.com/world.html">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<meta name="p:domain_verify" content="2df16e7970c89985d1f99be0087cded7"/>
+<link rel="stylesheet" href="assets/post.css">
 </head>
 <body>
 
@@ -34,13 +35,9 @@
 </nav>
 
 <header class="blog-header">
-  <h1>The <em>journal</em></h1>
-  <p>Notes on junk journaling, art journaling, scrapbooking, and the slow art of making beautiful paper things.</p>
+  <h1>Sentimentalica <em>World</em></h1>
+  <p>A wandering place for everything we make — themes, moods, palettes, and paper worlds. Something lovely is being built here; come back soon.</p>
 </header>
-
-<section class="blog-list">
-  <div class="post-grid-wide" id="post-grid"></div>
-</section>
 
 <footer>
   <div>© 2026 Sentimentalica</div>
@@ -51,44 +48,6 @@
   </div>
 </footer>
 
-<script>
-const THUMBS = ['t1','t2','t3'];
-let allPosts = [];
-
-async function loadPosts() {
-  try {
-    const r = await fetch('blog/index.json?t=' + Date.now());
-    const d = await r.json();
-    allPosts = d.posts || [];
-    renderPosts();
-  } catch { }
-}
-
-function renderPosts() {
-  const grid = document.getElementById('post-grid');
-  const posts = allPosts;
-  if (posts.length === 0) {
-    grid.innerHTML = '<p style="color:#7a6e5f;font-style:italic;padding:2rem 0">No posts yet.</p>';
-    return;
-  }
-
-  grid.innerHTML = posts.map((p, i) => {
-    const thumb = p.thumb
-      ? `<img class="post-thumb-img" src="${p.thumb}" alt="${p.title}" loading="lazy">`
-      : `<div class="post-thumb ${THUMBS[i % THUMBS.length]}"></div>`;
-    return `
-      <a href="blog/${p.slug}.html" class="post-card">
-        ${thumb}
-        <h3>${p.title}</h3>
-        ${p.excerpt ? `<p>${p.excerpt}</p>` : ''}
-        <div class="post-meta">${p.dateDisplay || p.date}</div>
-      </a>`;
-  }).join('');
-}
-
-loadPosts();
-</script>
-<link rel="stylesheet" href="assets/post.css">
 <script src="assets/post.js" defer></script>
 </body>
 </html>

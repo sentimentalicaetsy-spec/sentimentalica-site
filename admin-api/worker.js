@@ -162,6 +162,7 @@ function renderPage({ title, slug, excerpt, content, dateIso, thumbUrl }) {
   <ul>
     <li><a href="../index.html">Home</a></li>
     <li><a href="../blog.html">Journal</a></li>
+    <li><a href="../world.html">World</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a class="nav-freebie" href="../freebie.html">Free Gift</a></li>
     <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
@@ -245,7 +246,7 @@ async function publish(env, body) {
     `index: ${slug}`, idxFile && idxFile.sha);
 
   // sitemap
-  const pages = ['', 'blog.html', 'about.html', 'freebie.html'];
+  const pages = ['', 'blog.html', 'world.html', 'about.html', 'freebie.html'];
   const urls = pages.map((p) => `${SITE}/${p}`).concat(idx.posts.map((p) => `${SITE}/blog/${p.slug}.html`));
   const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`;
   const smFile = await getFile(env, 'public/sitemap.xml');

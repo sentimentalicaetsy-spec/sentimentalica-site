@@ -13,6 +13,21 @@
 }
 .etsy-products:empty { min-height: 120px; }
 
+/* Post hero image (injected by post.js from the post's thumbnail) */
+.post-hero-img { display: block; width: min(900px, calc(100% - 48px)); margin: 0 auto 2.2rem;
+  border-radius: 16px; max-height: 520px; object-fit: cover; box-shadow: 0 10px 36px rgba(40,30,20,.16); }
+
+/* Sane image sizes inside articles (Quill/agent images were rendering huge) */
+.ql-content img { display: block; margin: 1.6rem auto; max-width: 100%; max-height: 72vh;
+  width: auto; border-radius: 10px; }
+
+/* Floating admin edit pill (admins only — post.js) */
+.admin-edit-pill { position: fixed; right: 22px; bottom: 22px; z-index: 90;
+  background: #163087; color: #fff; text-decoration: none; padding: .7rem 1.2rem;
+  border-radius: 999px; font: 600 .92rem 'Lora', Georgia, serif;
+  box-shadow: 0 6px 22px rgba(15,36,102,.35); }
+.admin-edit-pill:hover { background: #0f2466; color: #fff; }
+
 /* Auto-injected "Newest in the shop" strip (post.js) */
 .shop-strip { max-width: 900px; margin: 0 auto; padding: 2.5rem 24px 3.5rem; border-top: 1px solid #e2d7c3; }
 .shop-strip .section-head h2 { font-size: 1.6rem; }
