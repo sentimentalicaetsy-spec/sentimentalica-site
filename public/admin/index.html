@@ -174,8 +174,12 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 <!-- Admin -->
 <div id="admin-panel">
   <div class="admin-bar">
-    <div class="admin-bar-left">Sentimentalica <span>writing space</span></div>
-    <button class="bar-btn" onclick="doLogout()">Log out</button>
+    <!-- Brand links back to the live site — the admin is never a dead end. -->
+    <a class="admin-bar-left" href="/" style="color:#fff;text-decoration:none">Sentimentalica <span>writing space</span></a>
+    <div style="display:flex;gap:.6rem">
+      <a class="bar-btn" href="/" style="text-decoration:none">← View site</a>
+      <button class="bar-btn" onclick="doLogout()">Log out</button>
+    </div>
   </div>
 
   <div class="admin-body">
