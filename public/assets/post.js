@@ -136,6 +136,18 @@
     };
     bar.appendChild(edit); bar.appendChild(del);
     document.body.appendChild(bar);
+
+    // Same actions inline, right under the post title.
+    var hero = document.querySelector('.post-hero');
+    if (hero) {
+      var row = document.createElement('div');
+      row.className = 'post-admin-row';
+      var e2 = edit.cloneNode(true);
+      var d2 = del.cloneNode(true);
+      d2.onclick = del.onclick;
+      row.appendChild(e2); row.appendChild(d2);
+      hero.appendChild(row);
+    }
   }
 
   /* Hero image — if the post has a thumbnail in blog/index.json and no hero

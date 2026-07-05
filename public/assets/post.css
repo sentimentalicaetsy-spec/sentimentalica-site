@@ -32,6 +32,10 @@
   box-shadow: 0 6px 22px rgba(15,36,102,.35); }
 .admin-edit-pill:hover { background: #0f2466; color: #fff; }
 
+/* Inline admin actions under the post title (admins only) */
+.post-admin-row { display: flex; gap: 10px; justify-content: center; margin-top: 1.1rem; }
+.post-admin-row .admin-edit-pill { position: static; }
+
 /* Auto-injected "Newest in the shop" strip (post.js) */
 .shop-strip { max-width: 900px; margin: 0 auto; padding: 2.5rem 24px 3.5rem; border-top: 1px solid #e2d7c3; }
 .shop-strip .section-head h2 { font-size: 1.6rem; }
