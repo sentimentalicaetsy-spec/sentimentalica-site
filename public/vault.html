@@ -38,6 +38,27 @@
   <p>A wandering place for everything we make — themes, moods, palettes, and paper worlds. Something lovely is being built here; come back soon.</p>
 </header>
 
+<!-- ADMIN-ONLY DRAFT PREVIEW (viewers keep the placeholder above).
+     Spec: VAULT_SPEC.md. Shown only when the admin is logged in. -->
+<section class="section" id="vault-admin-preview" style="display:none; max-width:900px; margin:0 auto;">
+  <div style="background:#fdf3e3;border:1px solid #e8c87a;border-radius:10px;padding:.8rem 1.2rem;margin-bottom:1.5rem;font-style:italic;color:#7a5c1e">
+    Draft preview — only you can see this. Spec: VAULT_SPEC.md
+  </div>
+  <div class="section-head"><h2>The <em>Vault</em> — membership draft</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px">
+    <div style="border:1px solid #c9b896;border-radius:12px;padding:1.2rem;background:#fff"><h3 style="color:#163087">$9/mo</h3><p>Monthly mini drop</p></div>
+    <div style="border:1px solid #c9b896;border-radius:12px;padding:1.2rem;background:#fff"><h3 style="color:#163087">$19/mo</h3><p>Full monthly bundle</p></div>
+    <div style="border:1px solid #c9b896;border-radius:12px;padding:1.2rem;background:#fff"><h3 style="color:#163087">$29/mo</h3><p>Commercial-use tier</p></div>
+    <div style="border:2px solid #163087;border-radius:12px;padding:1.2rem;background:#fff"><h3 style="color:#163087">$99/yr</h3><p>Annual vault access</p></div>
+  </div>
+  <p style="margin-top:1.4rem;color:#7a6f5e;font-style:italic">Weekly drop: 5 themes × 10 curated images, never repeating — assembled by the studio agent, delivered by email.</p>
+</section>
+<script>
+  if (localStorage.getItem('sp')) {
+    document.getElementById('vault-admin-preview').style.display = 'block';
+  }
+</script>
+
 <footer>
   <div>© 2026 Sentimentalica</div>
   <div>
