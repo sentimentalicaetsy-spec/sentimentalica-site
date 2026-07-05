@@ -71,23 +71,62 @@ function renderPosts() {
     return;
   }
 
+  const isAdmin = !!localStorage.getItem('sp');
   grid.innerHTML = posts.map((p, i) => {
     const thumb = p.thumb
       ? `<img class="post-thumb-img" src="${p.thumb}" alt="${p.title}" loading="lazy">`
       : `<div class="post-thumb ${THUMBS[i % THUMBS.length]}"></div>`;
+    // Admin sees Edit/Delete right under every card (invisible to visitors).
+    const adminRow = isAdmin ? `
+      <div class="card-admin-row" data-slug="${p.slug}">
+        <a class="card-admin-btn" href="/admin/?edit=${p.slug}">✎ Edit</a>
+        <button class="card-admin-btn card-admin-del" onclick="adminDelete('${p.slug}', this)">Delete</button>
+      </div>` : '';
     return `
-      <a href="blog/${p.slug}.html" class="post-card">
-        ${thumb}
-        <h3>${p.title}</h3>
-        ${p.excerpt ? `<p>${p.excerpt}</p>` : ''}
-        <div class="post-meta">${p.dateDisplay || p.date}</div>
-      </a>`;
+      <div class="post-card-wrap">
+        <a href="blog/${p.slug}.html" class="post-card">
+          ${thumb}
+          <h3>${p.title}</h3>
+          ${p.excerpt ? `<p>${p.excerpt}</p>` : ''}
+          <div class="post-meta">${p.dateDisplay || p.date}</div>
+        </a>
+        ${adminRow}
+      </div>`;
   }).join('');
+}
+
+const ADMIN_API = 'https://sentimentalica-admin-api.teter-album.workers.dev';
+async function adminDelete(slug, btn) {
+  const post = allPosts.find(p => p.slug === slug);
+  if (!confirm('Delete "' + (post ? post.title : slug) + '" from the site? This cannot be undone.')) return;
+  btn.textContent = 'Deleting…'; btn.disabled = true;
+  try {
+    const r = await fetch(ADMIN_API + '/delete-post', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: localStorage.getItem('sp'), slug })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'failed');
+    const wrap = btn.closest('.post-card-wrap');
+    if (wrap) wrap.remove();  // gone from this view now; live deploy ~1 min
+  } catch (e) {
+    alert('Could not delete: ' + e.message);
+    btn.textContent = 'Delete'; btn.disabled = false;
+  }
 }
 
 loadPosts();
 </script>
 <link rel="stylesheet" href="assets/post.css?v=3">
+<style>
+.card-admin-row { display: flex; gap: 8px; margin-top: 8px; }
+.card-admin-btn { flex: 1; text-align: center; font: 600 .82rem 'Lora', Georgia, serif;
+  padding: .45rem .6rem; border-radius: 8px; border: 1px solid #c9b896; background: #fff;
+  color: #163087; text-decoration: none; cursor: pointer; }
+.card-admin-btn:hover { border-color: #163087; }
+.card-admin-del { color: #a83a3a; }
+.card-admin-del:hover { border-color: #a83a3a; background: #fdf1f1; }
+</style>
 <script src="assets/post.js?v=3" defer></script>
 <script src="assets/admin-tab.js?v=1" defer></script>
 </body>
