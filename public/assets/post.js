@@ -107,7 +107,7 @@
   var ADMIN_API = 'https://sentimentalica-admin-api.teter-album.workers.dev';
   function adminEditPill() {
     if (!localStorage.getItem('sp')) return;
-    var m = location.pathname.match(/\/blog\/([a-z0-9-]+)\.html$/);
+    var m = location.pathname.match(/\/blog\/([a-z0-9-]+?)(?:\.html)?$/);
     if (!m) return;
     var slug = m[1];
     var bar = document.createElement('div');
@@ -157,7 +157,7 @@
   /* Hero image — if the post has a thumbnail in blog/index.json and no hero
      yet, show it big under the title (works on all posts, old and new). */
   function heroImage() {
-    var m = location.pathname.match(/\/blog\/([a-z0-9-]+)\.html$/);
+    var m = location.pathname.match(/\/blog\/([a-z0-9-]+?)(?:\.html)?$/);
     if (!m || document.querySelector('.post-hero-img')) return;
     var header = document.querySelector('.post-hero');
     if (!header) return;
