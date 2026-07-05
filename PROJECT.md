@@ -116,6 +116,19 @@ too, so embeds can be added to them directly.
 all posts have canonical/OG; scripted posts also get JSON-LD BlogPosting.
 Legacy posts had a committed Cloudflare-challenge `<script>` — removed.
 
+## Business decisions (Ksenia, 2026-07-05 — DO NOT LOSE)
+- **Free Gift is a hidden lead magnet, not a site feature.** `/freebie.html` stays
+  live as a standalone landing page (competitor pattern: separate URL, just an
+  email box + "I want the free gift") but is **removed from the site nav
+  everywhere**. Traffic comes from Pinterest pins / Kit links pointing directly
+  at the URL. Reason: the site's calls to action are BUY (Etsy) and SUBSCRIBE —
+  not a free gift.
+- **Sentimentalica World = a subscription product** (route `/world.html`, in nav).
+  Ksenia will spec the content later; the page is a placeholder until then.
+- Email tool: **Kit (ConvertKit)** — Ksenia registers, then set `FORM_ENDPOINT`
+  in freebie.html. Gift delivery must ALSO show a direct download link on the
+  thank-you state so every subscriber gets the gift even past plan limits.
+
 ## Status / open items (as of 2026-06-15)
 - **Header banner:** currently a clean pale-blue bar. A custom banner PNG is planned
   (2400×600, transparent, artwork only — torn-paper collage; text added in code). Drop it in

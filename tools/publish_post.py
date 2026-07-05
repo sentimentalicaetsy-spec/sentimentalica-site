@@ -219,7 +219,6 @@ def render_page(meta, slug, body_html):
     <li><a href="../blog.html">Journal</a></li>
     <li><a href="../world.html">World</a></li>
     <li><a href="../about.html">About</a></li>
-    <li><a class="nav-freebie" href="../freebie.html">Free Gift</a></li>
     <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a class="nav-shop" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Shop on Etsy</a></li>
   </ul>
