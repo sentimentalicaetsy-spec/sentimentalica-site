@@ -191,6 +191,7 @@ ${content}
 </footer>
 
 <script src="../assets/post.js?v=3" defer></script>
+<script src="../assets/admin-tab.js?v=1" defer></script>
 </body>
 </html>
 `;
