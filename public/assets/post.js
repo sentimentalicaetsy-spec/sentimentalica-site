@@ -137,17 +137,21 @@
     bar.appendChild(edit); bar.appendChild(del);
     document.body.appendChild(bar);
 
-    // Same actions inline, right under the post title.
-    var hero = document.querySelector('.post-hero');
-    if (hero) {
+    // Same actions inline: right under the post title AND at the end of
+    // the article — wherever the admin happens to be while reading.
+    function actionRow() {
       var row = document.createElement('div');
       row.className = 'post-admin-row';
       var e2 = edit.cloneNode(true);
       var d2 = del.cloneNode(true);
       d2.onclick = del.onclick;
       row.appendChild(e2); row.appendChild(d2);
-      hero.appendChild(row);
+      return row;
     }
+    var hero = document.querySelector('.post-hero');
+    if (hero) hero.appendChild(actionRow());
+    var bodyEl = document.querySelector('.post-body');
+    if (bodyEl) bodyEl.parentNode.insertBefore(actionRow(), bodyEl.nextSibling);
   }
 
   /* Hero image — if the post has a thumbnail in blog/index.json and no hero

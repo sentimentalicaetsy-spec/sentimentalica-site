@@ -147,7 +147,7 @@ function renderPage({ title, slug, excerpt, content, dateIso, thumbUrl }) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css?v=3">
-<link rel="stylesheet" href="../assets/post.css?v=4">
+<link rel="stylesheet" href="../assets/post.css?v=5">
 <script type="application/ld+json">${ld}</script>
 </head>
 <body>
@@ -190,7 +190,7 @@ ${content}
   </div>
 </footer>
 
-<script src="../assets/post.js?v=4" defer></script>
+<script src="../assets/post.js?v=5" defer></script>
 <script src="../assets/admin-tab.js?v=1" defer></script>
 </body>
 </html>
