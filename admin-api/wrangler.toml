@@ -1,0 +1,8 @@
+name = "sentimentalica-admin-api"
+main = "worker.js"
+compatibility_date = "2026-05-28"
+account_id = "f8ad0de6193a285dec8719ac848a991c"
+
+# Secrets (persist across deploys; set once via dashboard or `wrangler secret put`):
+#   ADMIN_PASSWORD  — admin panel password
+#   GITHUB_TOKEN    — GitHub token with repo access to sentimentalica-site

@@ -72,8 +72,38 @@
       .catch(function () { el.remove(); });
   }
 
+  /* Shop strip — auto-injected "Newest in the shop" before the footer on
+     every page that loads post.js (posts, blog listing). Skipped on pages
+     that already have their own grid (homepage #etsy-grid) or opt out with
+     <body data-no-shop-strip>. Mobile-friendly: reuses .product-grid CSS. */
+  function shopStrip() {
+    if (document.getElementById('etsy-grid')) return;
+    if (document.body.hasAttribute('data-no-shop-strip')) return;
+    var footer = document.querySelector('footer');
+    if (!footer) return;
+    var sec = document.createElement('section');
+    sec.className = 'section shop-strip';
+    sec.innerHTML =
+      '<div class="section-head"><h2>Newest in the <em>shop</em></h2>' +
+      '<a href="https://www.etsy.com/shop/sentimentalica" class="more" target="_blank" rel="noopener">View all on Etsy →</a></div>' +
+      '<div class="product-grid post-products shop-strip-grid" aria-busy="true"></div>';
+    footer.parentNode.insertBefore(sec, footer);
+    var grid = sec.querySelector('.shop-strip-grid');
+    fetch(FEED + '?limit=3')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var items = (d.listings || []).slice(0, 3);
+        if (!items.length) { sec.remove(); return; }
+        grid.innerHTML = items.map(cardHtml).join('');
+        grid.removeAttribute('aria-busy');
+        wireVideoHover(grid);
+      })
+      .catch(function () { sec.remove(); });
+  }
+
   function init() {
     document.querySelectorAll('.etsy-products[data-ids]').forEach(hydrate);
+    shopStrip();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

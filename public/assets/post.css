@@ -13,6 +13,11 @@
 }
 .etsy-products:empty { min-height: 120px; }
 
+/* Auto-injected "Newest in the shop" strip (post.js) */
+.shop-strip { max-width: 900px; margin: 0 auto; padding: 2.5rem 24px 3.5rem; border-top: 1px solid #e2d7c3; }
+.shop-strip .section-head h2 { font-size: 1.6rem; }
+@media (max-width: 600px) { .shop-strip-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+
 /* Named color-palette block inside articles (agent-generated) */
 .post-palette { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin: 2.2rem 0; }
 .post-palette .sw { text-align: center; width: 108px; }

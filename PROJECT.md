@@ -48,10 +48,18 @@ wrangler.toml         Static-site worker config
    - Deploy: `cd etsy-feed && CLOUDFLARE_API_TOKEN=<token> wrangler deploy`
    - Caches results ~3h at the edge; cache-key has a `v=N` version — bump it to force refresh.
    - Fetches active listings + each listing's primary image + video (sequential w/ retry).
-3. **`sentimentalica-admin-api`** — handles publish/drafts for the admin panel via the
-   GitHub API. URL: https://sentimentalica-admin-api.teter-album.workers.dev
-   - IMPORTANT: this worker's source is **not in any repo** — it lives only on Cloudflare.
-     Edit it in the Cloudflare dashboard or via `wrangler` from a local copy.
+3. **`sentimentalica-admin-api`** — handles publish/edit/drafts for the admin panel via
+   the GitHub API. URL: https://sentimentalica-admin-api.teter-album.workers.dev
+   - **v2 (2026-07-05): source now lives in this repo** (`admin-api/worker.js`) and
+     auto-deploys from CI. Capabilities: publish AND edit published posts (stable slug),
+     image uploads as repo files (no base64 bloat), drafts as `drafts/*.json` in the repo
+     (repo is public — drafts are not secret), v2 post template (post.css/post.js/OG/JSON-LD)
+     identical to `tools/publish_post.py`.
+   - Secrets persist across deploys: ADMIN_PASSWORD + GITHUB_TOKEN (worker reads several
+     likely names). If /ping errors "secrets missing" after a deploy — re-add those two
+     in the Cloudflare dashboard once.
+   - Pre-v2 drafts (stored inside the old worker) are not readable by v2 — old drafts,
+     if any existed, are lost with the rebuild.
 
 ## Etsy integration
 - Shop name: **Sentimentalica**, **shop_id `17787065`** (~66 active listings).

@@ -231,6 +231,7 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 const API = 'https://sentimentalica-admin-api.teter-album.workers.dev';
 let thumbData = null;
 let currentDraftSlug = null; // track if editing a loaded draft
+let currentEditSlug = null;  // track if editing a PUBLISHED post (slug stays stable)
 
 /* ── Auth ─────────────────────────────────────────────────────────── */
 async function doLogin() {
@@ -281,9 +282,25 @@ quill.getModule('toolbar').addHandler('image', () => {
   inp.onchange = () => {
     const file = inp.files[0]; if (!file) return;
     const reader = new FileReader();
-    reader.onload = e => {
+    reader.onload = async e => {
       const range = quill.getSelection(true);
-      quill.insertEmbed(range.index, 'image', e.target.result);
+      setStatus('Uploading image…');
+      try {
+        // Upload as a real file in the repo (fast pages, no base64 bloat).
+        const r = await fetch(API + '/upload-image', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: sessionStorage.getItem('sp'),
+                                 name: file.name, data: e.target.result })
+        });
+        const d = await r.json();
+        if (!d.ok) throw new Error(d.error || 'upload failed');
+        quill.insertEmbed(range.index, 'image', d.url);
+        setStatus('Image uploaded.');
+      } catch (err) {
+        // Fallback: embed inline so writing never blocks.
+        quill.insertEmbed(range.index, 'image', e.target.result);
+        setStatus('Image embedded inline (upload failed: ' + err.message + ')');
+      }
       quill.setSelection(range.index + 1);
     };
     reader.readAsDataURL(file);
@@ -401,17 +418,19 @@ async function doPublish() {
     const res = await fetch(API + '/publish', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        password: pwd, title, slug: makeSlug(title),
+        password: pwd, title,
+        // Editing keeps the original slug (stable URL); new posts get one from the title.
+        slug: currentEditSlug || makeSlug(title),
         excerpt, content, thumbnail: thumbData,
         draftSlug: currentDraftSlug
       })
     });
     const data = await res.json();
     if (data.ok) {
-      toast('✓ Published! Live in ~60 seconds.', false, true);
-      setStatus('Published — live in about 1 minute at /blog/' + data.slug + '.html');
-      btn.textContent = 'Published ✓';
-      currentDraftSlug = null;
+      toast(data.edited ? '✓ Updated! Live in ~60 seconds.' : '✓ Published! Live in ~60 seconds.', false, true);
+      setStatus((data.edited ? 'Updated' : 'Published') + ' — live in about 1 minute at /blog/' + data.slug + '.html');
+      btn.textContent = data.edited ? 'Updated ✓' : 'Published ✓';
+      currentDraftSlug = null; currentEditSlug = null;
       loadAll();
     } else throw new Error(data.error || 'Unknown error');
   } catch (err) {
@@ -427,7 +446,7 @@ function doClear() {
   document.getElementById('f-title').value = '';
   document.getElementById('f-excerpt').value = '';
   quill.setText('');
-  thumbData = null; currentDraftSlug = null;
+  thumbData = null; currentDraftSlug = null; currentEditSlug = null;
   document.getElementById('thumb-preview').style.display = 'none';
   document.querySelector('.thumb-zone-text').style.display = 'block';
   const btn = document.getElementById('pub-btn');
@@ -454,8 +473,33 @@ async function loadPosts() {
           <a href="/blog/${p.slug}.html" target="_blank">${p.title}</a>
           <div class="list-item-meta">${p.dateDisplay || p.date}</div>
         </div>
+        <div class="list-item-actions">
+          <button class="btn-load" onclick="editPost('${p.slug}')">Edit</button>
+        </div>
       </div>`).join('');
   } catch { }
+}
+
+/* ── Edit a PUBLISHED post ────────────────────────────────────────────── */
+async function editPost(slug) {
+  try {
+    setStatus('Loading post…');
+    const r = await fetch(API + '/get-post', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionStorage.getItem('sp'), slug })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error);
+    document.getElementById('f-title').value = d.post.title || '';
+    document.getElementById('f-excerpt').value = d.post.excerpt || '';
+    quill.root.innerHTML = d.post.content || '';
+    currentEditSlug = slug; currentDraftSlug = null;
+    const btn = document.getElementById('pub-btn');
+    btn.disabled = false; btn.textContent = 'Update →';
+    setStatus('Editing published post /blog/' + slug + '.html — press Update to republish.');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    toast('Post loaded for editing.');
+  } catch (err) { toast('Could not load post: ' + err.message, true); }
 }
 
 async function loadDrafts() {
