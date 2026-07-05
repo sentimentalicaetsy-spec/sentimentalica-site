@@ -42,6 +42,12 @@ Main text overlay (≤8 words) · Small supporting text · CTA · Visual structu
 Which parts use ACTUAL listing images · Which parts may be Stable-Diffusion
 generated · Pinterest SEO title · Pinterest SEO description · 5–10 keywords.
 
+## Volume standard (Ksenia, 2026-07-05)
+**Minimum 10 pins per listing.** Pick the 10+ best-fitting of the 18 types for
+that listing's character (a gothic listing leans dark/idea/aesthetic pins; a
+seller-friendly pack leans use-case/commercial pins). Optional types 19–21 count
+toward the 10 when the theme fits.
+
 ## The 18 core pins (make for every large listing)
 | # | Type | Sells | Main-text example |
 |---|------|-------|-------------------|
