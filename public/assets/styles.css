@@ -602,9 +602,17 @@ footer a:hover { color: var(--navy); }
 .blog-list { padding: 60px; background: var(--cream); }
 .post-grid-wide {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px 40px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 36px 28px;
 }
+/* Catalog-style post thumbnails: fixed aspect, never dominate the page.
+   (Covers are often tall listing pages — crop them like a catalog card.) */
+.post-thumb-img {
+  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: 12px; border: 1px solid var(--line); background: var(--cream-warm);
+  margin-bottom: 14px;
+}
+.post-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
 /* SINGLE POST */
 .post-hero {

@@ -123,7 +123,7 @@ Legacy posts had a committed Cloudflare-challenge `<script>` — removed.
   everywhere**. Traffic comes from Pinterest pins / Kit links pointing directly
   at the URL. Reason: the site's calls to action are BUY (Etsy) and SUBSCRIBE —
   not a free gift.
-- **Sentimentalica World = a subscription product** (route `/world.html`, in nav).
+- **Sentimentalica Vault = a subscription product** (route `/vault.html`, in nav).
   Ksenia will spec the content later; the page is a placeholder until then.
 - Email tool: **Kit (ConvertKit)** — Ksenia registers, then set `FORM_ENDPOINT`
   in freebie.html. Gift delivery must ALSO show a direct download link on the

@@ -218,6 +218,8 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 <div class="publish-bar" style="display:none">
   <div class="pub-status" id="pub-status">Write your post above, then save a draft or publish.</div>
   <div class="pub-actions">
+    <button class="btn-del" id="delete-btn" onclick="doDeleteCurrent()" style="display:none; padding:0.7rem 1.1rem">Delete post</button>
+    <button class="btn-secondary" id="cancel-btn" onclick="doCancel()" style="display:none">Cancel</button>
     <button class="btn-secondary" onclick="doClear()">Clear</button>
     <button class="btn-draft" id="draft-btn" onclick="doSaveDraft()">Save draft</button>
     <button class="btn-publish" id="pub-btn" onclick="doPublish()">Publish →</button>
@@ -403,6 +405,7 @@ async function loadDraft(draftSlug) {
     }
 
     currentDraftSlug = draftSlug;
+    setEditModeUI(true);
     setStatus('Draft loaded — continue editing, then publish or save again.');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     toast('Draft loaded.');
@@ -453,6 +456,7 @@ async function doPublish() {
       setStatus((data.edited ? 'Updated' : 'Published') + ' — live in about 1 minute at /blog/' + data.slug + '.html');
       btn.textContent = data.edited ? 'Updated ✓' : 'Published ✓';
       currentDraftSlug = null; currentEditSlug = null;
+      setEditModeUI(false);
       loadAll();
     } else throw new Error(data.error || 'Unknown error');
   } catch (err) {
@@ -465,15 +469,7 @@ async function doPublish() {
 /* ── Clear ────────────────────────────────────────────────────────── */
 function doClear() {
   if (!confirm('Clear the form? Any unsaved changes will be lost.')) return;
-  document.getElementById('f-title').value = '';
-  document.getElementById('f-excerpt').value = '';
-  quill.setText('');
-  thumbData = null; currentDraftSlug = null; currentEditSlug = null;
-  document.getElementById('thumb-preview').style.display = 'none';
-  document.querySelector('.thumb-zone-text').style.display = 'block';
-  const btn = document.getElementById('pub-btn');
-  btn.disabled = false; btn.textContent = 'Publish →';
-  setStatus('Write your post above, then save a draft or publish.');
+  resetForm();
 }
 
 /* ── Load posts & drafts ──────────────────────────────────────────── */
@@ -497,6 +493,7 @@ async function loadPosts() {
         </div>
         <div class="list-item-actions">
           <button class="btn-load" onclick="editPost('${p.slug}')">Edit</button>
+          <button class="btn-del" onclick="deletePost('${p.slug}', '${(p.title||'').replace(/'/g,"\\'")}')" title="Delete post">✕</button>
         </div>
       </div>`).join('');
   } catch { }
@@ -516,6 +513,7 @@ async function editPost(slug) {
     document.getElementById('f-excerpt').value = d.post.excerpt || '';
     quill.root.innerHTML = d.post.content || '';
     currentEditSlug = slug; currentDraftSlug = null;
+    setEditModeUI(true);
     const btn = document.getElementById('pub-btn');
     btn.disabled = false; btn.textContent = 'Update →';
     setStatus('Editing published post /blog/' + slug + '.html — press Update to republish.');
@@ -547,6 +545,51 @@ async function loadDrafts() {
         </div>
       </div>`).join('');
   } catch { }
+}
+
+
+/* ── Edit-mode actions ────────────────────────────────────────────────── */
+function setEditModeUI(on) {
+  document.getElementById('cancel-btn').style.display = on ? '' : 'none';
+  document.getElementById('delete-btn').style.display = on && currentEditSlug ? '' : 'none';
+}
+
+function resetForm() {
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-excerpt').value = '';
+  quill.setText('');
+  thumbData = null; currentDraftSlug = null; currentEditSlug = null;
+  document.getElementById('thumb-preview').style.display = 'none';
+  document.querySelector('.thumb-zone-text').style.display = 'block';
+  const btn = document.getElementById('pub-btn');
+  btn.disabled = false; btn.textContent = 'Publish →';
+  setEditModeUI(false);
+  setStatus('Write your post above, then save a draft or publish.');
+}
+
+function doCancel() {
+  if (!confirm('Exit editing? Unsaved changes will be lost (the published post stays as it is).')) return;
+  resetForm();
+  toast('Editing cancelled — nothing was changed.');
+}
+
+async function deletePost(slug, title) {
+  if (!confirm('Delete "' + (title || slug) + '" from the site? This removes the live page. This cannot be undone.')) return;
+  try {
+    const r = await fetch(API + '/delete-post', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: localStorage.getItem('sp'), slug })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error);
+    if (currentEditSlug === slug) resetForm();
+    toast('Post deleted — gone from the live site in ~1 minute.', false, true);
+    loadAll();
+  } catch (err) { toast('Could not delete: ' + err.message, true); }
+}
+
+function doDeleteCurrent() {
+  if (currentEditSlug) deletePost(currentEditSlug, document.getElementById('f-title').value);
 }
 
 /* ── Helpers ──────────────────────────────────────────────────────── */

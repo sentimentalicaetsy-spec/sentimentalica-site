@@ -59,6 +59,7 @@ export default {
         case '/ping': return json({ ok: true });
         case '/publish': return await publish(env, body);
         case '/get-post': return await getPost(env, body);
+        case '/delete-post': return await deletePost(env, body);
         case '/upload-image': return await uploadImage(env, body);
         case '/save-draft': return await saveDraft(env, body);
         case '/get-draft': return await getDraft(env, body);
@@ -162,7 +163,7 @@ function renderPage({ title, slug, excerpt, content, dateIso, thumbUrl }) {
   <ul>
     <li><a href="../index.html">Home</a></li>
     <li><a href="../blog.html">Journal</a></li>
-    <li><a href="../world.html">World</a></li>
+    <li><a href="../vault.html">Vault</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a class="nav-shop" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Shop on Etsy</a></li>
@@ -245,7 +246,7 @@ async function publish(env, body) {
     `index: ${slug}`, idxFile && idxFile.sha);
 
   // sitemap
-  const pages = ['', 'blog.html', 'world.html', 'about.html', 'freebie.html'];
+  const pages = ['', 'blog.html', 'vault.html', 'about.html', 'freebie.html'];
   const urls = pages.map((p) => `${SITE}/${p}`).concat(idx.posts.map((p) => `${SITE}/blog/${p.slug}.html`));
   const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`;
   const smFile = await getFile(env, 'public/sitemap.xml');
@@ -280,6 +281,34 @@ async function getPost(env, body) {
       content: bodyM ? bodyM[1] : '',
     },
   });
+}
+
+/* ── Delete a published post (file + index + sitemap) ───────────────────── */
+
+async function deletePost(env, body) {
+  const slug = (body.slug || '').replace(/[^a-z0-9-]/g, '');
+  if (!slug) return json({ ok: false, error: 'slug required' });
+  const f = await getFile(env, `public/blog/${slug}.html`);
+  if (!f) return json({ ok: false, error: 'post not found' });
+  await gh(env, 'DELETE', `/repos/${REPO}/contents/public/blog/${slug}.html`,
+    { message: `delete post: ${slug}`, sha: f.sha });
+
+  const idxFile = await getFile(env, 'public/blog/index.json');
+  if (idxFile) {
+    const idx = JSON.parse(b64decode(idxFile.content));
+    idx.posts = idx.posts.filter((p) => p.slug !== slug);
+    await putFile(env, 'public/blog/index.json',
+      b64encode(JSON.stringify(idx, null, 2) + '\n'), `index: -${slug}`, idxFile.sha);
+
+    const pages = ['', 'blog.html', 'vault.html', 'about.html', 'freebie.html'];
+    const urls = pages.map((p) => `${SITE}/${p}`)
+      .concat(idx.posts.map((p) => `${SITE}/blog/${p.slug}.html`));
+    const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`;
+    const smFile = await getFile(env, 'public/sitemap.xml');
+    await putFile(env, 'public/sitemap.xml', b64encode(sm), `sitemap: -${slug}`,
+      smFile && smFile.sha);
+  }
+  return json({ ok: true });
 }
 
 /* ── Image upload (file in repo, not base64-in-post) ────────────────────── */
