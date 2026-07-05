@@ -104,15 +104,38 @@
   /* Admin affordance — if Ksenia is logged in (localStorage 'sp' from /admin/),
      every post page gets a floating "Edit" pill that opens this post in the
      editor. Invisible to normal visitors. */
+  var ADMIN_API = 'https://sentimentalica-admin-api.teter-album.workers.dev';
   function adminEditPill() {
     if (!localStorage.getItem('sp')) return;
     var m = location.pathname.match(/\/blog\/([a-z0-9-]+)\.html$/);
     if (!m) return;
-    var a = document.createElement('a');
-    a.className = 'admin-edit-pill';
-    a.href = '/admin/?edit=' + m[1];
-    a.textContent = '✎ Edit this post';
-    document.body.appendChild(a);
+    var slug = m[1];
+    var bar = document.createElement('div');
+    bar.className = 'admin-pill-bar';
+    var edit = document.createElement('a');
+    edit.className = 'admin-edit-pill';
+    edit.href = '/admin/?edit=' + slug;
+    edit.textContent = '✎ Edit';
+    var del = document.createElement('button');
+    del.className = 'admin-edit-pill admin-delete-pill';
+    del.textContent = 'Delete';
+    del.onclick = function () {
+      if (!confirm('Delete this post from the site? This cannot be undone.')) return;
+      del.textContent = 'Deleting…'; del.disabled = true;
+      fetch(ADMIN_API + '/delete-post', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: localStorage.getItem('sp'), slug: slug })
+      }).then(function (r) { return r.json(); }).then(function (d) {
+        if (!d.ok) throw new Error(d.error || 'failed');
+        alert('Deleted. The live page disappears in ~1 minute.');
+        location.href = '/blog.html';
+      }).catch(function (e) {
+        alert('Could not delete: ' + e.message);
+        del.textContent = 'Delete'; del.disabled = false;
+      });
+    };
+    bar.appendChild(edit); bar.appendChild(del);
+    document.body.appendChild(bar);
   }
 
   /* Hero image — if the post has a thumbnail in blog/index.json and no hero

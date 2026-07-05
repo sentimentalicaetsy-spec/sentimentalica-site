@@ -56,7 +56,11 @@ body { font-family: 'Lora', Georgia, serif; background: var(--cream); color: var
 }
 .bar-btn:hover { background: rgba(255,255,255,0.22); }
 
-.admin-body { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+.admin-body { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; display: flex; flex-direction: column; }
+.dash-head { order: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
+#posts-section { order: 1; margin-top: 0; border-top: none; padding-top: 0; }
+#drafts-section { order: 2; }
+#composer { order: 3; }
 
 .section-label {
   font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.78rem;
@@ -174,6 +178,12 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 
   <div class="admin-body">
 
+    <div class="dash-head" id="dash-head">
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;color:var(--navy)">Your posts</h2>
+      <button class="btn-publish" onclick="newPost()">+ Write new post</button>
+    </div>
+
+    <div id="composer" style="display:none">
     <div class="field">
       <span class="section-label">Post title</span>
       <input type="text" id="f-title" placeholder="Write your title here…">
@@ -199,6 +209,7 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
         <div id="editor"></div>
       </div>
     </div>
+    </div><!-- /composer -->
 
     <!-- Drafts -->
     <div class="list-section" id="drafts-section" style="display:none">
@@ -259,8 +270,7 @@ function doLogout() { localStorage.removeItem('sp'); sessionStorage.removeItem('
 function enterAdmin() {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('admin-panel').style.display = 'block';
-  document.querySelector('.publish-bar').style.display = 'flex';
-  loadAll();
+  loadAll(); // dashboard first; composer opens via "+ Write new post" or Edit
   // Deep link from a post page: /admin/?edit=<slug> opens it in the editor.
   const editSlug = new URLSearchParams(location.search).get('edit');
   if (editSlug) editPost(editSlug);
@@ -405,6 +415,7 @@ async function loadDraft(draftSlug) {
     }
 
     currentDraftSlug = draftSlug;
+    showComposer(true);
     setEditModeUI(true);
     setStatus('Draft loaded — continue editing, then publish or save again.');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -457,6 +468,7 @@ async function doPublish() {
       btn.textContent = data.edited ? 'Updated ✓' : 'Published ✓';
       currentDraftSlug = null; currentEditSlug = null;
       setEditModeUI(false);
+      setTimeout(() => { resetForm(); showComposer(false); }, 1500);
       loadAll();
     } else throw new Error(data.error || 'Unknown error');
   } catch (err) {
@@ -493,7 +505,7 @@ async function loadPosts() {
         </div>
         <div class="list-item-actions">
           <button class="btn-load" onclick="editPost('${p.slug}')">Edit</button>
-          <button class="btn-del" onclick="deletePost('${p.slug}', '${(p.title||'').replace(/'/g,"\\'")}')" title="Delete post">✕</button>
+          <button class="btn-del" onclick="deletePost('${p.slug}', '${(p.title||'').replace(/'/g,"\\'")}')">Delete</button>
         </div>
       </div>`).join('');
   } catch { }
@@ -513,6 +525,7 @@ async function editPost(slug) {
     document.getElementById('f-excerpt').value = d.post.excerpt || '';
     quill.root.innerHTML = d.post.content || '';
     currentEditSlug = slug; currentDraftSlug = null;
+    showComposer(true);
     setEditModeUI(true);
     const btn = document.getElementById('pub-btn');
     btn.disabled = false; btn.textContent = 'Update →';
@@ -541,12 +554,21 @@ async function loadDrafts() {
         </div>
         <div class="list-item-actions">
           <button class="btn-load" onclick="loadDraft('${dr.slug}')">Load</button>
-          <button class="btn-del" onclick="deleteDraft('${dr.slug}')" title="Delete draft">✕</button>
+          <button class="btn-del" onclick="deleteDraft('${dr.slug}')">Delete draft</button>
         </div>
       </div>`).join('');
   } catch { }
 }
 
+
+
+function showComposer(on) {
+  document.getElementById('composer').style.display = on ? 'block' : 'none';
+  document.querySelector('.publish-bar').style.display = on ? 'flex' : 'none';
+  document.getElementById('dash-head').style.display = on ? 'none' : 'flex';
+  if (on) window.scrollTo({ top: 0 });
+}
+function newPost() { resetForm(); showComposer(true); setStatus('New post — write, then publish.'); }
 
 /* ── Edit-mode actions ────────────────────────────────────────────────── */
 function setEditModeUI(on) {
@@ -569,7 +591,7 @@ function resetForm() {
 
 function doCancel() {
   if (!confirm('Exit editing? Unsaved changes will be lost (the published post stays as it is).')) return;
-  resetForm();
+  resetForm(); showComposer(false);
   toast('Editing cancelled — nothing was changed.');
 }
 
@@ -582,7 +604,7 @@ async function deletePost(slug, title) {
     });
     const d = await r.json();
     if (!d.ok) throw new Error(d.error);
-    if (currentEditSlug === slug) resetForm();
+    if (currentEditSlug === slug) { resetForm(); showComposer(false); }
     toast('Post deleted — gone from the live site in ~1 minute.', false, true);
     loadAll();
   } catch (err) { toast('Could not delete: ' + err.message, true); }
