@@ -126,6 +126,62 @@ def composite_print(scene_img, art_paths):
     return canvas.convert("RGB")
 
 
+
+def inpaint_around(base_img, mask_img, prompt, denoise=0.85):
+    """A1111 inpaint: regenerate everything EXCEPT the masked-out pages —
+    the scene grows natively around the real prints."""
+    import base64 as _b64
+    import io as _io
+    import requests
+    def b64(im, fmt="PNG"):
+        b = _io.BytesIO(); im.save(b, fmt); return _b64.b64encode(b.getvalue()).decode()
+    payload = {
+        "init_images": [b64(base_img)],
+        "mask": b64(mask_img),
+        "inpainting_mask_invert": 0,      # white = regenerate, black = keep pages
+        "inpainting_fill": 2,              # latent noise -> rich fresh scene
+        "inpaint_full_res": False,
+        "mask_blur": 14,                   # feathered edges: soft, natural contact
+        "prompt": prompt,
+        "negative_prompt": DEFAULT_NEG,
+        "denoising_strength": denoise,
+        "width": base_img.width, "height": base_img.height,
+        "steps": 32, "cfg_scale": 6.5, "sampler_name": "DPM++ 2M Karras",
+    }
+    r = requests.post(f"{A1111}/sdapi/v1/img2img", json=payload, timeout=900)
+    r.raise_for_status()
+    from PIL import Image as _Image
+    return _Image.open(_io.BytesIO(_b64.b64decode(r.json()["images"][0]))).convert("RGB")
+
+
+def mockup_v4(art_paths, prompt, width=832, height=1216):
+    """Lay real pages on a neutral base, protect them with a mask, and let SD
+    compose the whole dreamy scene AROUND them (native embedding)."""
+    from PIL import Image, ImageDraw
+    base = Image.new("RGB", (width, height), (233, 224, 208))  # warm linen tone
+    mask = Image.new("L", (width, height), 255)                # 255 = regenerate
+    n = min(3, len(art_paths))
+    if height >= width:
+        specs = {1: [(0.40, -4, 0.50, 0.50)],
+                 2: [(0.33, 7, 0.42, 0.33), (0.38, -5, 0.58, 0.62)],
+                 3: [(0.28, 8, 0.32, 0.27), (0.30, -7, 0.70, 0.44),
+                     (0.38, -2, 0.45, 0.68)]}[n]
+    else:
+        specs = {1: [(0.56, -3, 0.50, 0.50)],
+                 2: [(0.44, 6, 0.35, 0.44), (0.50, -4, 0.64, 0.56)],
+                 3: [(0.38, 8, 0.28, 0.38), (0.38, -7, 0.73, 0.40),
+                     (0.48, -2, 0.50, 0.64)]}[n]
+    canvas = base.convert("RGBA")
+    for path, (hfrac, ang, cx, cy) in zip(art_paths[:3], specs):
+        printed = _one_print(path, height * hfrac, ang)
+        x = int(width * cx - printed.width / 2)
+        y = int(height * cy - printed.height / 2)
+        canvas.alpha_composite(printed, (x, y))
+        # protect the page area (shrink a hair so feathering can kiss edges)
+        a = printed.split()[3].point(lambda v: 255 if v > 8 else 0)
+        mask.paste(0, (x, y), a)
+    return inpaint_around(canvas.convert("RGB"), mask, prompt)
+
 def main():
     from PIL import Image
     ap = argparse.ArgumentParser()
@@ -166,25 +222,21 @@ def main():
                 print(f"generating {slug}/{slot['id']}"
                       f"{' (mockup)' if slot.get('type') == 'mockup' else ''} ...")
                 if slot.get("type") == "mockup":
-                    # Dreamy journaling scene + the REAL listing pages
-                    # composited in as physical prints. Portrait by default.
                     prompt = MOCKUP_SCENE_PROMPT.format(
                         mood=slot.get("mood", "soft neutral tones"))
-                    raw = generate(prompt, slot.get("negative"),
-                                   slot.get("width", 832), slot.get("height", 1216))
-                    scene = Image.open(io.BytesIO(raw)).convert("RGB")
                     names = slot.get("insert_images") or [slot.get("insert_image", "img2.jpg")]
                     arts = [img_dir / n for n in names if (img_dir / n).exists()]
                     if not arts:
                         print(f"  SKIP mockup: none of {names} exist in {img_dir}")
                         continue
-                    im = composite_print(scene, arts)
-                    # img2img meld: unify light/texture so the real page reads
-                    # as a photographed physical print, not a paste-up.
-                    im = meld(im, prompt + ", printed watercolor art pages resting among "
-                              "the journal layers, paper texture, "
-                              "photorealistic, dreamy soft light",
-                              denoise=float(slot.get("denoise", 0.36)))
+                    # v4: pages first, world generated AROUND them —
+                    # occlusion of scene objects is impossible by construction.
+                    im = mockup_v4(arts,
+                                   prompt + ", printed watercolor art pages "
+                                   "resting naturally among the layers, "
+                                   "photorealistic, dreamy soft light",
+                                   slot.get("width", 832),
+                                   slot.get("height", 1216))
                 else:
                     raw = generate(slot["prompt"], slot.get("negative"),
                                    slot.get("width", 1216), slot.get("height", 832))
