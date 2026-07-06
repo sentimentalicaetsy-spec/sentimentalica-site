@@ -31,7 +31,8 @@ A1111 = "http://127.0.0.1:7860"
 
 DEFAULT_NEG = ("text, watermark, logo, low quality, blurry, cartoon, anime, "
                "oversaturated, scissors, hands, fingers, people, person, "
-               "deformed objects")
+               "deformed objects, watercolor illustration, painted illustration, "
+               "drawing, illustration style, painting style")
 
 
 def generate(prompt, negative, width, height):
