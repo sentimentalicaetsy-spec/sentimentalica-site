@@ -77,6 +77,24 @@ def main():
         im.save(f, "JPEG", quality=80, optimize=True)
         saved.append(f.name)
 
+    # Real CUSTOMER pages (what buyers actually print — no badge overlays):
+    # used for mockup embeds. Customer folder = sibling of 'revised thumbnails'.
+    pages = []
+    cust_candidates = [d for d in tdir.parent.iterdir()
+                       if d.is_dir() and d.name.lower() not in
+                       ("revised thumbnails", "thumbnails", "workspace",
+                        "to remove", "to_remove", "removed", "ai_qa", "ai qa")]
+    if cust_candidates:
+        cust_imgs = sorted([q for q in cust_candidates[0].iterdir()
+                            if q.suffix.lower() in (".jpg", ".jpeg", ".png")])
+        step = max(1, len(cust_imgs) // 4)
+        for i, q in enumerate(cust_imgs[::step][:3], 1):
+            im = Image.open(q).convert("RGB")
+            im.thumbnail((1200, 1200))
+            f = out / f"page{i}.jpg"
+            im.save(f, "JPEG", quality=82, optimize=True)
+            pages.append(f.name)
+
     theme_words = " ".join(listing.split("_")[1:])
     meta = {
         "listing": listing,
@@ -84,6 +102,7 @@ def main():
         "etsy_id": etsy_id,
         "palette": palette_from(imgs[:6]),
         "images": saved,
+        "pages": pages,
         "assets_dir": str(out),
     }
     (out / "meta.json").write_text(json.dumps(meta, indent=1))

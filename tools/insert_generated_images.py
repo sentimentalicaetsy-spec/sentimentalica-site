@@ -55,29 +55,63 @@ MOCKUP_SCENE_PROMPT = (
 )
 
 
-def composite_print(scene_img, art_path):
-    """Paste a real listing page onto the generated desk scene like a print:
-    thin paper border, slight rotation, soft drop shadow, centered."""
-    from PIL import Image, ImageFilter, ImageOps
+def meld(image, prompt, denoise=0.32):
+    """img2img pass: melt a composite into one photographic image —
+    unifies light/shadow/texture so the pasted print looks photographed."""
+    import base64 as _b64
+    import io as _io
+    import requests
+    buf = _io.BytesIO()
+    image.save(buf, "PNG")
+    payload = {
+        "init_images": [_b64.b64encode(buf.getvalue()).decode()],
+        "prompt": prompt,
+        "negative_prompt": DEFAULT_NEG,
+        "denoising_strength": denoise,
+        "width": image.width, "height": image.height,
+        "steps": 30, "cfg_scale": 6.0, "sampler_name": "DPM++ 2M Karras",
+    }
+    r = requests.post(f"{A1111}/sdapi/v1/img2img", json=payload, timeout=900)
+    r.raise_for_status()
+    from PIL import Image as _Image
+    return _Image.open(_io.BytesIO(_b64.b64decode(r.json()["images"][0]))).convert("RGB")
+
+
+def _one_print(art_path, target_h, angle):
+    from PIL import Image, ImageOps
     art = Image.open(art_path).convert("RGB")
     border = max(6, int(max(art.size) * 0.018))
     printed = ImageOps.expand(art, border=border, fill=(252, 250, 245))
-    target_h = int(scene_img.height * 0.74)
     ratio = target_h / printed.height
-    printed = printed.resize((int(printed.width * ratio), target_h), Image.LANCZOS)
-    printed = printed.convert("RGBA").rotate(
-        -3.5, expand=True, resample=Image.BICUBIC)
-    # soft shadow from the print's silhouette
-    a = printed.split()[3].point(lambda v: 110 if v > 0 else 0)
-    sh = Image.new("RGBA", printed.size, (25, 18, 10, 0))
-    sh.putalpha(a)
+    printed = printed.resize((int(printed.width * ratio), int(target_h)), Image.LANCZOS)
+    return printed.convert("RGBA").rotate(angle, expand=True, resample=Image.BICUBIC)
+
+
+def composite_print(scene_img, art_paths):
+    """Lay 1-3 real listing pages onto the generated desk scene like scattered
+    prints: paper borders, varied rotation, overlap, soft shadows."""
+    from PIL import Image, ImageFilter
+    if not isinstance(art_paths, (list, tuple)):
+        art_paths = [art_paths]
+    art_paths = list(art_paths)[:3]
     canvas = scene_img.convert("RGBA")
-    x = (canvas.width - printed.width) // 2
-    y = (canvas.height - printed.height) // 2
-    shadow_layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-    shadow_layer.paste(sh, (x + 10, y + 14), sh)
-    canvas.alpha_composite(shadow_layer.filter(ImageFilter.GaussianBlur(10)))
-    canvas.alpha_composite(printed, (x, y))
+    n = len(art_paths)
+    # layout: back prints peeking out, front print dominant
+    specs = {1: [(0.74, -3.5, 0.50, 0.50)],
+             2: [(0.60, 7, 0.36, 0.46), (0.68, -4, 0.62, 0.54)],
+             3: [(0.52, 9, 0.30, 0.42), (0.52, -8, 0.72, 0.44),
+                 (0.66, -2, 0.50, 0.58)]}[n]
+    for path, (hfrac, ang, cx, cy) in zip(art_paths, specs):
+        printed = _one_print(path, canvas.height * hfrac, ang)
+        x = int(canvas.width * cx - printed.width / 2)
+        y = int(canvas.height * cy - printed.height / 2)
+        a = printed.split()[3].point(lambda v: 110 if v > 0 else 0)
+        sh = Image.new("RGBA", printed.size, (25, 18, 10, 0))
+        sh.putalpha(a)
+        layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+        layer.paste(sh, (x + 9, y + 13), sh)
+        canvas.alpha_composite(layer.filter(ImageFilter.GaussianBlur(9)))
+        canvas.alpha_composite(printed, (x, y))
     return canvas.convert("RGB")
 
 
@@ -128,11 +162,18 @@ def main():
                     raw = generate(prompt, slot.get("negative"),
                                    slot.get("width", 1216), slot.get("height", 832))
                     scene = Image.open(io.BytesIO(raw)).convert("RGB")
-                    art = img_dir / slot.get("insert_image", "img2.jpg")
-                    if not art.exists():
-                        print(f"  SKIP mockup: {art} missing")
+                    names = slot.get("insert_images") or [slot.get("insert_image", "img2.jpg")]
+                    arts = [img_dir / n for n in names if (img_dir / n).exists()]
+                    if not arts:
+                        print(f"  SKIP mockup: none of {names} exist in {img_dir}")
                         continue
-                    im = composite_print(scene, art)
+                    im = composite_print(scene, arts)
+                    # img2img meld: unify light/texture so the real page reads
+                    # as a photographed physical print, not a paste-up.
+                    im = meld(im, prompt + ", a printed collage art page lying "
+                              "on the desk, layered paper textures, "
+                              "photorealistic, shallow depth of field",
+                              denoise=float(slot.get("denoise", 0.32)))
                 else:
                     raw = generate(slot["prompt"], slot.get("negative"),
                                    slot.get("width", 1216), slot.get("height", 832))
