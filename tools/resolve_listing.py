@@ -39,6 +39,23 @@ def main():
         sys.exit(f"NO ETSY_ID: {hit.stem} has no etsy_id in its vault note — "
                  "run update_vault.py or add it manually.")
 
+    # RULE (Ksenia 2026-07-06): articles only for LIVE listings — links must work.
+    import json as _json
+    import urllib.request as _rq
+    try:
+        feed = _json.load(_rq.urlopen(
+            f"https://sentimentalica-etsy-feed.teter-album.workers.dev/?ids={etsy_id}",
+            timeout=20))
+        if feed.get("count", 0) < 1:
+            sys.exit(f"NOT LIVE: {hit.stem} (etsy_id {etsy_id}) is not an active "
+                     "Etsy listing (draft/inactive). Publish it on Etsy first — "
+                     "article links must work for buyers.")
+    except SystemExit:
+        raise
+    except Exception as e:
+        sys.exit(f"LIVE-CHECK FAILED: could not verify listing {etsy_id} is active "
+                 f"({e}) — refusing to publish an article with possibly dead links.")
+
     for org in ORGS:
         d = DRIVE / org / hit.stem / "revised thumbnails"
         if d.is_dir():

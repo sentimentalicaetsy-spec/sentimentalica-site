@@ -170,11 +170,34 @@
         img.src = '/' + p.thumb.replace(/^\//, '');
         img.alt = p.title || '';
         header.parentNode.insertBefore(img, header.nextSibling);
+        linkImagesToListing(); // wrap the just-inserted hero too (idempotent)
       }).catch(function () {});
+  }
+
+  /* RULE (Ksenia 2026-07-06): every image in an article links to the
+     article's Etsy listing. Listing id = first id of the article's product
+     embed. Applies to hero + body images; product-card images already link. */
+  function linkImagesToListing() {
+    var emb = document.querySelector('.etsy-products[data-ids]');
+    if (!emb) return;
+    var id = (emb.getAttribute('data-ids') || '').split(',')[0].trim();
+    if (!id) return;
+    var url = 'https://www.etsy.com/listing/' + id;
+    var imgs = document.querySelectorAll('.post-body img, .post-hero-img');
+    imgs.forEach(function (img) {
+      if (img.closest('a') || img.closest('.etsy-products')) return;
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.className = 'post-img-link';
+      a.title = 'See this collection on Etsy';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
   }
 
   function init() {
     document.querySelectorAll('.etsy-products[data-ids]').forEach(hydrate);
+    linkImagesToListing();
     shopStrip();
     adminEditPill();
     heroImage();
