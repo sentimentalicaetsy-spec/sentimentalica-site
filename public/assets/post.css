@@ -87,3 +87,8 @@
 .car-dots { display: flex; justify-content: center; gap: 8px; margin-top: 2px; }
 .car-dot { width: 8px; height: 8px; border-radius: 50%; background: #c9b896; cursor: pointer; transition: all .2s; }
 .car-dot.on { background: #163087; transform: scale(1.25); }
+
+/* Calm scannable keep-lists (50-things style articles) */
+.keep-list { columns: 2; column-gap: 44px; padding-left: 1.4rem; margin: 1.4rem 0 2rem; }
+.keep-list li { margin-bottom: .7rem; break-inside: avoid; line-height: 1.55; }
+@media (max-width: 640px) { .keep-list { columns: 1; } }
