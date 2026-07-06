@@ -75,3 +75,15 @@
 .kit-carousel img { flex: 0 0 72%; max-width: 420px; aspect-ratio: 3 / 4; object-fit: cover;
   border-radius: 12px; scroll-snap-align: center; box-shadow: 0 6px 22px rgba(40,30,20,.14); margin: 0; }
 @media (min-width: 700px) { .kit-carousel img { flex-basis: 32%; } }
+
+/* Carousel controls */
+.kit-carousel-wrap { position: relative; }
+.car-arrow { position: absolute; top: 42%; transform: translateY(-50%); z-index: 5;
+  width: 42px; height: 42px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(255,255,255,.92); color: #163087; font-size: 18px;
+  box-shadow: 0 3px 12px rgba(40,30,20,.25); }
+.car-prev { left: 8px; } .car-next { right: 8px; }
+.car-arrow:hover { background: #163087; color: #fff; }
+.car-dots { display: flex; justify-content: center; gap: 8px; margin-top: 2px; }
+.car-dot { width: 8px; height: 8px; border-radius: 50%; background: #c9b896; cursor: pointer; transition: all .2s; }
+.car-dot.on { background: #163087; transform: scale(1.25); }

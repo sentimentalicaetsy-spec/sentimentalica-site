@@ -87,8 +87,8 @@ def main():
     if cust_candidates:
         cust_imgs = sorted([q for q in cust_candidates[0].iterdir()
                             if q.suffix.lower() in (".jpg", ".jpeg", ".png")])
-        step = max(1, len(cust_imgs) // 4)
-        for i, q in enumerate(cust_imgs[::step][:3], 1):
+        step = max(1, len(cust_imgs) // 7)
+        for i, q in enumerate(cust_imgs[::step][:6], 1):
             im = Image.open(q).convert("RGB")
             im.thumbnail((1200, 1200))
             f = out / f"page{i}.jpg"

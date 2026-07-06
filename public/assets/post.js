@@ -200,7 +200,52 @@
     });
   }
 
+  /* Kit carousel controls: arrows + Instagram-style dots (Ksenia 2026-07-06) */
+  function enhanceCarousels() {
+    document.querySelectorAll('.kit-carousel').forEach(function (car) {
+      if (car.dataset.enhanced) return;
+      car.dataset.enhanced = '1';
+      var wrap = document.createElement('div');
+      wrap.className = 'kit-carousel-wrap';
+      car.parentNode.insertBefore(wrap, car);
+      wrap.appendChild(car);
+      var slides = car.querySelectorAll('img');
+      var prev = document.createElement('button');
+      var next = document.createElement('button');
+      prev.className = 'car-arrow car-prev'; prev.innerHTML = '&#10094;';
+      next.className = 'car-arrow car-next'; next.innerHTML = '&#10095;';
+      prev.setAttribute('aria-label', 'previous'); next.setAttribute('aria-label', 'next');
+      var dots = document.createElement('div');
+      dots.className = 'car-dots';
+      slides.forEach(function (_, i) {
+        var d = document.createElement('span');
+        d.className = 'car-dot' + (i === 0 ? ' on' : '');
+        d.onclick = function () { go(i); };
+        dots.appendChild(d);
+      });
+      wrap.appendChild(prev); wrap.appendChild(next); wrap.appendChild(dots);
+      function idx() {
+        var w = slides[0] ? slides[0].offsetWidth + 14 : 1;
+        return Math.min(slides.length - 1, Math.max(0, Math.round(car.scrollLeft / w)));
+      }
+      function go(i) {
+        i = Math.min(slides.length - 1, Math.max(0, i));
+        var w = slides[0] ? slides[0].offsetWidth + 14 : 0;
+        car.scrollTo({ left: i * w, behavior: 'smooth' });
+      }
+      prev.onclick = function () { go(idx() - 1); };
+      next.onclick = function () { go(idx() + 1); };
+      car.addEventListener('scroll', function () {
+        var i = idx();
+        dots.querySelectorAll('.car-dot').forEach(function (d, k) {
+          d.classList.toggle('on', k === i);
+        });
+      }, { passive: true });
+    });
+  }
+
   function init() {
+    enhanceCarousels();
     document.querySelectorAll('.etsy-products[data-ids]').forEach(hydrate);
     linkImagesToListing();
     shopStrip();
