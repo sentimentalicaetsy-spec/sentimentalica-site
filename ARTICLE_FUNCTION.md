@@ -35,11 +35,16 @@
    "negative":"text, watermark, logo, low quality, deformed hands",
    "width":1216,"height":832,"caption":"alt-текст"}, ×3]}`
 5. `python3 tools/publish_post.py staging/overnight/assets/<listing>/post.html`
-6. Генерация сейчас, если можно: `curl -s -m 3 http://127.0.0.1:7860/sdapi/v1/progress`
-   - Отвечает → `PY tools/insert_generated_images.py --slug <slug>`
-   - Нет → оставить слоты; сказать Ксении: запустить A1111
-     (`cd ~/stable-diffusion-webui && ./webui.sh --api`), потом
-     `PY tools/insert_generated_images.py --slug <slug> --push`.
+6. **Картинки — автоматически, без участия Ксении:**
+   a. Проверить API: `curl -s -m 3 http://127.0.0.1:7860/sdapi/v1/progress`
+   b. Если НЕ отвечает — **запустить самому**: 
+      `cd ~/stable-diffusion-webui && nohup ./webui.sh --api > /tmp/a1111.log 2>&1 &`
+      и ждать до 6 минут: `until curl -s -m 3 http://127.0.0.1:7860/sdapi/v1/progress >/dev/null; do sleep 10; done`
+   c. Когда API жив: `PY tools/insert_generated_images.py` **без --slug** — заполнит
+      слоты и этой статьи, И все незакрытые слоты прошлых статей (backfill).
+   d. Если A1111 так и не поднялся за 6 минут (ошибка в /tmp/a1111.log) — публиковать
+      без сцен и написать это в отчёте; следующий запуск функции довставит их сам.
+      Никаких команд Ксении помнить не нужно.
 7. `git add public && git pull --rebase && git commit -m "post: <title>" && git push`
 8. Через ~60 с: `curl -sL "https://sentimentalica.com/blog/<slug>?cb=$RANDOM" | head -3` —
    и отчёт: живой URL · какие картинки · палитра · статус ген-сцен · что пропущено.
