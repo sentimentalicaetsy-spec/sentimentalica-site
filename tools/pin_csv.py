@@ -36,8 +36,9 @@ def read_rows(p):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["add", "list"])
-    ap.add_argument("listing")
+    ap.add_argument("cmd", choices=["add", "list", "mark-uploaded"])
+    ap.add_argument("listing", nargs="?", default="")
+    ap.add_argument("--all", action="store_true", help="mark-uploaded: all listings")
     ap.add_argument("--title")
     ap.add_argument("--media-url")
     ap.add_argument("--board", default="Junk Journal Printables")
@@ -47,6 +48,32 @@ def main():
     ap.add_argument("--keywords", default="")
     ap.add_argument("--publish-date", default="")
     args = ap.parse_args()
+
+    if args.cmd == "mark-uploaded":
+        # Ksenia's flow: she says "I uploaded the CSV" -> current rows are
+        # archived with the date; the active file restarts empty. Archived
+        # pins can never be re-added (dedup below reads archives too).
+        from datetime import date
+        targets = sorted(PINS.glob("*.csv")) if getattr(args, "all", False) else [path_for(args.listing)]
+        arch_dir = PINS / "uploaded"
+        drive_arch = Path("/Users/kseniateter/My Drive/Sentimentalica/Pinterest_CSV/uploaded")
+        for tp in targets:
+            rows = read_rows(tp)
+            if not rows:
+                continue
+            arch_dir.mkdir(parents=True, exist_ok=True)
+            name = f"{tp.stem}__uploaded_{date.today().isoformat()}.csv"
+            import shutil
+            shutil.move(str(tp), str(arch_dir / name))
+            try:
+                drive_arch.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(arch_dir / name, drive_arch / name)
+                drive_active = Path("/Users/kseniateter/My Drive/Sentimentalica/Pinterest_CSV") / tp.name
+                drive_active.unlink(missing_ok=True)
+            except Exception as e:
+                print(f"WARNING: drive archive failed ({e})")
+            print(f"✓ {tp.stem}: {len(rows)} pins archived -> uploaded/{name}; active file fresh")
+        return
 
     p = path_for(args.listing)
     rows = read_rows(p)
@@ -62,8 +89,11 @@ def main():
     if len(args.title) > 100:
         sys.exit(f"TITLE TOO LONG ({len(args.title)} > 100)")
     key = (args.title.strip(), args.media_url.strip())
-    if any((r["Title"].strip(), r["Media URL"].strip()) == key for r in rows):
-        print("duplicate — skipped")
+    seen = {(r["Title"].strip(), r["Media URL"].strip()) for r in rows}
+    for arch in (PINS / "uploaded").glob(f"{args.listing}__uploaded_*.csv"):
+        seen |= {(r["Title"].strip(), r["Media URL"].strip()) for r in read_rows(arch)}
+    if key in seen:
+        print("duplicate (incl. already-uploaded) — skipped")
         return
     rows.append({
         "Title": args.title.strip(), "Media URL": args.media_url.strip(),
