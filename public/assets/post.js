@@ -165,6 +165,13 @@
       .then(function (d) {
         var p = (d.posts || []).find(function (x) { return x.slug === m[1]; });
         if (!p || !p.thumb) return;
+        // No duplicates: if the thumb image already appears in the article
+        // body, don't inject it again as a hero (Ksenia 2026-07-06).
+        var thumbFile = p.thumb.split('/').pop();
+        var dupe = Array.prototype.some.call(
+          document.querySelectorAll('.post-body img'),
+          function (im) { return im.src.indexOf(thumbFile) !== -1; });
+        if (dupe) return;
         var img = document.createElement('img');
         img.className = 'post-hero-img';
         img.src = '/' + p.thumb.replace(/^\//, '');
