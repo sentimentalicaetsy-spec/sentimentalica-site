@@ -80,8 +80,9 @@ Ksenia's spec message dated 2026-07-05; this table is the working index.)
 
 ## Visual direction rules
 - Actual listing images are the main product evidence — SD may generate
-  backgrounds, desks, journals, mockups, textures, lighting, hands, rooms,
+  backgrounds, desks, journals, mockups, textures, lighting, rooms,
   frames, styled scenes, but must NOT replace the product images.
+  NEVER scissors/hands/fingers/people — banned (classic AI slop).
 - Insert real listing images INTO any generated mockup.
 - Readable on mobile; high contrast for text-heavy pins; big bold hook (small
   tasteful text gets scrolled past — the goal is the CLICK).
@@ -94,3 +95,25 @@ Ksenia's spec message dated 2026-07-05; this table is the working index.)
 ## Marketing rule (final gate, enforced by QA)
 Each pin must solve one problem, trigger one desire, or offer one useful idea.
 "Pretty images" / "150 images" alone = reject and rewrite.
+
+## Мини-шаблон каждого пина (обязательные поля)
+Pin number · Pin type · Target audience · Buyer problem/desire · Main overlay
+text (≤8 слов) · Small supporting text · CTA · Visual structure · Use actual
+listing images for · Stable Diffusion may generate · Pinterest title ·
+Pinterest description · Keywords (5–10).
+
+## Как агент должен мыслить (пример: dark gothic pack)
+- Плохо: «200 Gothic Images» — ноль причин сохранять.
+- Лучше: «20 Dark Romantic Journal Ideas» — полезная идея, картинки листинга
+  становятся способом создать этот mood.
+- Ещё лучше: «Your journal needs a darker mood?» — названа боль.
+- Другая аудитория: «Build your gothic design library» — sellers/creators.
+Правило: у пина ОДНА маркетинговая причина существовать; «pretty images» /
+«150 images» → переписать.
+
+## Article-first (Ксения, 2026-07-06)
+Сначала статья — потом Pinterest, НО статья конструируется ДЛЯ Pinterest:
+каждый её блок (карусель кита, картинка каждого пункта, палитра, мокапы) —
+будущий пин. Картинка обязана быть либо потрясающе красивой, либо полезной
+(инфографика: список/problem-solution прямо НА картинке). Реклама листинга
+сама по себе — «nobody cares»: сперва польза, продукт — путь к ней.

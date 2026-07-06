@@ -161,16 +161,20 @@ def mockup_v4(art_paths, prompt, width=832, height=1216):
     base = Image.new("RGB", (width, height), (233, 224, 208))  # warm linen tone
     mask = Image.new("L", (width, height), 255)                # 255 = regenerate
     n = min(3, len(art_paths))
+    # UNIFORM SCALE (Ksenia 2026-07-06): all prints are the same paper size —
+    # identical target height (±0 nothing), only rotation/position varies.
     if height >= width:
-        specs = {1: [(0.40, -4, 0.50, 0.50)],
-                 2: [(0.33, 7, 0.42, 0.33), (0.38, -5, 0.58, 0.62)],
-                 3: [(0.28, 8, 0.32, 0.27), (0.30, -7, 0.70, 0.44),
-                     (0.38, -2, 0.45, 0.68)]}[n]
+        H = 0.34
+        specs = {1: [(0.42, -4, 0.50, 0.50)],
+                 2: [(H, 6, 0.40, 0.34), (H, -5, 0.60, 0.62)],
+                 3: [(H, 7, 0.33, 0.28), (H, -6, 0.68, 0.42),
+                     (H, -2, 0.44, 0.68)]}[n]
     else:
-        specs = {1: [(0.56, -3, 0.50, 0.50)],
-                 2: [(0.44, 6, 0.35, 0.44), (0.50, -4, 0.64, 0.56)],
-                 3: [(0.38, 8, 0.28, 0.38), (0.38, -7, 0.73, 0.40),
-                     (0.48, -2, 0.50, 0.64)]}[n]
+        H = 0.46
+        specs = {1: [(0.54, -3, 0.50, 0.50)],
+                 2: [(H, 6, 0.35, 0.45), (H, -4, 0.65, 0.55)],
+                 3: [(H, 7, 0.27, 0.40), (H, -6, 0.73, 0.42),
+                     (H, -2, 0.50, 0.62)]}[n]
     canvas = base.convert("RGBA")
     for path, (hfrac, ang, cx, cy) in zip(art_paths[:3], specs):
         printed = _one_print(path, height * hfrac, ang)

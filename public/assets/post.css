@@ -68,3 +68,10 @@
 .ql-content pre { background: #2c2416; color: #faf3e6; padding: 1.25rem 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; margin-bottom: 1.25rem; }
 .ql-content iframe { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; }
 .ql-content .ql-video { width: 100%; aspect-ratio: 16/9; border-radius: 8px; margin: 1.5rem 0; }
+
+/* Kit carousel — swipeable strip of real kit photos (single-listing articles) */
+.kit-carousel { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 6px 2px 14px; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+.kit-carousel img { flex: 0 0 72%; max-width: 420px; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: 12px; scroll-snap-align: center; box-shadow: 0 6px 22px rgba(40,30,20,.14); margin: 0; }
+@media (min-width: 700px) { .kit-carousel img { flex-basis: 32%; } }
