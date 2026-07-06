@@ -29,8 +29,9 @@ BLOG = REPO / "public" / "blog"
 PROMPTS = REPO / "staging" / "overnight" / "prompts"
 A1111 = "http://127.0.0.1:7860"
 
-DEFAULT_NEG = ("text, watermark, logo, low quality, blurry, deformed hands, "
-               "extra fingers, cartoon, anime, oversaturated")
+DEFAULT_NEG = ("text, watermark, logo, low quality, blurry, cartoon, anime, "
+               "oversaturated, scissors, hands, fingers, people, person, "
+               "deformed objects")
 
 
 def generate(prompt, negative, width, height):
@@ -48,10 +49,12 @@ def generate(prompt, negative, width, height):
 
 
 MOCKUP_SCENE_PROMPT = (
-    "top-down flat lay photograph of a cozy craft desk, warm natural window "
-    "light, wooden surface with a linen cloth, scissors, washi tape, dried "
-    "flowers and a cup of tea arranged around the EDGES of the frame, large "
-    "EMPTY clear space in the center, soft shadows, photorealistic, {mood}"
+    "dreamy flat lay photograph of junk journaling in progress: an open "
+    "vintage journal with blank cream pages in the center, surrounded by "
+    "layers of torn aged papers, delicate lace and tulle fabric, dried "
+    "lavender and garden flowers, scattered vintage ephemera and a wax-sealed "
+    "envelope, warm golden window light, soft romantic shadows, shallow depth "
+    "of field, photorealistic, ethereal cozy atmosphere, {mood}"
 )
 
 
@@ -96,11 +99,19 @@ def composite_print(scene_img, art_paths):
     art_paths = list(art_paths)[:3]
     canvas = scene_img.convert("RGBA")
     n = len(art_paths)
-    # layout: back prints peeking out, front print dominant
-    specs = {1: [(0.74, -3.5, 0.50, 0.50)],
-             2: [(0.60, 7, 0.36, 0.46), (0.68, -4, 0.62, 0.54)],
-             3: [(0.52, 9, 0.30, 0.42), (0.52, -8, 0.72, 0.44),
-                 (0.66, -2, 0.50, 0.58)]}[n]
+    # organic layout: pages rest ON the open journal / among the ephemera,
+    # varied sizes, overlapping — like work in progress, not a catalog.
+    portrait = canvas.height >= canvas.width
+    if portrait:
+        specs = {1: [(0.42, -4, 0.50, 0.52)],
+                 2: [(0.34, 8, 0.40, 0.34), (0.40, -5, 0.58, 0.60)],
+                 3: [(0.30, 9, 0.34, 0.30), (0.32, -7, 0.70, 0.44),
+                     (0.40, -2, 0.46, 0.66)]}[n]
+    else:
+        specs = {1: [(0.58, -3.5, 0.50, 0.52)],
+                 2: [(0.46, 7, 0.36, 0.44), (0.52, -4, 0.63, 0.56)],
+                 3: [(0.40, 9, 0.29, 0.40), (0.40, -8, 0.72, 0.42),
+                     (0.50, -2, 0.50, 0.62)]}[n]
     for path, (hfrac, ang, cx, cy) in zip(art_paths, specs):
         printed = _one_print(path, canvas.height * hfrac, ang)
         x = int(canvas.width * cx - printed.width / 2)
@@ -155,12 +166,12 @@ def main():
                 print(f"generating {slug}/{slot['id']}"
                       f"{' (mockup)' if slot.get('type') == 'mockup' else ''} ...")
                 if slot.get("type") == "mockup":
-                    # SD scene with an empty center + the REAL listing page
-                    # composited in as a physical print.
+                    # Dreamy journaling scene + the REAL listing pages
+                    # composited in as physical prints. Portrait by default.
                     prompt = MOCKUP_SCENE_PROMPT.format(
                         mood=slot.get("mood", "soft neutral tones"))
                     raw = generate(prompt, slot.get("negative"),
-                                   slot.get("width", 1216), slot.get("height", 832))
+                                   slot.get("width", 832), slot.get("height", 1216))
                     scene = Image.open(io.BytesIO(raw)).convert("RGB")
                     names = slot.get("insert_images") or [slot.get("insert_image", "img2.jpg")]
                     arts = [img_dir / n for n in names if (img_dir / n).exists()]
@@ -170,10 +181,10 @@ def main():
                     im = composite_print(scene, arts)
                     # img2img meld: unify light/texture so the real page reads
                     # as a photographed physical print, not a paste-up.
-                    im = meld(im, prompt + ", a printed collage art page lying "
-                              "on the desk, layered paper textures, "
-                              "photorealistic, shallow depth of field",
-                              denoise=float(slot.get("denoise", 0.32)))
+                    im = meld(im, prompt + ", printed watercolor art pages resting among "
+                              "the journal layers, paper texture, "
+                              "photorealistic, dreamy soft light",
+                              denoise=float(slot.get("denoise", 0.36)))
                 else:
                     raw = generate(slot["prompt"], slot.get("negative"),
                                    slot.get("width", 1216), slot.get("height", 832))

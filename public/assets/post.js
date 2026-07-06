@@ -183,13 +183,18 @@
     var id = (emb.getAttribute('data-ids') || '').split(',')[0].trim();
     if (!id) return;
     var url = 'https://www.etsy.com/listing/' + id;
+    var SHOP = 'https://www.etsy.com/shop/sentimentalica';
     var imgs = document.querySelectorAll('.post-body img, .post-hero-img');
     imgs.forEach(function (img) {
       if (img.closest('a') || img.closest('.etsy-products')) return;
+      // Neutral mood scenes (no product in frame) -> the whole shop;
+      // anything showing the product -> its listing.
+      var neutral = img.getAttribute('data-link') === 'shop' ||
+        (/\/gen[13]\.jpg/.test(img.src) && img.getAttribute('data-link') !== 'listing');
       var a = document.createElement('a');
-      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.href = neutral ? SHOP : url; a.target = '_blank'; a.rel = 'noopener';
       a.className = 'post-img-link';
-      a.title = 'See this collection on Etsy';
+      a.title = neutral ? 'Visit the Sentimentalica shop on Etsy' : 'See this collection on Etsy';
       img.parentNode.insertBefore(a, img);
       a.appendChild(img);
     });
