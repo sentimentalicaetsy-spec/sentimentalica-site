@@ -76,6 +76,16 @@ def main():
         w.writeheader()
         w.writerows(rows)
     print(f"✓ {p.name}: {len(rows)} pins")
+    # Mirror to Google Drive so Ksenia gets the file automatically
+    # (Drive Desktop syncs it; ready for Pinterest bulk upload).
+    drive = Path("/Users/kseniateter/My Drive/Sentimentalica/Pinterest_CSV")
+    try:
+        drive.mkdir(parents=True, exist_ok=True)
+        import shutil
+        shutil.copy2(p, drive / p.name)
+        print(f"→ Google Drive: Sentimentalica/Pinterest_CSV/{p.name}")
+    except Exception as e:
+        print(f"WARNING: Drive mirror failed ({e}) — CSV remains at {p}")
 
 
 if __name__ == "__main__":
