@@ -43,9 +43,10 @@ def main():
     import json as _json
     import urllib.request as _rq
     try:
-        feed = _json.load(_rq.urlopen(
+        req = _rq.Request(
             f"https://sentimentalica-etsy-feed.teter-album.workers.dev/?ids={etsy_id}",
-            timeout=20))
+            headers={"User-Agent": "sentimentalica-tools/1.0"})
+        feed = _json.load(_rq.urlopen(req, timeout=20))
         if feed.get("count", 0) < 1:
             sys.exit(f"NOT LIVE: {hit.stem} (etsy_id {etsy_id}) is not an active "
                      "Etsy listing (draft/inactive). Publish it on Etsy first — "
