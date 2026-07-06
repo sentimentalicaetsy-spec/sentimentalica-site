@@ -180,7 +180,29 @@ def mockup_v4(art_paths, prompt, width=832, height=1216):
         # protect the page area (shrink a hair so feathering can kiss edges)
         a = printed.split()[3].point(lambda v: 255 if v > 8 else 0)
         mask.paste(0, (x, y), a)
-    return inpaint_around(canvas.convert("RGB"), mask, prompt)
+    result = inpaint_around(canvas.convert("RGB"), mask, prompt)
+
+    # ── Tone harmonization (Ksenia 2026-07-06: page contrast/saturation must
+    # match the scene). Measure scene vs pages, nudge pages toward the scene.
+    from PIL import ImageEnhance, ImageStat
+    import numpy as _np
+    m = _np.array(mask) < 128          # True where pages are
+    arr = _np.array(result.convert("HSV")).astype(float)
+    if m.any() and (~m).any():
+        s_scene, v_scene = arr[..., 1][~m].mean(), arr[..., 2][~m].std()
+        s_page, v_page = arr[..., 1][m].mean(), arr[..., 2][m].std()
+        sat_f = 1 + 0.6 * ((s_scene / max(s_page, 1)) - 1)      # 60% toward scene
+        con_f = 1 + 0.6 * ((v_scene / max(v_page, 1)) - 1)
+        sat_f = min(max(sat_f, 0.6), 1.3)
+        con_f = min(max(con_f, 0.6), 1.3)
+        adjusted = ImageEnhance.Contrast(
+            ImageEnhance.Color(result).enhance(sat_f)).enhance(con_f)
+        from PIL import Image as _I
+        page_mask = _I.fromarray((m * 255).astype("uint8")).convert("L")
+        result = _I.composite(adjusted, result, page_mask)
+    # whisper meld: unify grain without degrading the art
+    result = meld(result, prompt, denoise=0.10)
+    return result
 
 def main():
     from PIL import Image
