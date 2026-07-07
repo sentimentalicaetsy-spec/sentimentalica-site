@@ -18,7 +18,8 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
   - `.claude/agents/` — copywriter, image-critic, qa-critic, pin-strategist, pinterest-seo…
   - `.claude/skills/` — `article`, `write-article`, `listing-content`, `content-cycle`.
   - `refs/` — **Ksenia's reference images (GROUND TRUTH)**: `scenes/`, `infographics/`, `50things/`.
-  - `content_plan.md` — the idea bank + used-ledger (pick topics from here; mark used).
+  - `content_plan.xlsx` — idea bank + used-ledger (Sheet 'Plan'). Read with openpyxl; pick an
+    unused row, match its `Scene refs` FILES, build, mark row published. Sheet 'How to use' explains columns.
   - Canonical docs: `ARTICLE_FUNCTION.md` (the runbook — READ FIRST),
     `PIN_STRATEGY.md`, `SCENE_STYLE.md`, `CONTENT_STYLE_BRIEF.md`, `PROJECT.md`.
   - `staging/` — work in progress (`staging/overnight/critic/` = critic verdicts).
@@ -46,13 +47,13 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    illustrates its adjacent paragraph. Listicle → full infographic in Ksenia's ref style.
 
 ## How to produce an article (the pipeline, in order)
-1. Pick a topic from `content_plan.md` (an unused row) or take Ksenia's request.
+1. Pick a topic from `content_plan.xlsx` (an unused row) or take Ksenia's request.
 2. `resolve_listing.py` — confirm the listing is LIVE; get palette/thumbs.
 3. Write the article (voice = approved articles; see `colorful-junk-journal-ideas…`).
 4. Generate images (`insert_generated_images.py`) — scenes judged vs `refs/scenes/`.
 5. **image-critic LOOKS at each image**, records verdict via `critic_gate.record(slug, slot, PASS|REGENERATE)`.
 6. `publish_post.py --push` — BLOCKS if any image isn't PASS. Fix, re-record, retry.
-7. Mark the `content_plan.md` row used (status=published + date + slug).
+7. Mark the `content_plan.xlsx` row used (status=published + date + slug).
 8. pinterest-seo → pins → `pin_csv.py` (auto-mirrors CSV to Google Drive).
 
 ## Secrets
