@@ -56,6 +56,23 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 7. Mark the `content_plan.xlsx` row used (status=published + date + slug).
 8. pinterest-seo → pins → `pin_csv.py` (auto-mirrors CSV to Google Drive).
 
+## The ideation funnel (how ideas get chosen — demand-first)
+Trigger: "напиши статью" / "напиши N статей" / "напиши статью под <listing>" /
+"предложи идеи" → skill `.claude/skills/write-article`.
+- `tools/content_planner.py` — deterministic slate: 65% lead-magnet / 35%
+  listing-bound; seasonal slots ONLY for windows open today (Pinterest ~30-45d
+  lead). Reads the Seasonal Calendar sheet. No off-season ideas.
+- `tools/plan_io.py` — reads Desire Library / Seasonal Calendar, appends idea
+  rows (auto-dedup), marks published.
+- 5 agents: **marketing-director** (allocates the slate + assigns territories) →
+  **desire-scout** (sharp timely angle) → **audience-strategist** (who + hook) →
+  **product-bridge** (product center/end/NONE — reach is valid) →
+  **marketing-critic** (ideation gate: kills product-first + off-season).
+- Modes: *auto* writes the articles; *curated* just fills `idea` rows for Ksenia
+  to tick `approved`. Everything flows through the /article machinery + critic gate.
+Inputs Ksenia owns: `refs/scenes/`, `refs/infographics/`, and the Desire Library
++ Seasonal Calendar sheets in `content_plan.xlsx`.
+
 ## Secrets
 Never in git. Cloudflare worker secrets / GitHub Actions secrets only
 (ETSY_API_KEY, ADMIN_PASSWORD, GITHUB_TOKEN, CLOUDFLARE_API_TOKEN). This repo is public.
