@@ -1,14 +1,19 @@
-# Референсы для пин-дизайна
+# Reference intake — Ksenia drops her real reference IMAGES here (as files)
 
-Положи сюда 5–8 скриншотов ЛУЧШИХ пинов конкурентов (я не могу открыть
-Pinterest сама — нужны именно картинки-файлы).
+These folders are the GROUND TRUTH. Every image the pipeline makes is judged
+against the files here — not against words. Empty folder = the agent is blind
+and falls back to my paraphrase (this is what caused "как об стенку горохом").
 
-- keepersandkeepsakes (https://pl.pinterest.com/keepersandkeepsakes/) — 5-8 пинов
-- + 2-3 других конкурента, если есть
+## refs/scenes/  — atmospheric scene references (the "gen3" bar)
+The dreamy, save-worthy corners a girl wants to escape INTO. Golden light,
+layered depth, mood. NOT bright sterile stock desks. Name them freely
+(e.g. cozy-terracotta-corner.jpg). The image-critic compares every scene to
+these; a scene that doesn't reach this bar = REGENERATE.
 
-Формат: .jpg / .png, любое имя. Можно подписать файл в стиле
-`keepers_01_collage.jpg`, но не обязательно.
+## refs/infographics/  — list/infographic layout references (the "50 things" bar)
+The exact grid/table style you want copied 1:1: readable font WITHOUT zooming,
+clear grid, real illustration. Drop the screenshot you keep sending.
+render_list_infographic.py must reproduce THIS, not my interpretation.
 
-По желанию — одной строкой к каждому: что именно в нём цепляет.
-
-Как положишь — скажи в чат, я разберу каждый и напишу стиль-бриф на утверждение.
+## refs/50things/  — (optional) the specific 50-things reference
+If the 50-things list has its own exact reference, put it here.

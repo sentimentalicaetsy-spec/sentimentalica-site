@@ -321,6 +321,14 @@ def main():
         meta["_thumb_rel"] = thumb
         meta["_thumb_url"] = thumb
 
+    # HARD CRITIC GATE — cannot be skipped. Every generated image the article
+    # uses must have a recorded critic PASS, or publish aborts here.
+    import critic_gate
+    ok, msg = critic_gate.require_all_pass(slug, body_html)
+    if not ok:
+        sys.exit("\n" + msg)
+    print(f"✓ {msg}")
+
     page = render_page(meta, slug, body_html)
     out_path.write_text(page)
     words = len(re.sub(r"<[^>]+>", " ", body_html).split())
