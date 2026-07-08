@@ -200,7 +200,7 @@ def render_page(meta, slug, body_html):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=3">
+<link rel="stylesheet" href="../assets/styles.css?v=4">
 <link rel="stylesheet" href="../assets/post.css?v=12">
 <script type="application/ld+json">{ld}</script>
 </head>

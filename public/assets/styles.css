@@ -27,17 +27,33 @@ body {
     radial-gradient(circle at 80% 70%, rgba(22, 48, 135, 0.03) 0%, transparent 50%);
 }
 
-/* Nav — clean header for now; custom banner PNG will drop in here */
+/* Nav + brand banner */
 .site-nav {
-  padding: 20px 60px;
+  --header-banner-height: clamp(150px, 33.333vw, 360px);
+  padding: calc(var(--header-banner-height) + 18px) 60px 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--pale-blue);
+  background: var(--cream);
   position: relative;
   box-shadow: 0 2px 10px rgba(42, 42, 58, 0.06);
   border-bottom: 1px solid var(--line);
   z-index: 3;
+}
+.site-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--header-banner-height);
+  background:
+    linear-gradient(180deg, rgba(250, 243, 230, 0) 70%, rgba(250, 243, 230, 0.88) 100%),
+    url("header-banner.png") center / cover no-repeat;
+  border-bottom: 1px solid rgba(201, 184, 150, 0.65);
+  pointer-events: none;
+}
+.site-nav > * {
+  position: relative;
+  z-index: 1;
 }
 .site-nav .logo-link {
   display: flex;
@@ -784,7 +800,13 @@ footer a:hover { color: var(--navy); }
 }
 
 @media (max-width: 900px) {
-  .site-nav { padding: 18px 24px; flex-direction: column; gap: 14px; }
+  .site-nav {
+    --header-banner-height: clamp(118px, 33.333vw, 220px);
+    padding: calc(var(--header-banner-height) + 14px) 24px 18px;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .site-nav::before { background-position: center top; }
   .site-nav ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
   .site-nav .logo-mark { width: 36px; height: 36px; }
   .site-nav .logo-text { font-size: 26px; }
