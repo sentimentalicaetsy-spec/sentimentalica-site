@@ -91,6 +91,12 @@ Ksenia's spec message dated 2026-07-05; this table is the working index.)
 - Composition building blocks (from validated mockups): "chaos scatter"
   (→ Variety/Problem), "bold hero + band" (→ Aesthetic/Theme), "big-number/
   question" (→ Stuck/Idea/Transformation). See `refs/mockups/`.
+- New ref taxonomy (2026-07-09):
+  `refs/branding/` defines the overall Sentimentalica visual identity and logo
+  blue; `refs/infographics/` defines useful/saveable graphic structures and the
+  special iPhone Notes format; `refs/scrapbook and junk jornal scenes/` defines
+  realistic journal/process/mockup imagery; `refs/scenes/` defines atmospheric
+  mood rooms/desks/workspaces.
 
 ## Marketing rule (final gate, enforced by QA)
 Each pin must solve one problem, trigger one desire, or offer one useful idea.

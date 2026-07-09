@@ -15,13 +15,30 @@
 **вертикальная история** (что-то свисает, что-то торчит из-под),
 **одна доминанта** + 5–8 поддерживающих текстур в палитре листинга.
 
-## Формула промпта сцены (вставлять в каждый scene-slot)
+## Типы визуалов и какие refs смотреть
+1. **Branding / graphic identity** → `refs/branding/`.
+   Это общий стиль Sentimentalica для любых тем: фирменный голубой логотипа,
+   бумажность, романтичный collage/journal feel, периодический bird/logo мотив
+   как штамп, кружево, woven/paper-cut detail.
+2. **Infographic / useful pin** → `refs/infographics/` + `refs/branding/`.
+   По умолчанию берём структуру полезной картинки и переделываем под branding.
+   Исключение: **iPhone Notes** формат — должен выглядеть как настоящая заметка
+   в айфоне с эмодзи/чеклистом/короткими строками, натурально и не "дизайнерски".
+3. **Scrapbook / junk journal realistic scene** →
+   `refs/scrapbook and junk jornal scenes/`. Это бывший "mockup": реалистичный
+   журнал, разворот, руки/девушка частично в кадре, процесс, ножницы/инструменты
+   если они выглядят натурально.
+4. **Atmospheric mood scene** → `refs/scenes/`: комнаты, столы, офисы, красивые
+   атмосферные места, куда хочется попасть.
+
+## Формула промпта atmospheric scene-slot
 "[доминанта сцены] surrounded by DENSE layers of [3–4 текстуры: torn aged
 papers / lace / tulle / dried <цветы палитры>], [палитра: назвать 2–3 цвета
 листинга] tones, dramatic golden side light with deep soft shadows, rich
 editorial magazine photography, 85mm lens, shallow depth of field, every
 corner filled with texture, photorealistic"
-+ негатив стандартный (без ножниц/рук/людей/иллюстраций).
++ негатив стандартный против watermark/text/logo/low quality/deformed hands,
+но НЕ абсолютный запрет рук/ножниц для realistic journal scenes.
 
 ## Проверка
 Каждую сцену смотрит `image-critic`; вопрос: «сохранил бы ЭТО ради эстетики?»
@@ -53,7 +70,11 @@ corner filled with texture, photorealistic"
    по сетке + бутылочки чернил, горшочек, тёмное дерево. Ключ: collector's
    grid, muted greens, apothecary props.
 
-Запрещённое остаётся: ножницы/руки/люди, стиль «как акварель из набора».
+Запрещённое остаётся: стиль «как акварель из набора» и любые AI-артефакты.
+Руки/часть девушки/ножницы больше НЕ абсолютный запрет: они допустимы только в
+realistic scrapbook/junk journal сценах, если это прямо похоже на refs из
+`refs/scrapbook and junk jornal scenes/`. Плохие пальцы, creepy hands, фокус на
+руках вместо журнала, фейковые ножницы = REGENERATE.
 Планка приёмки image-critic: «Я бы СОХРАНИЛА это» — иначе REGENERATE.
 ## Библиотека ИНФОГРАФИК-пинов (9 референсов Ксении, 2026-07-06)
 Жанр «сохранят тысячи»: польза/успокоение прямо НА картинке. Форматы:

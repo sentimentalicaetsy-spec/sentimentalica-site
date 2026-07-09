@@ -29,10 +29,16 @@ BLOG = REPO / "public" / "blog"
 PROMPTS = REPO / "staging" / "overnight" / "prompts"
 A1111 = "http://127.0.0.1:7860"
 
-DEFAULT_NEG = ("text, watermark, logo, low quality, blurry, cartoon, anime, "
-               "oversaturated, scissors, hands, fingers, people, person, "
-               "deformed objects, watercolor illustration, painted illustration, "
-               "drawing, illustration style, painting style")
+# Realistic scenes/mockups negative. CHANGED 2026-07-09 (see refs/branding/BRAND.md):
+# the blanket ban on hands/fingers/scissors/people was REMOVED — cropped hands,
+# a girl holding a journal, scissors and craft tools are now WANTED when natural.
+# We keep photoreal pushers (no cartoon/anime/illustration) + AI hand-safety.
+# NOTE: branded ILLUSTRATED infographics use a different negative (illustration is
+# wanted there) — that path lives in the infographic renderer, not here.
+DEFAULT_NEG = ("low quality, blurry, jpeg artifacts, watermark, signature, "
+               "gibberish text, cartoon, anime, 3d render, oversaturated, "
+               "deformed hands, extra fingers, mutated hands, missing fingers, "
+               "disfigured face, ugly, extra limbs")
 
 
 def generate(prompt, negative, width, height):
