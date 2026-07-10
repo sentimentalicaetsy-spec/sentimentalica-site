@@ -85,8 +85,14 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
 - **The article is built FOR Pinterest**: every block is a future pin. Images
   must be either stunning or useful (infographic-style). Pure listing ads are
   banned — value first.
-- **Kit carousel** (single-listing article): right after the lead, a
-  `<div class="kit-carousel">` with >=3 REAL kit pages (pageN.jpg from the customer folder — NEVER Etsy thumbnails; arrows+dots auto-added). All in-article imagery must be Pinterest-beautiful AND make sense in the flow.
+- **Visual density:** an iPhone Notes/list infographic does NOT replace the
+  rest of the image plan. Every article needs both saveable useful graphics and
+  desire visuals (generated scene/mockup and/or real pages). When a listing is
+  involved, include a 3-5 image real-page carousel in the product section.
+- **Kit carousel** (single-listing article): use a `<div class="kit-carousel">`
+  with >=3 REAL kit pages (pageN.jpg from the customer folder — NEVER Etsy
+  thumbnails; arrows+dots auto-added). For neutral/listicle articles, keep this
+  carousel near the product section so the article remains value-first.
 - **An image for EVERY numbered point** (6 ways = 6 images): real pages/crops
   or generated scenes. People look, they don't read.
 - **Hands/scissors/partial girl are allowed only in realistic reference-backed
