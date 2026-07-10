@@ -39,8 +39,9 @@ Default infographic rule:
 Special recurring subtype:
 - **iPhone Notes infographic**: a graphic that looks authentically like a real
   iPhone Notes screenshot/list, with check circles/dashes and short natural
-  lines. Do **not** use emoji as the first character of list items; emoji can
-  appear inside or after a line only when the reference makes it feel authentic.
+  lines. Emoji are allowed and often good when the reference supports them:
+  use them in the title, a small cluster, inline, or at the end of a line.
+  Do **not** use emoji as the first character of list items or as bullet markers.
   This is the only infographic mode that may deliberately NOT look like the
   branded paper-collage style. It should feel natural, not overdesigned.
   Put these refs in Ksenia's folder `refs/iphone notes/` first. Legacy/extra

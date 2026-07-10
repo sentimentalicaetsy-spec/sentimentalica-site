@@ -77,7 +77,8 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
 - **Generated ≠ product (anti-misleading):** illustrative generations are either
   clearly PHOTOGRAPHIC (atmospheric scene / realistic scrapbook-journal scene /
   mockup) or clearly GRAPHIC (diagram/"5 ideas" infographic / iPhone Notes list
-  from `refs/iphone notes/`, with no emoji at the start of list items)
+  from `refs/iphone notes/`, with emoji allowed in the title/cluster/inside or
+  after lines, but never as the first character/bullet marker)
   — never artwork in the listing's watercolor style. Scenes must NOT depict the
   listing's subject (no dogs in a dog-pack article, no cats in a cat one) —
   environment/process only: desk, journal, paper, light, tools. Anything that
@@ -87,8 +88,9 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   banned — value first.
 - **Visual density:** an iPhone Notes/list infographic does NOT replace the
   rest of the image plan. Every article needs both saveable useful graphics and
-  desire visuals (generated scene/mockup and/or real pages). When a listing is
-  involved, include a 3-5 image real-page carousel in the product section.
+  desire visuals (generated scene/mockup and/or real listing page assets). When
+  a listing is involved, include a 3-5 image carousel in the product section
+  using real `pageN.jpg`/customer assets, not Etsy thumbnails/previews.
 - **Kit carousel** (single-listing article): use a `<div class="kit-carousel">`
   with >=3 REAL kit pages (pageN.jpg from the customer folder — NEVER Etsy
   thumbnails; arrows+dots auto-added). For neutral/listicle articles, keep this
