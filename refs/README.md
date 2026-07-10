@@ -4,6 +4,14 @@ These folders are the GROUND TRUTH. Every image the pipeline makes is judged
 against the files here — not against words. Empty folder = the agent is blind
 and falls back to my paraphrase (this is what caused "как об стенку горохом").
 
+Important: previous outputs from Claude/Codex/renderers, staging assets, live
+article images, or demo graphics are **not** references. Ksenia's references are
+only the files she intentionally puts under `refs/`.
+
+Refs are visual ground truth for taste, structure, and critique. Do **not** copy
+or publish a ref image itself as an article/pin asset unless Ksenia explicitly
+marks that exact file as a production/brand-owned asset to reuse.
+
 There are FIVE kinds of "how it should look" references, and they are different:
 
 ## 1. refs/branding/ — global Sentimentalica visual identity
