@@ -1,6 +1,16 @@
 {
   "posts": [
     {
+      "slug": "what-to-journal-when-you-have-nothing-to-say",
+      "title": "What to Journal When You Have Nothing to Say",
+      "category": "Journaling Ideas",
+      "excerpt": "A gentle list of tiny page starters for the blank-page feeling: colors, scraps, moods, and one honest sentence at a time.",
+      "date": "2026-07-10",
+      "dateDisplay": "Jul 10",
+      "readTime": "2 min read",
+      "thumb": "blog/img/what-to-journal-when-you-have-nothing-to-say/gen1.jpg"
+    },
+    {
       "slug": "20-minute-creative-reset",
       "title": "A 20-Minute Creative Reset for When Your Desk Feels Too Loud",
       "category": "Creative Rituals",
