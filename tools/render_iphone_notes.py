@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Render an AUTHENTIC iPhone Notes screenshot as a Pinterest infographic.
 
-Ksenia's special infographic subtype: a graphic that looks like a real iOS Notes
-note — status bar, "< Notes" nav, bold title, grey date, casual lines with REAL
-colour emoji. Natural, not overdesigned (the one mode that is NOT the branded
-paper style). Text is code-rendered; emoji use Apple Color Emoji.
+Ksenia's refs (refs/iphone notes/): a real iOS Notes note — status bar, "< Notes"
+nav, bold title (may hold 1-2 emoji), a small EMOJI CLUSTER row under the title,
+then list items as CHECKBOX CIRCLES or DASHES with plain text. Emoji may TRAIL an
+item, but NEVER lead every bullet. Bottom iOS toolbar. Natural, not overdesigned.
 
 Usage:
-  python tools/render_iphone_notes.py --title "..." --lines "line1" "line2" ... \
-      [--out path.png] [--dark]
-Emoji: put the emoji as the first character(s) of a line, or inline — handled.
+  python tools/render_iphone_notes.py --title "journal ideas 💖" \
+      --emojis "💌🎧📓🤎" --bullet circle --lines "Welcome page 💐" "Things I love 💕" ...
 """
 import argparse
 from pathlib import Path
@@ -19,7 +18,7 @@ W, H = 1080, 1920
 SF = "/System/Library/Fonts/SFNS.ttf"
 HELV = "/System/Library/Fonts/Helvetica.ttc"
 EMOJI = "/System/Library/Fonts/Apple Color Emoji.ttc"
-EMOJI_STRIKE = 48  # a valid Apple Color Emoji bitmap size
+EMOJI_STRIKE = 48
 NOTES_YELLOW = (240, 185, 20)
 
 
@@ -54,7 +53,6 @@ def _emoji_img(ch, size):
 
 
 def _tokens(text):
-    """Split a string into ('t', run) text and ('e', ch) emoji tokens."""
     out, buf, i = [], "", 0
     while i < len(text):
         cp = ord(text[i])
@@ -62,8 +60,8 @@ def _tokens(text):
             if buf:
                 out.append(("t", buf)); buf = ""
             ch = text[i]; j = i + 1
-            while j < len(text) and ord(text[j]) in (0xFE0F, 0x200D) or (
-                    j < len(text) and 0x1F3FB <= ord(text[j]) <= 0x1F3FF):
+            while j < len(text) and (ord(text[j]) in (0xFE0F, 0x200D)
+                                     or 0x1F3FB <= ord(text[j]) <= 0x1F3FF):
                 ch += text[j]; j += 1
                 if j < len(text) and _is_emoji(ord(text[j])):
                     ch += text[j]; j += 1
@@ -77,7 +75,7 @@ def _tokens(text):
 
 def draw_rich(d, canvas, xy, text, fnt, fill, emoji_size=None):
     x, y = xy
-    es = emoji_size or int(fnt.size * 1.05)
+    es = emoji_size or int(fnt.size * 1.02)
     ascent = fnt.getbbox("Ag")[3]
     for kind, val in _tokens(text):
         if kind == "t":
@@ -86,71 +84,102 @@ def draw_rich(d, canvas, xy, text, fnt, fill, emoji_size=None):
         else:
             try:
                 em = _emoji_img(val, es)
-                canvas.paste(em, (x, y + (ascent - es) // 2 + 2), em)
-                x += em.width + 6
+                canvas.paste(em, (x + 3, y + (ascent - es) // 2 + 2), em)
+                x += em.width + 8
             except Exception:
                 x += es
     return x
 
 
-def _statusbar(d, canvas):
-    d.text((54, 22), "9:41", font=font(34, bold=True), fill=(0, 0, 0))
-    # cellular bars
-    bx = W - 260
+def _rich_width(d, text, fnt):
+    es = int(fnt.size * 1.02)
+    return sum(d.textlength(v, font=fnt) if k == "t" else es + 8
+               for k, v in _tokens(text))
+
+
+def _statusbar(d, carrier="CLARO CL"):
+    d.text((44, 22), "22:32", font=font(34, bold=True), fill=(0, 0, 0))
+    bx = W - 268
     for i, h in enumerate((10, 16, 22, 28)):
-        d.rounded_rectangle([bx + i * 16, 52 - h, bx + i * 16 + 10, 52],
-                            radius=2, fill=(0, 0, 0))
-    # wifi (three arcs approximated by a filled fan)
-    wx = W - 170
-    d.pieslice([wx, 24, wx + 46, 70], 200, 340, fill=(0, 0, 0))
-    # battery
+        d.rounded_rectangle([bx + i * 16, 52 - h, bx + i * 16 + 10, 52], radius=2, fill=(0, 0, 0))
+    # wifi: three stacked arcs
+    wx, wy = W - 176, 50
+    for rr, wd in ((30, 6), (20, 6), (10, 6)):
+        d.arc([wx - rr, wy - rr, wx + rr, wy + rr], 220, 320, fill=(0, 0, 0), width=wd)
+    d.ellipse([wx - 4, wy - 4, wx + 4, wy + 4], fill=(0, 0, 0))
     d.rounded_rectangle([W - 96, 26, W - 40, 50], radius=6, outline=(0, 0, 0), width=3)
-    d.rounded_rectangle([W - 92, 30, W - 52, 46], radius=3, fill=(0, 0, 0))
+    d.rounded_rectangle([W - 92, 30, W - 62, 46], radius=3, fill=(0, 0, 0))
     d.rounded_rectangle([W - 38, 33, W - 33, 43], radius=2, fill=(0, 0, 0))
 
 
-def _navbar(d, canvas, y=84):
-    d.line([(64, y + 14), (44, y + 30), (64, y + 46)], fill=NOTES_YELLOW, width=6, joint="curve")
-    d.text((78, y + 8), "Notes", font=font(38), fill=NOTES_YELLOW)
-    # right icons: share + compose (simple glyphs)
-    sx = W - 190
-    d.rounded_rectangle([sx, y + 12, sx + 44, y + 52], radius=8, outline=NOTES_YELLOW, width=5)
-    d.line([(sx + 22, y + 6), (sx + 22, y + 34)], fill=NOTES_YELLOW, width=5)
-    d.line([(sx + 12, y + 16), (sx + 22, y + 6), (sx + 32, y + 16)], fill=NOTES_YELLOW, width=5, joint="curve")
-    cx = W - 108
-    d.line([(cx, y + 48), (cx + 40, y + 8)], fill=NOTES_YELLOW, width=6)
-    d.line([(cx + 40, y + 8), (cx + 52, y + 20), (cx + 12, y + 60), (cx - 2, y + 50)],
+def _navbar(d, y=84):
+    d.line([(60, y + 14), (40, y + 30), (60, y + 46)], fill=NOTES_YELLOW, width=6, joint="curve")
+    d.text((74, y + 8), "Notes", font=font(38), fill=NOTES_YELLOW)
+    cx = W - 92
+    d.ellipse([cx - 26, y + 4, cx + 26, y + 56], outline=NOTES_YELLOW, width=5)
+    for dx in (-11, 0, 11):
+        d.ellipse([cx + dx - 3, y + 27, cx + dx + 3, y + 33], fill=NOTES_YELLOW)
+
+
+def _bottombar(d):
+    y = H - 96
+    d.line([(0, y - 30), (W, y - 30)], fill=(232, 232, 234), width=2)
+    # checklist
+    x = 70
+    for oy in (0, 26):
+        d.ellipse([x, y + oy, x + 18, y + oy + 18], outline=NOTES_YELLOW, width=4)
+        d.line([(x + 30, y + oy + 9), (x + 78, y + oy + 9)], fill=NOTES_YELLOW, width=4)
+    # camera
+    cx = W // 2 - 150
+    d.rounded_rectangle([cx, y, cx + 70, y + 50], radius=10, outline=NOTES_YELLOW, width=4)
+    d.ellipse([cx + 22, y + 12, cx + 48, y + 38], outline=NOTES_YELLOW, width=4)
+    # pen in circle
+    px = W // 2 + 60
+    d.ellipse([px, y, px + 50, y + 50], outline=NOTES_YELLOW, width=4)
+    d.line([(px + 16, y + 34), (px + 34, y + 16)], fill=NOTES_YELLOW, width=4)
+    # compose
+    ex = W - 150
+    d.line([(ex, y + 46), (ex + 40, y + 6)], fill=NOTES_YELLOW, width=6)
+    d.line([(ex + 40, y + 6), (ex + 52, y + 18), (ex + 12, y + 58), (ex, y + 46)],
            fill=NOTES_YELLOW, width=5, joint="curve")
 
 
-def render(title, lines, out, dark=False):
+def render(title, lines, out, emojis="", bullet="circle", dark=False):
     bg = (28, 28, 30) if dark else (255, 255, 255)
-    ink = (245, 245, 247) if dark else (26, 26, 26)
+    ink = (40, 40, 42) if dark else (44, 44, 46)
     grey = (150, 150, 155)
     canvas = Image.new("RGB", (W, H), bg)
     d = ImageDraw.Draw(canvas)
     if not dark:
-        _statusbar(d, canvas)
-    _navbar(d, canvas)
+        _statusbar(d)
+    _navbar(d)
 
-    x0, y = 66, 200
-    # title (bold, wraps)
-    tf = font(64, bold=True)
+    x0, y = 60, 190
+    tf = font(70, bold=True)
     for line in _wrap(d, title, tf, W - 2 * x0):
-        draw_rich(d, canvas, (x0, y), line, tf, ink)
-        y += 82
-    # date subtitle (centered grey)
-    sub = "Today  9:41"
-    sf = font(30)
-    d.text(((W - d.textlength(sub, font=sf)) / 2, y + 4), sub, font=sf, fill=grey)
-    y += 74
-    # body lines
-    bf = font(46)
-    for line in lines:
-        for seg in _wrap(d, line, bf, W - 2 * x0):
-            draw_rich(d, canvas, (x0, y), seg, bf, ink)
-            y += 74
+        draw_rich(d, canvas, (x0, y), line, tf, (26, 26, 28), emoji_size=64)
+        y += 92
+    # emoji cluster row under the title (decorative — NOT per-bullet)
+    if emojis:
+        draw_rich(d, canvas, (x0 + 4, y), emojis, font(46), grey, emoji_size=52)
+        y += 76
+    else:
         y += 12
+
+    bf = font(46)
+    tx = x0 + 82  # text start after the bullet marker
+    for line in lines:
+        segs = _wrap(d, line, bf, W - tx - x0)
+        # bullet marker on the first wrapped segment
+        if bullet == "dash":
+            d.text((x0 + 6, y - 2), "–", font=font(48), fill=grey)
+        else:
+            d.ellipse([x0 + 6, y + 8, x0 + 44, y + 46], outline=(178, 178, 182), width=4)
+        for k, seg in enumerate(segs):
+            draw_rich(d, canvas, (tx, y), seg, bf, ink)
+            y += 70
+        y += 8
+    _bottombar(d)
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     canvas.save(out, quality=92)
     return out
@@ -160,10 +189,7 @@ def _wrap(d, text, fnt, maxw):
     words, lines, cur = text.split(" "), [], ""
     for w in words:
         t = (cur + " " + w).strip()
-        # emoji count as ~1.3 chars width; approximate with textlength on text-only
-        tl = sum(d.textlength(v, font=fnt) if k == "t" else fnt.size * 1.1
-                 for k, v in _tokens(t))
-        if tl <= maxw or not cur:
+        if _rich_width(d, t, fnt) <= maxw or not cur:
             cur = t
         else:
             lines.append(cur); cur = w
@@ -175,11 +201,13 @@ def _wrap(d, text, fnt, maxw):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--title", required=True)
+    ap.add_argument("--emojis", default="")
+    ap.add_argument("--bullet", choices=["circle", "dash"], default="circle")
     ap.add_argument("--lines", nargs="+", required=True)
     ap.add_argument("--out", default="staging/overnight/assets/_samples/iphone_notes.png")
     ap.add_argument("--dark", action="store_true")
     a = ap.parse_args()
-    print("wrote", render(a.title, a.lines, a.out, a.dark))
+    print("wrote", render(a.title, a.lines, a.out, a.emojis, a.bullet, a.dark))
 
 
 if __name__ == "__main__":
