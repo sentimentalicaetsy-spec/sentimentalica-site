@@ -80,8 +80,8 @@
   пересказом в SCENE_STYLE.md. Пустая релевантная папка = агент слепой.
   Типы refs:
   `refs/branding/` = общий Sentimentalica look (голубой логотипа, бумажность,
-  bird/logo мотивы); `refs/infographics/` = полезные графики + iPhone Notes
-  subtype; `refs/scrapbook and junk jornal scenes/` = реалистичные journal/mockup/
+  bird/logo мотивы); `refs/infographics/` = полезные графики; `refs/iphone notes/`
+  = authentic iPhone Notes subtype; `refs/scrapbook and junk jornal scenes/` = реалистичные journal/mockup/
   process сцены; `refs/scenes/` = атмосферные комнаты/столы/офисы; `refs/50things/`
   = спец-референс для 50 things.
 - **Никаких котов/собак в чужих темах; фото животного в нейтральной статье =
@@ -91,8 +91,9 @@
   инфографику (`render_list_infographic.py` или будущий renderer), но стиль
   теперь определяется `refs/infographics/` + `refs/branding/`: полезная структура
   должна быть переделана в Sentimentalica look. Исключение — iPhone Notes
-  инфографика: она должна выглядеть как настоящая заметка в айфоне с эмодзи/
-  чеклистом, натурально и не overdesigned.
+  инфографика: она должна выглядеть как настоящая заметка в айфоне по
+  `refs/iphone notes/`, натурально и не overdesigned. Emoji НЕ используются как
+  маркеры в начале пунктов; если нужны, только внутри/в конце строки и умеренно.
 - **image-critic смотрит ВСЁ визуальное перед публикацией** — не только
   SD-генерации, но и рендеренную графику (инфографики, палитры-карточки,
   мокапы). Ничто не публикуется без его PASS. Нарушение этого шага — причина

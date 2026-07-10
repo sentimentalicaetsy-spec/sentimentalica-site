@@ -30,11 +30,13 @@ Default infographic rule:
 
 Special recurring subtype:
 - **iPhone Notes infographic**: a graphic that looks authentically like a real
-  iPhone Notes screenshot/list, with casual emoji/checkmarks/short lines.
+  iPhone Notes screenshot/list, with check circles/dashes and short natural
+  lines. Do **not** use emoji as the first character of list items; emoji can
+  appear inside or after a line only when the reference makes it feel authentic.
   This is the only infographic mode that may deliberately NOT look like the
   branded paper-collage style. It should feel natural, not overdesigned.
-  Put these refs in `refs/infographics/` and name them with `iphone-notes`
-  when possible, or create `refs/infographics/iphone-notes/`.
+  Put these refs in Ksenia's folder `refs/iphone notes/` first. Legacy/extra
+  refs may also live in `refs/infographics/iphone-notes/`.
 
 ## 3. refs/scrapbook and junk jornal scenes/ — realistic journal/scrapbook scenes
 This folder is what we previously called "mockup" direction. These are realistic
@@ -74,5 +76,6 @@ If the 50-things list has its own exact reference, put it here.
 ---
 ### Naming recap
 Theme-in-filename for scenes (so the agent picks the right one per desire).
-For iPhone Notes refs, include `iphone-notes` in the filename. More realistic
-journal/scrapbook scenes = better. Branding refs define the global look.
+For iPhone Notes refs, use `refs/iphone notes/` and include `iphone-notes` in
+the filename when possible. More realistic journal/scrapbook scenes = better.
+Branding refs define the global look.

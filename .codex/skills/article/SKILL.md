@@ -75,11 +75,13 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   (it LOOKS at the file): PASS or REGENERATE with a concrete prompt fix
   (max 2 rounds).
 - **Generated ≠ product (anti-misleading):** illustrative generations are either
-  clearly PHOTOGRAPHIC (scene/mockup) or clearly GRAPHIC (diagram/"5 ideas"
-  infographic) — never artwork in the listing's watercolor style. Scenes must
-  NOT depict the listing's subject (no dogs in a dog-pack article, no cats in a
-  cat one) — environment only: desk, paper, light, objects. Anything that could
-  be mistaken for a page from the set is banned.
+  clearly PHOTOGRAPHIC (atmospheric scene / realistic scrapbook-journal scene /
+  mockup) or clearly GRAPHIC (diagram/"5 ideas" infographic / iPhone Notes list
+  from `refs/iphone notes/`, with no emoji at the start of list items)
+  — never artwork in the listing's watercolor style. Scenes must NOT depict the
+  listing's subject (no dogs in a dog-pack article, no cats in a cat one) —
+  environment/process only: desk, journal, paper, light, tools. Anything that
+  could be mistaken for a page from the set is banned.
 - **The article is built FOR Pinterest**: every block is a future pin. Images
   must be either stunning or useful (infographic-style). Pure listing ads are
   banned — value first.
@@ -87,7 +89,10 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   `<div class="kit-carousel">` with >=3 REAL kit pages (pageN.jpg from the customer folder — NEVER Etsy thumbnails; arrows+dots auto-added). All in-article imagery must be Pinterest-beautiful AND make sense in the flow.
 - **An image for EVERY numbered point** (6 ways = 6 images): real pages/crops
   or generated scenes. People look, they don't read.
-- **NEVER prompt scissors, hands, fingers, or people** in scenes — classic AI slop; the default negative bans them, do not override.
+- **Hands/scissors/partial girl are allowed only in realistic reference-backed
+  journal scenes:** use `refs/scrapbook and junk jornal scenes/` as the bar.
+  In atmospheric scenes avoid them by default. Bad hands/fingers/tools =
+  REGENERATE.
 - **Article thumbnail must NEVER equal the Etsy cover** — after generation run
   `python3 tools/set_article_thumb.py <slug> gen2.jpg` (mockup scene as the
   marketing thumb; if SD failed, any pageN/imgN except img1).

@@ -2,9 +2,10 @@
 """Render an AUTHENTIC iPhone Notes screenshot as a Pinterest infographic.
 
 Ksenia's refs (refs/iphone notes/): a real iOS Notes note — status bar, "< Notes"
-nav, bold title (may hold 1-2 emoji), a small EMOJI CLUSTER row under the title,
-then list items as CHECKBOX CIRCLES or DASHES with plain text. Emoji may TRAIL an
-item, but NEVER lead every bullet. Bottom iOS toolbar. Natural, not overdesigned.
+nav, bold title (may hold 1-2 emoji), optional small EMOJI CLUSTER row under the
+title, then list items as CHECKBOX CIRCLES or DASHES with plain text. Emoji may
+trail or sit inside an item, but NEVER start a bullet line. Bottom iOS toolbar.
+Natural, not overdesigned.
 
 Usage:
   python tools/render_iphone_notes.py --title "journal ideas 💖" \
@@ -71,6 +72,19 @@ def _tokens(text):
     if buf:
         out.append(("t", buf))
     return out
+
+
+def _strip_leading_emoji_bullet(text):
+    """Remove emoji-as-bullet prefixes while preserving inline/trailing emoji."""
+    s = text.lstrip()
+    changed = True
+    while changed and s:
+        changed = False
+        toks = _tokens(s)
+        if toks and toks[0][0] == "e":
+            s = s[len(toks[0][1]):].lstrip(" \t-–—•·.:)")
+            changed = True
+    return s
 
 
 def draw_rich(d, canvas, xy, text, fnt, fill, emoji_size=None):
@@ -169,6 +183,7 @@ def render(title, lines, out, emojis="", bullet="circle", dark=False):
     bf = font(46)
     tx = x0 + 82  # text start after the bullet marker
     for line in lines:
+        line = _strip_leading_emoji_bullet(line)
         segs = _wrap(d, line, bf, W - tx - x0)
         # bullet marker on the first wrapped segment
         if bullet == "dash":

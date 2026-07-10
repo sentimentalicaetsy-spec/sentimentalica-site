@@ -40,12 +40,20 @@ Required shared tools:
 
 - The critic is a code gate. `publish_post.py` blocks without every generated
   image PASS in `staging/overnight/critic/<slug>.json`.
-- References are files in `refs/`, never word descriptions.
+- References are files in `refs/`, never word descriptions:
+  `refs/branding/` for global Sentimentalica identity and logo blue,
+  `refs/infographics/` for useful graphics,
+  `refs/iphone notes/` for the authentic iPhone Notes subtype (no emoji at the
+  start of list items),
+  `refs/scrapbook and junk jornal scenes/` for realistic journal/mockup/process,
+  `refs/scenes/` for atmospheric mood, `refs/50things/` for that exact format.
 - Product-language accuracy is absolute.
 - On-theme only; no off-theme animals.
 - Only LIVE listings.
 - Neutral/listicle articles are value-first; products belong at the end.
 - Listicles require full infographics in Ksenia's reference style.
+- Hands/scissors/partial girl are allowed only in realistic reference-backed
+  journal scenes; bad hands/fingers/tools still fail image critic.
 
 ## Commands
 

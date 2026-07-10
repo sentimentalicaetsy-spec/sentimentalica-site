@@ -47,6 +47,11 @@ in publish_post.py (publish is blocked without every image PASS). Then
 `plan_io.mark_published(slug)`.
 Lead-magnet/neutral rows: pure value, product at the END only, every image
 illustrates its adjacent paragraph. On-theme listings only — never off-theme animals.
+Visual refs are typed: `refs/branding/` = global Sentimentalica look,
+`refs/infographics/` = useful graphics, `refs/iphone notes/` = authentic
+iPhone Notes subtype with no emoji at the start of list items,
+`refs/scrapbook and junk jornal scenes/` = realistic journal/mockup/process,
+`refs/scenes/` = atmospheric mood.
 
 ## 6. Pins → CSV (MANDATORY finale of every article — do not skip)
 After each article is live, invoke the **pinterest-seo** agent on it: it writes

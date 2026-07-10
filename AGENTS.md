@@ -19,7 +19,8 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
   - `.claude/skills/` — `article`, `write-article`, `listing-content`, `content-cycle`.
   - `refs/` — **Ksenia's reference images (GROUND TRUTH)**:
     `branding/` (global Sentimentalica look + logo blue), `infographics/`
-    (useful/list graphics + iPhone Notes subtype), `scrapbook and junk jornal scenes/`
+    (useful/list graphics), `iphone notes/` (authentic iPhone Notes subtype),
+    `scrapbook and junk jornal scenes/`
     (realistic journal/mockup/process scenes), `scenes/` (atmospheric mood),
     `50things/`.
   - `content_plan.xlsx` — idea bank + used-ledger (Sheet 'Plan'). Read with openpyxl; pick an
