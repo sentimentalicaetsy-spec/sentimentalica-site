@@ -1,6 +1,106 @@
 {
   "posts": [
     {
+      "slug": "ten-minute-paper-sorting-ritual",
+      "title": "A 10-Minute Paper Sorting Ritual for Junk Journalers",
+      "category": "Creative Rituals",
+      "excerpt": "A product-free paper sorting ritual for deciding which scraps to keep, save for later, or let go.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/ten-minute-paper-sorting-ritual/paper-sorting-notes.png"
+    },
+    {
+      "slug": "one-printable-page-three-journal-uses",
+      "title": "One Printable Page, Three Journal Uses",
+      "category": "Tutorial",
+      "excerpt": "Three simple ways to use a printable page when it feels too pretty to cut into.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/one-printable-page-three-journal-uses/one-page.jpg"
+    },
+    {
+      "slug": "use-printable-pages-as-writing-prompts",
+      "title": "How to Use Printable Pages as Writing Prompts",
+      "category": "Journaling Ideas",
+      "excerpt": "A practical way to turn printable junk journal pages into writing prompts and memory starters.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/use-printable-pages-as-writing-prompts/prompt-silver.jpg"
+    },
+    {
+      "slug": "wedding-keepsake-journal-page-ideas",
+      "title": "Wedding Keepsake Journal Page Ideas That Feel Quiet",
+      "category": "Keepsake Journaling",
+      "excerpt": "Soft wedding keepsake journal ideas using ribbons, pockets, lace, and quiet romantic printable pages.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/wedding-keepsake-journal-page-ideas/wedding-keepsake-notes.png"
+    },
+    {
+      "slug": "dusty-blue-terracotta-junk-journal-palette",
+      "title": "A Dusty Blue and Terracotta Junk Journal Palette to Steal",
+      "category": "Color Palette",
+      "excerpt": "A saveable palette idea using dusty blue, terracotta, blush, plum, and antique cream.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/dusty-blue-terracotta-junk-journal-palette/vivid-medley-palette.jpg"
+    },
+    {
+      "slug": "mixing-cat-and-dog-pages-in-one-pet-journal",
+      "title": "Mixing Cat and Dog Pages in One Pet Journal",
+      "category": "Theme Ideas",
+      "excerpt": "A pet journal idea that combines cat and dog printable pages without making the journal feel chaotic.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/mixing-cat-and-dog-pages-in-one-pet-journal/cat-page.jpg"
+    },
+    {
+      "slug": "soft-dog-junk-journal-theme-ideas",
+      "title": "Soft Dog Junk Journal Theme Ideas for Pet Memory Pages",
+      "category": "Theme Ideas",
+      "excerpt": "A calm, nostalgic way to use dog-themed printable pages in pet memory journals.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/soft-dog-junk-journal-theme-ideas/dog-page1.jpg"
+    },
+    {
+      "slug": "cat-junk-journal-theme-without-looking-childish",
+      "title": "A Cat Junk Journal Theme Without Looking Childish",
+      "category": "Theme Ideas",
+      "excerpt": "How to style a cat-themed junk journal page so it feels soft, floral, and grown-up.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/cat-junk-journal-theme-without-looking-childish/cat-page1.jpg"
+    },
+    {
+      "slug": "maximalist-junk-journal-page-starters",
+      "title": "Maximalist Junk Journal Page Starters That Still Feel Pretty",
+      "category": "Journaling Ideas",
+      "excerpt": "A colorful, practical guide to starting a maximalist junk journal page without letting it become visual noise.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/maximalist-junk-journal-page-starters/vivid-page1.jpg"
+    },
+    {
+      "slug": "soft-romantic-printable-pages-comparison",
+      "title": "Soft Romantic Printable Pages: Silver Vow vs Silk Promise",
+      "category": "Kit Comparison",
+      "excerpt": "A side-by-side look at two romantic printable page moods: silver keepsake softness and sage garden elegance.",
+      "date": "2026-07-11",
+      "dateDisplay": "Jul 11",
+      "readTime": "1 min read",
+      "thumb": "blog/img/soft-romantic-printable-pages-comparison/silver-page1.jpg"
+    },
+    {
       "slug": "what-to-journal-when-you-have-nothing-to-say",
       "title": "What to Journal When You Have Nothing to Say",
       "category": "Journaling Ideas",
