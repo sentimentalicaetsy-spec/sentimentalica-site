@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "rainy-afternoon-journal-ideas",
+      "title": "Rainy Afternoon Journal Ideas",
+      "category": "Journaling Ideas",
+      "excerpt": "Six cozy, product-free ideas for making a journal page when the weather is soft and slow.",
+      "date": "2026-07-12",
+      "dateDisplay": "Jul 12",
+      "readTime": "1 min read",
+      "thumb": "blog/img/rainy-afternoon-journal-ideas/gen1.jpg"
+    },
+    {
+      "slug": "start-a-journal-page-with-one-receipt",
+      "title": "Start a Journal Page With One Receipt",
+      "category": "Tutorial",
+      "excerpt": "A product-free page-starting technique for turning one ordinary receipt into a layered junk journal spread.",
+      "date": "2026-07-12",
+      "dateDisplay": "Jul 12",
+      "readTime": "1 min read",
+      "thumb": "blog/img/start-a-journal-page-with-one-receipt/gen1.jpg"
+    },
+    {
+      "slug": "blue-ribbon-palette-for-soft-junk-journal-pages",
+      "title": "A Blue Ribbon Palette for Soft Junk Journal Pages",
+      "category": "Color Palette",
+      "excerpt": "A romantic blue-and-cream palette idea for journal pages that need calm, ribbon, lace, and a little blush.",
+      "date": "2026-07-12",
+      "dateDisplay": "Jul 12",
+      "readTime": "1 min read",
+      "thumb": "blog/img/blue-ribbon-palette-for-soft-junk-journal-pages/gen1.jpg"
+    },
+    {
+      "slug": "10-minute-desk-reset-for-journalers",
+      "title": "A 10-Minute Desk Reset for Journalers",
+      "category": "Creative Rituals",
+      "excerpt": "A gentle, product-free reset for clearing your journaling desk without losing the cozy creative mess.",
+      "date": "2026-07-12",
+      "dateDisplay": "Jul 12",
+      "readTime": "1 min read",
+      "thumb": "blog/img/10-minute-desk-reset-for-journalers/gen1.jpg"
+    },
+    {
+      "slug": "what-to-put-in-a-memory-pocket",
+      "title": "What to Put in a Memory Pocket",
+      "category": "Journaling Ideas",
+      "excerpt": "Six small keepsakes that make a junk journal pocket feel personal, layered, and worth opening later.",
+      "date": "2026-07-12",
+      "dateDisplay": "Jul 12",
+      "readTime": "1 min read",
+      "thumb": "blog/img/what-to-put-in-a-memory-pocket/gen1.jpg"
+    },
+    {
       "slug": "12-tiny-things-to-keep-for-your-junk-journal",
       "title": "12 Tiny Things to Keep for Your Junk Journal",
       "category": "Journaling Ideas",
