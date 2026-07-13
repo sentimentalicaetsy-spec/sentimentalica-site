@@ -56,13 +56,6 @@
   </div>
 </section>
 
-<section class="hero-compact">
-  <div class="hero-eyebrow">Instant-download printables · new designs every week</div>
-  <h1>Vintage digital papers for your <em>next beautiful page.</em></h1>
-  <p class="hero-compact-sub">Printable junk journal, art journal &amp; scrapbook kits — instant digital download.</p>
-  <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">Shop all designs on Etsy →</a>
-</section>
-
 <section class="section">
   <div class="section-head">
     <h2>From the <em>journal</em></h2>
@@ -71,6 +64,13 @@
   <div class="post-grid" id="home-post-grid">
     <!-- loaded dynamically -->
   </div>
+</section>
+
+<section class="hero-compact">
+  <div class="hero-eyebrow">Instant-download printables · new designs every week</div>
+  <h1>Vintage digital papers for your <em>next beautiful page.</em></h1>
+  <p class="hero-compact-sub">Printable junk journal, art journal &amp; scrapbook kits — instant digital download.</p>
+  <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">Shop all designs on Etsy →</a>
 </section>
 
 <section class="etsy-band">
@@ -84,7 +84,6 @@
   <div>
     <a href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Etsy</a>
     <a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a>
-    <a href="mailto:hello@sentimentalica.com">Contact</a>
   </div>
 </footer>
 
@@ -156,8 +155,14 @@ async function loadEtsyListings() {
     const items = d.listings || [];
     if (!items.length) throw new Error('empty');
     grid.innerHTML = items.map(l => {
-      const img = l.image && l.image.src
-        ? `<img src="${escapeHtml(l.image.src)}" alt="${escapeHtml(l.image.alt)}" loading="lazy">`
+      // Prefer the listing image; fall back to the video poster so the card
+      // never sits empty when the feed missed the image fetch.
+      const imgSrc = (l.image && l.image.src) || (l.video && l.video.poster) || '';
+      const imgAlt = (l.image && l.image.alt) || l.title || '';
+      // These cards are the first thing on the page — eager-load them.
+      // (lazy + dynamic innerHTML leaves blank images in Safari until a repaint.)
+      const img = imgSrc
+        ? `<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(imgAlt)}" loading="eager" decoding="async"${l.image && l.image.srcLarge ? ` data-src-large="${escapeHtml(l.image.srcLarge)}"` : ''}>`
         : `<div class="product-img-placeholder"></div>`;
       const video = l.video && l.video.src
         ? `<video class="product-video" muted loop playsinline preload="none" src="${escapeHtml(l.video.src)}"${l.video.poster ? ` poster="${escapeHtml(l.video.poster)}"` : ''}></video>`
@@ -170,6 +175,14 @@ async function loadEtsyListings() {
         </a>`;
     }).join('');
     grid.removeAttribute('aria-busy');
+    // If the CDN drops the 570px image, retry once with the full-size URL.
+    grid.querySelectorAll('.product-img img').forEach(img => {
+      img.addEventListener('error', () => {
+        const large = img.dataset.srcLarge;
+        if (large && img.src !== large) { img.src = large; }
+        else { img.style.visibility = 'hidden'; }
+      }, { once: false });
+    });
     wireVideoHover(grid);
   } catch {
     // Graceful fallback: send people to the shop rather than show a broken grid.

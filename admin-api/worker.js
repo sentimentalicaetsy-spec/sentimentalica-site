@@ -210,6 +210,7 @@ async function publish(env, body) {
   const dateIso = (existing && existing.date ? existing.date : new Date().toISOString().slice(0, 10)) + 'T12:00:00Z';
 
   // Thumbnail: data-URI from the panel → commit as a file.
+  // OR {url} — a picture already in the article, reused directly (no re-upload).
   let thumbUrl = existing ? existing.thumbAbs || null : null;
   let thumbRel = existing ? existing.thumb || null : null;
   if (body.thumbnail && body.thumbnail.data) {
@@ -222,6 +223,12 @@ async function publish(env, body) {
       thumbRel = `blog/img/${slug}/thumb.${ext}`;
       thumbUrl = `${SITE}/${thumbRel}`;
     }
+  } else if (body.thumbnail && body.thumbnail.url) {
+    const u = String(body.thumbnail.url);
+    if (u.startsWith(`${SITE}/`)) thumbRel = u.slice(SITE.length + 1);
+    else if (u.startsWith('/')) thumbRel = u.slice(1);
+    else thumbRel = u; // external URL — works directly as an img src too
+    thumbUrl = /^https?:/.test(thumbRel) ? thumbRel : `${SITE}/${thumbRel}`;
   }
 
   const html = renderPage({ title, slug, excerpt: body.excerpt || '', content, dateIso, thumbUrl });

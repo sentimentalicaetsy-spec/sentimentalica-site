@@ -15,6 +15,7 @@
 
 const ETSY = 'https://openapi.etsy.com/v3/application';
 const CACHE_SECONDS = 3 * 60 * 60; // 3 hours
+const INCOMPLETE_CACHE_SECONDS = 10 * 60; // payload missing an image — retry soon
 const DEFAULT_LIMIT = 8;
 const MAX_LIMIT = 12;
 const MAX_IDS = 6;        // max specific listings per ?ids= request
@@ -50,7 +51,7 @@ export default {
     // Edge cache keyed by the query shape so variants don't collide.
     const cacheSuffix = idsParam.length
       ? `ids=${idsParam.join(',')}` : `limit=${limit}`;
-    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=4&${cacheSuffix}`, request);
+    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=5&${cacheSuffix}`, request);
     const cache = caches.default;
     const cached = await cache.match(cacheKey);
     if (cached) return withCors(cached);
@@ -59,8 +60,12 @@ export default {
       const data = idsParam.length
         ? await fetchListingsByIds(env, idsParam)
         : await fetchListings(env, limit);
+      // If any listing is missing its image, cache briefly so the blank card
+      // self-heals on the next fetch instead of sticking around for hours.
+      const complete = (data.listings || []).every((l) => l.image && l.image.src);
+      const maxAge = complete ? CACHE_SECONDS : INCOMPLETE_CACHE_SECONDS;
       const res = json(data, 200, {
-        'Cache-Control': `public, max-age=${CACHE_SECONDS}`,
+        'Cache-Control': `public, max-age=${maxAge}`,
       });
       ctx.waitUntil(cache.put(cacheKey, res.clone()));
       return res;
@@ -126,13 +131,18 @@ async function attachMedia(results, headers) {
       ]);
       const p = l.price || {};
       const amount = p.amount != null && p.divisor ? p.amount / p.divisor : null;
+      // If the image lookup failed but the video has a poster, use the poster
+      // so the card never renders blank.
+      const safeImage = image || (video && video.poster
+        ? { src: video.poster, srcLarge: video.poster, alt: l.title }
+        : null);
       out[i] = {
         id: l.listing_id,
         title: l.title,
         url: l.url,
         price: amount != null ? amount.toFixed(2) : null,
         currency: p.currency_code || 'USD',
-        image,
+        image: safeImage,
         video,
       };
     }
