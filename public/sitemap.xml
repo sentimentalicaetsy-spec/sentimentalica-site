@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://sentimentalica.com/</loc></url>
   <url><loc>https://sentimentalica.com/blog.html</loc></url>
-  <url><loc>https://sentimentalica.com/vault.html</loc></url>
+  <!-- Vault removed 2026-07-13 (may be reused later): <url><loc>https://sentimentalica.com/vault.html</loc></url> -->
   <url><loc>https://sentimentalica.com/about.html</loc></url>
   <url><loc>https://sentimentalica.com/freebie.html</loc></url>
   <url><loc>https://sentimentalica.com/blog/rainy-afternoon-journal-ideas.html</loc></url>

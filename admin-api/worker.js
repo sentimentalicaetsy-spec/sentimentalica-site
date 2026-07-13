@@ -163,7 +163,7 @@ function renderPage({ title, slug, excerpt, content, dateIso, thumbUrl }) {
   <ul>
     <li><a href="../index.html">Home</a></li>
     <li><a href="../blog.html">Journal</a></li>
-    <li><a href="../vault.html">Vault</a></li>
+    <!-- Vault link removed 2026-07-13 (may be reused later): <li><a href="../vault.html">Vault</a></li> -->
     <li><a href="../about.html">About</a></li>
     <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a class="nav-shop" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Shop on Etsy</a></li>
@@ -247,7 +247,7 @@ async function publish(env, body) {
     `index: ${slug}`, idxFile && idxFile.sha);
 
   // sitemap
-  const pages = ['', 'blog.html', 'vault.html', 'about.html', 'freebie.html'];
+  const pages = ['', 'blog.html', /* 'vault.html' removed 2026-07-13 (may be reused later) */ 'about.html', 'freebie.html'];
   const urls = pages.map((p) => `${SITE}/${p}`).concat(idx.posts.map((p) => `${SITE}/blog/${p.slug}.html`));
   const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`;
   const smFile = await getFile(env, 'public/sitemap.xml');
@@ -301,7 +301,7 @@ async function deletePost(env, body) {
     await putFile(env, 'public/blog/index.json',
       b64encode(JSON.stringify(idx, null, 2) + '\n'), `index: -${slug}`, idxFile.sha);
 
-    const pages = ['', 'blog.html', 'vault.html', 'about.html', 'freebie.html'];
+    const pages = ['', 'blog.html', /* 'vault.html' removed 2026-07-13 (may be reused later) */ 'about.html', 'freebie.html'];
     const urls = pages.map((p) => `${SITE}/${p}`)
       .concat(idx.posts.map((p) => `${SITE}/blog/${p.slug}.html`));
     const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`;
