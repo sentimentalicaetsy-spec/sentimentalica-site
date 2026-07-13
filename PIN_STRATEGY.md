@@ -91,6 +91,12 @@ Ksenia's spec message dated 2026-07-05; this table is the working index.)
 - Composition building blocks (from validated mockups): "chaos scatter"
   (→ Variety/Problem), "bold hero + band" (→ Aesthetic/Theme), "big-number/
   question" (→ Stuck/Idea/Transformation). See `refs/mockups/`.
+- Every pin/article image meant for Pinterest should carry a small bottom
+  `sentimentalica.com` footer and, when composition allows, a gentle CTA such
+  as `full guide`, `more ideas`, `read the article`, or `save this`. The footer
+  should feel like part of the collage/brand system, not a loud ad. Exception:
+  authentic iPhone Notes images should not be forced to carry a footer inside
+  the Notes UI and should not be used as the blog thumbnail.
 - New ref taxonomy (2026-07-09):
   `refs/branding/` defines the overall Sentimentalica visual identity and logo
   blue; `refs/infographics/` defines useful/saveable graphic structures and the

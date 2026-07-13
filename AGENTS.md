@@ -53,6 +53,9 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 6. **Only LIVE listings** (`resolve_listing.py` checks Etsy). Etsy drafts only — never publish Etsy listings.
 7. **Neutral/listicle article = pure value**; products at the END only; every image
    illustrates its adjacent paragraph. Listicle → full infographic in Ksenia's ref style.
+8. **Generated Pinterest/article images carry the site.** Add a subtle bottom
+   `sentimentalica.com` footer plus a gentle CTA when the format allows. iPhone
+   Notes images are exempt and should not be blog thumbnails.
 
 ## How to produce an article (the pipeline, in order)
 1. Pick a topic from `content_plan.xlsx` (an unused row) or take Ksenia's request.
@@ -64,6 +67,9 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 6. `publish_post.py --push` — BLOCKS if any image isn't PASS. Fix, re-record, retry.
 7. Mark the `content_plan.xlsx` row used (status=published + date + slug).
 8. pinterest-seo → pins → `pin_csv.py` (auto-mirrors CSV to Google Drive).
+   Pinterest links go to sentimentalica.com articles by default; article pages
+   then softly route to relevant Etsy listings. Pin titles/descriptions must
+   include a gentle reason to click through to the article.
 
 ## The ideation funnel (how ideas get chosen — demand-first)
 Trigger: "напиши статью" / "напиши N статей" / "напиши статью под <listing>" /

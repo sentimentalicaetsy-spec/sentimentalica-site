@@ -60,6 +60,11 @@
    проходит по пинабельным картинкам статьи (мокапы, палитра, сцены, сильные
    страницы) и для каждой добавляет строку: `python3 tools/pin_csv.py add
    <листинг> ...` (title/description/keywords/board/link, капельные даты).
+   Pinterest = lead funnel на сайт: CSV `Link` по умолчанию ведёт на статью
+   `https://sentimentalica.com/blog/<slug>`, не напрямую на Etsy. Название пина
+   = search phrase + причина открыть статью; description заканчивается мягким
+   CTA (`see the full guide`, `more ideas on Sentimentalica`). Прямой Etsy-link
+   только если Ксения явно попросила.
    CSV автоматически зеркалится в **Google Drive →
    `Sentimentalica/Pinterest_CSV/<листинг>.csv`** — Ксения берёт файл там и
    загружает в Pinterest балком. Мульти-листинговая статья = строки в CSV
@@ -137,6 +142,13 @@
 - **Статья делается ДЛЯ Pinterest**: каждый блок — будущий пин. Картинки либо
   потрясающе красивые, либо полезные (инфографика). «Реклама листинга» без
   пользы запрещена — nobody cares.
+- **Каждая generated-картинка для Pinterest/статьи**: маленький footer
+  `sentimentalica.com` внизу + мягкий CTA, если формат позволяет (`full guide`,
+  `more ideas`, `read the article`, `save this`). iPhone Notes не используем
+  как thumbnail и не ломаем им аутентичный UI.
+- **В статье**: мягкие CTA в тексте обязательны. Предлагай релевантные LIVE
+  листинги, когда это естественно, но neutral/listicle остаётся value-first,
+  продукт в конце.
 - **Визуальная плотность статьи:** iPhone Notes / list infographic НЕ заменяет
   остальные картинки. У статьи должны быть оба типа визуала: полезная saveable
   графика + красивые desire-визуалы (generated scene/mockup или реальные страницы).

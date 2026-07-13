@@ -10,11 +10,14 @@ Usage:
       --description D --link L --keywords "k1, k2" [--publish-date YYYY-MM-DD]
   python3 tools/pin_csv.py list <NNN_Listing>
 Dedup: a (title, media-url) pair is only stored once.
+Default funnel: --link must be sentimentalica.com (Pinterest→site→Etsy).
+Use --allow-direct-etsy only when Ksenia explicitly requests direct Etsy pins.
 """
 import argparse
 import csv
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 REPO = Path(__file__).resolve().parent.parent
 PINS = REPO / "staging" / "pins"
@@ -45,6 +48,8 @@ def main():
     ap.add_argument("--thumbnail", default="")
     ap.add_argument("--description", default="")
     ap.add_argument("--link", default="")
+    ap.add_argument("--allow-direct-etsy", action="store_true",
+                    help="explicit exception: allow a non-sentimentalica link")
     ap.add_argument("--keywords", default="")
     ap.add_argument("--publish-date", default="")
     args = ap.parse_args()
@@ -88,6 +93,14 @@ def main():
         sys.exit("add requires --title and --media-url")
     if len(args.title) > 100:
         sys.exit(f"TITLE TOO LONG ({len(args.title)} > 100)")
+    if args.link:
+        host = urlparse(args.link.strip()).netloc.lower()
+        if "sentimentalica.com" not in host and not args.allow_direct_etsy:
+            sys.exit(
+                "LINK MUST POINT TO sentimentalica.com for the Pinterest→site→Etsy "
+                "funnel. Use --allow-direct-etsy only when Ksenia explicitly asks "
+                "for direct Etsy pins."
+            )
     key = (args.title.strip(), args.media_url.strip())
     seen = {(r["Title"].strip(), r["Media URL"].strip()) for r in rows}
     for arch in (PINS / "uploaded").glob(f"{args.listing}__uploaded_*.csv"):

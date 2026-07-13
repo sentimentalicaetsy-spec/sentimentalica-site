@@ -45,6 +45,11 @@ corner filled with texture, photorealistic"
 ## Проверка
 Каждую сцену смотрит `image-critic`; вопрос: «сохранил бы ЭТО ради эстетики?»
 «Мило» = REGENERATE. Пустые углы = REGENERATE. Ровный плоский свет = REGENERATE.
+Для Pinterest/статей каждая новая generated-картинка должна иметь маленький
+нижний footer `sentimentalica.com` и мягкий CTA (`full guide`, `more ideas`,
+`read the article`, `save this`), если это не ломает формат. Исключение:
+аутентичные iPhone Notes не превращаем в рекламный баннер и не используем как
+thumbnail статьи.
 
 
 ## Библиотека сцен 10/10 (из 9 референсов Ксении, 2026-07-06)
