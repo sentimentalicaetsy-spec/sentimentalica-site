@@ -56,6 +56,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 8. **Generated Pinterest/article images carry the site.** Add a subtle bottom
    `sentimentalica.com` footer plus a gentle CTA when the format allows. iPhone
    Notes images are exempt and should not be blog thumbnails.
+9. **AI disclosure + affiliates.** Every article includes a quiet AI image
+   disclosure near the end, before the final related/shop block. Amazon
+   affiliate links require a clear disclosure before the first affiliate link
+   and must not be added until Ksenia provides the affiliate/tag system.
 
 ## How to produce an article (the pipeline, in order)
 1. Pick a topic from `content_plan.xlsx` (an unused row) or take Ksenia's request.

@@ -149,6 +149,12 @@
 - **В статье**: мягкие CTA в тексте обязательны. Предлагай релевантные LIVE
   листинги, когда это естественно, но neutral/listicle остаётся value-first,
   продукт в конце.
+- **AI disclosure**: внизу каждой статьи перед финальным related/shop блоком
+  должна быть тихая, но читаемая строка: “Image note: Some visuals in this
+  article were created with AI and curated by Sentimentalica.”
+- **Amazon affiliate links**: не добавлять без affiliate/tag системы Ксении.
+  Когда появятся Amazon-ссылки, disclosure должен стоять до первой affiliate
+  ссылки, а рекомендации должны быть реально полезны для junk journal.
 - **Визуальная плотность статьи:** iPhone Notes / list infographic НЕ заменяет
   остальные картинки. У статьи должны быть оба типа визуала: полезная saveable
   графика + красивые desire-визуалы (generated scene/mockup или реальные страницы).

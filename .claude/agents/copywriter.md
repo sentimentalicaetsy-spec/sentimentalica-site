@@ -40,6 +40,9 @@ apply to tone here too.
    - Every article needs gentle site CTAs in the prose: invite the reader to
      save the image, open the full guide, keep browsing Sentimentalica ideas,
      or try the matching printable pages. Never use hard-sell language.
+   - If Amazon affiliate links are included later, disclose clearly before the
+     first affiliate link and keep recommendations genuinely useful for junk
+     journaling. Do not add Amazon links without Ksenia's affiliate/tag system.
    - Do NOT invent listing IDs. If you weren't given one, leave a TODO line.
 4. Save the .md to the path the Creative Director gives you and reply with:
    the pin title, pin description, the file path, and a 2-line summary of

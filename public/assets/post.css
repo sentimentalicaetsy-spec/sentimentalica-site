@@ -53,6 +53,39 @@
 .post-etsy-cta p { color: #7a6e5f; font-style: italic; margin-bottom: 0.75rem; }
 .post-etsy-cta a { display: inline-block; background: #163087; color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; transition: background 0.2s; }
 .post-etsy-cta a:hover { background: #0f2466; color: white; }
+.post-disclosure {
+  margin: 3rem 0 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(120, 104, 78, .22);
+}
+.post-disclosure p {
+  margin: 0;
+  color: #9a8b75;
+  font-size: .82rem;
+  line-height: 1.55;
+  font-style: italic;
+}
+.post-related-shop {
+  margin: 1.2rem 0 3.25rem;
+  padding: 1.6rem 0 0;
+}
+.post-related-shop .post-related-kicker {
+  margin: 0 0 .35rem;
+  color: #8a775f;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.post-related-shop h2 {
+  margin: 0 0 .45rem;
+  color: #163087;
+  font-size: 1.45rem;
+}
+.post-related-shop > p:not(.post-related-kicker) {
+  color: #6d604f;
+  font-size: .98rem;
+  margin-bottom: 1.2rem;
+}
 .ql-content { font-family: 'Lora', Georgia, serif; font-size: 1.05rem; line-height: 1.85; color: #2c2416; }
 .ql-content h1, .ql-content h2, .ql-content h3 { font-family: 'Cormorant Garamond', Georgia, serif; color: #163087; margin: 2rem 0 0.75rem; line-height: 1.25; }
 .ql-content h1 { font-size: 2rem; }

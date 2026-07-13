@@ -44,6 +44,21 @@ BLOG = PUBLIC / "blog"
 SITE = "https://sentimentalica.com"
 
 STATIC_PAGES = ["index.html", "blog.html", "vault.html", "about.html", "freebie.html"]
+DEFAULT_RELATED_IDS = "4520385002,4510658920,4516819608"
+
+
+def article_afterword():
+    return f"""
+    <aside class="post-disclosure" aria-label="Image disclosure">
+      <p>Image note: Some visuals in this article were created with AI and curated by Sentimentalica.</p>
+    </aside>
+    <section class="post-related-shop" aria-label="Continue with Sentimentalica">
+      <p class="post-related-kicker">Keep going</p>
+      <h2>Want a ready base for your next page?</h2>
+      <p>Browse soft printable image packs and journal ideas from Sentimentalica.</p>
+      <div class="etsy-products" data-ids="{DEFAULT_RELATED_IDS}" aria-busy="true"></div>
+    </section>
+"""
 
 
 # ── Front matter ──────────────────────────────────────────────────────────────
@@ -201,7 +216,7 @@ def render_page(meta, slug, body_html):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css?v=4">
-<link rel="stylesheet" href="../assets/post.css?v=12">
+<link rel="stylesheet" href="../assets/post.css?v=13">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
@@ -232,6 +247,7 @@ def render_page(meta, slug, body_html):
   </header>
   <div class="post-body ql-content">
 {body_html}
+{article_afterword()}
   </div>
 </article>
 
