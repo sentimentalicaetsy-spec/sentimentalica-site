@@ -76,7 +76,9 @@ def main():
         x += 2 * r + 18
     d.text((cx, yb + 2 * r + 44), "elegant · soft · calm", font=F(GEO_I, 26),
            fill=MUTED, anchor="mm")
-    d.text((cx, H - 60), "SENTIMENTALICA", font=F(GEO_B, 24), fill=INK, anchor="mm")
+    d.text((cx, H - 84), "SENTIMENTALICA", font=F(GEO_B, 23), fill=INK, anchor="mm")
+    d.text((cx, H - 48), "sentimentalica.com · full guide", font=F(GEO, 19),
+           fill=MUTED, anchor="mm")
     cv.save(out, "JPEG", quality=88, optimize=True)
     print(out)
 
