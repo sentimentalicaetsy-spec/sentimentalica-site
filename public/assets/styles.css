@@ -307,7 +307,7 @@ body {
 .post-card { text-decoration: none; color: inherit; display: block; transition: transform 0.3s; }
 .post-card:hover { transform: translateY(-4px); }
 .post-thumb {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 3;
   background: var(--cream-warm);
   margin-bottom: 22px;
   position: relative;
@@ -622,9 +622,9 @@ footer a:hover { color: var(--navy); }
   gap: 36px 28px;
 }
 /* Catalog-style post thumbnails: fixed aspect, never dominate the page.
-   (Covers are often tall listing pages — crop them like a catalog card.) */
+   Portrait 2/3 shows more of the tall listing-page covers. */
 .post-thumb-img {
-  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover;
   border-radius: 12px; border: 1px solid var(--line); background: var(--cream-warm);
   margin-bottom: 14px;
 }
