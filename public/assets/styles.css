@@ -425,7 +425,7 @@ body {
   text-align: center;
   background: var(--cream);
 }
-.hero-compact h1 {
+.hero-compact h1, .hero-compact h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
   font-weight: 500;
@@ -435,7 +435,7 @@ body {
   margin: 0 auto 32px;
   letter-spacing: -0.5px;
 }
-.hero-compact h1 em { font-style: italic; font-weight: 400; }
+.hero-compact h1 em, .hero-compact h2 em { font-style: italic; font-weight: 400; }
 .hero-compact-sub {
   font-family: 'Lora', serif;
   font-size: 16px;
@@ -831,7 +831,7 @@ footer a:hover { color: var(--navy); }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
   .product-title { font-size: 17px; }
   .hero-compact { padding: 30px 24px 26px; }
-  .hero-compact h1 { font-size: 33px; margin-bottom: 24px; }
+  .hero-compact h1, .hero-compact h2 { font-size: 33px; margin-bottom: 24px; }
   .hero-eyebrow { margin-bottom: 16px; }
   .hero-compact-sub { font-size: 15px; margin: -8px auto 22px; }
   .shop-fresh { padding-top: 22px; }

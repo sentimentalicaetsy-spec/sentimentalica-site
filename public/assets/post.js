@@ -72,6 +72,21 @@
       .catch(function () { el.remove(); });
   }
 
+  /* Shop pitch under each article — moved here from the homepage hero
+     (2026-07-14). Injected right after the article, before the shop strip. */
+  function articlePromo() {
+    var article = document.querySelector('article');
+    if (!article || !document.querySelector('.post-body')) return;
+    var sec = document.createElement('section');
+    sec.className = 'hero-compact article-promo';
+    sec.innerHTML =
+      '<div class="hero-eyebrow">Instant-download printables</div>' +
+      '<h2>Vintage digital papers for your <em>next beautiful page.</em></h2>' +
+      '<p class="hero-compact-sub">Printable junk journal, art journal &amp; scrapbook kits — instant digital download.</p>' +
+      '<a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta" target="_blank" rel="noopener">Shop all designs on Etsy →</a>';
+    article.parentNode.insertBefore(sec, article.nextSibling);
+  }
+
   /* Shop strip — auto-injected "Newest in the shop" before the footer on
      every page that loads post.js (posts, blog listing). Skipped on pages
      that already have their own grid (homepage #etsy-grid) or opt out with
@@ -255,6 +270,7 @@
     enhanceCarousels();
     document.querySelectorAll('.etsy-products[data-ids]').forEach(hydrate);
     linkImagesToListing();
+    articlePromo();
     shopStrip();
     adminEditPill();
     heroImage();
