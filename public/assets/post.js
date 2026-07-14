@@ -21,7 +21,7 @@
       ? '<img src="' + esc(l.image.src) + '" alt="' + esc(l.image.alt) + '" loading="lazy">'
       : '<div class="product-img-placeholder"></div>';
     var video = l.video && l.video.src
-      ? '<video class="product-video" muted loop playsinline preload="metadata" src="' +
+      ? '<video class="product-video" muted loop playsinline preload="none" src="' +
         esc(l.video.src) + '"' +
         (l.video.poster ? ' poster="' + esc(l.video.poster) + '"' : '') + '></video>'
       : '';

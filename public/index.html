@@ -189,7 +189,7 @@ async function loadEtsyListings() {
         ? `<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(imgAlt)}" loading="eager" decoding="async"${l.image && l.image.srcLarge ? ` data-src-large="${escapeHtml(l.image.srcLarge)}"` : ''}>`
         : `<div class="product-img-placeholder"></div>`;
       const video = l.video && l.video.src
-        ? `<video class="product-video" muted loop playsinline preload="metadata" src="${escapeHtml(l.video.src)}"${l.video.poster ? ` poster="${escapeHtml(l.video.poster)}"` : ''}></video>`
+        ? `<video class="product-video" muted loop playsinline preload="none" src="${escapeHtml(l.video.src)}"${l.video.poster ? ` poster="${escapeHtml(l.video.poster)}"` : ''}></video>`
         : '';
       return `
         <a class="product-card${video ? ' has-video' : ''}" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">
