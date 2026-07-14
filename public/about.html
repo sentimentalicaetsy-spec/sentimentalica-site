@@ -19,11 +19,11 @@
 
 .jb-scene {
   position: relative;
-  /* the brand collage under the book — cursive handwriting, lace, cut-offs —
-     with a light cream wash so the journal stays the focus */
+  /* Ksenia's About background reference — junk-journal flat-lay with a
+     whisper of cream so the journal stays the focus */
   background:
-    linear-gradient(rgba(250,243,230,0.52), rgba(250,243,230,0.52)),
-    url('assets/shop-band-bg.jpg') 18% center / cover no-repeat;
+    linear-gradient(rgba(250,243,230,0.22), rgba(250,243,230,0.22)),
+    url('assets/about-bg.jpg') center / cover no-repeat;
   padding: clamp(50px, 8vh, 100px) 24px clamp(70px, 10vh, 120px);
   overflow: hidden;
 }
@@ -128,13 +128,6 @@
   filter: drop-shadow(0 6px 12px rgba(42,42,58,0.12));
 }
 .jb-right .jb-tape--thanks { top: 34px; left: 50%; transform: translateX(-50%) rotate(2deg); }
-.jb-stamp {
-  position: absolute; top: 250px; right: 34px;
-  width: 92px; transform: rotate(7deg);
-  border: 1px solid rgba(201,184,150,0.7);
-  box-shadow: 0 4px 10px rgba(42,42,58,0.12);
-}
-
 /* the pocket — scalloped lace edge, tags tucked inside */
 .jb-pocket {
   position: absolute; left: 30px; right: 30px; bottom: 30px;
@@ -225,7 +218,6 @@
 @media (max-width: 560px) {
   .jb-page { padding: 36px 22px 32px; }
   .jb-fabric { width: 92px; top: 14px; right: 12px; }
-  .jb-stamp { display: none; }
   .jb-right { min-height: 600px; }
   .jb-pocket { left: 16px; right: 16px; bottom: 20px; }
   .jb-tag { padding-top: 18px; height: 226px; }
@@ -270,7 +262,6 @@
     <div class="jb-page jb-right">
       <span class="jb-tape jb-tape--thanks" aria-hidden="true"></span>
       <img class="jb-thanks" src="assets/about/thanks-note.png" alt="Handwritten note: Thank you for being here!">
-      <img class="jb-stamp" src="assets/about/scrap-stamp.jpg" alt="">
       <div class="jb-pocket" aria-label="What Sentimentalica believes in">
         <div class="jb-tags">
           <div class="jb-tag"><img src="assets/about/icon-create.png" alt=""><b>CREATE</b><span>for the joy of making</span></div>
