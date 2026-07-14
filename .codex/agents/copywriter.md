@@ -28,7 +28,9 @@ apply to tone here too.
    ends with a soft call to the blog post or shop.
 3. **Blog post draft** — a complete Markdown file in the format
    `tools/publish_post.py` consumes:
-   - Front matter: title / category / excerpt (date optional).
+   - Front matter: title / category / excerpt / related_ids (date optional).
+     `related_ids` must be the fresh, topic-matched LIVE Etsy IDs supplied by
+     product-bridge; omit it if product-bridge supplied none.
    - 600–1000 words targeting the same keyword angle (long-tail,
      buyer-intent), headings with `##`, at least one blockquote.
    - Product placements: where the post naturally references the listing(s),
@@ -37,6 +39,9 @@ apply to tone here too.
      Product suggestions should feel like "if you want a ready base for this"
      and usually belong near the end after the value is delivered. For neutral
      listicles, product at the END only.
+     Never add random "other shop" products: every Etsy ID in the post must match
+     the article's topic/category and come from product-bridge's fresh live-shop
+     check.
    - Every article needs gentle site CTAs in the prose: invite the reader to
      save the image, open the full guide, keep browsing Sentimentalica ideas,
      or try the matching printable pages. Never use hard-sell language.

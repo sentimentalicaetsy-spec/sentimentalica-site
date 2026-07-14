@@ -15,6 +15,7 @@ Input file format — front matter between --- lines, then the body:
     excerpt: One or two sentences shown on the blog listing.
     date: 2026-07-05            (optional, defaults to today)
     thumb: ./cover.jpg          (optional, local path or URL)
+    related_ids: 123,456        (optional; freshly chosen on-theme LIVE listings)
     ---
     Markdown body. Standard headings/bold/italic/links/lists/quotes.
     Local images: ![alt](./photo.jpg) — copied into public/blog/img/<slug>/.
@@ -44,19 +45,48 @@ BLOG = PUBLIC / "blog"
 SITE = "https://sentimentalica.com"
 
 STATIC_PAGES = ["index.html", "blog.html", "about.html", "freebie.html"]
-DEFAULT_RELATED_IDS = "4520385002,4510658920,4516819608"
 
 
-def article_afterword():
-    return f"""
+def clean_id_list(raw):
+    ids = []
+    for listing_id in re.findall(r"\d+", raw or ""):
+        if listing_id not in ids:
+            ids.append(listing_id)
+    return ids
+
+
+def related_ids_for(meta, body_html):
+    """Use explicit fresh related IDs, else only IDs already used in the article."""
+    raw = (meta.get("related_ids") or meta.get("related-ids") or
+           meta.get("related") or "")
+    ids = clean_id_list(raw)
+    if not ids:
+        embedded = ",".join(re.findall(r'data-ids="([^"]+)"', body_html))
+        ids = clean_id_list(embedded)
+    return ids[:4]
+
+
+def article_afterword(meta, body_html):
+    related_ids = related_ids_for(meta, body_html)
+    disclosure = """
     <aside class="post-disclosure" aria-label="Image disclosure">
       <p>Image note: Some visuals in this article were created with AI and curated by Sentimentalica.</p>
     </aside>
+"""
+    if not related_ids:
+        return disclosure
+    heading = escape(meta.get("related_heading", "More related printable pages"))
+    text = escape(meta.get(
+        "related_text",
+        "Browse related printable image packs and journal ideas from Sentimentalica."
+    ))
+    ids = ",".join(related_ids)
+    return disclosure + f"""
     <section class="post-related-shop" aria-label="Continue with Sentimentalica">
       <p class="post-related-kicker">Keep going</p>
-      <h2>Want a ready base for your next page?</h2>
-      <p>Browse soft printable image packs and journal ideas from Sentimentalica.</p>
-      <div class="etsy-products" data-ids="{DEFAULT_RELATED_IDS}" aria-busy="true"></div>
+      <h2>{heading}</h2>
+      <p>{text}</p>
+      <div class="etsy-products" data-ids="{ids}" aria-busy="true"></div>
     </section>
 """
 
@@ -247,7 +277,7 @@ def render_page(meta, slug, body_html):
   </header>
   <div class="post-body ql-content">
 {body_html}
-{article_afterword()}
+{article_afterword(meta, body_html)}
   </div>
 </article>
 

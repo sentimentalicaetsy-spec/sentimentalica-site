@@ -36,6 +36,11 @@ Reuse the scanner pattern from
    only digits and commas.
 5. **Link/ID sanity** — every listing ID mentioned must be one the Creative
    Director supplied for this cycle. Unknown IDs = REJECT.
+5b. **Related listing sanity** — every `{{etsy:...}}`, `.etsy-products`, and
+   front matter `related_ids` entry must be topic-matched, LIVE, freshly chosen
+   by product-bridge at article-creation time, and in the same category/theme as
+   the article. REJECT random "other shop" listings, stale default IDs, or
+   floral/dark-academia/animal/background mismatches.
 
 ## Visual check (the product image the Visual Agent picked)
 One question only (the image already passed image-QA earlier in the

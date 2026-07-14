@@ -27,7 +27,8 @@
    Ошибки (NOT FOUND / NO ETSY_ID / NO IMAGES / AMBIGUOUS) — сообщить Ксении дословно и остановиться.
 2. `PY tools/gen_article_assets.py "<строка из шага 1>"` → `staging/overnight/assets/<listing>/{img1..img4.jpg, meta.json}`.
 3. Написать статью → `staging/overnight/assets/<listing>/post.html`:
-   - Front matter: `title / category / excerpt / thumb: ./img1.jpg`; титул 45–70 зн.,
+   - Front matter: `title / category / excerpt / thumb: ./img1.jpg /
+     related_ids: <fresh related LIVE Etsy IDs>`; титул 45–70 зн.,
      buyer-intent, без номеров листинга; не совпадать с titles в `public/blog/index.json`.
    - 550–850 слов, тёплый small-studio голос (см. референс), реально полезный крафт-контент.
      Запрещено: восклицательные, «digital/instant download» как продажа, счётчики страниц, хайп.
@@ -152,6 +153,14 @@
 - **AI disclosure**: внизу каждой статьи перед финальным related/shop блоком
   должна быть тихая, но читаемая строка: “Image note: Some visuals in this
   article were created with AI and curated by Sentimentalica.”
+- **Related/shop block is not random.** `publish_post.py` больше не добавляет
+  hardcoded default listings. Если нужен финальный related-shop блок, статья
+  должна иметь front matter `related_ids:` — максимум 4 LIVE ID, выбранных
+  product-bridge из свежих данных live shop/feed на момент создания статьи.
+  IDs должны быть связаны с темой статьи: floral ephemera → floral options,
+  dark academia → dark academia/library/gothic, animals → animals, etc. Если
+  свежих релевантных листингов нет, related-shop block пропускается; не заменять
+  его случайными товарами.
 - **Amazon affiliate links**: не добавлять без affiliate/tag системы Ксении.
   Когда появятся Amazon-ссылки, disclosure должен стоять до первой affiliate
   ссылки, а рекомендации должны быть реально полезны для junk journal.

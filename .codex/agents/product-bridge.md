@@ -19,9 +19,18 @@ audience-strategist block (audience · hook · type · promise) + the slot tie
 - Find on-theme LIVE listings only. Check the live feed / vault themes; use
   `tools/resolve_listing.py` to confirm a candidate is live. NEVER shove
   cats/dogs (or any off-theme listing) into an unrelated article.
+- Always check fresh live data at article-creation time before choosing product
+  ads or `related_ids`: use the current live feed/shop data and `resolve_listing.py`.
+  Prefer newer listings when they are equally or more relevant; never rely on an
+  old hardcoded set.
 - Match the article's theme to a listing's actual theme + palette. No match →
   tie = none (pure lead magnet). That is allowed and often better (Ksenia:
   lead-magnet readers convert better than product readers).
+- Related-shop advertising must match the same topic/category as the article:
+  floral ephemera → floral options, dark academia → dark academia/library/gothic,
+  animals → animals, backgrounds/swatches → background/base-paper/swatches. If
+  there are no fresh relevant listings, output no related IDs rather than random
+  "other shop" products.
 - For multi-listing articles, build a category bundle, not a random product
   pile. Check the live shop/feed and the vault/listing notes for one coherent
   category or very tight theme cluster, then choose **up to four** LIVE listings
@@ -35,6 +44,7 @@ audience-strategist block (audience · hook · type · promise) + the slot tie
 tie strength: center | end-only | none
 group/category: <single category or theme cluster used for multi-listing bundles; else "—">
 listings: <NNN_Name / etsy_id, on-theme only — or "—">
+related ids: <up to 4 freshly checked LIVE, topic-related Etsy IDs for related_ids; else "—">
 placement: <where the product appears; for end-only, the last section only>
 funnel stage: top (reach) | middle (consider) | bottom (buy)
 accuracy note: <how the product must be described for THIS article, in accurate language>

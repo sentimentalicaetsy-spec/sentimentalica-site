@@ -28,7 +28,8 @@ For each slot, in order:
 1. **desire-scout** → one sharp, timely, save-worthy angle + target query.
 2. **audience-strategist** → who + emotional hook + article type.
 3. **product-bridge** → tie strength (center/end/none), on-theme LIVE listing(s)
-   or none, funnel stage. It MAY return tie=none (pure lead magnet) — that's fine.
+   or none, related_ids from fresh live-shop data, funnel stage. It MAY return
+   tie=none (pure lead magnet) — that's fine.
 4. **marketing-critic** (ideation gate) → PASS or re-sharpen (max 2 rounds, then
    surface to Ksenia). Only PASS ideas proceed.
 Collect each PASS as a plan row (Title/angle, Type, Theme, Listings, Notes with
@@ -83,6 +84,9 @@ lead/listing, seasonal/eternal), and the `pins_status.py` result.
 - Демандный слейт: не переопределяй пропорции content_planner.py; сезон — только
   если окно открыто сегодня (никакого моря осенью).
 - Продукт едет следом, не впереди. product-bridge вправе сказать «никак».
+- Любой Etsy block / related_ids — только из свежей проверки live shop/feed
+  product-bridge и только по теме статьи. Fresh relevant new listings beat old
+  defaults; unrelated shop ads are forbidden.
 - image-critic смотрит ВСЁ визуальное; критик-гейт в коде блокирует публикацию.
 - Промпты сцен — по SCENE_STYLE.md и refs/scenes/ (файлы, не слова).
 - Один вызов может дать несколько статей (batch) — делай их последовательно.

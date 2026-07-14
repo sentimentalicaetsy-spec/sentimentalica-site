@@ -20,7 +20,8 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
 3. **Write the article** to `staging/overnight/assets/<listing>/post.html`:
    - Voice + structure reference (READ IT before writing):
      `public/blog/colorful-junk-journal-ideas-for-maximalists-and-a-palette-to-steal.html`
-   - Front matter: `title / category / excerpt / thumb: ./img1.jpg`.
+   - Front matter: `title / category / excerpt / thumb: ./img1.jpg /
+     related_ids: <fresh topic-related LIVE Etsy IDs from product-bridge>`.
      Title: buyer-intent, theme-specific, 45–70 chars, no listing numbers.
    - 550–850 words, warm small-studio voice, genuinely useful craft content.
      NO exclamation marks, no "digital/instant download" phrases, no page counts.
@@ -103,6 +104,14 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
 - **Pinterest lead funnel:** pins should send people to the article on
   sentimentalica.com first; the article should then softly propose relevant
   live listings when possible. Neutral/listicle = value first, product at END.
+- **Related ads are topic-matched and fresh:** every `{{etsy:...}}` block and
+  front matter `related_ids:` must come from product-bridge's fresh live-shop
+  check at article-creation time. Use up to 4 LIVE IDs that match the article's
+  exact category/theme; prefer newer listings when equally relevant. Floral
+  article -> floral options; dark academia -> dark academia/library/gothic;
+  animals -> animals; backgrounds/swatches -> background/base-paper/swatches.
+  If no fresh relevant listing fits, omit `related_ids` and do not show random
+  shop ads.
 - **Image footer:** generated pin/article images must carry a subtle bottom
   `sentimentalica.com` footer plus a gentle CTA when composition allows.
   iPhone Notes images are the exception and must not be used as blog thumbnails.

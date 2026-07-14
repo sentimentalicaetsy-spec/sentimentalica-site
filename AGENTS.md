@@ -56,17 +56,22 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    category or tight theme cluster only: e.g. background/base-paper/swatches,
    nature/botanical/floral, or dark-academia/library/gothic. Never mix random
    pretty listings just to fill product slots.
-8. **Neutral/listicle article = pure value**; products at the END only; every image
+8. **Related-shop ads must be freshly relevant.** Any Etsy product card or
+   related-shop block in an article must use LIVE listings fetched/checked at
+   article-creation time and related to that exact topic/category. Floral article
+   → floral options; dark academia → dark academia; animals → animals. No random
+   "other shop listings" and no stale hardcoded defaults.
+9. **Neutral/listicle article = pure value**; products at the END only; every image
    illustrates its adjacent paragraph. Listicle → full infographic in Ksenia's ref style.
-9. **Generated Pinterest/article images carry the site.** Add a subtle bottom
+10. **Generated Pinterest/article images carry the site.** Add a subtle bottom
    `sentimentalica.com` footer plus a gentle CTA when the format allows. iPhone
    Notes images are exempt and should not be blog thumbnails.
-10. **Every article has a thin atmospheric scene.** It is a wide mood image from
+11. **Every article has a thin atmospheric scene.** It is a wide mood image from
    `refs/scenes/`, like the bicycle example: atmosphere around the topic, not a
    junk-journal mockup, not product proof. Listing articles also need palette
    images from real showpiece listing pages, real-page carousels, and separate
    process/mockup visuals as defined in `ARTICLE_FUNCTION.md`.
-11. **AI disclosure + affiliates.** Every article includes a quiet AI image
+12. **AI disclosure + affiliates.** Every article includes a quiet AI image
    disclosure near the end, before the final related/shop block. Amazon
    affiliate links require a clear disclosure before the first affiliate link
    and must not be added until Ksenia provides the affiliate/tag system.
