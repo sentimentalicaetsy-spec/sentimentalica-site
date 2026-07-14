@@ -8,9 +8,162 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css?v=8">
 <meta name="p:domain_verify" content="2df16e7970c89985d1f99be0087cded7"/>
+<style>
+/* ===== About as a junk-journal spread (version B, 2026-07-14) =====
+   All styles scoped under .jj- so the rest of the site is untouched.
+   Version A (picture left of text) is one git revert away. */
+.jj-wrap { position: relative; overflow: hidden; background: var(--cream); }
+
+/* faint scattered sparkles, like the artwork */
+.jj-spark { position: absolute; color: var(--navy); opacity: 0.16; font-size: 18px; pointer-events: none; user-select: none; }
+
+/* washi tape — gingham made of two crossed stripe patterns */
+.jj-tape {
+  position: absolute;
+  width: 116px; height: 30px;
+  background:
+    repeating-linear-gradient(90deg, rgba(110,138,210,0.5) 0 8px, rgba(232,238,249,0.5) 8px 16px),
+    repeating-linear-gradient(0deg, rgba(110,138,210,0.28) 0 8px, rgba(232,238,249,0.28) 8px 16px);
+  box-shadow: 0 1px 3px rgba(42,42,58,0.18);
+  opacity: 0.85;
+}
+
+/* — the journal entry (studio text on a taped-down paper sheet) — */
+.jj-spread {
+  position: relative;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 90px 24px 30px;
+}
+.jj-entry {
+  position: relative;
+  max-width: 640px;
+  background: #fffdf7;
+  border: 1px solid var(--line);
+  border-radius: 3px 8px 4px 7px;
+  box-shadow:
+    0 1px 2px rgba(42,42,58,0.06),
+    0 12px 28px rgba(42,42,58,0.09),
+    0 2px 0 rgba(201,184,150,0.35);
+  padding: 58px 54px 50px;
+  transform: rotate(-0.7deg);
+}
+.jj-entry .jj-tape { top: -14px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+.jj-entry .eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 18px; color: var(--rose); margin-bottom: 16px;
+}
+.jj-entry h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 500; line-height: 1.15;
+  color: var(--navy); letter-spacing: -0.5px; margin-bottom: 26px;
+}
+.jj-entry h1 em { font-style: italic; }
+.jj-entry p {
+  font-family: 'Lora', serif; font-size: 16.5px; color: var(--ink);
+  line-height: 1.8; margin-bottom: 16px;
+}
+.jj-cta {
+  display: inline-block; margin-top: 16px;
+  background: var(--navy); color: var(--cream); text-decoration: none;
+  padding: 15px 34px; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; font-weight: 500; font-family: 'Lora', serif;
+  outline: 1px dashed rgba(250,243,230,0.55); outline-offset: -6px; /* postage-stamp edge */
+  transition: background 0.25s, transform 0.25s;
+}
+.jj-cta:hover { background: var(--navy-deep); transform: translateY(-2px) rotate(0.4deg); }
+
+/* the dove, freed from the picture, gliding beside the entry */
+.jj-dove {
+  position: absolute;
+  top: 40px; right: 40px;
+  width: clamp(140px, 22vw, 250px); height: auto;
+  animation: jj-glide 7s ease-in-out infinite alternate;
+  filter: drop-shadow(0 6px 10px rgba(22,48,135,0.16));
+  pointer-events: none;
+}
+@keyframes jj-glide {
+  from { transform: translateY(0) rotate(-2deg); }
+  to   { transform: translateY(-16px) rotate(3deg); }
+}
+
+/* — the four values as ephemera cards — */
+.jj-values {
+  max-width: 1060px; margin: 0 auto;
+  padding: 55px 24px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+.jj-card {
+  position: relative;
+  background: #fffdf7;
+  border: 1px solid var(--line);
+  border-radius: 6px 3px 7px 4px;
+  padding: 34px 18px 24px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(42,42,58,0.07), 0 10px 22px rgba(42,42,58,0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  opacity: 0; translate: 0 26px; /* revealed by JS */
+}
+.jj-card.in { opacity: 1; translate: 0 0; transition: opacity 0.6s ease, translate 0.6s ease, transform 0.35s ease, box-shadow 0.35s ease; }
+.jj-card:nth-child(1) { transform: rotate(-1.8deg); }
+.jj-card:nth-child(2) { transform: rotate(1.4deg); margin-top: 18px; }
+.jj-card:nth-child(3) { transform: rotate(-1.1deg); }
+.jj-card:nth-child(4) { transform: rotate(2deg); margin-top: 14px; }
+.jj-card:hover {
+  transform: rotate(0deg) translateY(-7px);
+  box-shadow: 0 4px 10px rgba(42,42,58,0.1), 0 18px 34px rgba(42,42,58,0.13);
+}
+.jj-card .jj-tape { width: 82px; height: 24px; top: -11px; left: 50%; transform: translateX(-50%) rotate(-4deg); }
+.jj-card:nth-child(even) .jj-tape { transform: translateX(-50%) rotate(4deg); }
+.jj-card img { height: 84px; width: auto; margin: 0 auto 16px; display: block; }
+.jj-card h2 {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 15px; letter-spacing: 1.5px; color: var(--navy);
+  font-weight: 400; margin-bottom: 8px;
+}
+.jj-card p {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 12.5px; color: var(--ink); line-height: 1.65; opacity: 0.85;
+}
+
+/* — the thank-you note — */
+.jj-thanks {
+  position: relative;
+  max-width: 620px; margin: 0 auto;
+  padding: 40px 24px 90px;
+  text-align: center;
+}
+.jj-thanks img {
+  width: 100%; max-width: 520px; height: auto;
+  transform: rotate(1deg);
+  filter: drop-shadow(0 10px 18px rgba(42,42,58,0.13));
+}
+.jj-thanks .jj-tape { width: 92px; height: 26px; top: 28px; left: 50%; transform: translateX(-50%) rotate(2deg); z-index: 1; }
+
+@media (max-width: 980px) {
+  .jj-values { grid-template-columns: repeat(2, 1fr); }
+  .jj-card:nth-child(2), .jj-card:nth-child(4) { margin-top: 0; }
+}
+@media (max-width: 900px) {
+  .jj-spread { padding-top: 130px; }
+  .jj-dove { top: 24px; right: 12px; width: 120px; }
+  .jj-entry { padding: 44px 26px 38px; }
+  .jj-entry h1 { font-size: 36px; }
+}
+@media (max-width: 560px) {
+  .jj-values { grid-template-columns: 1fr; max-width: 380px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jj-dove { animation: none; }
+  .jj-card { opacity: 1; translate: 0 0; }
+}
+</style>
 </head>
 <body>
 
@@ -32,18 +185,57 @@
   </ul>
 </nav>
 
-<section class="about-hero">
-  <img class="about-hero-photo" src="assets/about-side.jpg"
-       alt="Sentimentalica — create for the joy of making, inspire with beauty and imagination, remember the little things that matter, live beautifully">
-  <div class="about-text-block">
-    <p class="eyebrow">— the studio —</p>
-    <h1>About the <em>Studio</em></h1>
-    <p>Welcome to Sentimentalica, a digital paper studio specializing in curated mega-bundles for paper crafting and junk journaling.</p>
-    <p>Our approach is built on variety and completeness. We know how satisfying it is to have choices, which is why every single listing in our shop is a massive collection containing between 100 and 200+ printable pages.</p>
-    <p>We pack each themed kit with everything you need to build a complete journal from scratch: from fluid watercolor backgrounds and highly detailed portraits to functional page layouts and ephemera. With hundreds of cohesive elements available in a single purchase, you will always find the exact piece to fit your creative vision.</p>
-    <a href="https://www.etsy.com/shop/sentimentalica" class="hero-cta about-cta" target="_blank" rel="noopener">Browse the shop on Etsy →</a>
-  </div>
-</section>
+<div class="jj-wrap">
+  <span class="jj-spark" style="top:120px;left:6%">✦</span>
+  <span class="jj-spark" style="top:340px;right:8%;font-size:13px">✦</span>
+  <span class="jj-spark" style="top:620px;left:12%;font-size:14px">✧</span>
+  <span class="jj-spark" style="top:820px;right:14%">✧</span>
+
+  <section class="jj-spread">
+    <img class="jj-dove" src="assets/about/dove.png" alt="">
+    <div class="jj-entry">
+      <span class="jj-tape" aria-hidden="true"></span>
+      <p class="eyebrow">— the studio —</p>
+      <h1>About the <em>Studio</em></h1>
+      <p>Welcome to Sentimentalica, a digital paper studio specializing in curated mega-bundles for paper crafting and junk journaling.</p>
+      <p>Our approach is built on variety and completeness. We know how satisfying it is to have choices, which is why every single listing in our shop is a massive collection containing between 100 and 200+ printable pages.</p>
+      <p>We pack each themed kit with everything you need to build a complete journal from scratch: from fluid watercolor backgrounds and highly detailed portraits to functional page layouts and ephemera. With hundreds of cohesive elements available in a single purchase, you will always find the exact piece to fit your creative vision.</p>
+      <a href="https://www.etsy.com/shop/sentimentalica" class="jj-cta" target="_blank" rel="noopener">Browse the shop on Etsy →</a>
+    </div>
+  </section>
+
+  <section class="jj-values" aria-label="What Sentimentalica believes in">
+    <div class="jj-card">
+      <span class="jj-tape" aria-hidden="true"></span>
+      <img src="assets/about/icon-create.png" alt="Open book with a heart">
+      <h2>CREATE</h2>
+      <p>for the joy<br>of making</p>
+    </div>
+    <div class="jj-card">
+      <span class="jj-tape" aria-hidden="true"></span>
+      <img src="assets/about/icon-inspire.png" alt="Butterfly">
+      <h2>INSPIRE</h2>
+      <p>with beauty<br>&amp; imagination</p>
+    </div>
+    <div class="jj-card">
+      <span class="jj-tape" aria-hidden="true"></span>
+      <img src="assets/about/icon-remember.png" alt="Teacup with a growing sprout">
+      <h2>REMEMBER</h2>
+      <p>the little things<br>that matter</p>
+    </div>
+    <div class="jj-card">
+      <span class="jj-tape" aria-hidden="true"></span>
+      <img src="assets/about/icon-live.png" alt="Playing cards with a heart">
+      <h2>LIVE BEAUTIFULLY</h2>
+      <p>and find magic<br>in everyday</p>
+    </div>
+  </section>
+
+  <section class="jj-thanks">
+    <span class="jj-tape" aria-hidden="true"></span>
+    <img src="assets/about/thanks-note.png" alt="Handwritten note: Thank you for being here!">
+  </section>
+</div>
 
 <footer>
   <div>© 2026 Sentimentalica</div>
@@ -54,6 +246,26 @@
   </div>
 </footer>
 
+<script>
+// Staggered reveal of the value cards as they scroll into view.
+(function () {
+  var cards = document.querySelectorAll('.jj-card');
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(function (c) { c.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      setTimeout(function () { el.classList.add('in'); },
+        Array.prototype.indexOf.call(cards, el) * 130);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(function (c) { io.observe(c); });
+})();
+</script>
 <script src="assets/admin-tab.js?v=12" defer></script>
 </body>
 </html>
