@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=4">
+<link rel="stylesheet" href="assets/styles.css?v=5">
 <meta name="p:domain_verify" content="2df16e7970c89985d1f99be0087cded7"/>
 </head>
 <body>
@@ -61,8 +61,12 @@
     <h2>From the <em>journal</em></h2>
     <a href="blog.html" class="more">All posts →</a>
   </div>
-  <div class="post-grid" id="home-post-grid">
-    <!-- loaded dynamically -->
+  <div class="post-carousel">
+    <button class="carousel-arrow carousel-prev" id="post-prev" aria-label="Previous articles" hidden>&#8592;</button>
+    <div class="post-grid" id="home-post-grid">
+      <!-- loaded dynamically -->
+    </div>
+    <button class="carousel-arrow carousel-next" id="post-next" aria-label="More articles" hidden>&#8594;</button>
   </div>
 </section>
 
@@ -94,7 +98,7 @@ async function loadRecentPosts() {
   try {
     const r = await fetch('blog/index.json?t=' + Date.now());
     const d = await r.json();
-    const posts = (d.posts || []).slice(0, 3);
+    const posts = (d.posts || []).slice(0, 12);
     const grid = document.getElementById('home-post-grid');
     if (posts.length === 0) { grid.innerHTML = ''; return; }
     grid.innerHTML = posts.map((p, i) => {
@@ -110,7 +114,27 @@ async function loadRecentPosts() {
           <div class="post-meta">${p.dateDisplay || p.date}${p.readTime ? ' · ' + p.readTime : ''}</div>
         </a>`;
     }).join('');
+    wirePostCarousel();
   } catch { }
+}
+
+// Arrow carousel for the journal row: → moves forward one screenful of
+// cards; ← only appears once you've moved (like a shop carousel).
+function wirePostCarousel() {
+  const track = document.getElementById('home-post-grid');
+  const prev = document.getElementById('post-prev');
+  const next = document.getElementById('post-next');
+  if (!track || !prev || !next) return;
+  const update = () => {
+    const maxScroll = track.scrollWidth - track.clientWidth - 4;
+    prev.hidden = track.scrollLeft <= 4;
+    next.hidden = track.scrollLeft >= maxScroll;
+  };
+  prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 }
 
 loadRecentPosts();
@@ -165,7 +189,7 @@ async function loadEtsyListings() {
         ? `<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(imgAlt)}" loading="eager" decoding="async"${l.image && l.image.srcLarge ? ` data-src-large="${escapeHtml(l.image.srcLarge)}"` : ''}>`
         : `<div class="product-img-placeholder"></div>`;
       const video = l.video && l.video.src
-        ? `<video class="product-video" muted loop playsinline preload="none" src="${escapeHtml(l.video.src)}"${l.video.poster ? ` poster="${escapeHtml(l.video.poster)}"` : ''}></video>`
+        ? `<video class="product-video" muted loop playsinline preload="metadata" src="${escapeHtml(l.video.src)}"${l.video.poster ? ` poster="${escapeHtml(l.video.poster)}"` : ''}></video>`
         : '';
       return `
         <a class="product-card${video ? ' has-video' : ''}" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">

@@ -15,11 +15,11 @@
 
 const ETSY = 'https://openapi.etsy.com/v3/application';
 const CACHE_SECONDS = 3 * 60 * 60; // 3 hours
-const INCOMPLETE_CACHE_SECONDS = 10 * 60; // payload missing an image — retry soon
+const INCOMPLETE_CACHE_SECONDS = 60; // payload missing an image — retry soon
 const DEFAULT_LIMIT = 8;
 const MAX_LIMIT = 12;
 const MAX_IDS = 6;        // max specific listings per ?ids= request
-const MEDIA_CONCURRENCY = 4; // parallel image/video lookups (Etsy-rate-safe)
+const MEDIA_CONCURRENCY = 2; // parallel image/video lookups (Etsy-rate-safe)
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -51,7 +51,7 @@ export default {
     // Edge cache keyed by the query shape so variants don't collide.
     const cacheSuffix = idsParam.length
       ? `ids=${idsParam.join(',')}` : `limit=${limit}`;
-    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=5&${cacheSuffix}`, request);
+    const cacheKey = new Request(`https://etsy-feed.cache/listings?v=6&${cacheSuffix}`, request);
     const cache = caches.default;
     const cached = await cache.match(cacheKey);
     if (cached) return withCors(cached);
@@ -150,10 +150,26 @@ async function attachMedia(results, headers) {
   await Promise.all(
     Array.from({ length: Math.min(MEDIA_CONCURRENCY, results.length) }, workerLoop)
   );
+  // Rescue pass: a listing with neither image nor video almost certainly hit
+  // Etsy's rate limit (real listings always have at least one photo). Refetch
+  // those one at a time after letting the rate-limit window recover.
+  for (let i = 0; i < out.length; i++) {
+    if (out[i].image || out[i].video) continue;
+    await sleep(1000);
+    const l = results[i];
+    const [image, video] = await Promise.all([
+      fetchPrimaryImage(l.listing_id, l.title, headers),
+      fetchPrimaryVideo(l.listing_id, headers),
+    ]);
+    out[i].image = image || (video && video.poster
+      ? { src: video.poster, srcLarge: video.poster, alt: l.title }
+      : null);
+    out[i].video = video;
+  }
   return out;
 }
 
-async function fetchPrimaryImage(listingId, title, headers, attempts = 3) {
+async function fetchPrimaryImage(listingId, title, headers, attempts = 4) {
   for (let i = 0; i < attempts; i++) {
     try {
       const res = await fetch(`${ETSY}/listings/${listingId}/images`, { headers });
@@ -170,18 +186,18 @@ async function fetchPrimaryImage(listingId, title, headers, attempts = 3) {
         return null; // listing genuinely has no image
       }
       if (res.status === 429 || res.status >= 500) {
-        await sleep(250 * (i + 1)); // back off and retry
+        await sleep(500 * (i + 1)); // back off and retry
         continue;
       }
       return null; // other error — give up on this one
     } catch (_) {
-      await sleep(200 * (i + 1));
+      await sleep(400 * (i + 1));
     }
   }
   return null;
 }
 
-async function fetchPrimaryVideo(listingId, headers, attempts = 3) {
+async function fetchPrimaryVideo(listingId, headers, attempts = 4) {
   for (let i = 0; i < attempts; i++) {
     try {
       const res = await fetch(`${ETSY}/listings/${listingId}/videos`, { headers });
@@ -191,12 +207,12 @@ async function fetchPrimaryVideo(listingId, headers, attempts = 3) {
         return v && v.video_url ? { src: v.video_url, poster: v.thumbnail_url || null } : null;
       }
       if (res.status === 429 || res.status >= 500) {
-        await sleep(250 * (i + 1));
+        await sleep(500 * (i + 1));
         continue;
       }
       return null;
     } catch (_) {
-      await sleep(200 * (i + 1));
+      await sleep(400 * (i + 1));
     }
   }
   return null;
