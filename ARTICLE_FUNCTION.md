@@ -172,13 +172,19 @@
   1 thin atmospheric scene inspired by the listing mood (без продукта/журнала);
   1 realistic junk journal/process scene inspired by the listing palette; carousel
   с 3–5 настоящими страницами; затем `{{etsy:ID}}`.
+- **Multi-listing selection rule:** для статьи, которая продвигает несколько
+  листингов, product-bridge выбирает максимум 4 LIVE листинга из ОДНОЙ категории
+  live shop/vault или очень плотного theme cluster. Примеры: background/base
+  papers/swatches; nature/botanical/floral; dark academia/library/gothic. Нельзя
+  миксовать случайные красивые листинги из разных миров. Если одной сильной
+  категории нет — выбрать 1 листинг или tie=end-only/none.
 - **Multi-listing comparison visual package:** если статья сравнивает несколько
-  листингов (например, 5 flower ephemera), у КАЖДОГО featured listing должна быть
-  своя palette image на основе showpiece real listing page. Плюс одна общая thin
-  atmospheric scene, один realistic mockup/process image, и carousel 2–3 реальных
-  страниц хотя бы от основного представленного листинга (или от каждого, если
-  статья строится секциями). Все страницы — из customer/listing assets, не Etsy
-  thumbnails/previews.
+  листингов (например, до 4 flower/nature ephemera из одной категории), у КАЖДОГО
+  featured listing должна быть своя palette image на основе showpiece real listing
+  page. Плюс одна общая thin atmospheric scene, один realistic mockup/process
+  image, и carousel 2–3 реальных страниц хотя бы от основного представленного
+  листинга (или от каждого, если статья строится секциями). Все страницы — из
+  customer/listing assets, не Etsy thumbnails/previews.
 - **Карусель кита** (статья об одном листинге): сразу после лида —
   `<div class="kit-carousel">` с ≥3 `<img>` НАСТОЯЩИХ страниц кита (pageN.jpg из customer-папки — НЕ Etsy-превью/thumbnails; стрелки и точки добавляются автоматически).
 - **Картинка на КАЖДЫЙ нумерованный пункт** («6 ways…» = 6 картинок): реальные
@@ -204,7 +210,10 @@
   Минимум один мокап/process scene, если статья связана с листингом; для pure
   neutral/infographic статьи mockup не заменяет thin atmospheric scene и ставится
   только если он естественно помогает теме.
-- Один листинг за вызов; «сделай для нескольких» = последовательные вызовы.
+- Explicit `/article <listing>` = один листинг за вызов. Multi-listing
+  comparison article создаётся только как один approved row из write-article /
+  product-bridge: до 4 LIVE листингов из одной категории, не произвольный batch.
+  «Сделай статьи для нескольких независимых листингов» = последовательные вызовы.
 - Ничего не выдумывать про кит: только meta.json и vault. Etsy ID — только из resolve.
 - Ошибка публикации → показать её дословно, не править сгенерированное руками.
 - Аварийная отмена всех статей ночного/массового прогона: `python3 tools/unpublish_overnight.py`.

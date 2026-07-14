@@ -44,9 +44,10 @@ etsy-seller mockups, SEO grid. Fonts: Yeseva One (hook) + Georgia (support) —
   from `refs/scenes/` (wide mood image around the topic, not a junk-journal
   mockup and not product proof). Single-listing articles need 3 palette images
   from 3 different showpiece real listing pages, plus a separate realistic
-  journal/process scene. Multi-listing comparisons need one palette image per
-  featured listing, plus one mockup/process image and a small real-page carousel
-  from a represented listing.
+  journal/process scene. Multi-listing comparisons need max 4 listings from one
+  coherent live category/theme cluster, one palette image per featured listing,
+  plus one mockup/process image and a small real-page carousel from a represented
+  listing.
 - Never invent product claims in visual copy — text comes from the approved
   brief; if the brief's text doesn't fit the layout, report back, don't rewrite.
 - One PNG per brief into the cycle's staging folder (or

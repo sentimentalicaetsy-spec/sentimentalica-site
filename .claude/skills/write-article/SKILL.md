@@ -52,8 +52,9 @@ Every article gets a thin atmospheric scene from `refs/scenes/`; it is a mood
 image around the topic, not a junk-journal mockup. Single-listing rows also need
 3 palette images from 3 different showpiece real listing pages, one separate
 junk-journal/process scene, and a real-page carousel. Multi-listing comparison
-rows need one palette image per featured listing, plus one mockup/process image
-and a 2–3 real-page carousel from a represented listing.
+rows need up to 4 LIVE listings from one coherent category/theme cluster, one
+palette image per featured listing, plus one mockup/process image and a 2–3
+real-page carousel from a represented listing.
 Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 `refs/infographics/` = useful graphics, `refs/iphone notes/` = authentic
 iPhone Notes subtype with no emoji at the start of list items,

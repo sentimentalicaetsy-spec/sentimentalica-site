@@ -51,17 +51,22 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 5. **On-theme only.** No cats/dogs (or any off-theme listing) shoved into unrelated
    articles. Pick listings that match the article's theme. No animal photo in a neutral article.
 6. **Only LIVE listings** (`resolve_listing.py` checks Etsy). Etsy drafts only — never publish Etsy listings.
-7. **Neutral/listicle article = pure value**; products at the END only; every image
+7. **Multi-listing articles use one coherent live category.** If an article
+   promotes several listings, pick up to four LIVE listings from one shop/vault
+   category or tight theme cluster only: e.g. background/base-paper/swatches,
+   nature/botanical/floral, or dark-academia/library/gothic. Never mix random
+   pretty listings just to fill product slots.
+8. **Neutral/listicle article = pure value**; products at the END only; every image
    illustrates its adjacent paragraph. Listicle → full infographic in Ksenia's ref style.
-8. **Generated Pinterest/article images carry the site.** Add a subtle bottom
+9. **Generated Pinterest/article images carry the site.** Add a subtle bottom
    `sentimentalica.com` footer plus a gentle CTA when the format allows. iPhone
    Notes images are exempt and should not be blog thumbnails.
-9. **Every article has a thin atmospheric scene.** It is a wide mood image from
+10. **Every article has a thin atmospheric scene.** It is a wide mood image from
    `refs/scenes/`, like the bicycle example: atmosphere around the topic, not a
    junk-journal mockup, not product proof. Listing articles also need palette
    images from real showpiece listing pages, real-page carousels, and separate
    process/mockup visuals as defined in `ARTICLE_FUNCTION.md`.
-10. **AI disclosure + affiliates.** Every article includes a quiet AI image
+11. **AI disclosure + affiliates.** Every article includes a quiet AI image
    disclosure near the end, before the final related/shop block. Amazon
    affiliate links require a clear disclosure before the first affiliate link
    and must not be added until Ksenia provides the affiliate/tag system.

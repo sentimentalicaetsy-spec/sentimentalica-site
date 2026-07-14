@@ -31,11 +31,13 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
      pages (not thumbnails/collages), 1 thin atmospheric scene from `refs/scenes/`,
      1 realistic junk journal/process scene inspired by the listing palette,
      a 3–5 real-page carousel, ONE `{{etsy:ETSY_ID}}` near the end, and a soft
-     closing link to `../blog.html`. Multi-listing comparison = one palette image
-     per featured listing, plus one thin atmospheric scene, one mockup/process
-     image, and a 2–3 real-page carousel from a represented listing. Neutral/
-     lead/listicle = useful graphic/infographic plus the mandatory thin
-     atmospheric scene; product stays at the end only if it honestly fits.
+     closing link to `../blog.html`. Multi-listing comparison = up to 4 LIVE
+     listings from one coherent shop/vault category or tight theme cluster, one
+     palette image per featured listing, plus one thin atmospheric scene, one
+     mockup/process image, and a 2–3 real-page carousel from a represented
+     listing. Neutral/lead/listicle = useful graphic/infographic plus the
+     mandatory thin atmospheric scene; product stays at the end only if it
+     honestly fits.
    - Add gentle article CTAs: "save this idea", "open the full guide", "browse
      more Sentimentalica journal ideas", or "use the matching printable pages"
      where natural. No hard sell.
@@ -116,10 +118,12 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   scene inspired by the listing palette, a real-page carousel, and the live Etsy
   card. The thin scene and the journal/process scene are different images.
 - **Multi-listing comparison package:** one palette image per featured listing
-  (5 flower ephemera listings = 5 palette images), plus one shared thin
-  atmospheric scene, one mockup/process image, and a 2-3 image real-page carousel
-  from at least one represented listing. Use real listing/customer images only,
-  never Etsy thumbnails/previews.
+  and max 4 featured listings total. They must all come from one coherent
+  live-shop/vault category or tight theme cluster, such as background/base-paper/
+  swatches, nature/botanical/floral, or dark academia/library/gothic. Add one
+  shared thin atmospheric scene, one mockup/process image, and a 2-3 image
+  real-page carousel from at least one represented listing. Use real
+  listing/customer images only, never Etsy thumbnails/previews.
 - **Kit carousel** (single-listing article): use a `<div class="kit-carousel">`
   with >=3 REAL kit pages (pageN.jpg from the customer folder — NEVER Etsy
   thumbnails; arrows+dots auto-added). For neutral/listicle articles, keep this
@@ -144,7 +148,10 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   construction, edges blend naturally. Portrait 832×1216. At least one in
   listing-involved articles, but it never replaces the mandatory thin
   atmospheric scene.
-- One listing per invocation; batch = Ksenia asks for several, run sequentially.
+- Explicit `/article <listing>` stays one listing per invocation. A multi-listing
+  comparison article is allowed only when write-article/product-bridge creates
+  one approved row with up to 4 LIVE listings from one category; unrelated
+  listing batch requests still run sequentially.
 - Never invent Etsy IDs or facts about the kit; everything from meta.json/vault.
 - Titles must not collide with existing posts (check public/blog/index.json).
 - If publish fails, report the exact error — do not hand-edit generated output.

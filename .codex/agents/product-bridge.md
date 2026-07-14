@@ -22,10 +22,18 @@ audience-strategist block (audience · hook · type · promise) + the slot tie
 - Match the article's theme to a listing's actual theme + palette. No match →
   tie = none (pure lead magnet). That is allowed and often better (Ksenia:
   lead-magnet readers convert better than product readers).
+- For multi-listing articles, build a category bundle, not a random product
+  pile. Check the live shop/feed and the vault/listing notes for one coherent
+  category or very tight theme cluster, then choose **up to four** LIVE listings
+  from that same category. Good grouping examples: background/base-paper/swatches
+  listings; nature/botanical/floral listings; dark academia/library/gothic
+  listings. If fewer than two listings honestly fit, use one listing or
+  tie=end-only/none. Resolve every candidate; no drafts, no weak matches.
 
 ## Output (strict)
 ```
 tie strength: center | end-only | none
+group/category: <single category or theme cluster used for multi-listing bundles; else "—">
 listings: <NNN_Name / etsy_id, on-theme only — or "—">
 placement: <where the product appears; for end-only, the last section only>
 funnel stage: top (reach) | middle (consider) | bottom (buy)

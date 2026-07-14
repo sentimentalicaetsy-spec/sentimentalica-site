@@ -29,9 +29,10 @@ For each pin
 - Listing-bound articles need the full visual set: 3 color-palette images from
   3 different showpiece real listing pages (never thumbnails/collages), the thin
   atmospheric scene, and a separate realistic junk journal/process scene inspired
-  by the listing palette. Multi-listing comparisons need one palette image per
-  featured listing, plus one mockup/process image and a 2-3 image real-page
-  carousel from a represented listing.
+  by the listing palette. Multi-listing comparisons need max 4 listings from one
+  coherent live category/theme cluster, one palette image per featured listing,
+  plus one mockup/process image and a 2-3 image real-page carousel from a
+  represented listing.
 - Composition archetype: chaos scatter / bold hero / big-number / palette /
   moodboard / infographic (list ON image, problem→solution blocks — like the
   thedefinedlife reference) — pick per pin type.

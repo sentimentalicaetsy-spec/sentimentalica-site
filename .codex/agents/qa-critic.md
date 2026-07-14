@@ -51,9 +51,10 @@ For article drafts, REJECT if the required visual package is missing:
   listing pages (never thumbnails/collages), 1 separate realistic
   journal/process scene, 3–5 real listing/customer pages in a carousel, and the
   live Etsy card.
-- Multi-listing comparison: one palette image per featured listing, one shared
-  thin atmospheric scene, one mockup/process image, and a 2–3 real-page carousel
-  from a represented listing.
+- Multi-listing comparison: max 4 LIVE listings from one coherent category/theme
+  cluster, one palette image per featured listing, one shared thin atmospheric
+  scene, one mockup/process image, and a 2–3 real-page carousel from a
+  represented listing.
 
 ## Report format
 ```
