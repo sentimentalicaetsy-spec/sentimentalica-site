@@ -20,8 +20,26 @@ etsy-seller mockups, SEO grid. Fonts: Yeseva One (hook) + Georgia (support) —
 - **Real listing images are the product evidence.** Local SD
   (`pipeline/scripts/s03_generate_image.py`, A1111 @127.0.0.1:7860) may generate
   backgrounds/desk scenes/mockup contexts ONLY — real images go inside/on top.
+  Use `refs/branding/` for global Sentimentalica look, `refs/infographics/` for
+  useful graphic structures, `refs/scrapbook and junk jornal scenes/` for
+  realistic journal/process/mockup scenes, and `refs/scenes/` for atmospheric
+  mood scenes.
 - Hook text BIG and readable on a phone thumbnail (the goal is the CLICK);
   match the pin's energy to the listing's character (vivid listing → vivid pin).
+- **Color-palette pins use the approved reference treatment.** Use one real
+  listing/kit page as the full-bleed background (never thumbnails/collages).
+  Put 5 max palette swatches as large square blocks in a vertical stack on the
+  left unless the reference demands another placement. The swatch backing is a
+  controlled full-height airbrush/blur haze, not a random strip: it runs from top
+  to bottom under the entire swatch column, has irregular feathered edges, and
+  must look visually balanced with a similar amount of haze to the left and right
+  of the swatches. If the background makes one side look heavier, manually
+  compensate. Use enough opacity that the palette is the Pinterest focal point,
+  but no hard white panel, no straight-edge rectangle, and no grid. The site mark
+  is only `sentimentalica.com` at the bottom center in Sentimentalica blue, with
+  its own soft airbrush backing so it is readable on every image, including
+  dark/blue backgrounds; URL text stays full-opacity and must be visibly legible
+  in the final preview.
 - Never invent product claims in visual copy — text comes from the approved
   brief; if the brief's text doesn't fit the layout, report back, don't rewrite.
 - One PNG per brief into the cycle's staging folder (or

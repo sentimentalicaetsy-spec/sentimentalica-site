@@ -43,7 +43,7 @@ PUBLIC = REPO / "public"
 BLOG = PUBLIC / "blog"
 SITE = "https://sentimentalica.com"
 
-STATIC_PAGES = ["index.html", "blog.html", "vault.html", "about.html", "freebie.html"]
+STATIC_PAGES = ["index.html", "blog.html", "about.html", "freebie.html"]
 DEFAULT_RELATED_IDS = "4520385002,4510658920,4516819608"
 
 
@@ -232,7 +232,7 @@ def render_page(meta, slug, body_html):
   <ul>
     <li><a href="../index.html">Home</a></li>
     <li><a href="../blog.html">Journal</a></li>
-    <li><a href="../vault.html">Vault</a></li>
+    <!-- Vault link removed 2026-07-13 (may be reused later): <li><a href="../vault.html">Vault</a></li> -->
     <li><a href="../about.html">About</a></li>
     <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a class="nav-shop" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Shop on Etsy</a></li>
