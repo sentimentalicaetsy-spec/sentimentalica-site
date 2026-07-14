@@ -143,6 +143,11 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 .list-item-info a:hover { text-decoration: underline; }
 .list-item-meta { color: var(--muted); font-size: 0.8rem; margin-top: 0.2rem; }
 .list-item-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+.list-thumb {
+  width: 56px; height: 56px; object-fit: cover; border-radius: 6px;
+  border: 1px solid var(--border); flex-shrink: 0; background: var(--warm);
+}
+.list-thumb-empty { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 1.2rem; }
 .btn-load { background: #fdf3e3; color: var(--draft); border: 1px solid #e8c87a; border-radius: 6px; padding: 0.3rem 0.75rem; font-size: 0.8rem; cursor: pointer; font-family: 'Lora', Georgia, serif; }
 .btn-load:hover { background: #f9e8c0; }
 .btn-del { background: transparent; color: #c0392b; border: 1px solid #e0b0b0; border-radius: 6px; padding: 0.3rem 0.6rem; font-size: 0.8rem; cursor: pointer; }
@@ -581,6 +586,9 @@ function renderPostsPage(page) {
     </div>` : '';
   list.innerHTML = postsIndex.slice(start, start + POSTS_PER_PAGE).map(p => `
       <div class="list-item list-item-clickable" onclick="editPost('${p.slug}')" title="Click to edit">
+        ${p.thumb
+          ? `<img class="list-thumb" src="/${String(p.thumb).replace(/^\//, '')}" alt="" loading="lazy">`
+          : `<div class="list-thumb list-thumb-empty">✎</div>`}
         <div class="list-item-info">
           <a href="#" onclick="event.preventDefault()">${p.title}</a>
           <div class="list-item-meta">${p.dateDisplay || p.date} · click to edit</div>
