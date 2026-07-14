@@ -23,7 +23,7 @@
      with a light cream wash so the journal stays the focus */
   background:
     linear-gradient(rgba(250,243,230,0.52), rgba(250,243,230,0.52)),
-    url('assets/shop-band-bg.jpg') center / cover no-repeat;
+    url('assets/shop-band-bg.jpg') 18% center / cover no-repeat;
   padding: clamp(50px, 8vh, 100px) 24px clamp(70px, 10vh, 120px);
   overflow: hidden;
 }
@@ -36,8 +36,17 @@
 
 /* loose ephemera on the desk, peeking out from under the book */
 .jb-scrap { position: absolute; border: 1px solid rgba(201,184,150,0.7); box-shadow: 0 6px 16px rgba(42,42,58,0.14); }
-.jb-scrap--postcard { left: max(8px, calc(50% - 700px)); bottom: 60px; width: 150px; transform: rotate(-9deg); }
 .jb-scrap--lavender { right: max(8px, calc(50% - 690px)); top: 90px; width: 160px; transform: rotate(5deg); }
+/* bottom-left pile: postcard resting on a lace doily, taped down */
+.jb-pile { position: absolute; left: max(4px, calc(50% - 720px)); bottom: 34px; width: 250px; height: 260px; }
+.jb-pile .jb-pile-lace { position: absolute; left: 0; bottom: 0; width: 240px; transform: rotate(-3deg); }
+.jb-pile .jb-pile-postcard {
+  position: absolute; left: 52px; bottom: 42px; width: 132px;
+  transform: rotate(-10deg);
+  border: 1px solid rgba(201,184,150,0.7);
+  box-shadow: 0 8px 16px rgba(42,42,58,0.2);
+}
+.jb-pile .jb-tape { width: 66px; height: 20px; left: 78px; bottom: 218px; transform: rotate(-12deg); }
 
 /* — the open book — */
 .jb-book {
@@ -215,7 +224,7 @@
 }
 
 @media (max-width: 980px) {
-  .jb-scrap { display: none; }
+  .jb-scrap, .jb-pile { display: none; }
   .jb-book { grid-template-columns: 1fr; max-width: 560px; }
   .jb-spine { display: none; }
   .jb-left {
@@ -259,7 +268,11 @@
 </nav>
 
 <section class="jb-scene">
-  <img class="jb-scrap jb-scrap--postcard" src="assets/about/scrap-postcard.jpg" alt="">
+  <div class="jb-pile" aria-hidden="true">
+    <img class="jb-pile-lace" src="assets/about/scrap-lace.png" alt="">
+    <img class="jb-pile-postcard" src="assets/about/scrap-postcard.jpg" alt="">
+    <span class="jb-tape"></span>
+  </div>
   <img class="jb-scrap jb-scrap--lavender" src="assets/about/scrap-lavender.jpg" alt="">
 
   <div class="jb-book">
