@@ -26,20 +26,28 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
      NO exclamation marks, no "digital/instant download" phrases, no page counts.
    - Pick the archetype that best fits the theme (vary across articles):
      theme spotlight · ideas list · palette study · how-to project.
-   - MUST include: the palette block (`.post-palette` divs from meta.json) ·
-     2–3 real images (`./img2.jpg`…) · ONE `{{etsy:ETSY_ID}}` on its own line
-     after the useful section or near the end · THREE slot markers
-     `<!-- genimg:gen1..3 -->` at natural points · soft closing link to
-     `../blog.html`.
+   - MUST include the visual package required by article type:
+     single-listing = 3 palette images from 3 different showpiece real listing
+     pages (not thumbnails/collages), 1 thin atmospheric scene from `refs/scenes/`,
+     1 realistic junk journal/process scene inspired by the listing palette,
+     a 3–5 real-page carousel, ONE `{{etsy:ETSY_ID}}` near the end, and a soft
+     closing link to `../blog.html`. Multi-listing comparison = one palette image
+     per featured listing, plus one thin atmospheric scene, one mockup/process
+     image, and a 2–3 real-page carousel from a represented listing. Neutral/
+     lead/listicle = useful graphic/infographic plus the mandatory thin
+     atmospheric scene; product stays at the end only if it honestly fits.
    - Add gentle article CTAs: "save this idea", "open the full guide", "browse
      more Sentimentalica journal ideas", or "use the matching printable pages"
      where natural. No hard sell.
 4. **Prompts file** `staging/overnight/prompts/<slug>.json` (slug = the one
-   publish will produce — lowercase-hyphenated title): 3 slots, schema:
+   publish will produce — lowercase-hyphenated title): create every generated
+   slot needed by the visual package, schema:
    `{"slug":..., "slots":[{"id":"gen1","prompt":"<photorealistic cozy junk-journal
    scene matching the theme & its palette, concrete: desk/light/props, 30-60
    words>","negative":"text, watermark, logo, low quality, deformed hands",
-   "width":1216,"height":832,"caption":"<alt>"}, ...]}`
+   "width":1216,"height":832,"caption":"<alt>","type":"thin-atmosphere|journal-scene|mockup|infographic|palette"}, ...]}`
+   The thin-atmosphere prompt is wide/letterbox mood-only: no listing pages, no
+   open-journal mockup, no hands/process hero.
 5. **Publish:** `python3 tools/publish_post.py staging/overnight/assets/<listing>/post.html`
 6. **Images — fully automatic (Ksenia never runs a follow-up command):**
    a. `curl -s -m 3 http://127.0.0.1:7860/sdapi/v1/progress` — if the API is down,
@@ -97,8 +105,21 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   iPhone Notes images are the exception and must not be used as blog thumbnails.
 - **Visual density:** an iPhone Notes/list infographic does NOT replace the
   rest of the image plan. Every article needs both saveable useful graphics and
-  desire visuals (generated scene/mockup and/or real pages). When a listing is
-  involved, include a 3-5 image real-page carousel in the product section.
+  desire visuals. Every article, including infographic/iPhone Notes articles,
+  must have a thin atmospheric scene: a wide mood image from `refs/scenes/` about
+  the world around the topic, not a junk-journal mockup and not product proof.
+  When a listing is involved, include a 3-5 image real-page carousel in the
+  product section using real customer/listing assets, not Etsy thumbnails/previews.
+- **Single-listing visual package:** use 3 palette images from 3 different
+  showpiece real listing pages (not thumbnails/collages), 1 thin atmospheric
+  scene inspired by the listing mood, 1 separate realistic junk journal/process
+  scene inspired by the listing palette, a real-page carousel, and the live Etsy
+  card. The thin scene and the journal/process scene are different images.
+- **Multi-listing comparison package:** one palette image per featured listing
+  (5 flower ephemera listings = 5 palette images), plus one shared thin
+  atmospheric scene, one mockup/process image, and a 2-3 image real-page carousel
+  from at least one represented listing. Use real listing/customer images only,
+  never Etsy thumbnails/previews.
 - **Kit carousel** (single-listing article): use a `<div class="kit-carousel">`
   with >=3 REAL kit pages (pageN.jpg from the customer folder — NEVER Etsy
   thumbnails; arrows+dots auto-added). For neutral/listicle articles, keep this
@@ -120,7 +141,9 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   "insert_images":["page1.jpg","page2.jpg","page3.jpg"],"mood":"<theme palette>"`
   — up to 3 REAL customer pages (asset tool saves them as pageN.jpg) in the prompts JSON — **v4 native embedding**: the REAL pages are laid down FIRST and mask-protected;
   SD inpaints the whole dreamy scene AROUND them — occlusion impossible by
-  construction, edges blend naturally. Portrait 832×1216. At least one per article.
+  construction, edges blend naturally. Portrait 832×1216. At least one in
+  listing-involved articles, but it never replaces the mandatory thin
+  atmospheric scene.
 - One listing per invocation; batch = Ksenia asks for several, run sequentially.
 - Never invent Etsy IDs or facts about the kit; everything from meta.json/vault.
 - Titles must not collide with existing posts (check public/blog/index.json).

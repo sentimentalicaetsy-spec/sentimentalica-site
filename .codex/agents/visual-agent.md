@@ -40,6 +40,13 @@ etsy-seller mockups, SEO grid. Fonts: Yeseva One (hook) + Georgia (support) —
   its own soft airbrush backing so it is readable on every image, including
   dark/blue backgrounds; URL text stays full-opacity and must be visibly legible
   in the final preview.
+- **Article visual packages:** every article needs one thin atmospheric scene
+  from `refs/scenes/` (wide mood image around the topic, not a junk-journal
+  mockup and not product proof). Single-listing articles need 3 palette images
+  from 3 different showpiece real listing pages, plus a separate realistic
+  journal/process scene. Multi-listing comparisons need one palette image per
+  featured listing, plus one mockup/process image and a small real-page carousel
+  from a represented listing.
 - Never invent product claims in visual copy — text comes from the approved
   brief; if the brief's text doesn't fit the layout, report back, don't rewrite.
 - One PNG per brief into the cycle's staging folder (or

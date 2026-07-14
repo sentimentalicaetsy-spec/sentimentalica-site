@@ -56,7 +56,12 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 8. **Generated Pinterest/article images carry the site.** Add a subtle bottom
    `sentimentalica.com` footer plus a gentle CTA when the format allows. iPhone
    Notes images are exempt and should not be blog thumbnails.
-9. **AI disclosure + affiliates.** Every article includes a quiet AI image
+9. **Every article has a thin atmospheric scene.** It is a wide mood image from
+   `refs/scenes/`, like the bicycle example: atmosphere around the topic, not a
+   junk-journal mockup, not product proof. Listing articles also need palette
+   images from real showpiece listing pages, real-page carousels, and separate
+   process/mockup visuals as defined in `ARTICLE_FUNCTION.md`.
+10. **AI disclosure + affiliates.** Every article includes a quiet AI image
    disclosure near the end, before the final related/shop block. Amazon
    affiliate links require a clear disclosure before the first affiliate link
    and must not be added until Ksenia provides the affiliate/tag system.

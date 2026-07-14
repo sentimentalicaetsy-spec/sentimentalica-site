@@ -161,6 +161,24 @@
   Если есть подходящий листинг, в продуктовой части добавляй carousel с 3–5
   НАСТОЯЩИМИ pageN.jpg/listing assets, НЕ Etsy thumbnails/previews, чтобы
   читатель видел больше, чем одну карточку товара.
+- **Thin atmospheric scene — обязательна в КАЖДОЙ статье.** Это wide/letterbox
+  mood-картинка из `refs/scenes/`, как велосипедная сцена: атмосфера вокруг темы,
+  а не junk journal mockup. Не вставлять страницы листинга, не показывать
+  разворот как продукт, не делать hands/process hero. Даже если статья уже имеет
+  инфографику/iPhone Notes, добавь отдельную thin atmospheric scene как
+  desire-визуал.
+- **Single-listing article visual package:** минимум 3 palette images, каждая
+  на основе РАЗНОЙ showpiece-картинки из листинга/кита (не thumbnail, не collage);
+  1 thin atmospheric scene inspired by the listing mood (без продукта/журнала);
+  1 realistic junk journal/process scene inspired by the listing palette; carousel
+  с 3–5 настоящими страницами; затем `{{etsy:ID}}`.
+- **Multi-listing comparison visual package:** если статья сравнивает несколько
+  листингов (например, 5 flower ephemera), у КАЖДОГО featured listing должна быть
+  своя palette image на основе showpiece real listing page. Плюс одна общая thin
+  atmospheric scene, один realistic mockup/process image, и carousel 2–3 реальных
+  страниц хотя бы от основного представленного листинга (или от каждого, если
+  статья строится секциями). Все страницы — из customer/listing assets, не Etsy
+  thumbnails/previews.
 - **Карусель кита** (статья об одном листинге): сразу после лида —
   `<div class="kit-carousel">` с ≥3 `<img>` НАСТОЯЩИХ страниц кита (pageN.jpg из customer-папки — НЕ Etsy-превью/thumbnails; стрелки и точки добавляются автоматически).
 - **Картинка на КАЖДЫЙ нумерованный пункт** («6 ways…» = 6 картинок): реальные
@@ -183,7 +201,9 @@
   — до **3 НАСТОЯЩИХ страниц** из customer-папки (asset-тул кладёт их как pageN.jpg) — **v4 native embedding**: настоящие страницы кладутся ПЕРВЫМИ и защищаются
   маской, SD **генерирует сцену ВОКРУГ них** (inpaint-around) — перекрытие объектов
   невозможно по построению, края сливаются естественно. Вертикаль 832×1216.
-  Минимум один мокап на статью.
+  Минимум один мокап/process scene, если статья связана с листингом; для pure
+  neutral/infographic статьи mockup не заменяет thin atmospheric scene и ставится
+  только если он естественно помогает теме.
 - Один листинг за вызов; «сделай для нескольких» = последовательные вызовы.
 - Ничего не выдумывать про кит: только meta.json и vault. Etsy ID — только из resolve.
 - Ошибка публикации → показать её дословно, не править сгенерированное руками.

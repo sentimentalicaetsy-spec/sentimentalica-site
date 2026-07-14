@@ -20,6 +20,18 @@ For each pin
   `refs/scrapbook and junk jornal scenes/` and kept natural, not focal. Write
   the full SD prompt (30-60 words, concrete scene, mood = listing palette) +
   negative against deformed hands/fingers and AI artifacts.
+- Every article gets a **thin atmospheric scene** from `refs/scenes/`: a wide,
+  letterbox mood image like the bicycle example. It is about the atmosphere
+  around the topic, not junk journaling itself: no inserted listing pages, no
+  open-journal mockup, no product proof, no hands/process hero. It still carries
+  subtle `sentimentalica.com` at the bottom and is judged as a saveable
+  desire-image.
+- Listing-bound articles need the full visual set: 3 color-palette images from
+  3 different showpiece real listing pages (never thumbnails/collages), the thin
+  atmospheric scene, and a separate realistic junk journal/process scene inspired
+  by the listing palette. Multi-listing comparisons need one palette image per
+  featured listing, plus one mockup/process image and a 2-3 image real-page
+  carousel from a represented listing.
 - Composition archetype: chaos scatter / bold hero / big-number / palette /
   moodboard / infographic (list ON image, problem→solution blocks — like the
   thedefinedlife reference) — pick per pin type.

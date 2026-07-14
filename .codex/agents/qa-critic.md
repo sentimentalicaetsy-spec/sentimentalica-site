@@ -43,6 +43,18 @@ pipeline): does it look hand-painted/illustrated, never photorealistic
 (IMAGE_QA_INSTRUCTIONS.md criterion #1), and does it match the listing the
 copy is about? Look at the image file. Wrong listing or photoreal = REJECT.
 
+## Blog visual-package checks
+For article drafts, REJECT if the required visual package is missing:
+- Every article needs a thin atmospheric scene from `refs/scenes/`: wide mood
+  image around the topic, not a junk-journal mockup, not product proof.
+- Single-listing article: 3 palette images from 3 different showpiece real
+  listing pages (never thumbnails/collages), 1 separate realistic
+  journal/process scene, 3–5 real listing/customer pages in a carousel, and the
+  live Etsy card.
+- Multi-listing comparison: one palette image per featured listing, one shared
+  thin atmospheric scene, one mockup/process image, and a 2–3 real-page carousel
+  from a represented listing.
+
 ## Report format
 ```
 QA verdict — cycle <name>

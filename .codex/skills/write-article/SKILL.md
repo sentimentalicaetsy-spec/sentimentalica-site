@@ -42,16 +42,23 @@ audience+hook+target query).
 For each approved row, run the full **/article machinery** (see ARTICLE_FUNCTION.md
 — it holds ALL the hard rules): real live-listing check, real pages, per-point
 images, palette-as-image, mockups, listicle→infographic in Ksenia's ref style,
-scenes judged vs refs/scenes/ by the **image-critic**, then the **critic code-gate**
+mandatory thin atmospheric scene for every article, scenes judged vs refs/scenes/
+by the **image-critic**, then the **critic code-gate**
 in publish_post.py (publish is blocked without every image PASS). Then
 `plan_io.mark_published(slug)`.
 Lead-magnet/neutral rows: pure value, product at the END only, every image
 illustrates its adjacent paragraph. On-theme listings only — never off-theme animals.
+Every article gets a thin atmospheric scene from `refs/scenes/`; it is a mood
+image around the topic, not a junk-journal mockup. Single-listing rows also need
+3 palette images from 3 different showpiece real listing pages, one separate
+junk-journal/process scene, and a real-page carousel. Multi-listing comparison
+rows need one palette image per featured listing, plus one mockup/process image
+and a 2–3 real-page carousel from a represented listing.
 Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 `refs/infographics/` = useful graphics, `refs/iphone notes/` = authentic
 iPhone Notes subtype with no emoji at the start of list items,
 `refs/scrapbook and junk jornal scenes/` = realistic journal/mockup/process,
-`refs/scenes/` = atmospheric mood.
+`refs/scenes/` = atmospheric mood and the mandatory thin article scene.
 
 ## 6. Pins → CSV (MANDATORY finale of every article — do not skip)
 After each article is live, invoke the **pinterest-seo** agent on it: it writes
