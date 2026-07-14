@@ -756,6 +756,12 @@ footer a:hover { color: var(--navy); }
   padding: 80px 24px 70px;
 }
 .about-hero--text .about-text-block p { font-size: 17px; }
+.about-hero-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+}
 .about-hero-img {
   aspect-ratio: 3/4;
   background:
