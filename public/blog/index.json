@@ -103,6 +103,17 @@
       "thumb": "blog/img/mixing-cat-and-dog-pages-in-one-pet-journal/cat-page.jpg"
     },
     {
+      "slug": "20-minute-creative-reset",
+      "title": "A 20-Minute Creative Reset for When Your Desk Feels Too Loud",
+      "category": "Creative Rituals",
+      "excerpt": "A gentle reset for messy desks, unfinished pages, and the feeling that your creative brain has too many tabs open.",
+      "date": "2026-07-10",
+      "dateDisplay": "Jul 10",
+      "readTime": "2 min read",
+      "thumb": "blog/img/20-minute-creative-reset/creative-reset-notes.png",
+      "thumbAbs": "https://sentimentalica.com/blog/img/20-minute-creative-reset/creative-reset-notes.png"
+    },
+    {
       "slug": "what-to-journal-when-you-have-nothing-to-say",
       "title": "What to Journal When You Have Nothing to Say",
       "category": "Journaling Ideas",
@@ -112,16 +123,6 @@
       "readTime": "2 min read",
       "thumb": "blog/img/what-to-journal-when-you-have-nothing-to-say/blank-page-notes.png",
       "thumbAbs": "https://sentimentalica.com/blog/img/what-to-journal-when-you-have-nothing-to-say/blank-page-notes.png"
-    },
-    {
-      "slug": "20-minute-creative-reset",
-      "title": "A 20-Minute Creative Reset for When Your Desk Feels Too Loud",
-      "category": "Creative Rituals",
-      "excerpt": "A gentle reset for messy desks, unfinished pages, and the feeling that your creative brain has too many tabs open.",
-      "date": "2026-07-10",
-      "dateDisplay": "Jul 10",
-      "readTime": "2 min read",
-      "thumb": "blog/img/20-minute-creative-reset/creative-reset-desk.png"
     },
     {
       "slug": "romantic-junk-journal-ideas-for-a-quiet-evening",
