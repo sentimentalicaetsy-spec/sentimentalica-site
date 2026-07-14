@@ -12,105 +12,231 @@
 <link rel="stylesheet" href="assets/styles.css?v=8">
 <meta name="p:domain_verify" content="2df16e7970c89985d1f99be0087cded7"/>
 <style>
-/* ===== About v3: the page IS a junk-journal spread (2026-07-14) =====
-   Modeled on the revised listing thumbnails: full-bleed collage artwork
-   with one stitched cream label card on top. Scoped under .jp- */
+/* ===== About v4: an OPEN JUNK JOURNAL in the site's own light palette =====
+   Composition inspired by the listing mockups (open book, pocket, tags,
+   taped scraps); colors stay cream + navy like the rest of the site.
+   Scoped under .jb- */
 
-.jp-hero {
+.jb-scene {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(60px, 9vh, 110px) 24px;
-  min-height: 76vh;
-  background: url('assets/shop-band-bg.jpg') center / cover no-repeat;
+  background: var(--cream);
+  padding: clamp(50px, 8vh, 100px) 24px clamp(70px, 10vh, 120px);
+  overflow: hidden;
 }
-/* portrait screens get the tall brand artwork instead of the wide banner */
-@media (orientation: portrait) {
-  .jp-hero { background-image: url('assets/about-side.jpg'); }
-}
-/* soft vignette so the card sits INTO the page, not on it */
-.jp-hero::before {
+.jb-scene::before { /* soft desk light */
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at center, rgba(250,243,230,0.28) 0%, rgba(250,243,230,0) 55%);
+  background: radial-gradient(ellipse at 50% 30%, rgba(255,253,247,0.7) 0%, transparent 60%);
   pointer-events: none;
 }
 
-/* — the stitched label card, straight from the listing thumbnails — */
-.jp-card {
+/* loose ephemera on the desk, peeking out from under the book */
+.jb-scrap { position: absolute; border: 1px solid rgba(201,184,150,0.7); box-shadow: 0 6px 16px rgba(42,42,58,0.14); }
+.jb-scrap--postcard { left: max(8px, calc(50% - 700px)); bottom: 60px; width: 150px; transform: rotate(-9deg); }
+.jb-scrap--lavender { right: max(8px, calc(50% - 690px)); top: 90px; width: 160px; transform: rotate(5deg); }
+
+/* — the open book — */
+.jb-book {
   position: relative;
-  max-width: 620px;
-  background: #fbf7ec;
-  border-radius: 12px;
-  padding: 52px 48px 46px;
-  transform: rotate(-0.8deg);
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  filter: drop-shadow(0 26px 42px rgba(42,42,58,0.2));
+}
+.jb-page {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(240,228,205,0.25) 0%, transparent 8%),
+    #fdf8ec;
+  border: 1px solid var(--line);
+  min-height: 640px;
+  padding: 50px 44px 46px;
+}
+.jb-left {
+  border-radius: 16px 3px 3px 16px;
+  border-right: none;
   box-shadow:
-    0 2px 6px rgba(42,42,58,0.14),
-    0 24px 55px rgba(42,42,58,0.28);
+    inset -26px 0 30px -24px rgba(42,42,58,0.28),
+    -4px 5px 0 -1px #f4edda, -8px 10px 0 -2px #ece1c6; /* page stack */
 }
-.jp-card::before {
-  /* the stitch: dashed line running just inside the card edge */
-  content: '';
-  position: absolute; inset: 11px;
-  border: 2px dashed rgba(122,111,94,0.5);
-  border-radius: 8px;
-  pointer-events: none;
+.jb-right {
+  border-radius: 3px 16px 16px 3px;
+  border-left: none;
+  box-shadow:
+    inset 26px 0 30px -24px rgba(42,42,58,0.28),
+    4px 5px 0 -1px #f4edda, 8px 10px 0 -2px #ece1c6;
 }
-.jp-card .eyebrow {
+.jb-spine {
+  position: absolute; left: 50%; top: 20px; bottom: 20px;
+  border-left: 2px dashed rgba(122,111,94,0.4);
+  transform: translateX(-1px);
+  z-index: 2;
+}
+
+/* washi tape — light gingham, torn ends */
+.jb-tape {
+  position: absolute;
+  width: 110px; height: 30px;
+  background:
+    repeating-linear-gradient(90deg, rgba(110,138,210,0.42) 0 9px, rgba(236,241,250,0.42) 9px 18px),
+    repeating-linear-gradient(0deg, rgba(110,138,210,0.22) 0 9px, rgba(236,241,250,0.22) 9px 18px);
+  box-shadow: 0 1px 3px rgba(42,42,58,0.16);
+  clip-path: polygon(0 14%, 3% 0, 97% 5%, 100% 0, 98% 48%, 100% 92%, 96% 100%, 4% 96%, 0 86%, 2% 52%);
+  z-index: 3;
+}
+
+/* — left page: the journal entry — */
+.jb-left .eyebrow {
   font-family: 'Special Elite', 'Courier New', monospace;
-  font-size: 13px; letter-spacing: 2px;
-  color: var(--rose);
+  font-size: 12.5px; letter-spacing: 2px; color: var(--rose);
   margin-bottom: 14px;
 }
-.jp-card h1 {
+.jb-left h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(34px, 5vw, 46px);
-  font-weight: 500; line-height: 1.12;
-  color: var(--navy); letter-spacing: -0.5px;
-  margin-bottom: 22px;
+  font-size: clamp(32px, 4vw, 42px); font-weight: 500;
+  line-height: 1.12; color: var(--navy); letter-spacing: -0.5px;
+  margin-bottom: 20px;
 }
-.jp-card h1 em { font-style: italic; }
-.jp-card p {
+.jb-left h1 em { font-style: italic; }
+.jb-left p {
   font-family: 'Lora', serif;
-  font-size: 16px; color: var(--ink);
-  line-height: 1.75; margin-bottom: 14px;
+  font-size: 15.5px; color: var(--ink);
+  line-height: 1.75; margin-bottom: 13px;
 }
-
-/* the four values, printed small inside the label like a maker's mark */
-.jp-values {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin: 26px 0 8px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(122,111,94,0.25);
-  text-align: center;
-}
-.jp-values img { height: 40px; width: auto; margin: 0 auto 7px; display: block; opacity: 0.9; }
-.jp-values b {
-  display: block;
-  font-family: 'Special Elite', 'Courier New', monospace;
-  font-weight: 400; font-size: 10.5px; letter-spacing: 1px;
-  color: var(--navy);
-}
-.jp-values span {
-  font-family: 'Special Elite', 'Courier New', monospace;
-  font-size: 9.5px; color: var(--muted); line-height: 1.45; display: block; margin-top: 3px;
-}
-
-.jp-cta {
-  display: inline-block; margin-top: 20px;
+.jb-cta {
+  display: inline-block; margin-top: 14px;
   background: var(--navy); color: var(--cream); text-decoration: none;
-  padding: 15px 36px; font-size: 12px; letter-spacing: 2px;
+  padding: 14px 32px; font-size: 12px; letter-spacing: 2px;
   text-transform: uppercase; font-weight: 500; font-family: 'Lora', serif;
   transition: background 0.25s, transform 0.25s;
 }
-.jp-cta:hover { background: var(--navy-deep); transform: translateY(-2px); }
+.jb-cta:hover { background: var(--navy-deep); transform: translateY(-2px); }
+/* fabric swatch taped to the page corner */
+.jb-fabric {
+  position: absolute; top: 24px; right: 20px;
+  width: 128px; transform: rotate(4deg);
+  border: 1px solid rgba(201,184,150,0.7);
+  box-shadow: 0 4px 10px rgba(42,42,58,0.12);
+}
+.jb-left .jb-tape--fabric { top: 14px; right: 58px; width: 72px; height: 22px; transform: rotate(-5deg); }
 
-@media (max-width: 640px) {
-  .jp-card { padding: 38px 24px 34px; }
-  .jp-values { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
+/* — right page: taped note, stamp, and the pocket of tags — */
+.jb-thanks {
+  display: block;
+  width: 86%; margin: 6px auto 0;
+  transform: rotate(-1.6deg);
+  filter: drop-shadow(0 6px 12px rgba(42,42,58,0.12));
+}
+.jb-right .jb-tape--thanks { top: 34px; left: 50%; transform: translateX(-50%) rotate(2deg); }
+.jb-stamp {
+  position: absolute; top: 250px; right: 34px;
+  width: 92px; transform: rotate(7deg);
+  border: 1px solid rgba(201,184,150,0.7);
+  box-shadow: 0 4px 10px rgba(42,42,58,0.12);
+}
+
+/* the pocket — scalloped lace edge, tags tucked inside */
+.jb-pocket {
+  position: absolute; left: 30px; right: 30px; bottom: 30px;
+  height: 240px;
+  z-index: 2;
+}
+.jb-pocket-front {
+  position: absolute; inset: 46px 0 0 0;
+  background:
+    linear-gradient(180deg, rgba(230,236,247,0.9) 0%, rgba(214,224,242,0.9) 100%);
+  border: 1px solid rgba(122,138,190,0.45);
+  border-radius: 4px 4px 12px 12px;
+  box-shadow: 0 8px 18px rgba(42,42,58,0.14);
+  z-index: 2;
+}
+.jb-pocket-front::before { /* scalloped top edge, like lace trim */
+  content: '';
+  position: absolute; top: -9px; left: 4px; right: 4px; height: 10px;
+  background: radial-gradient(circle at 9px 10px, rgba(214,224,242,0.95) 8px, transparent 9px);
+  background-size: 18px 10px;
+  background-repeat: repeat-x;
+}
+.jb-pocket-front::after { /* stitch along the pocket */
+  content: '';
+  position: absolute; inset: 8px;
+  border: 1.5px dashed rgba(255,255,255,0.75);
+  border-radius: 3px 3px 9px 9px;
+  pointer-events: none;
+}
+.jb-pocket-label {
+  position: absolute; bottom: 16px; left: 0; right: 0;
+  text-align: center;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 10.5px; letter-spacing: 1.5px; color: var(--navy);
+  opacity: 0.75; z-index: 3; pointer-events: none;
+}
+
+/* the four value tags peeking out of the pocket */
+.jb-tags {
+  position: absolute; inset: 0;
+  display: flex; justify-content: center; gap: 4%;
+  z-index: 1;
+}
+.jb-tag {
+  width: 21%; max-width: 104px; height: 200px;
+  background: #fffdf7;
+  border: 1px solid var(--line);
+  border-radius: 10px 10px 3px 3px;
+  text-align: center;
+  padding-top: 26px;
+  box-shadow: 0 2px 6px rgba(42,42,58,0.1);
+  transition: transform 0.35s ease;
+  cursor: default;
+}
+.jb-tag::before { /* punched hole with reinforcement ring */
+  content: '';
+  position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid rgba(122,111,94,0.45);
+}
+.jb-tag:nth-child(1) { transform: rotate(-2deg) translateY(14px); }
+.jb-tag:nth-child(2) { transform: rotate(1.5deg) translateY(26px); }
+.jb-tag:nth-child(3) { transform: rotate(-1deg) translateY(20px); }
+.jb-tag:nth-child(4) { transform: rotate(2.5deg) translateY(30px); }
+.jb-tag:hover { transform: rotate(0deg) translateY(-16px); }
+.jb-tag img { height: 46px; width: auto; margin: 6px auto 8px; display: block; }
+.jb-tag b {
+  display: block;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-weight: 400; font-size: 10px; letter-spacing: 0.5px;
+  color: var(--navy); padding: 0 6px;
+}
+.jb-tag span {
+  display: block;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 8.5px; color: var(--muted); line-height: 1.4;
+  padding: 3px 7px 0;
+}
+
+@media (max-width: 980px) {
+  .jb-scrap { display: none; }
+  .jb-book { grid-template-columns: 1fr; max-width: 560px; }
+  .jb-spine { display: none; }
+  .jb-left {
+    border-radius: 16px 16px 0 0; border-right: 1px solid var(--line); border-bottom: none;
+    box-shadow: inset 0 -20px 24px -20px rgba(42,42,58,0.2);
+    min-height: 0;
+  }
+  .jb-right {
+    border-radius: 0 0 16px 16px; border-left: 1px solid var(--line);
+    box-shadow: 4px 6px 0 -1px #f4edda, 8px 12px 0 -2px #ece1c6;
+  }
+}
+@media (max-width: 560px) {
+  .jb-page { padding: 36px 22px 32px; }
+  .jb-fabric { width: 92px; top: 14px; right: 12px; }
+  .jb-stamp { display: none; }
+  .jb-right { min-height: 600px; }
+  .jb-pocket { left: 16px; right: 16px; bottom: 20px; }
+  .jb-tag { padding-top: 22px; height: 190px; }
 }
 </style>
 </head>
@@ -134,20 +260,39 @@
   </ul>
 </nav>
 
-<section class="jp-hero">
-  <div class="jp-card">
-    <p class="eyebrow">— THE STUDIO —</p>
-    <h1>About the <em>Studio</em></h1>
-    <p>Welcome to Sentimentalica, a digital paper studio specializing in curated mega-bundles for paper crafting and junk journaling.</p>
-    <p>Our approach is built on variety and completeness. We know how satisfying it is to have choices, which is why every single listing in our shop is a massive collection containing between 100 and 200+ printable pages.</p>
-    <p>We pack each themed kit with everything you need to build a complete journal from scratch: from fluid watercolor backgrounds and highly detailed portraits to functional page layouts and ephemera. With hundreds of cohesive elements available in a single purchase, you will always find the exact piece to fit your creative vision.</p>
-    <div class="jp-values" aria-label="What Sentimentalica believes in">
-      <div><img src="assets/about/icon-create.png" alt=""><b>CREATE</b><span>for the joy of making</span></div>
-      <div><img src="assets/about/icon-inspire.png" alt=""><b>INSPIRE</b><span>with beauty &amp; imagination</span></div>
-      <div><img src="assets/about/icon-remember.png" alt=""><b>REMEMBER</b><span>the little things that matter</span></div>
-      <div><img src="assets/about/icon-live.png" alt=""><b>LIVE BEAUTIFULLY</b><span>and find magic in everyday</span></div>
+<section class="jb-scene">
+  <img class="jb-scrap jb-scrap--postcard" src="assets/about/scrap-postcard.jpg" alt="">
+  <img class="jb-scrap jb-scrap--lavender" src="assets/about/scrap-lavender.jpg" alt="">
+
+  <div class="jb-book">
+    <div class="jb-page jb-left">
+      <span class="jb-tape jb-tape--fabric" aria-hidden="true"></span>
+      <img class="jb-fabric" src="assets/about/scrap-fabric.jpg" alt="">
+      <p class="eyebrow">— THE STUDIO —</p>
+      <h1>About the <em>Studio</em></h1>
+      <p>Welcome to Sentimentalica, a digital paper studio specializing in curated mega-bundles for paper crafting and junk journaling.</p>
+      <p>Our approach is built on variety and completeness. We know how satisfying it is to have choices, which is why every single listing in our shop is a massive collection containing between 100 and 200+ printable pages.</p>
+      <p>We pack each themed kit with everything you need to build a complete journal from scratch: from fluid watercolor backgrounds and highly detailed portraits to functional page layouts and ephemera. With hundreds of cohesive elements available in a single purchase, you will always find the exact piece to fit your creative vision.</p>
+      <a href="https://www.etsy.com/shop/sentimentalica" class="jb-cta" target="_blank" rel="noopener">Browse the shop on Etsy →</a>
     </div>
-    <a href="https://www.etsy.com/shop/sentimentalica" class="jp-cta" target="_blank" rel="noopener">Browse the shop on Etsy →</a>
+
+    <div class="jb-spine" aria-hidden="true"></div>
+
+    <div class="jb-page jb-right">
+      <span class="jb-tape jb-tape--thanks" aria-hidden="true"></span>
+      <img class="jb-thanks" src="assets/about/thanks-note.png" alt="Handwritten note: Thank you for being here!">
+      <img class="jb-stamp" src="assets/about/scrap-stamp.jpg" alt="">
+      <div class="jb-pocket" aria-label="What Sentimentalica believes in">
+        <div class="jb-tags">
+          <div class="jb-tag"><img src="assets/about/icon-create.png" alt=""><b>CREATE</b><span>for the joy of making</span></div>
+          <div class="jb-tag"><img src="assets/about/icon-inspire.png" alt=""><b>INSPIRE</b><span>with beauty &amp; imagination</span></div>
+          <div class="jb-tag"><img src="assets/about/icon-remember.png" alt=""><b>REMEMBER</b><span>the little things that matter</span></div>
+          <div class="jb-tag"><img src="assets/about/icon-live.png" alt=""><b>LIVE BEAUTIFULLY</b><span>and find magic in everyday</span></div>
+        </div>
+        <div class="jb-pocket-front"></div>
+        <div class="jb-pocket-label">✦ pull a tag ✦</div>
+      </div>
+    </div>
   </div>
 </section>
 
