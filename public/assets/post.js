@@ -72,6 +72,60 @@
       .catch(function () { el.remove(); });
   }
 
+  /* Related articles under each post — topic-matched, not random.
+     Scores every other post by shared meaningful words in title/category/
+     excerpt (palette posts suggest palette posts, tips suggest tips);
+     category match weighs extra. Renders like the homepage journal cards. */
+  var STOP = {};
+  ('a,an,the,and,or,for,your,you,to,of,in,on,with,without,how,what,why,when,that,this,' +
+   'junk,journal,journals,journaling,page,pages,printable,printables,ideas,idea,vintage,' +
+   'more,make,making,should,never,every,some,from,into,about').split(',').forEach(function (w) { STOP[w] = 1; });
+  function keywords(p) {
+    return String((p.title || '') + ' ' + (p.category || '') + ' ' + (p.excerpt || ''))
+      .toLowerCase().replace(/[^a-z0-9\s-]/g, ' ').split(/[\s-]+/)
+      .filter(function (w) { return w.length > 3 && !STOP[w]; });
+  }
+  function relatedArticles() {
+    var m = location.pathname.match(/\/blog\/([a-z0-9-]+?)(?:\.html)?$/);
+    var article = document.querySelector('article');
+    if (!m || !article) return;
+    fetch('/blog/index.json?t=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var all = d.posts || [];
+        var me = null, rest = [];
+        all.forEach(function (p) { (p.slug === m[1] ? (me = p) : rest.push(p)); });
+        if (!me || !rest.length) return;
+        var mine = {};
+        keywords(me).forEach(function (w) { mine[w] = 1; });
+        rest.forEach(function (p) {
+          var s = 0, seen = {};
+          keywords(p).forEach(function (w) { if (mine[w] && !seen[w]) { s += 1; seen[w] = 1; } });
+          if (p.category && me.category && p.category === me.category) s += 3;
+          p._score = s;
+        });
+        rest.sort(function (a, b) { return (b._score - a._score) || String(b.date || '').localeCompare(String(a.date || '')); });
+        var picks = rest.slice(0, 3);
+        var sec = document.createElement('section');
+        sec.className = 'section related-posts';
+        sec.innerHTML =
+          '<div class="section-head"><h2>More from the <em>journal</em></h2>' +
+          '<a href="/blog.html" class="more">All posts →</a></div>' +
+          '<div class="post-grid">' + picks.map(function (p) {
+            var thumb = p.thumb
+              ? '<img class="post-thumb-img" src="/' + esc(String(p.thumb).replace(/^\//, '')) + '" alt="' + esc(p.title) + '" loading="lazy">'
+              : '<div class="post-thumb t' + (1 + Math.floor(Math.random() * 3)) + '"></div>';
+            return '<a href="/blog/' + esc(p.slug) + '.html" class="post-card">' + thumb +
+              '<div class="post-cat">' + esc(p.category || '') + '</div>' +
+              '<h3>' + esc(p.title) + '</h3>' +
+              '<p>' + esc(p.excerpt || '') + '</p>' +
+              '<div class="post-meta">' + esc(p.dateDisplay || p.date || '') + (p.readTime ? ' · ' + esc(p.readTime) : '') + '</div></a>';
+          }).join('') + '</div>';
+        article.parentNode.insertBefore(sec, article.nextSibling);
+      })
+      .catch(function () {});
+  }
+
   /* Shop pitch under each article — moved here from the homepage hero
      (2026-07-14). Injected right after the article, before the shop strip. */
   function articlePromo() {
@@ -271,6 +325,7 @@
     document.querySelectorAll('.etsy-products[data-ids]').forEach(hydrate);
     linkImagesToListing();
     articlePromo();
+    relatedArticles();
     shopStrip();
     adminEditPill();
     heroImage();

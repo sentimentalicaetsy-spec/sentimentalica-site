@@ -190,7 +190,7 @@ ${content}
   </div>
 </footer>
 
-<script src="../assets/post.js?v=15" defer></script>
+<script src="../assets/post.js?v=16" defer></script>
 <script src="../assets/admin-tab.js?v=12" defer></script>
 </body>
 </html>
