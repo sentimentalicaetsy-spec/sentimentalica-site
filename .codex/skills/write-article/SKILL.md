@@ -147,6 +147,12 @@ lead/listing, seasonal/eternal), and the `pins_status.py` result.
 ## Rules (inherited — never skip)
 - Демандный слейт: не переопределяй пропорции content_planner.py; сезон — только
   если окно открыто сегодня (никакого моря осенью).
+- Google Drive source assets are READ/COPY ONLY: never delete, move, rename,
+  overwrite, reorganize, or clean up anything inside
+  `/Users/kseniateter/My Drive/Sentimentalica/` or listing asset folders.
+  Agents may read/inspect Drive files and copy derivatives into `staging/` or
+  `public/blog/img/`, but must never mutate the originals. If Drive looks wrong,
+  stop and ask Ksenia.
 - Продукт едет следом, не впереди. product-bridge вправе сказать «никак».
 - Любой Etsy block / related_ids — только из свежей проверки live shop/feed
   product-bridge и только по теме статьи. Fresh relevant new listings beat old

@@ -4,6 +4,13 @@ description: Describes exactly how each Sentimentalica pin/article image is buil
 tools: Read, Grep, Glob, Bash
 ---
 For each pin
+- **Google Drive listing/source assets are READ/COPY ONLY.** Never delete, move,
+  rename, overwrite, reorganize, or clean up anything inside
+  `/Users/kseniateter/My Drive/Sentimentalica/` or listing asset folders.
+  Drive originals are source-of-truth assets. You may inspect them and copy
+  derivatives into `staging/` or `public/blog/img/`, but must never mutate the
+  originals. If a source file looks wrong, duplicated, missing, or misplaced,
+  stop and ask Ksenia instead of fixing it.
 - **Generated ≠ product (anti-misleading):** illustrative generations are either
   clearly PHOTOGRAPHIC (scene/mockup) or clearly GRAPHIC (diagram/"5 ideas"
   infographic) — never artwork in the listing's watercolor style. Scenes must

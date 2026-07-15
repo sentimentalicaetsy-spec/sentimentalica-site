@@ -8,6 +8,12 @@ next to the listing's palette (meta.json) and judge. The bar (Ksenia):
 either VERY beautiful (save-for-the-aesthetic) or VERY useful (infographic).
 "Just a book on a table" = FAIL.
 
+## Drive safety
+Google Drive listing/source assets are READ/COPY ONLY. Never delete, move,
+rename, overwrite, reorganize, or clean up anything inside
+`/Users/kseniateter/My Drive/Sentimentalica/` or listing asset folders. If a
+source file looks wrong, duplicated, missing, or misplaced, stop and ask Ksenia.
+
 ## Checklist per image (score 1-5 each; any 1-2 => REGENERATE)
 1. **Theme+palette match (non-negotiable):** colors belong to the listing's
    named palette; scene objects belong to the theme's world. Off-palette

@@ -75,25 +75,33 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 3. **Images must be save-worthy/click-worthy** — branded, useful, realistic, or
    atmospheric depending on type. "Nice" is not "save"; "pretty but ignored" is
    not enough.
-4. **Product-language accuracy is absolute** — commercial-use watercolor IMAGE packs.
+4. **Google Drive listing/source files are READ/COPY ONLY.** Never delete, move,
+   rename, overwrite, reorganize, or clean up anything inside
+   `/Users/kseniateter/My Drive/Sentimentalica/` or listing asset folders.
+   Listing pages, thumbnails, refs, and customer/export images are source-of-
+   truth assets. Agents may read them, inspect them, and copy derivatives into
+   `staging/` or `public/blog/img/`, but must never mutate the Drive originals.
+   If a Drive file looks wrong, duplicated, missing, or misplaced, stop and ask
+   Ksenia instead of "fixing" it.
+5. **Product-language accuracy is absolute** — commercial-use watercolor IMAGE packs.
    Never "clipart / stickers / ephemera kit / seamless patterns / templates" unless the
    listing truly includes them.
-5. **On-theme only.** No cats/dogs (or any off-theme listing) shoved into unrelated
+6. **On-theme only.** No cats/dogs (or any off-theme listing) shoved into unrelated
    articles. Pick listings that match the article's theme. No animal photo in a neutral article.
-6. **Only LIVE listings** (`resolve_listing.py` checks Etsy). Etsy drafts only — never publish Etsy listings.
-7. **Multi-listing articles use one coherent live category.** If an article
+7. **Only LIVE listings** (`resolve_listing.py` checks Etsy). Etsy drafts only — never publish Etsy listings.
+8. **Multi-listing articles use one coherent live category.** If an article
    promotes several listings, pick up to four LIVE listings from one shop/vault
    category or tight theme cluster only: e.g. background/base-paper/swatches,
    nature/botanical/floral, or dark-academia/library/gothic. Never mix random
    pretty listings just to fill product slots.
-8. **Related-shop ads must be freshly relevant.** Any Etsy product card or
+9. **Related-shop ads must be freshly relevant.** Any Etsy product card or
    related-shop block in an article must use LIVE listings fetched/checked at
    article-creation time and related to that exact topic/category. Floral article
    → floral options; dark academia → dark academia; animals → animals. No random
    "other shop listings" and no stale hardcoded defaults.
-9. **Neutral/listicle article = pure value**; products at the END only; every image
+10. **Neutral/listicle article = pure value**; products at the END only; every image
    illustrates its adjacent paragraph. Listicle → full infographic in Ksenia's ref style.
-10. **Only palette images and infographics carry the site text.** Add exactly
+11. **Only palette images and infographics carry the site text.** Add exactly
    `sentimentalica.com` on color-palette images and non-iPhone infographics.
    Do not add extra CTA text (`full guide`, `more ideas`, etc.) inside the image.
    Do not stamp the site on atmospheric scenes, mockups, process scenes, real
@@ -146,7 +154,7 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    valid non-character pages for palette images, do not duplicate weak palette
    pins; keep the valid palette image(s) and add different approved visuals
    instead.
-11. **Every article has a Pinterest-format atmospheric scene.** It is a portrait
+12. **Every article has a Pinterest-format atmospheric scene.** It is a portrait
    2:3 mood image from `refs/scenes/`: atmosphere around the topic, not a
    junk-journal mockup, not product proof. Listing articles also need palette
    images from real showpiece listing pages, real-page carousels, and separate
@@ -157,15 +165,15 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    exists for the topic (Christmas, Halloween, dark academia, lantern street,
    etc.), create a new topic-specific scene yourself in Sentimentalica taste and
    state in the notes/critic record that no close scene reference existed.
-12. **Banned Claude mockup logic:** never embed real listing pages into a
+13. **Banned Claude mockup logic:** never embed real listing pages into a
    generated album/journal/desk scene via SD inpaint/compositing. It looks fake
    and is not an accepted Sentimentalica visual. Real listing pages appear as
    direct carousel/gallery images or as the single full-bleed background for a
    palette image. Process scenes may be generated only as mood/process scenes
    inspired by the listing palette, without pasted product pages.
-13. **Carousels are 2–3 images max.** Use real listing/customer page images only,
+14. **Carousels are 2–3 images max.** Use real listing/customer page images only,
    never Etsy thumbnails/previews, and never 4+ images in an article carousel.
-12. **AI disclosure + affiliates.** Every article includes a quiet AI image
+15. **AI disclosure + affiliates.** Every article includes a quiet AI image
    disclosure near the end, before the final related/shop block. Amazon
    affiliate links require a clear disclosure before the first affiliate link
    and must not be added until Ksenia provides the affiliate/tag system.
