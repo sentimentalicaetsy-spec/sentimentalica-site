@@ -13,7 +13,7 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 ## Where everything lives
 - **This repo `~/sentimentalica-site`** — the website + the content factory:
   - `tools/` — the engine: `publish_post.py` (md→live post), `insert_generated_images.py`
-    (SDXL image gen + v4 mockups), `critic_gate.py` (HARD publish gate),
+    (SDXL image gen; Claude-style embedded-page mockups are banned), `critic_gate.py` (HARD publish gate),
     `render_list_infographic.py`, `gen_article_assets.py`, `pin_csv.py`, `resolve_listing.py`.
   - `.claude/agents/` — copywriter, image-critic, qa-critic, pin-strategist, pinterest-seo…
   - `.claude/skills/` — `article`, `write-article`, `listing-content`, `content-cycle`.
@@ -46,6 +46,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    demo graphics, and generated samples are **not references** and must never be
    used as visual examples. Only images Ksenia intentionally placed in `refs/`
    are visual ground truth.
+   Exception: when Ksenia explicitly names an already-published article image
+   as "good" (for example `rainy-afternoon-journal-ideas` or
+   `start-a-journal-page-with-one-receipt`), use it as an **approved quality and
+   composition benchmark**, not as source artwork to copy.
    **Infographic two-source rule:** `refs/infographics/` is for composition
    inspiration and information archetypes only (grid, prompt list, diagram,
    checklist, object map). The final look must be rebuilt in the Sentimentalica
@@ -57,6 +61,11 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    consistent, but the actual world, props, framing, background asset, and mood
    must be newly made for each article. Reusing a good background is still a
    failure.
+   Non-iPhone infographics must be object-led and useful like the approved
+   Rainy Afternoon / One Receipt examples: large readable title, physical
+   collage objects doing the explaining, numbered steps or labeled examples,
+   arrows/labels where useful, and enough detail to save on Pinterest. A pretty
+   background with four small floating text cards is a failure, even if branded.
 3. **Images must be save-worthy/click-worthy** — branded, useful, realistic, or
    atmospheric depending on type. "Nice" is not "save"; "pretty but ignored" is
    not enough.
@@ -78,14 +87,31 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    "other shop listings" and no stale hardcoded defaults.
 9. **Neutral/listicle article = pure value**; products at the END only; every image
    illustrates its adjacent paragraph. Listicle → full infographic in Ksenia's ref style.
-10. **Generated Pinterest/article images carry the site.** Add a subtle bottom
-   `sentimentalica.com` footer plus a gentle CTA when the format allows. iPhone
-   Notes images are exempt and should not be blog thumbnails.
-11. **Every article has a thin atmospheric scene.** It is a wide mood image from
-   `refs/scenes/`, like the bicycle example: atmosphere around the topic, not a
+10. **Only palette images and infographics carry the site text.** Add exactly
+   `sentimentalica.com` on color-palette images and non-iPhone infographics.
+   Do not add extra CTA text (`full guide`, `more ideas`, etc.) inside the image.
+   Do not stamp the site on atmospheric scenes, mockups, process scenes, real
+   listing pages, or iPhone Notes screenshots.
+   Color-palette images must use one beautiful real listing page as the full-
+   bleed background. No thumbnail, no collage, no split white side panel, no
+   framed card stack, no outer border around the palette column, and no generic
+   Pinterest-template look. Use max 5 large square swatches with the actual color
+   name and/or HEX/number label visible. The swatches sit over a soft airbrush/
+   blur haze with feathered edges, not a hard rectangle. Bottom text is exactly
+   `sentimentalica.com`.
+11. **Every article has a Pinterest-format atmospheric scene.** It is a portrait
+   2:3 mood image from `refs/scenes/`: atmosphere around the topic, not a
    junk-journal mockup, not product proof. Listing articles also need palette
    images from real showpiece listing pages, real-page carousels, and separate
    process/mockup visuals as defined in `ARTICLE_FUNCTION.md`.
+12. **Banned Claude mockup logic:** never embed real listing pages into a
+   generated album/journal/desk scene via SD inpaint/compositing. It looks fake
+   and is not an accepted Sentimentalica visual. Real listing pages appear as
+   direct carousel/gallery images or as the single full-bleed background for a
+   palette image. Process scenes may be generated only as mood/process scenes
+   inspired by the listing palette, without pasted product pages.
+13. **Carousels are 2–3 images max.** Use real listing/customer page images only,
+   never Etsy thumbnails/previews, and never 4+ images in an article carousel.
 12. **AI disclosure + affiliates.** Every article includes a quiet AI image
    disclosure near the end, before the final related/shop block. Amazon
    affiliate links require a clear disclosure before the first affiliate link

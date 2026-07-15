@@ -29,15 +29,16 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
      theme spotlight · ideas list · palette study · how-to project.
    - MUST include the visual package required by article type:
      single-listing = 3 palette images from 3 different showpiece real listing
-     pages (not thumbnails/collages), 1 thin atmospheric scene from `refs/scenes/`,
-     1 realistic junk journal/process scene inspired by the listing palette,
-     a 3–5 real-page carousel, ONE `{{etsy:ETSY_ID}}` near the end, and a soft
+    pages (not thumbnails/collages), 1 Pinterest-format atmospheric scene from `refs/scenes/`,
+     1 realistic junk journal/process scene inspired by the listing palette
+     without embedded product pages, a 2–3 real-page carousel max, ONE
+     `{{etsy:ETSY_ID}}` near the end, and a soft
      closing link to `../blog.html`. Multi-listing comparison = up to 4 LIVE
      listings from one coherent shop/vault category or tight theme cluster, one
-     palette image per featured listing, plus one thin atmospheric scene, one
-     mockup/process image, and a 2–3 real-page carousel from a represented
+    palette image per featured listing, plus one Pinterest-format atmospheric scene, one
+     process image, and a 2–3 real-page carousel from a represented
      listing. Neutral/lead/listicle = useful graphic/infographic plus the
-     mandatory thin atmospheric scene; product stays at the end only if it
+    mandatory Pinterest-format atmospheric scene; product stays at the end only if it
      honestly fits.
    - Add gentle article CTAs: "save this idea", "open the full guide", "browse
      more Sentimentalica journal ideas", or "use the matching printable pages"
@@ -48,8 +49,8 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
    `{"slug":..., "slots":[{"id":"gen1","prompt":"<photorealistic cozy junk-journal
    scene matching the theme & its palette, concrete: desk/light/props, 30-60
    words>","negative":"text, watermark, logo, low quality, deformed hands",
-   "width":1216,"height":832,"caption":"<alt>","type":"thin-atmosphere|journal-scene|mockup|infographic|palette"}, ...]}`
-   The thin-atmosphere prompt is wide/letterbox mood-only: no listing pages, no
+  "width":832,"height":1216,"caption":"<alt>","type":"thin-atmosphere|journal-scene|mockup|infographic|palette"}, ...]}`
+   The thin-atmosphere prompt is portrait Pinterest-format mood-only: no listing pages, no
    open-journal mockup, no hands/process hero.
 5. **Publish:** `python3 tools/publish_post.py staging/overnight/assets/<listing>/post.html`
 6. **Images — fully automatic (Ksenia never runs a follow-up command):**
@@ -78,11 +79,11 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   AND rendered graphics (infographics, palette cards, mockups). Nothing ships
   without its PASS.
 - **Covers must not repeat one template.** Adjacent Journal cards must differ
-  in TYPE: pages-mockup / atmospheric scene / one striking page / infographic.
+  in TYPE: process scene / atmospheric scene / one striking page / infographic.
   Check existing thumbs (blog/index.json) and pick a DIFFERENT type.
-- **Mockups never repeat.** The thumb mockup (gen2) is not re-injected in the
-  body (engine enforces it). A body mockup is a SECOND, different one
-  (different pages/scene, slot gen4 type=mockup).
+- **Process scenes never repeat.** The thumbnail/process scene is not re-injected
+  in the body. A body process scene is a SECOND, different generated scene
+  (slot gen4 type=process, without embedded product pages).
 - **Realistic generations are ALWAYS in the listing's theme and palette
   (non-negotiable)** at a save-for-the-aesthetic bar: beautiful composition,
   beautiful colors, editorial light. Scene prompts must name 2-3 palette
@@ -105,11 +106,18 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   bird/logo motifs, romantic scrapbook/journal texture. Do not use old outputs
   from Claude/Codex, `public/`, `staging/`, demos, or generated samples as
   references.
+  Exception: if Ksenia explicitly names a published image as good, use it as an
+  approved quality/composition benchmark only, not as source artwork to copy.
   Each infographic background must be different and topic-specific; do not reuse
   one generic branded collage background across a batch. Keep the same quality
   and brand language, but create a new world, prop set, framing, background
   asset, and mood for every article. Reusing a good background is still a
   REGENERATE.
+  Non-iPhone infographics must be object-led like the approved Rainy Afternoon
+  and One Receipt examples: large readable title, physical collage objects
+  carrying the explanation, numbered steps/labeled examples/arrows where useful,
+  and strong Pinterest save-value. A decorative background with small floating
+  text cards is REGENERATE.
 - **The article is built FOR Pinterest**: every block is a future pin. Images
   must be either stunning or useful (infographic-style). Pure listing ads are
   banned — value first.
@@ -124,31 +132,40 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   animals -> animals; backgrounds/swatches -> background/base-paper/swatches.
   If no fresh relevant listing fits, omit `related_ids` and do not show random
   shop ads.
-- **Image footer:** generated pin/article images must carry a subtle bottom
-  `sentimentalica.com` footer plus a gentle CTA when composition allows.
-  iPhone Notes images are the exception and must not be used as blog thumbnails.
+- **Image site text:** only color-palette images and non-iPhone infographics
+  carry site text, and it is exactly `sentimentalica.com`. No extra CTA text
+  inside images. Do not stamp atmospheric scenes, mockups/process scenes, real
+  listing pages, carousels, or iPhone Notes screenshots.
+- **Color-palette image standard:** one beautiful real listing page is the full-
+  bleed background. Never use thumbnails/collages, a split white side panel, a
+  framed/card stack, an outer border around the palette column, or an outdated
+  Pinterest-template look. Use max 5 large square swatches, labeled with color
+  name and/or HEX/number. Swatches sit on a soft airbrush/blur haze with
+  feathered edges, not a hard rectangle. Bottom text is exactly
+  `sentimentalica.com`.
 - **Visual density:** an iPhone Notes/list infographic does NOT replace the
   rest of the image plan. Every article needs both saveable useful graphics and
   desire visuals. Every article, including infographic/iPhone Notes articles,
-  must have a thin atmospheric scene: a wide mood image from `refs/scenes/` about
+  must have a Pinterest-format atmospheric scene: a portrait 2:3 mood image from `refs/scenes/` about
   the world around the topic, not a junk-journal mockup and not product proof.
-  When a listing is involved, include a 3-5 image carousel in the product section
+  When a listing is involved, include a 2-3 image carousel max in the product section
   using real `pageN.jpg`/customer assets, not Etsy thumbnails/previews.
 - **Single-listing visual package:** use 3 palette images from 3 different
-  showpiece real listing pages (not thumbnails/collages), 1 thin atmospheric
+  showpiece real listing pages (not thumbnails/collages), 1 Pinterest-format atmospheric
   scene inspired by the listing mood, 1 separate realistic junk journal/process
-  scene inspired by the listing palette, a real-page carousel, and the live Etsy
+  scene inspired by the listing palette without embedded product pages, a 2-3
+  real-page carousel max, and the live Etsy
   card. The thin scene and the journal/process scene are different images.
 - **Multi-listing comparison package:** one palette image per featured listing
   and max 4 featured listings total. They must all come from one coherent
   live-shop/vault category or tight theme cluster, such as background/base-paper/
   swatches, nature/botanical/floral, or dark academia/library/gothic. Add one
-  shared thin atmospheric scene, one mockup/process image, and a 2-3 image
+  shared Pinterest-format atmospheric scene, one process image, and a 2-3 image
   real-page carousel from at least one represented listing. Use real
   listing/customer images only, never Etsy thumbnails/previews.
 - **Kit carousel** (single-listing article): use a `<div class="kit-carousel">`
-  with >=3 REAL kit pages (pageN.jpg from the customer folder — NEVER Etsy
-  thumbnails; arrows+dots auto-added). For neutral/listicle articles, keep this
+  with 2-3 REAL kit pages max (pageN.jpg from the customer folder — NEVER Etsy
+  thumbnails; arrows+dots auto-added). Never 4+. For neutral/listicle articles, keep this
   carousel near the product section so the article remains value-first.
 - **An image for EVERY numbered point** (6 ways = 6 images): real pages/crops
   or generated scenes. People look, they don't read.
@@ -163,13 +180,13 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   and refuses (NOT LIVE) for drafts: article links must work for buyers.
 - **Every article image is click-through** to the Etsy listing (post.js rule,
   automatic for all articles).
-- **Slot gen2 = mockup**: mark it `"type":"mockup",
-  "insert_images":["page1.jpg","page2.jpg","page3.jpg"],"mood":"<theme palette>"`
-  — up to 3 REAL customer pages (asset tool saves them as pageN.jpg) in the prompts JSON — **v4 native embedding**: the REAL pages are laid down FIRST and mask-protected;
-  SD inpaints the whole dreamy scene AROUND them — occlusion impossible by
-  construction, edges blend naturally. Portrait 832×1216. At least one in
-  listing-involved articles, but it never replaces the mandatory thin
-  atmospheric scene.
+- **BANNED: Claude album/mockup embedding.** Do not use `"type":"mockup"` with
+  `insert_images` / `insert_image`; do not paste real listing pages into a
+  generated album, journal spread, desk scene, frame, polaroid stack, or pages-
+  on-journal composition. Real listing pages appear only as direct carousel/
+  gallery images or as the single full-bleed background for a palette image.
+  Generated process scenes may be inspired by the listing palette/theme, but
+  must not embed product pages.
 - Explicit `/article <listing>` stays one listing per invocation. A multi-listing
   comparison article is allowed only when write-article/product-bridge creates
   one approved row with up to 4 LIVE listings from one category; unrelated

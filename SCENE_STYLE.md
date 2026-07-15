@@ -32,8 +32,8 @@
    если они выглядят натурально.
 4. **Atmospheric mood scene** → `refs/scenes/`: комнаты, столы, офисы, красивые
    атмосферные места, куда хочется попасть.
-5. **Thin atmospheric article scene** → `refs/scenes/`: обязательная
-   letterbox/wide-картинка для КАЖДОЙ статьи (пример: велосипедная сцена).
+5. **Atmospheric article scene** → `refs/scenes/`: обязательная
+   portrait 2:3 Pinterest-format картинка для КАЖДОЙ статьи.
    Это не junk journal mockup и не продуктовая демонстрация: без разворота
    журнала, без вставленных страниц листинга, без "руки делают крафт". Она
    продаёт атмосферу вокруг темы: улица, комната, окно, кафе, стол, сад, свет,
@@ -49,22 +49,20 @@ corner filled with texture, photorealistic"
 + негатив стандартный против watermark/text/logo/low quality/deformed hands,
 но НЕ абсолютный запрет рук/ножниц для realistic journal scenes.
 
-## Формула thin atmospheric article scene
-"wide letterbox atmospheric editorial photograph of [place/object/mood around
+## Формула atmospheric article scene
+"portrait 2:3 Pinterest-format atmospheric editorial photograph of [place/object/mood around
 the article topic], [2–3 palette colours], characterful natural light, cinematic
 depth, tactile vintage textures, romantic Sentimentalica blue accents,
 photorealistic, no journal mockup, no product pages"
-+ footer `sentimentalica.com` внизу. Не добавлять белую рекламную плашку; footer
-должен быть видимым, но встроенным в сцену.
++ no footer/site text. Atmospheric scenes sell desire and mood; site text belongs
+only on palette images and non-iPhone infographics.
 
 ## Проверка
 Каждую сцену смотрит `image-critic`; вопрос: «сохранил бы ЭТО ради эстетики?»
 «Мило» = REGENERATE. Пустые углы = REGENERATE. Ровный плоский свет = REGENERATE.
-Для Pinterest/статей каждая новая generated-картинка должна иметь маленький
-нижний footer `sentimentalica.com` и мягкий CTA (`full guide`, `more ideas`,
-`read the article`, `save this`), если это не ломает формат. Исключение:
-аутентичные iPhone Notes не превращаем в рекламный баннер и не используем как
-thumbnail статьи.
+Для Pinterest/статей site text inside the image appears only on palette images
+and non-iPhone infographics, exactly as `sentimentalica.com`. No extra CTA text
+inside images. Authentic iPhone Notes stay clean and are not blog thumbnails.
 
 
 ## Библиотека сцен 10/10 (из 9 референсов Ксении, 2026-07-06)

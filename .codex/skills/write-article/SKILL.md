@@ -42,33 +42,50 @@ audience+hook+target query).
 ## 5. Produce each article (auto mode only)
 For each approved row, run the full **/article machinery** (see ARTICLE_FUNCTION.md
 — it holds ALL the hard rules): real live-listing check, real pages, per-point
-images, palette-as-image, mockups, listicle→infographic in Ksenia's ref style,
-mandatory thin atmospheric scene for every article, scenes judged vs refs/scenes/
+images, palette-as-image, process scenes, listicle→infographic in Ksenia's ref style,
+mandatory Pinterest-format atmospheric scene for every article, scenes judged vs refs/scenes/
 by the **image-critic**, then the **critic code-gate**
 in publish_post.py (publish is blocked without every image PASS). Then
 `plan_io.mark_published(slug)`.
 Lead-magnet/neutral rows: pure value, product at the END only, every image
 illustrates its adjacent paragraph. On-theme listings only — never off-theme animals.
-Every article gets a thin atmospheric scene from `refs/scenes/`; it is a mood
+Every article gets a portrait 2:3 Pinterest-format atmospheric scene from `refs/scenes/`; it is a mood
 image around the topic, not a junk-journal mockup. Single-listing rows also need
 3 palette images from 3 different showpiece real listing pages, one separate
-junk-journal/process scene, and a real-page carousel. Multi-listing comparison
+junk-journal/process scene without embedded product pages, and a 2-3 image
+real-page carousel max. Multi-listing comparison
 rows need up to 4 LIVE listings from one coherent category/theme cluster, one
-palette image per featured listing, plus one mockup/process image and a 2–3
+palette image per featured listing, plus one process image and a 2–3
 real-page carousel from a represented listing.
 Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 `refs/infographics/` = useful graphics, `refs/iphone notes/` = authentic
 iPhone Notes subtype with no emoji at the start of list items,
 `refs/scrapbook and junk jornal scenes/` = realistic journal/mockup/process,
-`refs/scenes/` = atmospheric mood and the mandatory thin article scene.
+`refs/scenes/` = atmospheric mood and the mandatory Pinterest-format article scene.
 Infographic two-source rule: use `refs/infographics/` only for the composition
 or useful-content archetype, then rebuild the final image in the Sentimentalica
 brand from `refs/branding/`. Never use prior Claude/Codex outputs, `public/`,
 `staging/`, demos, or generated samples as reference images.
+Exception: if Ksenia explicitly names a published image as good, use it as an
+approved quality/composition benchmark only, not as source artwork to copy.
 Every infographic background must vary by article/topic; no repeated generic
 brand background across a batch. Keep the same quality/brand system, but create
 a fresh world, prop set, framing, background asset, and mood for every article.
 Reusing a good background is still a failure.
+Non-iPhone infographics must be object-led like the approved Rainy Afternoon
+and One Receipt examples: large readable title, physical collage objects doing
+the explaining, numbered steps/labeled examples/arrows where useful, and strong
+Pinterest save-value. A pretty background with four small floating text cards is
+a failure.
+Color-palette images: use one beautiful real listing page as the full-bleed
+background, max 5 large square swatches, color name and/or HEX/number labels,
+soft feathered airbrush/blur haze under the swatches, and exactly
+`sentimentalica.com` at the bottom. No thumbnail, collage, split side panel,
+framed stack, hard rectangle, outer border, or extra CTA text.
+Banned visual path: never use Claude-style album/mockup embedding where real
+listing pages are pasted into a generated journal/album/desk scene. Real pages
+belong in direct carousel/gallery images, 2-3 max, or as the single full-bleed
+background for palette images only.
 
 ## 6. Pins → CSV (MANDATORY finale of every article — do not skip)
 After each article is live, invoke the **pinterest-seo** agent on it: it writes

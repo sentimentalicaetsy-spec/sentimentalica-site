@@ -17,18 +17,29 @@ either VERY beautiful (save-for-the-aesthetic) or VERY useful (infographic).
 3. **Light & mood:** dreamy, warm, directional; the image FEELS like a mood.
 4. **Save-worthiness:** would a Pinterest user save this purely for the
    aesthetic? Be harsh — "nice" is not "save".
-5. **Site footer / CTA:** generated Pinterest/article visuals should include
-   a small readable bottom `sentimentalica.com` footer and a gentle CTA when
-   the format allows. iPhone Notes images are exempt and must not be blog
-   thumbnails.
+5. **Site text discipline:** only color-palette images and non-iPhone
+   infographics should include site text, and it must be exactly
+   `sentimentalica.com`. Extra CTA text inside the image is REGENERATE. Site
+   text on atmospheric scenes, mockups/process scenes, real listing pages, or
+   iPhone Notes screenshots is REGENERATE.
+   For color-palette images, REGENERATE if there is a split side panel,
+   framed/card stack, outer border around the swatch column, unlabeled swatches,
+   thumbnail/collage background, hard rectangle backing, or extra CTA text.
 6. **Infographic reference discipline:** non-iPhone infographics must clearly
    use `refs/infographics/` for useful composition and `refs/branding/` for the
    final Sentimentalica look. If the image looks like a flat generic template,
    a copied outside-brand reference, or an old Claude/Codex/public/staging
    output, verdict = REGENERATE.
+   If Ksenia has named a published image as good, treat it as an approved
+   benchmark for quality/composition only. Approved benchmark examples include
+   Rainy Afternoon Journal Ideas and Start a Journal Page With One Receipt.
    In a batch, infographic backgrounds must be visibly different and
    topic-specific; repeated generic brand backdrops = REGENERATE. Same quality
    and brand language is good; same actual background/world/prop set is not.
+   Reject any non-iPhone infographic that is merely a decorative background
+   with small floating text cards. PASS requires object-led useful composition:
+   large readable title, physical collage objects carrying the explanation,
+   numbered steps/labeled examples/arrows when useful, and Pinterest save-value.
 7. **Flaws:** AI artifacts, melted objects, pseudo-text, off-theme animals,
    anything mistakable for product artwork (anti-misleading rule). Hands,
    cropped people, scissors/tools are allowed only for realistic

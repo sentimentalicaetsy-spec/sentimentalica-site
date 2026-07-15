@@ -105,10 +105,19 @@
   чужой URL, чужой логотип или точную картинку из infographic reference.
   `public/`, `staging/`, старые Claude/Codex outputs и demo-файлы запрещены как
   источники вдохновения.
+  Исключение: если Ksenia явно называет опубликованную картинку хорошей
+  (`rainy-afternoon-journal-ideas`, `start-a-journal-page-with-one-receipt`
+  и т.п.), её можно использовать как **approved quality/composition benchmark**,
+  но не как источник пикселей/фона для копирования.
   Фон инфографики меняется под каждую статью/тему; запрещено использовать один
   общий branded paper background для всего batch. Качество и бренд-язык должны
   быть стабильными, но сам мир/предметы/композиция/фон/mood создаются заново
   под каждую статью. Повторить хороший фон = всё равно REGENERATE.
+- **Non-iPhone infographic standard:** инфографика должна быть object-led,
+  как approved Rainy Afternoon / One Receipt: крупный читаемый title, реальные
+  collage-предметы объясняют идею, numbered steps / labeled examples /
+  стрелки по необходимости, высокая Pinterest save-value. Красивый фон +
+  маленькие floating text cards = REGENERATE, даже если брендово.
 - **Никаких котов/собак в чужих темах; фото животного в нейтральной статье =
   брак:** карточки `{{etsy:}}` и картинки подбираются ТОЛЬКО по теме статьи;
   случайное фото кота/собаки в конце — запрещено (провал 2026-07-06).
@@ -135,12 +144,12 @@
   (инфографик-жанр из SCENE_STYLE.md), их картинки должны сохранять тысячи.
 - **Промпты сцен — строго по формуле `SCENE_STYLE.md`** (плотность, свет с характером, палитра листинга).
 - **Обложки статей не повторяют один шаблон.** На листе Journal соседние
-  обложки обязаны отличаться ТИПОМ: мокап со страницами / атмосферная сцена /
+  обложки обязаны отличаться ТИПОМ: process scene / атмосферная сцена /
   сильная страница крупно / инфографика. Перед выбором обложки посмотри
   thumb'ы существующих статей (blog/index.json) и возьми другой тип.
-- **Мокапы не повторяются.** Обложка (gen2) не появляется в теле статьи ещё раз
-  (движок это блокирует). Если мокап нужен и в теле — это ВТОРОЙ, другой мокап
-  (другие страницы/другая сцена, слот gen4 type=mockup).
+- **Process scenes не повторяются.** Обложка/process scene (gen2) не появляется
+  в теле статьи ещё раз. Если process scene нужен и в теле — это ВТОРАЯ, другая
+  generated scene (другая сцена, слот gen4 type=process, без embedded product pages).
 - **Реалистичные генерации ВСЕГДА в теме и палитре листинга (не обсуждается)** и
   на уровне «сохранил бы ради эстетики»: красивая композиция, красивые цвета,
   режиссёрский свет. Промпт сцены обязан называть 2–3 цвета палитры. Каждую
@@ -156,10 +165,17 @@
 - **Статья делается ДЛЯ Pinterest**: каждый блок — будущий пин. Картинки либо
   потрясающе красивые, либо полезные (инфографика). «Реклама листинга» без
   пользы запрещена — nobody cares.
-- **Каждая generated-картинка для Pinterest/статьи**: маленький footer
-  `sentimentalica.com` внизу + мягкий CTA, если формат позволяет (`full guide`,
-  `more ideas`, `read the article`, `save this`). iPhone Notes не используем
-  как thumbnail и не ломаем им аутентичный UI.
+- **Текст на картинках:** только color-palette images и non-iPhone infographic
+  получают site mark, и это ровно `sentimentalica.com`. Не добавлять внутрь
+  картинки `full guide`, `more ideas`, `read the article`, `save this` или
+  другие CTA. Не ставить site mark на atmospheric scenes, mockups/process
+  scenes, реальные listing pages/carousels или iPhone Notes screenshots.
+- **Color-palette image standard:** одна красивая реальная страница листинга
+  как full-bleed background. Никаких thumbnails, collage, split white side panel,
+  framed/card stack, outer border вокруг палитры или outdated Pinterest-template
+  вида. Максимум 5 крупных square swatches; на каждом/рядом видны name и/или
+  HEX/number label. Под swatches только мягкий airbrush/blur haze с feathered
+  edges, не hard rectangle. Внизу ровно `sentimentalica.com`, без CTA.
 - **В статье**: мягкие CTA в тексте обязательны. Предлагай релевантные LIVE
   листинги, когда это естественно, но neutral/listicle остаётся value-first,
   продукт в конце.
@@ -179,21 +195,21 @@
   ссылки, а рекомендации должны быть реально полезны для junk journal.
 - **Визуальная плотность статьи:** iPhone Notes / list infographic НЕ заменяет
   остальные картинки. У статьи должны быть оба типа визуала: полезная saveable
-  графика + красивые desire-визуалы (generated scene/mockup или реальные страницы).
-  Если есть подходящий листинг, в продуктовой части добавляй carousel с 3–5
+  графика + красивые desire-визуалы (generated scene/process или реальные страницы).
+  Если есть подходящий листинг, в продуктовой части добавляй carousel с 2–3 max
   НАСТОЯЩИМИ pageN.jpg/listing assets, НЕ Etsy thumbnails/previews, чтобы
   читатель видел больше, чем одну карточку товара.
-- **Thin atmospheric scene — обязательна в КАЖДОЙ статье.** Это wide/letterbox
-  mood-картинка из `refs/scenes/`, как велосипедная сцена: атмосфера вокруг темы,
+- **Atmospheric scene — обязательна в КАЖДОЙ статье и всегда Pinterest format.**
+  Это portrait 2:3 mood-картинка из `refs/scenes/`: атмосфера вокруг темы,
   а не junk journal mockup. Не вставлять страницы листинга, не показывать
   разворот как продукт, не делать hands/process hero. Даже если статья уже имеет
-  инфографику/iPhone Notes, добавь отдельную thin atmospheric scene как
+  инфографику/iPhone Notes, добавь отдельную atmospheric scene как
   desire-визуал.
 - **Single-listing article visual package:** минимум 3 palette images, каждая
   на основе РАЗНОЙ showpiece-картинки из листинга/кита (не thumbnail, не collage);
-  1 thin atmospheric scene inspired by the listing mood (без продукта/журнала);
-  1 realistic junk journal/process scene inspired by the listing palette; carousel
-  с 3–5 настоящими страницами; затем `{{etsy:ID}}`.
+  1 Pinterest-format atmospheric scene inspired by the listing mood (без продукта/журнала);
+  1 realistic junk journal/process scene inspired by the listing palette, но без
+  embedded listing pages; carousel с 2–3 max настоящими страницами; затем `{{etsy:ID}}`.
 - **Multi-listing selection rule:** для статьи, которая продвигает несколько
   листингов, product-bridge выбирает максимум 4 LIVE листинга из ОДНОЙ категории
   live shop/vault или очень плотного theme cluster. Примеры: background/base
@@ -203,12 +219,14 @@
 - **Multi-listing comparison visual package:** если статья сравнивает несколько
   листингов (например, до 4 flower/nature ephemera из одной категории), у КАЖДОГО
   featured listing должна быть своя palette image на основе showpiece real listing
-  page. Плюс одна общая thin atmospheric scene, один realistic mockup/process
+  page. Плюс одна общая Pinterest-format atmospheric scene, один realistic process
   image, и carousel 2–3 реальных страниц хотя бы от основного представленного
   листинга (или от каждого, если статья строится секциями). Все страницы — из
   customer/listing assets, не Etsy thumbnails/previews.
-- **Карусель кита** (статья об одном листинге): сразу после лида —
-  `<div class="kit-carousel">` с ≥3 `<img>` НАСТОЯЩИХ страниц кита (pageN.jpg из customer-папки — НЕ Etsy-превью/thumbnails; стрелки и точки добавляются автоматически).
+- **Карусель кита** (статья об одном листинге): в продуктовой части —
+  `<div class="kit-carousel">` с 2–3 `<img>` max НАСТОЯЩИХ страниц кита
+  (pageN.jpg из customer-папки — НЕ Etsy-превью/thumbnails; стрелки и точки
+  добавляются автоматически). Никогда не 4+.
 - **Картинка на КАЖДЫЙ нумерованный пункт** («6 ways…» = 6 картинок): реальные
   страницы/фрагменты кита или сгенерированные сцены. Люди не читают — смотрят.
 - **Руки/ножницы/часть девушки — больше НЕ абсолютный бан, но только reference-backed:**
@@ -224,14 +242,13 @@
   (NOT LIVE), если листинг в драфте: ссылки статьи должны работать для покупателя.
 - **Каждая картинка статьи кликабельна** → ведёт на листинг Etsy (правило работает
   автоматически через post.js для всех статей, старых и новых).
-- **Слот gen2 = мокап**: в prompts JSON помечать `"type":"mockup",
-  "insert_images":["page1.jpg","page2.jpg","page3.jpg"], "mood":"<палитра темы>"`
-  — до **3 НАСТОЯЩИХ страниц** из customer-папки (asset-тул кладёт их как pageN.jpg) — **v4 native embedding**: настоящие страницы кладутся ПЕРВЫМИ и защищаются
-  маской, SD **генерирует сцену ВОКРУГ них** (inpaint-around) — перекрытие объектов
-  невозможно по построению, края сливаются естественно. Вертикаль 832×1216.
-  Минимум один мокап/process scene, если статья связана с листингом; для pure
-  neutral/infographic статьи mockup не заменяет thin atmospheric scene и ставится
-  только если он естественно помогает теме.
+- **BANNED: Claude album/mockup embedding.** Не использовать `"type":"mockup"`
+  with `insert_images` / `insert_image`; не вставлять real listing pages в
+  generated album, journal spread, desk scene, рамки, polaroids или "pages on
+  top of a journal". Этот путь выглядит fake и запрещён. Реальные страницы
+  показываются только напрямую в carousel/gallery или как одна full-bleed page
+  для color-palette image. Generated process scenes должны быть вдохновлены
+  палитрой/темой листинга, но без embedded product pages.
 - Explicit `/article <listing>` = один листинг за вызов. Multi-listing
   comparison article создаётся только как один approved row из write-article /
   product-bridge: до 4 LIVE листингов из одной категории, не произвольный batch.
