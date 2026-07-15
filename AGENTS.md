@@ -49,7 +49,9 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    Exception: when Ksenia explicitly names an already-published article image
    as "good" (for example `rainy-afternoon-journal-ideas` or
    `start-a-journal-page-with-one-receipt`), use it as an **approved quality and
-   composition benchmark**, not as source artwork to copy.
+   composition benchmark**, not as source artwork to copy. For current
+   non-iPhone infographic quality, first look at the approved files in
+   `refs/infographics/approved-codex/`.
    **Infographic two-source rule:** `refs/infographics/` is for composition
    inspiration and information archetypes only (grid, prompt list, diagram,
    checklist, object map). The final look must be rebuilt in the Sentimentalica
@@ -66,6 +68,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    collage objects doing the explaining, numbered steps or labeled examples,
    arrows/labels where useful, and enough detail to save on Pinterest. A pretty
    background with four small floating text cards is a failure, even if branded.
+   `tools/render_list_infographic.py` / local PIL torn-card grids are banned as
+   the final infographic path; rough layout tests only. Every approved
+   non-iPhone infographic includes a small `sentimentalica.com` centered at the
+   bottom, with no extra CTA text.
 3. **Images must be save-worthy/click-worthy** — branded, useful, realistic, or
    atmospheric depending on type. "Nice" is not "save"; "pretty but ignored" is
    not enough.
@@ -92,18 +98,65 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    Do not add extra CTA text (`full guide`, `more ideas`, etc.) inside the image.
    Do not stamp the site on atmospheric scenes, mockups, process scenes, real
    listing pages, or iPhone Notes screenshots.
-   Color-palette images must use one beautiful real listing page as the full-
-   bleed background. No thumbnail, no collage, no split white side panel, no
-   framed card stack, no outer border around the palette column, and no generic
-   Pinterest-template look. Use max 5 large square swatches with the actual color
-   name and/or HEX/number label visible. The swatches sit over a soft airbrush/
-   blur haze with feathered edges, not a hard rectangle. Bottom text is exactly
-   `sentimentalica.com`.
+   Color-palette images must always use one beautiful real listing page as the full-
+   bleed background. Do not choose a main character image for palette art:
+   no portraits, animal portraits, or single-subject hero characters. No
+   thumbnail, no collage, no split white side panel, no framed card stack, no
+   border around swatches, and no generic Pinterest-template look. Do not use
+   geometric patchwork/grid/all-over rectangle pages as palette backgrounds:
+   the repeated rectangular structure competes with the palette swatches and
+   makes the pin look confused. Never use
+   files from `revised thumbnails/` for palette backgrounds or listing-page
+   source images; those are Etsy preview/collage assets. Use the actual listing
+   page folder (for example `.../<Listing Name>/<Listing Name>/*.jpg`) when
+   choosing real pages. Use 4-5
+   colors only. Do not blindly use the most common extracted colors: choose a
+   beautiful, cohesive palette from the listing image itself (anchor dark or
+   midtone, soft neutral, supporting muted color, and one real accent when
+   present). Reject muddy, repetitive, or ugly combinations even if the colors
+   are technically present. Required palette curation process before rendering:
+   run `tools/curate_palette.py <actual-listing-page.jpg>` or equivalent logic
+   to over-extract 10-15 colors, reject muddy middle grays, near-duplicate
+   hues, neons, pure shadows/highlights, micro-detail colors, and noise colors,
+   then curate exactly four roles: **Dark Anchor**, **Strict Light Neutral**,
+   **Support Mid-tone**, **Hero Accent**. The neutral must be clean cream,
+   linen, ivory, or parchment with lightness > 80%, never muddy gray/taupe/
+   dirty green. The accent must come from the image's hero object or highest-
+   contrast hero feature (rose, blue roof, lavender flower, teal wash, radish-red shape, brick path,
+   lantern, barn, candle), even when it has lower pixel count. Respect massive
+   color blocks as support/anchor and ignore tiny stems/noise. Values must not
+   clump: one dark, one light, one mid support, one clear accent. The vision/LLM
+   instruction is: "You are an Expert Art Director and Color Theorist for
+   Sentimentalica. Analyze the image like a human designer, not a pixel counter.
+   Identify the focal/hero object and massive color blocks; reject muddy,
+   duplicate, neon, micro-detail, and cheap colors; assign Dark Anchor, Strict
+   Light Neutral, Support Mid-tone, and Hero Accent; slightly adjust saturation/
+   lightness for a harmonious vintage tone; output 4 hex codes with role and
+   thematic name." Swatches are plain unframed color rectangles/squares
+   with the actual color name and/or HEX/number label visible. Current approved
+   layout: large swatches chosen by composition. Wide horizontal rectangles are
+   about 60-70% of image width; square columns are much larger than small side
+   chips and sit where they preserve the best subject. Before rendering, inspect
+   the listing page, decide what must remain visible, then place swatches around
+   that subject. No side belt, opacity strip, backing/blur, airbrush, or frames.
+   The listing background is slightly desaturated so the palette reads more
+   clearly; curated swatches render as their exact approved HEX and are not
+   auto-darkened into mud. Bottom text is
+   exactly `sentimentalica.com`. If a listing does not have three distinct
+   valid non-character pages for palette images, do not duplicate weak palette
+   pins; keep the valid palette image(s) and add different approved visuals
+   instead.
 11. **Every article has a Pinterest-format atmospheric scene.** It is a portrait
    2:3 mood image from `refs/scenes/`: atmosphere around the topic, not a
    junk-journal mockup, not product proof. Listing articles also need palette
    images from real showpiece listing pages, real-page carousels, and separate
    process/mockup visuals as defined in `ARTICLE_FUNCTION.md`.
+   **Scene reference rule:** first LOOK through `refs/scenes/` for a close,
+   relatable reference (same kind of atmosphere/place/object, not just same
+   color). If a close file exists, use it as the visual anchor. If no close file
+   exists for the topic (Christmas, Halloween, dark academia, lantern street,
+   etc.), create a new topic-specific scene yourself in Sentimentalica taste and
+   state in the notes/critic record that no close scene reference existed.
 12. **Banned Claude mockup logic:** never embed real listing pages into a
    generated album/journal/desk scene via SD inpaint/compositing. It looks fake
    and is not an accepted Sentimentalica visual. Real listing pages appear as

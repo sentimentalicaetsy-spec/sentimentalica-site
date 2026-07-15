@@ -118,11 +118,18 @@
   collage-предметы объясняют идею, numbered steps / labeled examples /
   стрелки по необходимости, высокая Pinterest save-value. Красивый фон +
   маленькие floating text cards = REGENERATE, даже если брендово.
+  Current approved Codex quality refs live in
+  `refs/infographics/approved-codex/`; check them before creating new
+  non-iPhone infographics.
+  `tools/render_list_infographic.py` / local PIL torn-card grid BANNED as final
+  infographic path; только rough layout tests. Внизу по центру обязательно
+  маленькое `sentimentalica.com`, без дополнительного CTA.
 - **Никаких котов/собак в чужих темах; фото животного в нейтральной статье =
   брак:** карточки `{{etsy:}}` и картинки подбираются ТОЛЬКО по теме статьи;
   случайное фото кота/собаки в конце — запрещено (провал 2026-07-06).
 - **Листикл → инфографика обязательна:** каждая статья-список получает полную
-  инфографику (`render_list_infographic.py` или будущий renderer), но стиль
+  инфографику (не через `render_list_infographic.py` as final; только generated/
+  composed final), и стиль
   теперь определяется `refs/infographics/` + `refs/branding/`: полезная структура
   должна быть переделана в Sentimentalica look. Исключение — iPhone Notes
   инфографика: она должна выглядеть как настоящая заметка в айфоне по
@@ -170,12 +177,47 @@
   картинки `full guide`, `more ideas`, `read the article`, `save this` или
   другие CTA. Не ставить site mark на atmospheric scenes, mockups/process
   scenes, реальные listing pages/carousels или iPhone Notes screenshots.
-- **Color-palette image standard:** одна красивая реальная страница листинга
+- **Color-palette image standard:** ВСЕГДА одна красивая реальная страница листинга
   как full-bleed background. Никаких thumbnails, collage, split white side panel,
   framed/card stack, outer border вокруг палитры или outdated Pinterest-template
-  вида. Максимум 5 крупных square swatches; на каждом/рядом видны name и/или
-  HEX/number label. Под swatches только мягкий airbrush/blur haze с feathered
-  edges, не hard rectangle. Внизу ровно `sentimentalica.com`, без CTA.
+  вида. Не выбирать main character image: никаких portraits, animal portraits,
+  single-subject hero characters. Не брать geometric patchwork/grid/all-over
+  rectangle pages для palette backgrounds: прямоугольный repeated structure
+  конкурирует со swatches и выглядит confused. Никогда не брать файлы из
+  `revised thumbnails/`
+  for palette backgrounds or real listing-page source images: это Etsy
+  preview/collage assets. Для palette/listing pages использовать actual listing
+  page folder (например `.../<Listing Name>/<Listing Name>/*.jpg`). Только 4-5
+  colors. Не брать blindly dominant
+  colors: выбрать красивую гармоничную palette из самой listing image (anchor
+  dark/midtone, soft neutral, muted support, real accent if present). Reject
+  muddy/repetitive/ugly palettes even when colors are technically present.
+  Required curation before render: run
+  `PY tools/curate_palette.py <actual-listing-page.jpg>` or equivalent. It must
+  over-extract 10-15 candidates, reject muddy middle grays, near-duplicate
+  hues, neons, pure shadows/highlights, micro-detail colors, and noise colors,
+  then curate exactly four roles: Dark Anchor, Strict Light Neutral, Support
+  Mid-tone, Hero Accent. Neutral must be clean cream/linen/ivory/parchment with
+  lightness > 80%, never muddy gray/taupe/dirty green. Accent must come from
+  the hero object or highest-contrast hero feature, even if it has lower pixel
+  count. Respect massive color blocks; ignore tiny stems/noise. Values must not
+  clump. Vision/LLM prompt: "You are an Expert Art Director and Color Theorist
+  for Sentimentalica. Analyze the image like a human designer, not a pixel
+  counter. Identify the focal/hero object and massive color blocks; reject
+  muddy, duplicate, neon, micro-detail, and cheap colors; assign Dark Anchor,
+  Strict Light Neutral, Support Mid-tone, and Hero Accent; slightly adjust
+  saturation/lightness for a harmonious vintage tone; output 4 hex codes with
+  role and thematic name."
+  Swatches = plain unframed rectangles/squares, с name и/или HEX/number label.
+  Current approved layout: large swatches chosen by composition. Wide
+  rectangles около 60-70% ширины; square columns are large, not tiny chips.
+  Сначала inspect listing page, decide what subject must stay visible, then
+  place swatches around it. Без side belt, opacity strip, backing/blur, airbrush
+  или frames. Listing background slightly desaturated; curated swatches render
+  as their exact approved HEX and are not auto-darkened into mud. Внизу ровно
+  `sentimentalica.com`, без CTA. Если у листинга нет трёх разных valid
+  non-character pages для palette images, не дублировать слабые palette pins:
+  оставить valid palette image(s) и добавить другие approved visuals.
 - **В статье**: мягкие CTA в тексте обязательны. Предлагай релевантные LIVE
   листинги, когда это естественно, но neutral/listicle остаётся value-first,
   продукт в конце.
@@ -205,6 +247,12 @@
   разворот как продукт, не делать hands/process hero. Даже если статья уже имеет
   инфографику/iPhone Notes, добавь отдельную atmospheric scene как
   desire-визуал.
+- **Scene reference rule:** сначала LOOK through `refs/scenes/` и ищи close,
+  relatable reference (тот же тип атмосферы/места/предмета, не просто похожий
+  цвет). Если такой файл есть — он visual anchor. Если close reference нет
+  (Christmas, Halloween, dark academia, Asian lantern street и т.п.), agent
+  создаёт новую topic-specific scene самостоятельно, но в Sentimentalica taste,
+  и в notes/critic record пишет: no close scene reference existed.
 - **Single-listing article visual package:** минимум 3 palette images, каждая
   на основе РАЗНОЙ showpiece-картинки из листинга/кита (не thumbnail, не collage);
   1 Pinterest-format atmospheric scene inspired by the listing mood (без продукта/журнала);

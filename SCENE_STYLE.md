@@ -40,6 +40,19 @@
    настроение, куда хочется попасть. Для статьи с инфографикой/iPhone Notes она
    всё равно нужна как отдельный desire-визуал.
 
+## Scene reference rule
+Before generating an atmospheric scene, LOOK at `refs/scenes/` and choose a
+close, relatable file if one exists. "Close" means the same kind of atmosphere,
+place, or object: garden path for cottage/floral, desk/window for workspace,
+room/cafe/street if that is the actual mood. Do not force a weak reference just
+because the colors match.
+
+If no close scene reference exists (for example dark academia, Asian lantern
+street, Christmas, Halloween), generate a new topic-specific atmospheric scene
+yourself, still in Sentimentalica taste: romantic, tactile, editorial,
+Pinterest portrait, textured, feminine, with controlled brand-blue accents when
+natural. In the notes/critic record, state: "no close scene reference existed".
+
 ## Формула промпта atmospheric scene-slot
 "[доминанта сцены] surrounded by DENSE layers of [3–4 текстуры: torn aged
 papers / lace / tulle / dried <цветы палитры>], [палитра: назвать 2–3 цвета

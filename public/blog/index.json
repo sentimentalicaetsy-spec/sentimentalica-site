@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "garden-joy-junk-journal-ideas-for-soft-floral-pages",
+      "title": "Garden Joy Junk Journal Ideas for Soft Floral Pages",
+      "category": "Junk Journaling",
+      "excerpt": "A cottage-garden approach to floral pages with sage greens, soft roses, and gentle paper texture.",
+      "date": "2026-07-15",
+      "dateDisplay": "Jul 15",
+      "readTime": "1 min read",
+      "thumb": "blog/img/garden-joy-junk-journal-ideas-for-soft-floral-pages/gen4.jpg"
+    },
+    {
+      "slug": "wild-colors-junk-journal-ideas-for-playful-pages",
+      "title": "Wild Colors Junk Journal Ideas for Playful Pages",
+      "category": "Junk Journaling",
+      "excerpt": "A bright but controlled way to use bohemian color in a junk journal without losing the page.",
+      "date": "2026-07-15",
+      "dateDisplay": "Jul 15",
+      "readTime": "1 min read",
+      "thumb": "blog/img/wild-colors-junk-journal-ideas-for-playful-pages/gen4.jpg"
+    },
+    {
+      "slug": "a-quiet-color-ritual-for-your-journal-desk",
+      "title": "A Quiet Color Ritual for Your Journal Desk",
+      "category": "Junk Journaling",
+      "excerpt": "A calming way to choose colors before a page turns into a pile of almost-right scraps.",
+      "date": "2026-07-15",
+      "dateDisplay": "Jul 15",
+      "readTime": "1 min read",
+      "thumb": "blog/img/a-quiet-color-ritual-for-your-journal-desk/gen2.jpg"
+    },
+    {
+      "slug": "tiny-paper-things-to-collect-before-they-disappear",
+      "title": "Tiny Paper Things to Collect Before They Disappear",
+      "category": "Junk Journaling",
+      "excerpt": "A gentle collector\u2019s list for the paper scraps that make everyday journal pages feel lived-in.",
+      "date": "2026-07-15",
+      "dateDisplay": "Jul 15",
+      "readTime": "1 min read",
+      "thumb": "blog/img/tiny-paper-things-to-collect-before-they-disappear/gen1.jpg"
+    },
+    {
+      "slug": "wedding-planning-keepsakes-for-your-junk-journal",
+      "title": "Wedding Planning Keepsakes for Your Junk Journal",
+      "category": "Junk Journaling",
+      "excerpt": "A soft way to save the tiny wedding-planning pieces before they disappear into a drawer.",
+      "date": "2026-07-15",
+      "dateDisplay": "Jul 15",
+      "readTime": "1 min read",
+      "thumb": "blog/img/wedding-planning-keepsakes-for-your-junk-journal/gen1.jpg"
+    },
+    {
       "slug": "how-to-make-a-journal-page-feel-like-a-place",
       "title": "How to Make a Journal Page Feel Like a Place",
       "category": "Journaling Ideas",
@@ -38,7 +88,7 @@
       "date": "2026-07-14",
       "dateDisplay": "Jul 14",
       "readTime": "1 min read",
-      "thumb": "blog/img/farmhouse-animal-journal-ideas-for-country-pages/gen4.jpg"
+      "thumb": "blog/img/farmhouse-animal-journal-ideas-for-country-pages/gen2.jpg"
     },
     {
       "slug": "a-summer-trail-journal-theme-with-maps-and-mountain-greens",

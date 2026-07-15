@@ -117,7 +117,12 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   and One Receipt examples: large readable title, physical collage objects
   carrying the explanation, numbered steps/labeled examples/arrows where useful,
   and strong Pinterest save-value. A decorative background with small floating
-  text cards is REGENERATE.
+  text cards is REGENERATE. `tools/render_list_infographic.py` / local PIL
+  torn-card grids are banned as the final infographic path; rough layout tests
+  only. Every approved non-iPhone infographic includes a small
+  `sentimentalica.com` centered at the bottom, with no extra CTA text.
+  Before making one, inspect `refs/infographics/approved-codex/` as the current
+  Ksenia-approved quality bar.
 - **The article is built FOR Pinterest**: every block is a future pin. Images
   must be either stunning or useful (infographic-style). Pure listing ads are
   banned — value first.
@@ -136,18 +141,58 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   carry site text, and it is exactly `sentimentalica.com`. No extra CTA text
   inside images. Do not stamp atmospheric scenes, mockups/process scenes, real
   listing pages, carousels, or iPhone Notes screenshots.
-- **Color-palette image standard:** one beautiful real listing page is the full-
+- **Color-palette image standard:** one beautiful real listing page is always the full-
   bleed background. Never use thumbnails/collages, a split white side panel, a
-  framed/card stack, an outer border around the palette column, or an outdated
-  Pinterest-template look. Use max 5 large square swatches, labeled with color
-  name and/or HEX/number. Swatches sit on a soft airbrush/blur haze with
-  feathered edges, not a hard rectangle. Bottom text is exactly
-  `sentimentalica.com`.
+  framed/card stack, borders around swatches, or an outdated Pinterest-template
+  look. Do not choose main character images: no portraits, animal portraits, or
+  single-subject hero characters. Do not use geometric patchwork/grid/all-over
+  rectangle pages as palette backgrounds: the repeated rectangular structure
+  competes with palette swatches and makes the pin look confused. Never use
+  `revised thumbnails/` files for
+  palette backgrounds or real listing-page source images; those are Etsy
+  preview/collage assets. Use the actual listing page folder instead (for
+  example `.../<Listing Name>/<Listing Name>/*.jpg`). Use 4-5 colors only. Do
+  not blindly take the
+  most common extracted colors: choose a beautiful cohesive palette from the
+  listing image itself (anchor dark/midtone, soft neutral, muted support, and a
+  real accent when present). Reject muddy, repetitive, or ugly palettes even if
+  the colors are technically present. Before rendering, run
+  `tools/curate_palette.py <actual-listing-page.jpg>` or equivalent logic:
+  over-extract 10-15 candidates, reject muddy middle grays, near-duplicates,
+  neons, pure shadows/highlights, micro-detail colors, and noise colors, then
+  curate exactly four roles: Dark Anchor, Strict Light Neutral, Support
+  Mid-tone, Hero Accent. Neutral must be clean cream/linen/ivory/parchment with
+  lightness > 80%, never muddy gray/taupe/dirty green. Accent must come from
+  the hero object or highest-contrast hero feature, even if it has lower pixel
+  count. Respect massive color blocks; ignore tiny stems/noise; avoid value
+  clumping. The vision/LLM instruction is: "You are an Expert Art Director and
+  Color Theorist for Sentimentalica. Analyze the image like a human designer,
+  not a pixel counter. Identify the focal/hero object and massive color blocks;
+  reject muddy, duplicate, neon, micro-detail, and cheap colors; assign Dark
+  Anchor, Strict Light Neutral, Support Mid-tone, and Hero Accent; slightly
+  adjust saturation/lightness for a harmonious vintage tone; output 4 hex codes
+  with role and thematic name." Swatches are plain unframed color
+  rectangles/squares, labeled with color name and/or HEX/number. Current
+  approved layout for every palette image: inspect the real listing page, decide
+  what subject must stay visible, then choose a large rectangle stack or large
+  square column around that subject. No side belt, opacity strip, backing/blur,
+  airbrush, or frames. Slightly desaturate the listing background so swatches
+  read clearly; curated swatches render as their exact approved HEX and are not
+  auto-darkened into mud.
+  Bottom
+  text is exactly `sentimentalica.com`. If the listing does not have three
+  distinct valid non-character pages for palette images, do not duplicate weak
+  palette pins; keep the valid palette image(s) and add other approved visual
+  types instead.
 - **Visual density:** an iPhone Notes/list infographic does NOT replace the
   rest of the image plan. Every article needs both saveable useful graphics and
   desire visuals. Every article, including infographic/iPhone Notes articles,
   must have a Pinterest-format atmospheric scene: a portrait 2:3 mood image from `refs/scenes/` about
   the world around the topic, not a junk-journal mockup and not product proof.
+  Scene reference rule: first LOOK through `refs/scenes/` for a close, relatable
+  reference. Use it when it exists. If no close scene reference exists for the
+  topic, generate a new topic-specific Sentimentalica scene yourself and note
+  that no close scene reference existed.
   When a listing is involved, include a 2-3 image carousel max in the product section
   using real `pageN.jpg`/customer assets, not Etsy thumbnails/previews.
 - **Single-listing visual package:** use 3 palette images from 3 different

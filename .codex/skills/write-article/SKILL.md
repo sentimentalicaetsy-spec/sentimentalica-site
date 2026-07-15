@@ -57,6 +57,10 @@ real-page carousel max. Multi-listing comparison
 rows need up to 4 LIVE listings from one coherent category/theme cluster, one
 palette image per featured listing, plus one process image and a 2–3
 real-page carousel from a represented listing.
+Scene reference rule: first LOOK through `refs/scenes/` for a close, relatable
+reference. If one exists, use it as the visual anchor. If none exists for the
+topic, create a new topic-specific scene yourself in Sentimentalica taste and
+note that no close scene reference existed.
 Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 `refs/infographics/` = useful graphics, `refs/iphone notes/` = authentic
 iPhone Notes subtype with no emoji at the start of list items,
@@ -76,12 +80,47 @@ Non-iPhone infographics must be object-led like the approved Rainy Afternoon
 and One Receipt examples: large readable title, physical collage objects doing
 the explaining, numbered steps/labeled examples/arrows where useful, and strong
 Pinterest save-value. A pretty background with four small floating text cards is
-a failure.
-Color-palette images: use one beautiful real listing page as the full-bleed
-background, max 5 large square swatches, color name and/or HEX/number labels,
-soft feathered airbrush/blur haze under the swatches, and exactly
-`sentimentalica.com` at the bottom. No thumbnail, collage, split side panel,
-framed stack, hard rectangle, outer border, or extra CTA text.
+a failure. `tools/render_list_infographic.py` / local PIL torn-card grids are
+banned as the final infographic path; rough layout tests only. Every approved
+non-iPhone infographic includes a small `sentimentalica.com` centered at the
+bottom, with no extra CTA text.
+Before making one, inspect `refs/infographics/approved-codex/` as the current
+Ksenia-approved quality bar.
+Color-palette images: always use one beautiful real listing page as the full-bleed
+background, but do not choose main character images (portraits, animal
+portraits, single-subject hero characters). Never use files from `revised
+thumbnails/` for palette backgrounds or listing-page source images; those are
+Etsy preview/collage assets. Use the actual listing page folder instead (for
+example `.../<Listing Name>/<Listing Name>/*.jpg`). Do not use geometric
+patchwork/grid/all-over rectangle pages as palette backgrounds; repeated
+rectangle structure competes with swatches. Use 4-5 colors only, chosen
+as a beautiful cohesive palette from the listing image itself rather than just
+the most common extracted colors. Before rendering, run
+`tools/curate_palette.py <actual-listing-page.jpg>` or equivalent logic:
+over-extract 10-15 candidates, reject muddy middle grays, near-duplicates,
+neons, pure shadows/highlights, micro-detail colors, and noise colors, then
+curate exactly four roles: Dark Anchor, Strict Light Neutral, Support Mid-tone,
+Hero Accent. Neutral must be clean cream/linen/ivory/parchment with lightness
+> 80%, never muddy gray/taupe/dirty green. Accent must come from the hero
+object or highest-contrast hero feature, even if it has lower pixel count.
+Respect massive color blocks; ignore tiny stems/noise; avoid value clumping.
+Use the vision/LLM prompt: "You are an Expert Art Director and Color Theorist
+for Sentimentalica. Analyze the image like a human designer, not a pixel
+counter. Identify the focal/hero object and massive color blocks; reject muddy,
+duplicate, neon, micro-detail, and cheap colors; assign Dark Anchor, Strict
+Light Neutral, Support Mid-tone, and Hero Accent; slightly adjust saturation/
+lightness for a harmonious vintage tone; output 4 hex codes with role and
+thematic name." Swatches are plain unframed color
+rectangles/squares with color name and/or HEX/number labels. Current approved
+layout is chosen per actual listing image: large rectangle stack or large
+square column, preserving the best visible subject area. No side belt, opacity
+strip, backing/blur, airbrush, or frames. Slightly desaturate the real listing
+background so swatches read clearly; curated swatches render as their exact
+approved HEX and are not auto-darkened into mud. Bottom
+text is exactly `sentimentalica.com`. No thumbnail, collage, split side panel,
+framed stack, swatch border, or extra CTA text. If a listing lacks three
+distinct valid non-character pages, do not duplicate weak palette pins; keep the
+valid palette image(s) and add other approved visual types instead.
 Banned visual path: never use Claude-style album/mockup embedding where real
 listing pages are pasted into a generated journal/album/desk scene. Real pages
 belong in direct carousel/gallery images, 2-3 max, or as the single full-bleed

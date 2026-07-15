@@ -12,6 +12,10 @@ either VERY beautiful (save-for-the-aesthetic) or VERY useful (infographic).
 1. **Theme+palette match (non-negotiable):** colors belong to the listing's
    named palette; scene objects belong to the theme's world. Off-palette
    dominant colors = automatic REGENERATE.
+   For atmospheric scenes, confirm the agent used a close `refs/scenes/` file
+   when one exists. If no close scene reference exists for the topic, PASS can
+   still be possible, but the critic record must say "no close scene reference
+   existed" and the image must still be topic-specific and Sentimentalica-branded.
 2. **Composition:** clear focal point, layered depth, intentional framing —
    an editorial photograph, not a random arrangement.
 3. **Light & mood:** dreamy, warm, directional; the image FEELS like a mood.
@@ -24,7 +28,24 @@ either VERY beautiful (save-for-the-aesthetic) or VERY useful (infographic).
    iPhone Notes screenshots is REGENERATE.
    For color-palette images, REGENERATE if there is a split side panel,
    framed/card stack, outer border around the swatch column, unlabeled swatches,
-   thumbnail/collage background, hard rectangle backing, or extra CTA text.
+   thumbnail/collage background, any source from `revised thumbnails/`,
+   geometric patchwork/grid/all-over rectangle backgrounds, swatch borders,
+   main character background (portrait, animal portrait, single-subject hero),
+   more than 5 colors, fewer than 4 colors, airbrush/blur backing, or extra CTA
+   text. PASS requires a
+   beautiful cohesive 4-5 color set from the listing image itself; REGENERATE
+   muddy, repetitive, or ugly palettes even if the colors are technically
+   present. PASS also requires role-based curation: Dark Anchor, Strict Light
+   Neutral, Support Mid-tone, and Hero Accent must all be identifiable, ideally produced by
+   `tools/curate_palette.py <actual-listing-page.jpg>` or the equivalent
+   vision/LLM designer prompt. Swatches must be large enough to read as the subject of the pin:
+   wide rectangles or large square columns are both valid when chosen by
+   composition. The critic must check whether the image subject was preserved
+   instead of covered. If the listing lacks enough distinct valid non-character
+   pages, duplicated/near-identical palette pins are REGENERATE; replace the
+   weak duplicates with another approved visual type. Portraits, animal
+   portraits, and single-subject hero characters are never valid palette
+   backgrounds.
 6. **Infographic reference discipline:** non-iPhone infographics must clearly
    use `refs/infographics/` for useful composition and `refs/branding/` for the
    final Sentimentalica look. If the image looks like a flat generic template,
@@ -40,6 +61,10 @@ either VERY beautiful (save-for-the-aesthetic) or VERY useful (infographic).
    with small floating text cards. PASS requires object-led useful composition:
    large readable title, physical collage objects carrying the explanation,
    numbered steps/labeled examples/arrows when useful, and Pinterest save-value.
+   `tools/render_list_infographic.py` / local PIL torn-card grids are banned as
+   final infographics; rough layout tests only. Every non-iPhone infographic
+   must include small `sentimentalica.com` centered at the bottom, with no extra
+   CTA text.
 7. **Flaws:** AI artifacts, melted objects, pseudo-text, off-theme animals,
    anything mistakable for product artwork (anti-misleading rule). Hands,
    cropped people, scissors/tools are allowed only for realistic
