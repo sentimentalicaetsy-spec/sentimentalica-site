@@ -105,12 +105,14 @@
           p._score = s;
         });
         rest.sort(function (a, b) { return (b._score - a._score) || String(b.date || '').localeCompare(String(a.date || '')); });
-        var picks = rest.slice(0, 3);
+        var picks = rest.slice(0, 9);
         var sec = document.createElement('section');
         sec.className = 'section related-posts';
         sec.innerHTML =
           '<div class="section-head"><h2>More from the <em>journal</em></h2>' +
           '<a href="/blog.html" class="more">All posts →</a></div>' +
+          '<div class="post-carousel">' +
+          '<button class="carousel-arrow carousel-prev" aria-label="Previous articles" hidden>&#8592;</button>' +
           '<div class="post-grid">' + picks.map(function (p) {
             var thumb = p.thumb
               ? '<img class="post-thumb-img" src="/' + esc(String(p.thumb).replace(/^\//, '')) + '" alt="' + esc(p.title) + '" loading="lazy">'
@@ -120,10 +122,32 @@
               '<h3>' + esc(p.title) + '</h3>' +
               '<p>' + esc(p.excerpt || '') + '</p>' +
               '<div class="post-meta">' + esc(p.dateDisplay || p.date || '') + (p.readTime ? ' · ' + esc(p.readTime) : '') + '</div></a>';
-          }).join('') + '</div>';
+          }).join('') + '</div>' +
+          '<button class="carousel-arrow carousel-next" aria-label="More articles" hidden>&#8594;</button>' +
+          '</div>';
         article.parentNode.insertBefore(sec, article.nextSibling);
+        wireCarousel(sec);
       })
       .catch(function () {});
+  }
+
+  /* Same arrow behaviour as the homepage journal row: → pages forward one
+     screenful of cards, ← only appears once you've moved. */
+  function wireCarousel(sec) {
+    var track = sec.querySelector('.post-carousel .post-grid');
+    var prev = sec.querySelector('.carousel-prev');
+    var next = sec.querySelector('.carousel-next');
+    if (!track || !prev || !next) return;
+    function update() {
+      var maxScroll = track.scrollWidth - track.clientWidth - 4;
+      prev.hidden = track.scrollLeft <= 4;
+      next.hidden = track.scrollLeft >= maxScroll;
+    }
+    prev.onclick = function () { track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }); };
+    next.onclick = function () { track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }); };
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   }
 
   /* Shop pitch under each article — moved here from the homepage hero

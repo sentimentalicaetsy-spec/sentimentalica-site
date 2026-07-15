@@ -290,7 +290,7 @@ def render_page(meta, slug, body_html):
   </div>
 </footer>
 
-<script src="../assets/post.js?v=12" defer></script>
+<script src="../assets/post.js?v=17" defer></script>
 <script src="../assets/admin-tab.js?v=12" defer></script>
 </body>
 </html>
