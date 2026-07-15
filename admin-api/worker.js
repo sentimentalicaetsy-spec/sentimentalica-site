@@ -60,6 +60,7 @@ export default {
         case '/publish': return await publish(env, body);
         case '/get-post': return await getPost(env, body);
         case '/delete-post': return await deletePost(env, body);
+        case '/delete-posts': return await deletePosts(env, body);
         case '/upload-image': return await uploadImage(env, body);
         case '/save-draft': return await saveDraft(env, body);
         case '/get-draft': return await getDraft(env, body);
@@ -317,6 +318,46 @@ async function deletePost(env, body) {
       smFile && smFile.sha);
   }
   return json({ ok: true });
+}
+
+/* ── Mass delete: N pages, then ONE index + sitemap update ──────────────── */
+
+async function deletePosts(env, body) {
+  const slugs = Array.isArray(body.slugs)
+    ? [...new Set(body.slugs.map((s) => String(s).replace(/[^a-z0-9-]/g, '')).filter(Boolean))].slice(0, 100)
+    : [];
+  if (!slugs.length) return json({ ok: false, error: 'slugs required' });
+
+  const deleted = [], failed = [];
+  for (const slug of slugs) {
+    try {
+      const f = await getFile(env, `public/blog/${slug}.html`);
+      if (!f) { failed.push(slug); continue; }
+      await gh(env, 'DELETE', `/repos/${REPO}/contents/public/blog/${slug}.html`,
+        { message: `delete post: ${slug}`, sha: f.sha });
+      deleted.push(slug);
+    } catch { failed.push(slug); }
+  }
+
+  if (deleted.length) {
+    const idxFile = await getFile(env, 'public/blog/index.json');
+    if (idxFile) {
+      const idx = JSON.parse(b64decode(idxFile.content));
+      idx.posts = idx.posts.filter((p) => !deleted.includes(p.slug));
+      await putFile(env, 'public/blog/index.json',
+        b64encode(JSON.stringify(idx, null, 2) + '\n'),
+        `index: -${deleted.length} posts (mass delete)`, idxFile.sha);
+
+      const pages = ['', 'blog.html', /* 'vault.html' removed 2026-07-13 (may be reused later) */ 'about.html', 'freebie.html'];
+      const urls = pages.map((p) => `${SITE}/${p}`)
+        .concat(idx.posts.map((p) => `${SITE}/blog/${p.slug}.html`));
+      const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`;
+      const smFile = await getFile(env, 'public/sitemap.xml');
+      await putFile(env, 'public/sitemap.xml', b64encode(sm),
+        `sitemap: -${deleted.length} posts`, smFile && smFile.sha);
+    }
+  }
+  return json({ ok: true, deleted, failed });
 }
 
 /* ── Image upload (file in repo, not base64-in-post) ────────────────────── */

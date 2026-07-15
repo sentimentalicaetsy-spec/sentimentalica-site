@@ -148,6 +148,9 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
   border: 1px solid var(--border); flex-shrink: 0; background: var(--warm);
 }
 .list-thumb-empty { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 1.2rem; }
+.posts-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.posts-head h2 { margin-bottom: 0; }
+.list-check { width: 17px; height: 17px; accent-color: var(--navy); flex-shrink: 0; cursor: pointer; }
 .btn-load { background: #fdf3e3; color: var(--draft); border: 1px solid #e8c87a; border-radius: 6px; padding: 0.3rem 0.75rem; font-size: 0.8rem; cursor: pointer; font-family: 'Lora', Georgia, serif; }
 .btn-load:hover { background: #f9e8c0; }
 .btn-del { background: transparent; color: #c0392b; border: 1px solid #e0b0b0; border-radius: 6px; padding: 0.3rem 0.6rem; font-size: 0.8rem; cursor: pointer; }
@@ -242,7 +245,10 @@ textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
 
     <!-- Published -->
     <div class="list-section" id="posts-section" style="display:none">
-      <h2>Published posts</h2>
+      <div class="posts-head">
+        <h2>Published posts</h2>
+        <button class="btn-del" id="bulk-delete-btn" style="display:none" onclick="doBulkDelete()">Delete selected (0)</button>
+      </div>
       <div id="posts-list"></div>
     </div>
 
@@ -560,6 +566,39 @@ let postsIndex = []; // cached blog index — used to show a post's current thum
 
 const POSTS_PER_PAGE = 10;
 let postsPage = 1;
+const postsSelected = new Set(); // slugs ticked for mass delete (survives page flips)
+
+function toggleSelect(slug, on) {
+  if (on) postsSelected.add(slug); else postsSelected.delete(slug);
+  updateBulkBtn();
+}
+function updateBulkBtn() {
+  const b = document.getElementById('bulk-delete-btn');
+  b.style.display = postsSelected.size ? '' : 'none';
+  b.textContent = `Delete selected (${postsSelected.size})`;
+  b.disabled = false;
+}
+async function doBulkDelete() {
+  const slugs = Array.from(postsSelected);
+  if (!slugs.length) return;
+  if (!confirm(`Delete ${slugs.length} post${slugs.length > 1 ? 's' : ''} from the site? Their live pages are removed. This cannot be undone.`)) return;
+  const b = document.getElementById('bulk-delete-btn');
+  b.disabled = true; b.textContent = 'Deleting…';
+  try {
+    const r = await fetch(API + '/delete-posts', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: localStorage.getItem('sp'), slugs })
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'failed');
+    postsSelected.clear();
+    if (currentEditSlug && d.deleted.includes(currentEditSlug)) { resetForm(); showComposer(false); }
+    toast(`Deleted ${d.deleted.length} post${d.deleted.length === 1 ? '' : 's'}` +
+      (d.failed.length ? ` (${d.failed.length} failed)` : '') + ' — gone from the live site in ~1 minute.', false, true);
+    loadAll();
+  } catch (err) { toast('Could not delete: ' + err.message, true); }
+  finally { updateBulkBtn(); }
+}
 
 async function loadPosts() {
   try {
@@ -586,6 +625,9 @@ function renderPostsPage(page) {
     </div>` : '';
   list.innerHTML = postsIndex.slice(start, start + POSTS_PER_PAGE).map(p => `
       <div class="list-item list-item-clickable" onclick="editPost('${p.slug}')" title="Click to edit">
+        <input type="checkbox" class="list-check" title="Select for mass delete"
+               onclick="event.stopPropagation()" onchange="toggleSelect('${p.slug}', this.checked)"
+               ${postsSelected.has(p.slug) ? 'checked' : ''}>
         ${p.thumb
           ? `<img class="list-thumb" src="/${String(p.thumb).replace(/^\//, '')}" alt="" loading="lazy">`
           : `<div class="list-thumb list-thumb-empty">✎</div>`}
