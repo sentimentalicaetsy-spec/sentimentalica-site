@@ -98,6 +98,18 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   listing's subject (no dogs in a dog-pack article, no cats in a cat one) —
   environment/process only: desk, journal, paper, light, tools. Anything that
   could be mistaken for a page from the set is banned.
+- **Infographic two-source rule:** for every non-iPhone infographic, look at
+  files in `refs/infographics/` for composition/usefulness only, then rebuild
+  the final visual identity from files in `refs/branding/`. The result must feel
+  like Sentimentalica: logo blue, paper collage, lace, botanicals, handwriting,
+  bird/logo motifs, romantic scrapbook/journal texture. Do not use old outputs
+  from Claude/Codex, `public/`, `staging/`, demos, or generated samples as
+  references.
+  Each infographic background must be different and topic-specific; do not reuse
+  one generic branded collage background across a batch. Keep the same quality
+  and brand language, but create a new world, prop set, framing, background
+  asset, and mood for every article. Reusing a good background is still a
+  REGENERATE.
 - **The article is built FOR Pinterest**: every block is a future pin. Images
   must be either stunning or useful (infographic-style). Pure listing ads are
   banned — value first.

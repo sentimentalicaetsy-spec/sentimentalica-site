@@ -21,7 +21,15 @@ either VERY beautiful (save-for-the-aesthetic) or VERY useful (infographic).
    a small readable bottom `sentimentalica.com` footer and a gentle CTA when
    the format allows. iPhone Notes images are exempt and must not be blog
    thumbnails.
-6. **Flaws:** AI artifacts, melted objects, pseudo-text, off-theme animals,
+6. **Infographic reference discipline:** non-iPhone infographics must clearly
+   use `refs/infographics/` for useful composition and `refs/branding/` for the
+   final Sentimentalica look. If the image looks like a flat generic template,
+   a copied outside-brand reference, or an old Claude/Codex/public/staging
+   output, verdict = REGENERATE.
+   In a batch, infographic backgrounds must be visibly different and
+   topic-specific; repeated generic brand backdrops = REGENERATE. Same quality
+   and brand language is good; same actual background/world/prop set is not.
+7. **Flaws:** AI artifacts, melted objects, pseudo-text, off-theme animals,
    anything mistakable for product artwork (anti-misleading rule). Hands,
    cropped people, scissors/tools are allowed only for realistic
    scrapbook/junk-journal scenes that clearly match

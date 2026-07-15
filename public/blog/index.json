@@ -1,6 +1,86 @@
 {
   "posts": [
     {
+      "slug": "how-to-make-a-journal-page-feel-like-a-place",
+      "title": "How to Make a Journal Page Feel Like a Place",
+      "category": "Journaling Ideas",
+      "excerpt": "A useful guide for building journal pages that feel like a room, street, garden, trail, or memory you can step into.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-make-a-journal-page-feel-like-a-place/gen2.jpg"
+    },
+    {
+      "slug": "how-to-choose-a-junk-journal-color-palette-without-overthinking-it",
+      "title": "How to Choose a Junk Journal Color Palette Without Overthinking It",
+      "category": "Color Palette",
+      "excerpt": "A gentle palette method for choosing five colors from one image and making a journal spread feel pulled together.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-choose-a-junk-journal-color-palette-without-overthinking-it/gen1.jpg"
+    },
+    {
+      "slug": "what-to-save-from-a-summer-day-for-your-junk-journal",
+      "title": "What to Save From a Summer Day for Your Junk Journal",
+      "category": "Journaling Ideas",
+      "excerpt": "A saveable summer list for tiny real-life scraps, soft memories, and journal pages that feel warm without becoming cluttered.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/what-to-save-from-a-summer-day-for-your-junk-journal/gen1.jpg"
+    },
+    {
+      "slug": "farmhouse-animal-journal-ideas-for-country-pages",
+      "title": "Farmhouse Animal Journal Ideas for Country Pages",
+      "category": "Theme Ideas",
+      "excerpt": "A country journal theme for farmhouse animal pages, warm fields, barn reds, honey neutrals, and gentle rustic layers.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/farmhouse-animal-journal-ideas-for-country-pages/gen4.jpg"
+    },
+    {
+      "slug": "a-summer-trail-journal-theme-with-maps-and-mountain-greens",
+      "title": "A Summer Trail Journal Theme With Maps and Mountain Greens",
+      "category": "Seasonal Journaling",
+      "excerpt": "A summer trail journaling idea with compass browns, pine greens, map paper, and a simple page-building rhythm.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/a-summer-trail-journal-theme-with-maps-and-mountain-greens/gen5.jpg"
+    },
+    {
+      "slug": "red-and-teal-travel-journal-pages-for-a-collected-mood",
+      "title": "Red and Teal Travel Journal Pages for a Collected Mood",
+      "category": "Travel Journaling",
+      "excerpt": "A red-and-teal travel journal theme using lanterns, patterned paper, fan motifs, and small collected details.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/red-and-teal-travel-journal-pages-for-a-collected-mood/gen1.jpg"
+    },
+    {
+      "slug": "dark-academia-journal-pages-with-candlelit-color",
+      "title": "Dark Academia Journal Pages With Candlelit Color",
+      "category": "Theme Study",
+      "excerpt": "A moody dark-academia color study for journal pages with navy, amber candlelight, old paper, and celestial details.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/dark-academia-journal-pages-with-candlelit-color/gen4.jpg"
+    },
+    {
+      "slug": "cottage-rose-junk-journal-palette-ideas",
+      "title": "Cottage Rose Junk Journal Palette Ideas",
+      "category": "Color Palette",
+      "excerpt": "Three soft cottage rose palettes and a simple way to build romantic floral journal pages without making them too sweet.",
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "readTime": "1 min read",
+      "thumb": "blog/img/cottage-rose-junk-journal-palette-ideas/gen5.jpg"
+    },
+    {
       "slug": "blue-and-white-color-palettes-for-junk-journal-pages",
       "title": "Blue and White Color Palettes for Junk Journal Pages",
       "category": "Color Palette",
@@ -128,7 +208,7 @@
       "slug": "a-wedding-junk-journal-theme-in-silver-cream-and-candlelight",
       "title": "A Wedding Junk Journal Theme in Silver, Cream, and Candlelight",
       "category": "Theme Studies",
-      "excerpt": "Inside the Silver Vow theme — pewter-leafed peonies, pearls, and church light — and who this quiet wedding palette is really for.",
+      "excerpt": "Inside the Silver Vow theme \u2014 pewter-leafed peonies, pearls, and church light \u2014 and who this quiet wedding palette is really for.",
       "date": "2026-07-05",
       "dateDisplay": "Jul 5",
       "readTime": "3 min read",

@@ -42,6 +42,21 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    `refs/`: branding for global look, infographics for useful graphics,
    scrapbook/junk journal scenes for realistic mockups/process, scenes for
    atmospheric mood. Empty folder = you are blind; ask Ksenia for references.
+   Previous Claude/Codex outputs, `public/` article images, `staging/` assets,
+   demo graphics, and generated samples are **not references** and must never be
+   used as visual examples. Only images Ksenia intentionally placed in `refs/`
+   are visual ground truth.
+   **Infographic two-source rule:** `refs/infographics/` is for composition
+   inspiration and information archetypes only (grid, prompt list, diagram,
+   checklist, object map). The final look must be rebuilt in the Sentimentalica
+   identity from `refs/branding/` (logo blue, paper collage, lace, flowers,
+   handwriting, bird/logo motifs, soft feminine scrapbook feel). Do not copy an
+   infographic ref's outside brand, colors, logo, website, or exact artwork.
+   Infographic backgrounds must vary per article/topic; never reuse one generic
+   branded paper backdrop across a batch. The quality/brand language should stay
+   consistent, but the actual world, props, framing, background asset, and mood
+   must be newly made for each article. Reusing a good background is still a
+   failure.
 3. **Images must be save-worthy/click-worthy** — branded, useful, realistic, or
    atmospheric depending on type. "Nice" is not "save"; "pretty but ignored" is
    not enough.

@@ -61,6 +61,14 @@ Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 iPhone Notes subtype with no emoji at the start of list items,
 `refs/scrapbook and junk jornal scenes/` = realistic journal/mockup/process,
 `refs/scenes/` = atmospheric mood and the mandatory thin article scene.
+Infographic two-source rule: use `refs/infographics/` only for the composition
+or useful-content archetype, then rebuild the final image in the Sentimentalica
+brand from `refs/branding/`. Never use prior Claude/Codex outputs, `public/`,
+`staging/`, demos, or generated samples as reference images.
+Every infographic background must vary by article/topic; no repeated generic
+brand background across a batch. Keep the same quality/brand system, but create
+a fresh world, prop set, framing, background asset, and mood for every article.
+Reusing a good background is still a failure.
 
 ## 6. Pins → CSV (MANDATORY finale of every article — do not skip)
 After each article is live, invoke the **pinterest-seo** agent on it: it writes
