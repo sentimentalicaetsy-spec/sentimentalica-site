@@ -75,6 +75,10 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
 ## Rules
 - **Listicle -> infographic is mandatory** (render_list_infographic.py, SD
   canvas in the theme palette + torn panels) — top of article, cover, pin.
+- **Quality gate before progress:** if any visual is weak, generic,
+  template-like, low-contrast, off-brand, or below the approved refs, stop and
+  redo the visual. Do not continue to article assembly, critic PASS, publish,
+  CSV, commit, or deploy just because a file exists.
 - **Google Drive source assets are READ/COPY ONLY:** never delete, move, rename,
   overwrite, reorganize, or clean up anything inside
   `/Users/kseniateter/My Drive/Sentimentalica/` or listing asset folders.

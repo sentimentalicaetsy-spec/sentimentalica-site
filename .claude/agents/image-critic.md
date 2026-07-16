@@ -27,6 +27,10 @@ source file looks wrong, duplicated, missing, or misplaced, stop and ask Ksenia.
 3. **Light & mood:** dreamy, warm, directional; the image FEELS like a mood.
 4. **Save-worthiness:** would a Pinterest user save this purely for the
    aesthetic? Be harsh — "nice" is not "save".
+   Quality gate before progress: if any visual is weak, generic, template-like,
+   low-contrast, off-brand, or below the approved references, verdict =
+   REGENERATE and the workflow must stop on visuals. Do not allow article
+   assembly, publishing, CSV, commit, or deploy to continue with a weak image.
 5. **Site text discipline:** only color-palette images and non-iPhone
    infographics should include site text, and it must be exactly
    `sentimentalica.com`. Extra CTA text inside the image is REGENERATE. Site
@@ -67,6 +71,10 @@ source file looks wrong, duplicated, missing, or misplaced, stop and ask Ksenia.
    with small floating text cards. PASS requires object-led useful composition:
    large readable title, physical collage objects carrying the explanation,
    numbered steps/labeled examples/arrows when useful, and Pinterest save-value.
+   Also reject faded generated backgrounds with a transparent/white overlay
+   panel and plain coded text. The text must feel designed into torn papers,
+   tags, tickets, labels, notes, stamps, ribbon, lace, or other physical collage
+   pieces, not pasted on top of a washed-out image.
    `tools/render_list_infographic.py` / local PIL torn-card grids are banned as
    final infographics; rough layout tests only. Every non-iPhone infographic
    must include small `sentimentalica.com` centered at the bottom, with no extra

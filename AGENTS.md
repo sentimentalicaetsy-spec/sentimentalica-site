@@ -68,6 +68,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    collage objects doing the explaining, numbered steps or labeled examples,
    arrows/labels where useful, and enough detail to save on Pinterest. A pretty
    background with four small floating text cards is a failure, even if branded.
+   A faded generated background with a transparent/white overlay panel and
+   plain coded text is also a failure. The typography must feel designed into
+   torn papers, tags, tickets, labels, notes, stamps, ribbon, lace, or other
+   physical collage pieces, not pasted over a washed-out photo.
    `tools/render_list_infographic.py` / local PIL torn-card grids are banned as
    the final infographic path; rough layout tests only. Every approved
    non-iPhone infographic includes a small `sentimentalica.com` centered at the
@@ -75,6 +79,11 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 3. **Images must be save-worthy/click-worthy** — branded, useful, realistic, or
    atmospheric depending on type. "Nice" is not "save"; "pretty but ignored" is
    not enough.
+   **Quality gate before progress:** if any visual looks weak, generic,
+   template-like, low-contrast, off-brand, or below the approved references,
+   stop and redo the visual. Do not continue to article assembly, critic PASS,
+   publishing, CSV, commit, or deploy just to finish. A bad image blocks the
+   workflow exactly like a failed critic verdict.
 4. **Google Drive listing/source files are READ/COPY ONLY.** Never delete, move,
    rename, overwrite, reorganize, or clean up anything inside
    `/Users/kseniateter/My Drive/Sentimentalica/` or listing asset folders.

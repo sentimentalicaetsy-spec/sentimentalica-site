@@ -126,6 +126,14 @@
   collage-предметы объясняют идею, numbered steps / labeled examples /
   стрелки по необходимости, высокая Pinterest save-value. Красивый фон +
   маленькие floating text cards = REGENERATE, даже если брендово.
+  **Quality gate before progress:** если визуал weak/generic/template-like/
+  low-contrast/off-brand или ниже approved refs — остановиться и переделать.
+  Нельзя идти дальше к article assembly / critic PASS / publish / CSV / commit /
+  deploy просто чтобы закончить. Плохая картинка блокирует процесс.
+  Faded generated background + transparent/white overlay panel + plain coded
+  text = REGENERATE. Текст должен быть встроен в физические collage-объекты:
+  torn papers, tags, tickets, labels, notes, stamps, ribbon, lace, а не наклеен
+  поверх размытой/вымытой картинки.
   Current approved Codex quality refs live in
   `refs/infographics/approved-codex/`; check them before creating new
   non-iPhone infographics.

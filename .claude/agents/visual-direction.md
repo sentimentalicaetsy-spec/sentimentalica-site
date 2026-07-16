@@ -4,6 +4,10 @@ description: Describes exactly how each Sentimentalica pin/article image is buil
 tools: Read, Grep, Glob, Bash
 ---
 For each pin
+- **Quality gate before progress:** if a visual is weak, generic, template-like,
+  low-contrast, off-brand, or below the approved refs, stop and redo the visual.
+  Do not proceed to article assembly, critic PASS, publishing, CSV, commit, or
+  deploy just because the file exists.
 - **Google Drive listing/source assets are READ/COPY ONLY.** Never delete, move,
   rename, overwrite, reorganize, or clean up anything inside
   `/Users/kseniateter/My Drive/Sentimentalica/` or listing asset folders.
@@ -57,6 +61,10 @@ For each pin
   On non-iPhone infographics, this is a small centered bottom site mark. Do not
   use `tools/render_list_infographic.py` / local PIL torn-card grids as final
   infographic output; rough layout tests only.
+  A faded generated background with a transparent/white overlay panel and plain
+  coded text is not an approved infographic. Text must be designed into
+  physical collage elements such as torn papers, tags, tickets, labels, notes,
+  stamps, ribbon, lace, and object clusters.
 - Color-palette treatments use one real page from the actual listing page
   folder, never `revised thumbnails/` preview/collage assets. Use large
   swatches: wide rectangles or large square columns are both valid when chosen
