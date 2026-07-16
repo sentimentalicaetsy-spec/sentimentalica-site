@@ -72,6 +72,9 @@
     <form class="freebie-form" id="freebie-form" novalidate>
       <label class="sr-only" for="freebie-email">Email address</label>
       <input type="email" id="freebie-email" name="email" placeholder="Your email address" required autocomplete="email">
+      <!-- Honeypot: invisible to humans, bots fill it in — the backend then
+           silently drops the signup. -->
+      <input type="text" id="freebie-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0">
       <button type="submit" class="hero-cta">Send me the free pack →</button>
       <p class="freebie-fineprint">Instant download · gentle weekly letters · unsubscribe anytime.</p>
       <p class="freebie-message" id="freebie-message" role="status" aria-live="polite"></p>
@@ -103,9 +106,11 @@
 
 <script>
 // --- Email signup ---------------------------------------------------------
-// Set FORM_ENDPOINT to your email tool's form action URL (e.g. Kit/ConvertKit
-// or MailerLite). Until it is set, the form explains it's being connected.
-const FORM_ENDPOINT = ''; // e.g. 'https://app.kit.com/forms/XX1234/subscriptions'
+// Backend is our own free Google Apps Script (see tools/gift_apps_script.gs
+// and GIFT_SETUP.md): it stores the email in a PRIVATE Google Sheet, emails
+// the gift link, and pings Telegram. Set FORM_ENDPOINT to the deployed
+// Web App URL (ends in /exec). Until it is set, the form explains itself.
+const FORM_ENDPOINT = ''; // e.g. 'https://script.google.com/macros/s/XXXX/exec'
 
 const form = document.getElementById('freebie-form');
 const msg = document.getElementById('freebie-message');
@@ -119,18 +124,51 @@ form.addEventListener('submit', async (e) => {
   if (!FORM_ENDPOINT) {
     return show("Almost ready — the gift inbox is being set up. Please check back very soon. 🤍", 'note');
   }
+  const btn = form.querySelector('button[type=submit]');
+  btn.disabled = true;
+  const btnText = btn.textContent;
+  btn.textContent = 'Wrapping your gift…';
   try {
-    const body = new FormData();
-    body.append('email_address', email);
-    const r = await fetch(FORM_ENDPOINT, { method: 'POST', body, headers: { 'Accept': 'application/json' } });
-    if (!r.ok) throw new Error('bad status');
+    // URLSearchParams keeps this a "simple" request (no CORS preflight),
+    // which is what Apps Script web apps require.
+    const r = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      body: new URLSearchParams({
+        email,
+        website: document.getElementById('freebie-hp').value, // honeypot
+        source: 'freebie page',
+      }),
+    });
+    const data = await r.json();
+    if (!data.ok) throw new Error('backend said no');
     form.reset();
-    show('Beautiful — check your inbox to confirm and grab your free pack. ✨', 'ok');
+    show(data.already
+      ? 'You are already on the list — the pack is on its way to your inbox again. 🤍'
+      : 'Beautiful — your free pack is on its way to your inbox. ✨', 'ok');
+    // The link arrives in the server response (not in the page source), so we
+    // can also offer it right here — a spam-foldered email won't lose anyone.
+    if (data.link) offerGiftLink(data.link);
     offerSiteLink();
   } catch {
     show('Something went wrong. Please try again in a moment.', 'err');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = btnText;
   }
 });
+
+function offerGiftLink(link) {
+  if (document.getElementById('freebie-gift')) return;
+  const a = document.createElement('a');
+  a.id = 'freebie-gift';
+  a.href = link;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.className = 'hero-cta';
+  a.style.cssText = 'display:inline-block;margin-top:1rem';
+  a.textContent = 'Or open your gift right now →';
+  msg.parentNode.appendChild(a);
+}
 
 // After the email is in, invite them onward to the site (Ksenia, 2026-07-05).
 function offerSiteLink() {

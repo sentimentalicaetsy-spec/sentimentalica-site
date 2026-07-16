@@ -264,6 +264,7 @@ def render_page(meta, slug, body_html):
     <li><a href="../blog.html">Journal</a></li>
     <!-- Vault link removed 2026-07-13 (may be reused later): <li><a href="../vault.html">Vault</a></li> -->
     <li><a href="../about.html">About</a></li>
+    <li><a href="../freebie.html">Freebie</a></li>
     <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
     <li><a class="nav-shop" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Shop on Etsy</a></li>
   </ul>
