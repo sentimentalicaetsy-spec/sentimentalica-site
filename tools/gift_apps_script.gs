@@ -69,16 +69,16 @@ function sendGiftEmail(to) {
     '<div style="background:#faf3e6;padding:32px 16px;font-family:Georgia,serif;color:#2a2a3a">' +
     '<div style="max-width:520px;margin:0 auto;background:#fffdf8;border:1px solid #c9b896;border-radius:6px;padding:36px 32px;text-align:center">' +
     '<div style="font-size:22px;letter-spacing:.04em;color:#163087;margin-bottom:6px">Sentimentalica</div>' +
-    '<div style="font-size:12px;color:#7a6f5e;letter-spacing:.08em;margin-bottom:26px">— a little gift for you —</div>' +
+    '<div style="font-size:12px;color:#7a6f5e;letter-spacing:.08em;margin-bottom:26px">- a little gift for you -</div>' +
     '<p style="font-size:16px;line-height:1.6;margin:0 0 10px">Thank you for joining the Sentimentalica letter.</p>' +
-    '<p style="font-size:16px;line-height:1.6;margin:0 0 26px">Here is ' + GIFT_NAME + ' — yours to keep, print, and cut into your next junk journal spread.</p>' +
+    '<p style="font-size:16px;line-height:1.6;margin:0 0 26px">Here is ' + GIFT_NAME + ' - yours to keep, print, and cut into your next junk journal spread.</p>' +
     '<a href="' + GIFT_LINK + '" style="display:inline-block;background:#163087;color:#faf3e6;text-decoration:none;padding:13px 30px;border-radius:4px;font-size:15px;letter-spacing:.03em">Open your free pack &rarr;</a>' +
     '<p style="font-size:12px;color:#7a6f5e;line-height:1.6;margin:28px 0 0">If the button does not work, copy this link:<br>' +
     '<a href="' + GIFT_LINK + '" style="color:#163087">' + GIFT_LINK + '</a></p>' +
     '</div>' +
     '<p style="max-width:520px;margin:14px auto 0;font-size:11px;color:#7a6f5e;text-align:center;line-height:1.6">' +
     'You received this because you requested the free pack at sentimentalica.com.<br>' +
-    'No more emails will come unless you hear from the letter — reply &ldquo;unsubscribe&rdquo; any time.</p>' +
+    'No more emails will come unless you hear from the letter - reply &ldquo;unsubscribe&rdquo; any time.</p>' +
     '</div>';
   const opts = { name: FROM_NAME, htmlBody: htmlBody };
   if (FROM_ALIAS) opts.from = FROM_ALIAS;

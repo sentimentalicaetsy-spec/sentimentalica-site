@@ -3,103 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Gift — Sentimentalica</title>
-<meta name="description" content="Get a free sample pack of Sentimentalica digital papers — vintage printables for your junk journal, delivered straight to your inbox.">
+<title>Free Gift - Sentimentalica</title>
+<meta name="description" content="Get a free sample pack of Sentimentalica digital papers - vintage printables for your junk journal, delivered straight to your inbox.">
 <meta property="og:title" content="A free gift from Sentimentalica">
-<meta property="og:description" content="Get a free sample pack of vintage digital papers for your junk journal — instant download.">
+<meta property="og:description" content="Get a free sample pack of vintage digital papers for your junk journal - instant download.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sentimentalica.com/freebie">
 <meta property="og:image" content="https://sentimentalica.com/assets/logo.png">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css?v=8">
 <meta name="p:domain_verify" content="2df16e7970c89985d1f99be0087cded7"/>
+<style>
+/* ===== Freebie v2 (2026-07-16): same OPEN JUNK JOURNAL scene as the About
+   page (Ksenia: "make the tab look more like about page with the background").
+   Left page = the signup entry; right page = the gift + what's inside.
+   Scoped under .jb- , rules mirrored from about.html. */
+
+.jb-scene {
+  position: relative;
+  background:
+    linear-gradient(rgba(250,243,230,0.22), rgba(250,243,230,0.22)),
+    url('assets/about-bg.jpg?v=2') center / cover no-repeat;
+  padding: clamp(50px, 8vh, 100px) 24px clamp(70px, 10vh, 120px);
+  overflow: hidden;
+}
+.jb-scene::before { /* soft desk light */
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(255,253,247,0.7) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.jb-book {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  filter: drop-shadow(0 26px 42px rgba(42,42,58,0.2));
+}
+.jb-page {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(240,228,205,0.25) 0%, transparent 8%),
+    #fdf8ec;
+  border: 1px solid var(--line);
+  min-height: 640px;
+  padding: 50px 44px 46px;
+}
+.jb-left {
+  border-radius: 16px 3px 3px 16px;
+  border-right: none;
+  box-shadow:
+    inset -26px 0 30px -24px rgba(42,42,58,0.28),
+    -4px 5px 0 -1px #f4edda, -8px 10px 0 -2px #ece1c6;
+}
+.jb-right {
+  border-radius: 3px 16px 16px 3px;
+  border-left: none;
+  box-shadow:
+    inset 26px 0 30px -24px rgba(42,42,58,0.28),
+    4px 5px 0 -1px #f4edda, 8px 10px 0 -2px #ece1c6;
+}
+.jb-spine {
+  position: absolute; left: 50%; top: 20px; bottom: 20px;
+  border-left: 2px dashed rgba(122,111,94,0.4);
+  transform: translateX(-1px);
+  z-index: 2;
+}
+
+/* washi tape - light gingham, torn ends */
+.jb-tape {
+  position: absolute;
+  width: 110px; height: 30px;
+  background:
+    repeating-linear-gradient(90deg, rgba(110,138,210,0.42) 0 9px, rgba(236,241,250,0.42) 9px 18px),
+    repeating-linear-gradient(0deg, rgba(110,138,210,0.22) 0 9px, rgba(236,241,250,0.22) 9px 18px);
+  box-shadow: 0 1px 3px rgba(42,42,58,0.16);
+  clip-path: polygon(0 14%, 3% 0, 97% 5%, 100% 0, 98% 48%, 100% 92%, 96% 100%, 4% 96%, 0 86%, 2% 52%);
+  z-index: 3;
+}
+
+/* - left page: the signup entry - */
+.jb-left .eyebrow {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 12.5px; letter-spacing: 2px; color: var(--rose);
+  margin-bottom: 14px;
+}
+.jb-left h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 42px); font-weight: 500;
+  line-height: 1.12; color: var(--navy); letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+.jb-left h1 em { font-style: italic; }
+.jb-left p {
+  font-family: 'Lora', serif;
+  font-size: 15.5px; color: var(--ink);
+  line-height: 1.75; margin-bottom: 13px;
+}
+.jb-left .jb-tape--corner { top: -12px; left: 34px; transform: rotate(-3deg); }
+
+.jb-form { margin-top: 18px; }
+.jb-form .jb-cta {
+  display: inline-block; border: none; cursor: pointer;
+  background: var(--navy); color: var(--cream); text-decoration: none;
+  padding: 14px 32px; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; font-weight: 500; font-family: 'Lora', serif;
+  transition: background 0.25s, transform 0.25s;
+}
+.jb-form .jb-cta:hover { background: var(--navy-deep); transform: translateY(-2px); }
+.jb-form .jb-cta:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+/* - right page: the taped gift + what's inside - */
+.jb-gift {
+  display: block;
+  width: 58%; max-width: 240px; margin: 4px auto 10px;
+  transform: rotate(-2deg);
+  filter: drop-shadow(0 6px 12px rgba(42,42,58,0.12));
+}
+.jb-right .jb-tape--gift { top: 30px; left: 50%; transform: translateX(-50%) rotate(2deg); }
+.jb-right h2 {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-weight: 400; font-size: 14px; letter-spacing: 2px;
+  color: var(--navy); text-align: center; margin: 18px 0 18px;
+}
+.jb-inside { list-style: none; display: grid; gap: 13px; margin: 0 0 26px; padding: 0; }
+.jb-inside li {
+  font-family: 'Lora', serif;
+  font-size: 15px; color: var(--ink); line-height: 1.6;
+  display: flex; gap: 12px; align-items: baseline;
+}
+.jb-inside li span { color: var(--accent); }
+.jb-foot {
+  font-size: 15px; color: var(--muted); font-style: italic;
+  font-family: 'Cormorant Garamond', serif; text-align: center;
+}
+.jb-foot a { color: var(--navy); }
+
+@media (max-width: 980px) {
+  .jb-book { grid-template-columns: 1fr; max-width: 560px; }
+  .jb-spine { display: none; }
+  .jb-left {
+    border-radius: 16px 16px 0 0; border-right: 1px solid var(--line); border-bottom: none;
+    box-shadow: inset 0 -20px 24px -20px rgba(42,42,58,0.2);
+    min-height: 0;
+  }
+  .jb-right {
+    border-radius: 0 0 16px 16px; border-left: 1px solid var(--line);
+    box-shadow: 4px 6px 0 -1px #f4edda, 8px 12px 0 -2px #ece1c6;
+    min-height: 0;
+  }
+}
+@media (max-width: 560px) {
+  .jb-page { padding: 36px 22px 32px; }
+}
+</style>
 </head>
 <body>
 
-<!-- Standalone lead-magnet landing (2026-07-05): deliberately NO site nav.
-     This URL is reached from Pinterest pins and Kit emails, not from the site.
-     One goal on this page: the email. -->
-<div style="text-align:center; padding: 2.2rem 1rem 0;">
-  <!-- Logo IS clickable → main site (Ksenia, 2026-07-05). The page still has
-       no nav — one goal (the email) — but the brand mark always leads home. -->
-  <a href="index.html" style="text-decoration:none; display:inline-block">
-    <img src="assets/logo.png" alt="Sentimentalica" style="width:56px; opacity:.9">
-    <div style="font-family:'Cormorant Garamond',Georgia,serif; font-size:1.5rem; color:#163087; letter-spacing:.04em; margin-top:.4rem;">Sentimentalica</div>
+<nav class="site-nav">
+  <a href="index.html" class="logo-link">
+    <img src="assets/logo.png" alt="Sentimentalica" class="logo-mark">
+    <span class="logo-block">
+      <span class="logo-text">Sentimentalica</span>
+      <span class="logo-tagline">Junk Journal, Art Journal and Scrapbook Digital Papers</span>
+    </span>
   </a>
-</div>
-
-<section class="freebie-hero">
-  <div class="freebie-art">
-    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A wrapped gift">
-      <defs>
-        <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#1b3a9e"/><stop offset="1" stop-color="#163087"/>
-        </linearGradient>
-        <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#23459e"/><stop offset="1" stop-color="#16306f"/>
-        </linearGradient>
-      </defs>
-      <!-- soft halo -->
-      <circle cx="110" cy="112" r="92" fill="#fff" opacity="0.35"/>
-      <!-- box base -->
-      <rect x="48" y="96" width="124" height="86" rx="4" fill="url(#box)"/>
-      <!-- lid -->
-      <rect x="40" y="78" width="140" height="30" rx="4" fill="url(#lid)"/>
-      <!-- vertical ribbon -->
-      <rect x="100" y="78" width="20" height="104" fill="#c9a24a"/>
-      <rect x="100" y="78" width="20" height="104" fill="#d8b65f" opacity="0.5"/>
-      <!-- bow -->
-      <path d="M110 78 C80 52 58 60 70 78 C82 92 104 80 110 78Z" fill="#d8b65f"/>
-      <path d="M110 78 C140 52 162 60 150 78 C138 92 116 80 110 78Z" fill="#c9a24a"/>
-      <circle cx="110" cy="78" r="9" fill="#e7c873"/>
-      <!-- little sparkles -->
-      <g fill="#163087" opacity="0.55">
-        <path d="M40 50 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
-        <path d="M182 44 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
-        <path d="M188 150 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
-      </g>
-    </svg>
-  </div>
-
-  <div class="freebie-copy">
-    <p class="hero-eyebrow">— a little gift for you —</p>
-    <h1>Free vintage paper pack for your <em>next journal.</em></h1>
-    <p class="freebie-sub">Join the Sentimentalica letter and I'll send you a free sample pack of printable vintage papers and ephemera — yours to keep, print, and cut into your next junk journal spread.</p>
-
-    <form class="freebie-form" id="freebie-form" novalidate>
-      <label class="sr-only" for="freebie-email">Email address</label>
-      <input type="email" id="freebie-email" name="email" placeholder="Your email address" required autocomplete="email">
-      <!-- Honeypot: invisible to humans, bots fill it in — the backend then
-           silently drops the signup. -->
-      <input type="text" id="freebie-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0">
-      <button type="submit" class="hero-cta">Send me the free pack →</button>
-      <p class="freebie-fineprint">Instant download · gentle weekly letters · unsubscribe anytime.</p>
-      <p class="freebie-message" id="freebie-message" role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-
-<section class="section freebie-inside">
-  <div class="section-head"><h2>What's <em>inside</em></h2></div>
-  <ul class="freebie-list">
-    <li><span>✦</span> A curated set of printable vintage paper backgrounds</li>
-    <li><span>✦</span> Ephemera snippets — tags, labels, and little cut-outs</li>
-    <li><span>✦</span> A quick-start guide to using digital papers in a junk journal</li>
-    <li><span>✦</span> First look at new releases and subscriber-only offers</li>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Journal</a></li>
+    <!-- Vault link removed 2026-07-13 (may be reused later): <li><a href="vault.html">Vault</a></li> -->
+    <li><a href="about.html">About</a></li>
+    <li><a href="freebie.html">Freebie</a></li>
+    <li><a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a></li>
+    <li><a class="nav-shop" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Shop on Etsy</a></li>
   </ul>
-  <p class="freebie-foot">Already have it? <a href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Browse the full shop on Etsy →</a></p>
+</nav>
+
+<section class="jb-scene">
+  <div class="jb-book">
+    <div class="jb-page jb-left">
+      <span class="jb-tape jb-tape--corner" aria-hidden="true"></span>
+      <p class="eyebrow">- A LITTLE GIFT FOR YOU -</p>
+      <h1>Free vintage paper pack for your <em>next journal.</em></h1>
+      <p>Join the Sentimentalica letter and I'll send you a free sample pack of printable vintage papers and ephemera - yours to keep, print, and cut into your next junk journal spread.</p>
+
+      <form class="freebie-form jb-form" id="freebie-form" novalidate>
+        <label class="sr-only" for="freebie-email">Email address</label>
+        <input type="email" id="freebie-email" name="email" placeholder="Your email address" required autocomplete="email">
+        <!-- Honeypot: invisible to humans, bots fill it in - the backend then
+             silently drops the signup. -->
+        <input type="text" id="freebie-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0">
+        <button type="submit" class="jb-cta">Send me the free pack →</button>
+        <p class="freebie-fineprint">Instant download · gentle weekly letters · unsubscribe anytime.</p>
+        <p class="freebie-message" id="freebie-message" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="jb-spine" aria-hidden="true"></div>
+
+    <div class="jb-page jb-right">
+      <span class="jb-tape jb-tape--gift" aria-hidden="true"></span>
+      <svg class="jb-gift" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A wrapped gift">
+        <defs>
+          <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1b3a9e"/><stop offset="1" stop-color="#163087"/>
+          </linearGradient>
+          <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#23459e"/><stop offset="1" stop-color="#16306f"/>
+          </linearGradient>
+        </defs>
+        <!-- soft halo -->
+        <circle cx="110" cy="112" r="92" fill="#fff" opacity="0.35"/>
+        <!-- box base -->
+        <rect x="48" y="96" width="124" height="86" rx="4" fill="url(#box)"/>
+        <!-- lid -->
+        <rect x="40" y="78" width="140" height="30" rx="4" fill="url(#lid)"/>
+        <!-- vertical ribbon -->
+        <rect x="100" y="78" width="20" height="104" fill="#c9a24a"/>
+        <rect x="100" y="78" width="20" height="104" fill="#d8b65f" opacity="0.5"/>
+        <!-- bow -->
+        <path d="M110 78 C80 52 58 60 70 78 C82 92 104 80 110 78Z" fill="#d8b65f"/>
+        <path d="M110 78 C140 52 162 60 150 78 C138 92 116 80 110 78Z" fill="#c9a24a"/>
+        <circle cx="110" cy="78" r="9" fill="#e7c873"/>
+        <!-- little sparkles -->
+        <g fill="#163087" opacity="0.55">
+          <path d="M40 50 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
+          <path d="M182 44 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
+          <path d="M188 150 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
+        </g>
+      </svg>
+
+      <h2>WHAT'S INSIDE</h2>
+      <ul class="jb-inside">
+        <li><span>✦</span> A curated set of printable vintage paper backgrounds</li>
+        <li><span>✦</span> Ephemera snippets - tags, labels, and little cut-outs</li>
+        <li><span>✦</span> A quick-start guide to using digital papers in a junk journal</li>
+        <li><span>✦</span> First look at new releases and subscriber-only offers</li>
+      </ul>
+      <p class="jb-foot">Already have it? <a href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Browse the full shop on Etsy →</a></p>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <!-- Quiet way back to the main site: the ONLY link from this landing to
-       sentimentalica.com. Deliberate — this page's single goal is the email
-       signup; we don't invite visitors to wander off before subscribing. -->
-  <div>© 2026 <a href="index.html" style="color:inherit">Sentimentalica</a></div>
+  <div>© 2026 Sentimentalica</div>
   <div>
     <a href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Etsy</a>
+    <a href="https://pinterest.com/sentimentalica" target="_blank" rel="noopener">Pinterest</a>
     <a href="mailto:hello@sentimentalica.com">Contact</a>
   </div>
 </footer>
@@ -122,7 +277,7 @@ form.addEventListener('submit', async (e) => {
     return show('Please enter a valid email address.', 'err');
   }
   if (!FORM_ENDPOINT) {
-    return show("Almost ready — the gift inbox is being set up. Please check back very soon. 🤍", 'note');
+    return show("Almost ready - the gift inbox is being set up. Please check back very soon. 🤍", 'note');
   }
   const btn = form.querySelector('button[type=submit]');
   btn.disabled = true;
@@ -143,12 +298,11 @@ form.addEventListener('submit', async (e) => {
     if (!data.ok) throw new Error('backend said no');
     form.reset();
     show(data.already
-      ? 'You are already on the list — the pack is on its way to your inbox again. 🤍'
-      : 'Beautiful — your free pack is on its way to your inbox. ✨', 'ok');
+      ? 'You are already on the list - the pack is on its way to your inbox again. 🤍'
+      : 'Beautiful - your free pack is on its way to your inbox. ✨', 'ok');
     // The link arrives in the server response (not in the page source), so we
-    // can also offer it right here — a spam-foldered email won't lose anyone.
+    // can also offer it right here - a spam-foldered email won't lose anyone.
     if (data.link) offerGiftLink(data.link);
-    offerSiteLink();
   } catch {
     show('Something went wrong. Please try again in a moment.', 'err');
   } finally {
@@ -164,21 +318,9 @@ function offerGiftLink(link) {
   a.href = link;
   a.target = '_blank';
   a.rel = 'noopener';
-  a.className = 'hero-cta';
+  a.className = 'jb-cta';
   a.style.cssText = 'display:inline-block;margin-top:1rem';
   a.textContent = 'Or open your gift right now →';
-  msg.parentNode.appendChild(a);
-}
-
-// After the email is in, invite them onward to the site (Ksenia, 2026-07-05).
-function offerSiteLink() {
-  if (document.getElementById('freebie-continue')) return;
-  const a = document.createElement('a');
-  a.id = 'freebie-continue';
-  a.href = 'index.html';
-  a.className = 'hero-cta';
-  a.style.cssText = 'display:inline-block;margin-top:1rem';
-  a.textContent = 'Explore Sentimentalica while you wait →';
   msg.parentNode.appendChild(a);
 }
 
@@ -187,5 +329,6 @@ function show(text, kind) {
   msg.className = 'freebie-message ' + (kind || '');
 }
 </script>
+<script src="assets/admin-tab.js?v=12" defer></script>
 </body>
 </html>
