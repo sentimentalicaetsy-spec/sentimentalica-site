@@ -57,10 +57,48 @@
   </div>
 </section>
 
+<style>
+/* Journal carousel tweaks (2026-07-17): "All posts" as a real button that
+   lights up when the reader reaches the end of the row, plus a final
+   all-posts card inside the carousel itself. */
+.section-head .more.more-btn {
+  background: var(--navy); color: var(--cream);
+  border: none; border-bottom: none;
+  padding: 12px 26px;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.section-head .more.more-btn:hover { background: var(--navy-deep); transform: translateY(-2px); }
+.section-head .more.more-btn.at-end {
+  animation: more-glow 1.6s ease-in-out infinite;
+}
+@keyframes more-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22,48,135,0.45); }
+  50% { box-shadow: 0 0 0 9px rgba(22,48,135,0); }
+}
+.all-posts-card {
+  background: var(--navy);
+  border: 1px solid var(--navy-deep);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; text-align: center;
+  min-height: 340px;
+}
+.all-posts-card:hover { background: var(--navy-deep); }
+.all-posts-card .apc-star { color: #d8b65f; font-size: 20px; }
+.all-posts-card .apc-title {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 30px; color: var(--cream); line-height: 1.1;
+}
+.all-posts-card .apc-sub {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--pale-blue);
+}
+</style>
+
 <section class="section">
   <div class="section-head">
     <h2>From the <em>journal</em></h2>
-    <a href="blog.html" class="more">All posts →</a>
+    <a href="blog.html" class="more more-btn" id="all-posts-btn">All posts →</a>
   </div>
   <div class="post-carousel">
     <button class="carousel-arrow carousel-prev" id="post-prev" aria-label="Previous articles" hidden>&#8592;</button>
@@ -92,7 +130,7 @@ async function loadRecentPosts() {
   try {
     const r = await fetch('blog/index.json?t=' + Date.now());
     const d = await r.json();
-    const posts = (d.posts || []).slice(0, 12);
+    const posts = (d.posts || []).slice(0, 20);
     const grid = document.getElementById('home-post-grid');
     if (posts.length === 0) { grid.innerHTML = ''; return; }
     grid.innerHTML = posts.map((p, i) => {
@@ -107,7 +145,13 @@ async function loadRecentPosts() {
           <p>${p.excerpt || ''}</p>
           <div class="post-meta">${p.dateDisplay || p.date}${p.readTime ? ' · ' + p.readTime : ''}</div>
         </a>`;
-    }).join('');
+    }).join('')
+    // the carousel ends on an invitation, not a dead stop
+    + `<a href="blog.html" class="post-card all-posts-card">
+         <span class="apc-star">✦</span>
+         <span class="apc-title">All posts</span>
+         <span class="apc-sub">read the whole journal →</span>
+       </a>`;
     wirePostCarousel();
   } catch { }
 }
@@ -119,10 +163,13 @@ function wirePostCarousel() {
   const prev = document.getElementById('post-prev');
   const next = document.getElementById('post-next');
   if (!track || !prev || !next) return;
+  const allPostsBtn = document.getElementById('all-posts-btn');
   const update = () => {
     const maxScroll = track.scrollWidth - track.clientWidth - 4;
     prev.hidden = track.scrollLeft <= 4;
     next.hidden = track.scrollLeft >= maxScroll;
+    // at the end of the row, the "All posts" button starts glowing
+    if (allPostsBtn) allPostsBtn.classList.toggle('at-end', next.hidden);
   };
   prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }));
   next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }));
