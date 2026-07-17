@@ -402,11 +402,13 @@
 // Backend is our own free Google Apps Script (see tools/gift_apps_script.gs
 // and GIFT_SETUP.md): stores the email in a PRIVATE Google Sheet, emails the
 // gift link, pings Telegram. Set FORM_ENDPOINT to the deployed /exec URL.
-// The gift-folder link only ever arrives in the backend RESPONSE after a
-// valid email - it is never in this page's source.
-// Style preview without the backend: open /freebie.html?demo
+// The reveal is optimistic: it starts the moment a valid email is entered;
+// the signup request runs in the background and never blocks the moment.
 const FORM_ENDPOINT = ''; // e.g. 'https://script.google.com/macros/s/XXXX/exec'
-const DEMO = new URLSearchParams(location.search).has('demo');
+// TEMPORARY (2026-07-17): direct folder link so the reveal works before the
+// backend exists. Once FORM_ENDPOINT is live, set this back to '' - the link
+// then only arrives in the backend response, restoring the email gate.
+const FALLBACK_LINK = 'https://drive.google.com/drive/folders/1wkv_iYaQ3I345IYg7uGbKPZjOifNi_cx';
 
 const form = document.getElementById('freebie-form');
 const msg = document.getElementById('freebie-message');
@@ -417,50 +419,47 @@ const presentLink = document.getElementById('present-link');
 
 let revealed = false;
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (revealed) return;
   const email = document.getElementById('freebie-email').value.trim();
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return show('Please enter a valid email address.', 'err');
   }
-  if (!FORM_ENDPOINT && !DEMO) {
-    return show("Almost ready - the gift inbox is being set up. Please check back very soon. 🤍", 'note');
-  }
-  btn.disabled = true;
-  btn.textContent = 'Wrapping your gift…';
-  try {
-    let link = null;
-    if (DEMO) {
-      await new Promise((r) => setTimeout(r, 600)); // pretend to talk to the backend
-    } else {
-      // URLSearchParams keeps this a "simple" request (no CORS preflight),
-      // which is what Apps Script web apps require.
-      const r = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        body: new URLSearchParams({
-          email,
-          website: document.getElementById('freebie-hp').value, // honeypot
-          source: 'freebie page',
-        }),
-      });
-      const data = await r.json();
-      if (!data.ok) throw new Error('backend said no');
-      link = data.link;
-    }
-    reveal(link);
-  } catch {
-    btn.disabled = false;
-    btn.textContent = 'Claim my free pack →';
-    show('Something went wrong. Please try again in a moment.', 'err');
+
+  // The reveal starts IMMEDIATELY - nobody waits on a network request.
+  reveal();
+
+  // The signup itself happens in the background. If the backend confirms,
+  // the present link switches to the server-provided one and we mention
+  // the inbox copy; if it fails, the visitor still has their present.
+  if (FORM_ENDPOINT) {
+    // URLSearchParams keeps this a "simple" request (no CORS preflight),
+    // which is what Apps Script web apps require.
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      body: new URLSearchParams({
+        email,
+        website: document.getElementById('freebie-hp').value, // honeypot
+        source: 'freebie page',
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (!data.ok) return;
+        if (data.link) presentLink.href = data.link;
+        show('Look at the right page - your present has arrived. A copy of the link is also on its way to your inbox. ✨', 'ok');
+      })
+      .catch(() => {}); // never interrupt the moment
   }
 });
 
-function reveal(link) {
+function reveal() {
   revealed = true;
+  btn.disabled = true;
   btn.textContent = 'Your pack is yours 🤍';
-  if (link) presentLink.href = link;
-  show('Look at the right page - your present is arriving. A copy of the link is also on its way to your inbox. ✨', 'ok');
+  if (FALLBACK_LINK) presentLink.href = FALLBACK_LINK;
+  show('Look at the right page - your present has arrived. ✨', 'ok');
   collage.classList.add('flip');
   // let the pictures finish turning, then the present pops in
   setTimeout(() => {
@@ -471,14 +470,7 @@ function reveal(link) {
   }, 1650);
 }
 
-presentLink.addEventListener('click', (e) => {
-  if (presentLink.getAttribute('href') === '#') {
-    e.preventDefault();
-    show(DEMO
-      ? '(demo preview - the real present opens once the gift inbox is connected)'
-      : 'One moment - your present is still being wrapped. Please try again shortly.', 'note');
-    return;
-  }
+presentLink.addEventListener('click', () => {
   document.getElementById('follow-msg').textContent =
     'Hope you are enjoying your present 🤍 I would really appreciate it if you followed my shop - the button below takes you right there:';
 });
