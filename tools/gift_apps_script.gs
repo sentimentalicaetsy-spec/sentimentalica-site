@@ -45,12 +45,19 @@ function doPost(e) {
     }
 
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-    if (sheet.getLastRow() === 0) sheet.appendRow(['email', 'signed up', 'source']);
+    if (sheet.getLastRow() === 0) sheet.appendRow(['email', 'signed up', 'source', 'times']);
     const existing = sheet.getLastRow() > 1
       ? sheet.getRange(2, 1, sheet.getLastRow() - 1, 1).getValues().flat().map(String)
       : [];
-    const already = existing.indexOf(email) !== -1;
-    if (!already) sheet.appendRow([email, new Date(), String(p.source || 'freebie page')]);
+    const at = existing.indexOf(email);
+    const already = at !== -1;
+    if (already) {
+      // No duplicate rows - just count how many times this email came back.
+      const timesCell = sheet.getRange(at + 2, 4);
+      timesCell.setValue((Number(timesCell.getValue()) || 1) + 1);
+    } else {
+      sheet.appendRow([email, new Date(), String(p.source || 'freebie page'), 1]);
+    }
 
     sendGiftEmail(email);
     if (!already) notifyTelegram(email, existing.length + 1);
