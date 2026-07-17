@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Gift - Sentimentalica</title>
-<meta name="description" content="Get a free sample pack of Sentimentalica digital papers - vintage printables for your junk journal, delivered straight to your inbox.">
+<meta name="description" content="A free mixed floral junk journal pack - 100 printable vintage pages: all-over patterns, floral portraits, frames and ephemera. Claim your gift.">
 <meta property="og:title" content="A free gift from Sentimentalica">
-<meta property="og:description" content="Get a free sample pack of vintage digital papers for your junk journal - instant download.">
+<meta property="og:description" content="A free mixed floral junk journal pack - 100 printable vintage pages. Claim your gift.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sentimentalica.com/freebie">
-<meta property="og:image" content="https://sentimentalica.com/assets/logo.png">
+<meta property="og:image" content="https://sentimentalica.com/assets/freebie/roses.jpg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +17,12 @@
 <link rel="stylesheet" href="assets/styles.css?v=8">
 <meta name="p:domain_verify" content="2df16e7970c89985d1f99be0087cded7"/>
 <style>
-/* ===== Freebie v2 (2026-07-16): same OPEN JUNK JOURNAL scene as the About
-   page (Ksenia: "make the tab look more like about page with the background").
-   Left page = the signup entry; right page = the gift + what's inside.
-   Scoped under .jb- , rules mirrored from about.html. */
+/* ===== Freebie v3 (2026-07-17): the gift reveal.
+   Same open-journal scene as About. Left page = what the pack is + the form.
+   Right page = 7 real pack pictures taped in; after the email is in they
+   flip over and a present pops up - clicking it opens the gift folder.
+   Along with the present: follow-the-shop CTA with an Etsy-style sticker.
+   Scoped under .jb- / .ph- */
 
 .jb-scene {
   position: relative;
@@ -30,13 +32,12 @@
   padding: clamp(50px, 8vh, 100px) 24px clamp(70px, 10vh, 120px);
   overflow: hidden;
 }
-.jb-scene::before { /* soft desk light */
+.jb-scene::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(ellipse at 50% 30%, rgba(255,253,247,0.7) 0%, transparent 60%);
   pointer-events: none;
 }
-
 .jb-book {
   position: relative;
   max-width: 1080px;
@@ -51,7 +52,7 @@
     linear-gradient(180deg, rgba(240,228,205,0.25) 0%, transparent 8%),
     #fdf8ec;
   border: 1px solid var(--line);
-  min-height: 640px;
+  min-height: 660px;
   padding: 50px 44px 46px;
 }
 .jb-left {
@@ -74,8 +75,6 @@
   transform: translateX(-1px);
   z-index: 2;
 }
-
-/* washi tape - light gingham, torn ends */
 .jb-tape {
   position: absolute;
   width: 110px; height: 30px;
@@ -87,7 +86,7 @@
   z-index: 3;
 }
 
-/* - left page: the signup entry - */
+/* - left page - */
 .jb-left .eyebrow {
   font-family: 'Special Elite', 'Courier New', monospace;
   font-size: 12.5px; letter-spacing: 2px; color: var(--rose);
@@ -95,19 +94,25 @@
 }
 .jb-left h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 42px); font-weight: 500;
+  font-size: clamp(30px, 3.6vw, 40px); font-weight: 500;
   line-height: 1.12; color: var(--navy); letter-spacing: -0.5px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .jb-left h1 em { font-style: italic; }
 .jb-left p {
   font-family: 'Lora', serif;
-  font-size: 15.5px; color: var(--ink);
-  line-height: 1.75; margin-bottom: 13px;
+  font-size: 15px; color: var(--ink);
+  line-height: 1.7; margin-bottom: 12px;
 }
+.jb-list { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; }
+.jb-list li {
+  font-family: 'Lora', serif; font-size: 14.5px; color: var(--ink);
+  line-height: 1.55; display: flex; gap: 10px; align-items: baseline;
+}
+.jb-list li span { color: var(--accent); }
 .jb-left .jb-tape--corner { top: -12px; left: 34px; transform: rotate(-3deg); }
 
-.jb-form { margin-top: 18px; }
+.jb-form { margin-top: 12px; }
 .jb-form .jb-cta {
   display: inline-block; border: none; cursor: pointer;
   background: var(--navy); color: var(--cream); text-decoration: none;
@@ -118,31 +123,121 @@
 .jb-form .jb-cta:hover { background: var(--navy-deep); transform: translateY(-2px); }
 .jb-form .jb-cta:disabled { opacity: 0.6; cursor: wait; transform: none; }
 
-/* - right page: the taped gift + what's inside - */
-.jb-gift {
-  display: block;
-  width: 58%; max-width: 240px; margin: 4px auto 10px;
-  transform: rotate(-2deg);
-  filter: drop-shadow(0 6px 12px rgba(42,42,58,0.12));
+/* - right page: the taped pictures - */
+.ph-collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px 18px;
+  padding-top: 8px;
+  transition: opacity 0.6s ease, filter 0.6s ease;
 }
-.jb-right .jb-tape--gift { top: 30px; left: 50%; transform: translateX(-50%) rotate(2deg); }
-.jb-right h2 {
+.ph {
+  position: relative;
+  perspective: 700px;
+}
+.ph:nth-child(1) { transform: rotate(-4deg); }
+.ph:nth-child(2) { transform: rotate(2.5deg) translateY(6px); }
+.ph:nth-child(3) { transform: rotate(-1.5deg); }
+.ph:nth-child(4) { transform: rotate(3deg); }
+.ph:nth-child(5) { transform: rotate(-2.5deg) translateY(4px); }
+.ph:nth-child(6) { transform: rotate(1.5deg); }
+.ph:nth-child(7) { transform: rotate(-2deg); grid-column: 2; }
+.ph-card {
+  position: relative; display: block; width: 100%; aspect-ratio: 541 / 700;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(.5,.1,.3,1);
+  transition-delay: var(--d, 0s);
+}
+.flip .ph-card { transform: rotateY(180deg); }
+.ph-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border: 4px solid #fffdf7;
+  box-shadow: 0 3px 9px rgba(42,42,58,0.18);
+  overflow: hidden;
+}
+.ph-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph-back {
+  transform: rotateY(180deg);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12) 0%, transparent 45%),
+    var(--navy);
+  display: flex; align-items: center; justify-content: center;
+}
+.ph-back span {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  color: var(--cream); font-size: 13px; letter-spacing: 0.5px;
+  text-align: center; line-height: 1.5; padding: 6px;
+}
+.ph .ph-tape {
+  position: absolute; top: -13px; left: 50%;
+  width: 64px; height: 20px;
+  transform: translateX(-50%) rotate(-2deg);
+}
+.ph:nth-child(2) .ph-tape { transform: translateX(-50%) rotate(3deg); }
+.ph:nth-child(5) .ph-tape { transform: translateX(-50%) rotate(2deg); }
+
+/* the collage recedes once the present arrives */
+.gifted .ph-collage { opacity: 0.16; filter: blur(1.5px); pointer-events: none; }
+
+/* - the present - */
+.present {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; padding: 40px 34px;
+  opacity: 0; visibility: hidden; transform: scale(0.6);
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(.2,1.4,.4,1), visibility 0.45s;
+  z-index: 4;
+}
+.gifted .present { opacity: 1; visibility: visible; transform: scale(1); }
+.present-link { text-decoration: none; text-align: center; display: block; }
+.present-link svg { width: 170px; height: auto; display: block; margin: 0 auto; }
+.gifted .present-link svg { animation: ph-wiggle 2.4s ease-in-out 0.8s 3; }
+@keyframes ph-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-4deg); } 20% { transform: rotate(4deg); }
+  30% { transform: rotate(-3deg); } 40% { transform: rotate(3deg); }
+  50% { transform: rotate(0deg); }
+}
+.present-cta {
+  display: inline-block; margin-top: 10px;
+  background: var(--navy); color: var(--cream);
+  padding: 14px 30px; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; font-weight: 500; font-family: 'Lora', serif;
+  transition: background 0.25s, transform 0.25s;
+}
+.present-link:hover .present-cta { background: var(--navy-deep); transform: translateY(-2px); }
+.present-note {
   font-family: 'Special Elite', 'Courier New', monospace;
-  font-weight: 400; font-size: 14px; letter-spacing: 2px;
-  color: var(--navy); text-align: center; margin: 18px 0 18px;
+  font-size: 11.5px; letter-spacing: 1px; color: var(--muted);
+  margin-top: 4px;
 }
-.jb-inside { list-style: none; display: grid; gap: 13px; margin: 0 0 26px; padding: 0; }
-.jb-inside li {
-  font-family: 'Lora', serif;
-  font-size: 15px; color: var(--ink); line-height: 1.6;
-  display: flex; gap: 12px; align-items: baseline;
+
+/* follow-the-shop, along with the present */
+.follow {
+  margin-top: 26px; text-align: center; max-width: 320px;
 }
-.jb-inside li span { color: var(--accent); }
-.jb-foot {
-  font-size: 15px; color: var(--muted); font-style: italic;
-  font-family: 'Cormorant Garamond', serif; text-align: center;
+.follow p {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 16.5px; color: var(--ink); line-height: 1.5; margin-bottom: 12px;
 }
-.jb-foot a { color: var(--navy); }
+/* sticker that looks like Etsy's own "Follow shop" button, so it's easy to
+   recognise on the shop page */
+.etsy-sticker {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: #f1641e; text-decoration: none;
+  border: 2px solid #f1641e; border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600;
+  transform: rotate(-2deg);
+  box-shadow: 0 3px 0 rgba(241,100,30,0.25), 0 6px 14px rgba(42,42,58,0.15);
+  transition: transform 0.25s;
+}
+.etsy-sticker:hover { transform: rotate(0deg) scale(1.05); }
+.etsy-sticker .heart { font-size: 16px; line-height: 1; }
+.etsy-sticker small {
+  font-size: 10px; font-weight: 400; color: var(--muted); letter-spacing: 0.5px;
+}
 
 @media (max-width: 980px) {
   .jb-book { grid-template-columns: 1fr; max-width: 560px; }
@@ -155,11 +250,11 @@
   .jb-right {
     border-radius: 0 0 16px 16px; border-left: 1px solid var(--line);
     box-shadow: 4px 6px 0 -1px #f4edda, 8px 12px 0 -2px #ece1c6;
-    min-height: 0;
   }
 }
 @media (max-width: 560px) {
   .jb-page { padding: 36px 22px 32px; }
+  .ph-collage { gap: 20px 12px; }
 }
 </style>
 </head>
@@ -189,8 +284,15 @@
     <div class="jb-page jb-left">
       <span class="jb-tape jb-tape--corner" aria-hidden="true"></span>
       <p class="eyebrow">- A LITTLE GIFT FOR YOU -</p>
-      <h1>Free vintage paper pack for your <em>next journal.</em></h1>
-      <p>Join the Sentimentalica letter and I'll send you a free sample pack of printable vintage papers and ephemera - yours to keep, print, and cut into your next junk journal spread.</p>
+      <h1>A free <em>mixed floral</em> junk journal pack.</h1>
+      <p>100 printable vintage pages of watercolor florals - lavender fields, lemon groves, cottage roses, poppies and wildflowers - ready to print and cut into your next spread:</p>
+      <ul class="jb-list">
+        <li><span>✦</span> All-over floral patterns for full backgrounds</li>
+        <li><span>✦</span> Floral portraits, cameos and garden scenes</li>
+        <li><span>✦</span> Frames, wreaths and writing panels</li>
+        <li><span>✦</span> Ephemera - labels, tags and little cut-outs</li>
+      </ul>
+      <p>Leave your email, and the pictures on the right will show you what they're hiding.</p>
 
       <form class="freebie-form jb-form" id="freebie-form" novalidate>
         <label class="sr-only" for="freebie-email">Email address</label>
@@ -198,54 +300,62 @@
         <!-- Honeypot: invisible to humans, bots fill it in - the backend then
              silently drops the signup. -->
         <input type="text" id="freebie-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0">
-        <button type="submit" class="jb-cta">Send me the free pack →</button>
-        <p class="freebie-fineprint">Instant download · gentle weekly letters · unsubscribe anytime.</p>
+        <button type="submit" class="jb-cta" id="freebie-btn">Claim my free pack →</button>
+        <p class="freebie-fineprint">Instant access · gentle weekly letters · unsubscribe anytime.</p>
         <p class="freebie-message" id="freebie-message" role="status" aria-live="polite"></p>
       </form>
     </div>
 
     <div class="jb-spine" aria-hidden="true"></div>
 
-    <div class="jb-page jb-right">
-      <span class="jb-tape jb-tape--gift" aria-hidden="true"></span>
-      <svg class="jb-gift" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A wrapped gift">
-        <defs>
-          <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#1b3a9e"/><stop offset="1" stop-color="#163087"/>
-          </linearGradient>
-          <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#23459e"/><stop offset="1" stop-color="#16306f"/>
-          </linearGradient>
-        </defs>
-        <!-- soft halo -->
-        <circle cx="110" cy="112" r="92" fill="#fff" opacity="0.35"/>
-        <!-- box base -->
-        <rect x="48" y="96" width="124" height="86" rx="4" fill="url(#box)"/>
-        <!-- lid -->
-        <rect x="40" y="78" width="140" height="30" rx="4" fill="url(#lid)"/>
-        <!-- vertical ribbon -->
-        <rect x="100" y="78" width="20" height="104" fill="#c9a24a"/>
-        <rect x="100" y="78" width="20" height="104" fill="#d8b65f" opacity="0.5"/>
-        <!-- bow -->
-        <path d="M110 78 C80 52 58 60 70 78 C82 92 104 80 110 78Z" fill="#d8b65f"/>
-        <path d="M110 78 C140 52 162 60 150 78 C138 92 116 80 110 78Z" fill="#c9a24a"/>
-        <circle cx="110" cy="78" r="9" fill="#e7c873"/>
-        <!-- little sparkles -->
-        <g fill="#163087" opacity="0.55">
-          <path d="M40 50 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
-          <path d="M182 44 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
-          <path d="M188 150 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
-        </g>
-      </svg>
+    <div class="jb-page jb-right" id="gift-page">
+      <div class="ph-collage" id="collage" aria-label="A peek inside the free pack">
+        <!-- 7 real pictures from the pack, taped in. Backs revealed on signup. -->
+        <div class="ph" style="--d:0s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/lavender.jpg" alt="Lavender bouquet on vintage paper"></span><span class="ph-face ph-back"><span>✦<br>for your<br>journal</span></span></span></div>
+        <div class="ph" style="--d:0.1s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/lemons.jpg" alt="Watercolor basket of lemons"></span><span class="ph-face ph-back"><span>✦<br>with<br>love</span></span></span></div>
+        <div class="ph" style="--d:0.2s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/roses.jpg" alt="Roses in a teacup"></span><span class="ph-face ph-back"><span>✦<br>print<br>me</span></span></span></div>
+        <div class="ph" style="--d:0.3s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/allover.jpg" alt="All-over floral pattern"></span><span class="ph-face ph-back"><span>✦<br>cut<br>me</span></span></span></div>
+        <div class="ph" style="--d:0.4s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/cameo.jpg" alt="Floral cameo portrait"></span><span class="ph-face ph-back"><span>✦<br>keep<br>me</span></span></span></div>
+        <div class="ph" style="--d:0.5s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/frame.jpg" alt="Wildflower wreath frame"></span><span class="ph-face ph-back"><span>✦<br>yours<br>now</span></span></span></div>
+        <div class="ph" style="--d:0.6s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/seeds.jpg" alt="Vintage garden seeds label"></span><span class="ph-face ph-back"><span>✦<br>Sentimentalica</span></span></span></div>
+      </div>
 
-      <h2>WHAT'S INSIDE</h2>
-      <ul class="jb-inside">
-        <li><span>✦</span> A curated set of printable vintage paper backgrounds</li>
-        <li><span>✦</span> Ephemera snippets - tags, labels, and little cut-outs</li>
-        <li><span>✦</span> A quick-start guide to using digital papers in a junk journal</li>
-        <li><span>✦</span> First look at new releases and subscriber-only offers</li>
-      </ul>
-      <p class="jb-foot">Already have it? <a href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">Browse the full shop on Etsy →</a></p>
+      <div class="present" id="present">
+        <a class="present-link" id="present-link" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Your present">
+            <defs>
+              <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1b3a9e"/><stop offset="1" stop-color="#163087"/>
+              </linearGradient>
+              <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#23459e"/><stop offset="1" stop-color="#16306f"/>
+              </linearGradient>
+            </defs>
+            <circle cx="110" cy="112" r="92" fill="#fff" opacity="0.35"/>
+            <rect x="48" y="96" width="124" height="86" rx="4" fill="url(#box)"/>
+            <rect x="40" y="78" width="140" height="30" rx="4" fill="url(#lid)"/>
+            <rect x="100" y="78" width="20" height="104" fill="#c9a24a"/>
+            <rect x="100" y="78" width="20" height="104" fill="#d8b65f" opacity="0.5"/>
+            <path d="M110 78 C80 52 58 60 70 78 C82 92 104 80 110 78Z" fill="#d8b65f"/>
+            <path d="M110 78 C140 52 162 60 150 78 C138 92 116 80 110 78Z" fill="#c9a24a"/>
+            <circle cx="110" cy="78" r="9" fill="#e7c873"/>
+            <g fill="#163087" opacity="0.55">
+              <path d="M40 50 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
+              <path d="M182 44 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
+              <path d="M188 150 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
+            </g>
+          </svg>
+          <span class="present-cta">Unwrap your present →</span>
+        </a>
+        <p class="present-note">it's waiting for you - go on, click it</p>
+
+        <div class="follow">
+          <p id="follow-msg">Enjoying your present? I'd be so happy if you followed my little shop 🤍</p>
+          <a class="etsy-sticker" href="https://www.etsy.com/shop/sentimentalica" target="_blank" rel="noopener">
+            <span class="heart">♥</span> Follow shop <small>on Etsy</small>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -260,69 +370,90 @@
 </footer>
 
 <script>
-// --- Email signup ---------------------------------------------------------
+// --- Email signup + gift reveal -------------------------------------------
 // Backend is our own free Google Apps Script (see tools/gift_apps_script.gs
-// and GIFT_SETUP.md): it stores the email in a PRIVATE Google Sheet, emails
-// the gift link, and pings Telegram. Set FORM_ENDPOINT to the deployed
-// Web App URL (ends in /exec). Until it is set, the form explains itself.
+// and GIFT_SETUP.md): stores the email in a PRIVATE Google Sheet, emails the
+// gift link, pings Telegram. Set FORM_ENDPOINT to the deployed /exec URL.
+// The gift-folder link only ever arrives in the backend RESPONSE after a
+// valid email - it is never in this page's source.
+// Style preview without the backend: open /freebie.html?demo
 const FORM_ENDPOINT = ''; // e.g. 'https://script.google.com/macros/s/XXXX/exec'
+const DEMO = new URLSearchParams(location.search).has('demo');
 
 const form = document.getElementById('freebie-form');
 const msg = document.getElementById('freebie-message');
+const btn = document.getElementById('freebie-btn');
+const collage = document.getElementById('collage');
+const giftPage = document.getElementById('gift-page');
+const presentLink = document.getElementById('present-link');
+
+let revealed = false;
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (revealed) return;
   const email = document.getElementById('freebie-email').value.trim();
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return show('Please enter a valid email address.', 'err');
   }
-  if (!FORM_ENDPOINT) {
+  if (!FORM_ENDPOINT && !DEMO) {
     return show("Almost ready - the gift inbox is being set up. Please check back very soon. 🤍", 'note');
   }
-  const btn = form.querySelector('button[type=submit]');
   btn.disabled = true;
-  const btnText = btn.textContent;
   btn.textContent = 'Wrapping your gift…';
   try {
-    // URLSearchParams keeps this a "simple" request (no CORS preflight),
-    // which is what Apps Script web apps require.
-    const r = await fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      body: new URLSearchParams({
-        email,
-        website: document.getElementById('freebie-hp').value, // honeypot
-        source: 'freebie page',
-      }),
-    });
-    const data = await r.json();
-    if (!data.ok) throw new Error('backend said no');
-    form.reset();
-    show(data.already
-      ? 'You are already on the list - the pack is on its way to your inbox again. 🤍'
-      : 'Beautiful - your free pack is on its way to your inbox. ✨', 'ok');
-    // The link arrives in the server response (not in the page source), so we
-    // can also offer it right here - a spam-foldered email won't lose anyone.
-    if (data.link) offerGiftLink(data.link);
+    let link = null;
+    if (DEMO) {
+      await new Promise((r) => setTimeout(r, 600)); // pretend to talk to the backend
+    } else {
+      // URLSearchParams keeps this a "simple" request (no CORS preflight),
+      // which is what Apps Script web apps require.
+      const r = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: new URLSearchParams({
+          email,
+          website: document.getElementById('freebie-hp').value, // honeypot
+          source: 'freebie page',
+        }),
+      });
+      const data = await r.json();
+      if (!data.ok) throw new Error('backend said no');
+      link = data.link;
+    }
+    reveal(link);
   } catch {
-    show('Something went wrong. Please try again in a moment.', 'err');
-  } finally {
     btn.disabled = false;
-    btn.textContent = btnText;
+    btn.textContent = 'Claim my free pack →';
+    show('Something went wrong. Please try again in a moment.', 'err');
   }
 });
 
-function offerGiftLink(link) {
-  if (document.getElementById('freebie-gift')) return;
-  const a = document.createElement('a');
-  a.id = 'freebie-gift';
-  a.href = link;
-  a.target = '_blank';
-  a.rel = 'noopener';
-  a.className = 'jb-cta';
-  a.style.cssText = 'display:inline-block;margin-top:1rem';
-  a.textContent = 'Or open your gift right now →';
-  msg.parentNode.appendChild(a);
+function reveal(link) {
+  revealed = true;
+  btn.textContent = 'Your pack is yours 🤍';
+  if (link) presentLink.href = link;
+  show('Look at the right page - your present is arriving. A copy of the link is also on its way to your inbox. ✨', 'ok');
+  collage.classList.add('flip');
+  // let the pictures finish turning, then the present pops in
+  setTimeout(() => {
+    giftPage.classList.add('gifted');
+    if (window.matchMedia('(max-width: 980px)').matches) {
+      giftPage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 1500);
 }
+
+presentLink.addEventListener('click', (e) => {
+  if (presentLink.getAttribute('href') === '#') {
+    e.preventDefault();
+    show(DEMO
+      ? '(demo preview - the real present opens once the gift inbox is connected)'
+      : 'One moment - your present is still being wrapped. Please try again shortly.', 'note');
+    return;
+  }
+  document.getElementById('follow-msg').textContent =
+    'Hope you are enjoying your present 🤍 I would really appreciate it if you followed my shop - the button below takes you right there:';
+});
 
 function show(text, kind) {
   msg.textContent = text;
