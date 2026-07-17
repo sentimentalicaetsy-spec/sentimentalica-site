@@ -9,7 +9,7 @@
 <meta property="og:description" content="A free mixed floral junk journal pack - 100 printable vintage pages. Claim your gift.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sentimentalica.com/freebie">
-<meta property="og:image" content="https://sentimentalica.com/assets/freebie/roses.jpg">
+<meta property="og:image" content="https://sentimentalica.com/assets/freebie/rose-basket.jpg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,14 +134,50 @@
 .ph {
   position: relative;
   perspective: 700px;
+  transition: transform 0.35s ease;
 }
+/* 3x3 scrapbook: 8 pictures around, the "100 free pages" note in the middle */
 .ph:nth-child(1) { transform: rotate(-4deg); }
 .ph:nth-child(2) { transform: rotate(2.5deg) translateY(6px); }
 .ph:nth-child(3) { transform: rotate(-1.5deg); }
 .ph:nth-child(4) { transform: rotate(3deg); }
-.ph:nth-child(5) { transform: rotate(-2.5deg) translateY(4px); }
-.ph:nth-child(6) { transform: rotate(1.5deg); }
-.ph:nth-child(7) { transform: rotate(-2deg); grid-column: 2; }
+.ph:nth-child(6) { transform: rotate(-2.5deg) translateY(4px); }
+.ph:nth-child(7) { transform: rotate(1.5deg); }
+.ph:nth-child(8) { transform: rotate(-2deg); }
+.ph:nth-child(9) { transform: rotate(2deg) translateY(3px); }
+/* the taped things come alive under the cursor */
+.ph:hover { transform: rotate(0deg) translateY(-10px) scale(1.06); z-index: 6; }
+.ph:hover .ph-face { box-shadow: 0 14px 26px rgba(42,42,58,0.26); }
+
+/* the middle note card */
+.ph-note {
+  display: flex; align-items: stretch; justify-content: center;
+  transform: rotate(-2deg);
+  transition: transform 0.35s ease;
+  position: relative;
+}
+.ph-note:hover { transform: rotate(0deg) translateY(-10px) scale(1.06); z-index: 6; }
+.ph-note-card {
+  width: 100%; aspect-ratio: 541 / 700;
+  background:
+    linear-gradient(180deg, rgba(240,228,205,0.35) 0%, transparent 20%),
+    #fffdf7;
+  border: 1px solid var(--line);
+  box-shadow: 0 3px 9px rgba(42,42,58,0.18);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px; text-align: center; padding: 8px;
+}
+.ph-note-card .n-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 4vw, 46px); font-weight: 600;
+  color: var(--navy); line-height: 1;
+}
+.ph-note-card .n-small {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 2px; color: var(--muted);
+  text-transform: uppercase;
+}
+.ph-note-card .n-star { color: var(--accent); font-size: 13px; margin-top: 6px; }
 .ph-card {
   position: relative; display: block; width: 100%; aspect-ratio: 541 / 700;
   transform-style: preserve-3d;
@@ -310,14 +346,17 @@
 
     <div class="jb-page jb-right" id="gift-page">
       <div class="ph-collage" id="collage" aria-label="A peek inside the free pack">
-        <!-- 7 real pictures from the pack, taped in. Backs revealed on signup. -->
-        <div class="ph" style="--d:0s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/lavender.jpg" alt="Lavender bouquet on vintage paper"></span><span class="ph-face ph-back"><span>✦<br>for your<br>journal</span></span></span></div>
-        <div class="ph" style="--d:0.1s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/lemons.jpg" alt="Watercolor basket of lemons"></span><span class="ph-face ph-back"><span>✦<br>with<br>love</span></span></span></div>
-        <div class="ph" style="--d:0.2s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/roses.jpg" alt="Roses in a teacup"></span><span class="ph-face ph-back"><span>✦<br>print<br>me</span></span></span></div>
-        <div class="ph" style="--d:0.3s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/allover.jpg" alt="All-over floral pattern"></span><span class="ph-face ph-back"><span>✦<br>cut<br>me</span></span></span></div>
-        <div class="ph" style="--d:0.4s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/cameo.jpg" alt="Floral cameo portrait"></span><span class="ph-face ph-back"><span>✦<br>keep<br>me</span></span></span></div>
-        <div class="ph" style="--d:0.5s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/frame.jpg" alt="Wildflower wreath frame"></span><span class="ph-face ph-back"><span>✦<br>yours<br>now</span></span></span></div>
-        <div class="ph" style="--d:0.6s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/seeds.jpg" alt="Vintage garden seeds label"></span><span class="ph-face ph-back"><span>✦<br>Sentimentalica</span></span></span></div>
+        <!-- 8 pictures from Ksenia's starred picks, taped around the
+             "100 free pages" note. Backs revealed on signup. -->
+        <div class="ph" style="--d:0s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/tropical.jpg" alt="Tropical floral all-over pattern"></span><span class="ph-face ph-back"><span>✦<br>for your<br>journal</span></span></span></div>
+        <div class="ph" style="--d:0.1s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/lavender-field.jpg" alt="Watercolor lavender field"></span><span class="ph-face ph-back"><span>✦<br>with<br>love</span></span></span></div>
+        <div class="ph" style="--d:0.2s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/rose-basket.jpg" alt="Basket of watercolor roses"></span><span class="ph-face ph-back"><span>✦<br>print<br>me</span></span></span></div>
+        <div class="ph" style="--d:0.3s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/dahlia.jpg" alt="Golden dahlia bloom"></span><span class="ph-face ph-back"><span>✦<br>cut<br>me</span></span></span></div>
+        <div class="ph-note"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-note-card"><span class="n-big">100</span><span class="n-small">free pages</span><span class="n-star">✦ ✦ ✦</span></span></div>
+        <div class="ph" style="--d:0.4s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/panel.jpg" alt="Floral writing panel"></span><span class="ph-face ph-back"><span>✦<br>keep<br>me</span></span></span></div>
+        <div class="ph" style="--d:0.5s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/allover.jpg" alt="All-over floral pattern"></span><span class="ph-face ph-back"><span>✦<br>write<br>on me</span></span></span></div>
+        <div class="ph" style="--d:0.6s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/wreath.jpg" alt="Poppy wreath frame"></span><span class="ph-face ph-back"><span>✦<br>yours<br>now</span></span></span></div>
+        <div class="ph" style="--d:0.7s"><span class="jb-tape ph-tape" aria-hidden="true"></span><span class="ph-card"><span class="ph-face"><img src="assets/freebie/script.jpg" alt="Poppies over vintage handwriting"></span><span class="ph-face ph-back"><span>✦<br>Sentimentalica</span></span></span></div>
       </div>
 
       <div class="present" id="present">
@@ -440,7 +479,7 @@ function reveal(link) {
     if (window.matchMedia('(max-width: 980px)').matches) {
       giftPage.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, 1500);
+  }, 1650);
 }
 
 presentLink.addEventListener('click', (e) => {
