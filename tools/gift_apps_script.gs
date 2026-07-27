@@ -60,7 +60,8 @@ function doPost(e) {
       timesCell.setValue((Number(timesCell.getValue()) || 1) + 1);
     } else {
       sheet.appendRow([email, new Date(), String(p.source || 'freebie page'), 1]);
-      notifyTelegram(email, existing.length + 1);
+      notifyTelegram(email, existing.length + 1,
+        SpreadsheetApp.getActiveSpreadsheet().getUrl());
     }
 
     // `link` is how the gift is delivered: the page opens it as the present.
@@ -71,14 +72,20 @@ function doPost(e) {
   }
 }
 
-function notifyTelegram(email, total) {
+// listUrl is read from the bound Sheet at call time, so the private list URL
+// never has to be written into this (public) file.
+function notifyTelegram(email, total, listUrl) {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
   try {
+    const text = '🎁 New gift signup: ' + email +
+      '\nTotal on the list: ' + total +
+      (listUrl ? '\n\n📄 Open the list: ' + listUrl : '');
     UrlFetchApp.fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage', {
       method: 'post',
       payload: {
         chat_id: TELEGRAM_CHAT_ID,
-        text: '🎁 New gift signup: ' + email + '\nTotal on the list: ' + total,
+        text: text,
+        disable_web_page_preview: 'true', // keep the message compact
       },
       muteHttpExceptions: true,
     });
@@ -92,7 +99,8 @@ function notifyTelegram(email, total) {
  * permission-consent screen and check Telegram. Sends NO user email.
  */
 function testSetup() {
-  notifyTelegram('test@sentimentalica.com (test ping)', 0);
+  notifyTelegram('test@sentimentalica.com (test ping)', 0,
+    SpreadsheetApp.getActiveSpreadsheet().getUrl());
   Logger.log('Telegram test sent. Gift link: ' + GIFT_LINK);
 }
 
