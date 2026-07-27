@@ -1,91 +1,52 @@
-# Free gift signup — one-time setup
+# Free gift funnel — how it works (LIVE since 2026-07-27)
 
-The freebie page (`public/freebie.html`) is wired and waiting. What happens on
-each signup once you finish the steps below — **all free, no paid services**:
+The freebie page is connected end to end. Nothing is left to set up; this file
+is now the operating manual. **All free — no paid services.**
 
-1. The visitor's email is saved to a **private Google Sheet in your Drive**
-   (only you can see it — the list never touches this public repo).
-2. The backend returns the gift-folder link, and the present on the page opens
-   it. **We never email users** (Ksenia, 2026-07-27) — sent links land in spam
-   and the Gmail account is used for other things. The script therefore asks
-   for NO mail permission; do not re-add `MailApp`/`GmailApp`.
-3. You get a **Telegram message**: who signed up + total list size.
+## What happens on each signup
 
-Everything runs on a free Google Apps Script in your own Google account.
-The code is ready in [`tools/gift_apps_script.gs`](tools/gift_apps_script.gs) —
-you just paste it in. ~15 minutes total.
+1. Visitor enters an email on <https://sentimentalica.com/freebie> and clicks
+   **Claim my free pack**. The reveal starts immediately — the 8 taped pictures
+   flip over and a present appears.
+2. The email is saved to a **private Google Sheet** in Drive (only Ksenia can
+   see it). A repeat signup does **not** add a row — it increments that row's
+   `times` counter.
+3. The backend replies with the gift-folder link; clicking the present opens it.
+   The link is **not** in the page source, so the email is a real gate.
+4. Ksenia gets a **Telegram message**: who signed up + total list size (new
+   signups only, so duplicates don't spam the chat).
 
----
+> **We never email users.** (Rule 0 in `AGENTS.md`, decided 2026-07-27.) Sent
+> links land in spam, and `sentimentalica.etsy@gmail.com` is used for other
+> things. The script requests **no mail permission at all** — never re-add
+> `MailApp`/`GmailApp`, and never let page copy promise letters or an inbox.
+> A domain mailbox may change this later; until Ksenia says so, the rule holds.
 
-## Step 1 — The gift itself (✅ folder already created)
+## The pieces
 
-The shared folder already exists on Drive (created 2026-07-16 via the
-pipeline's Drive OAuth, same structure as listing customer folders):
-`000_Free_Gift / Sentimentalica Free Gift Pack` — the inner folder is shared
-"anyone with link – viewer". The link is your `GIFT_LINK`; it's kept in the
-Obsidian vault note **Workflows / Free Gift Funnel** (not here — this repo is
-public and the link shouldn't be scrapeable without signing up).
+| Piece | Where |
+|---|---|
+| Landing page | `public/freebie.html` (`FORM_ENDPOINT` = the `/exec` URL) |
+| Backend code (public-safe template) | `tools/gift_apps_script.gs` |
+| Backend code (real values, gitignored) | `~/sentimentalica-pipeline/config/gift_apps_script_FILLED.gs` |
+| Live script | Apps Script project **Sentimentalica gift signup**, bound to the Sheet |
+| Email list | private Sheet **Sentimentalica gift signups** (in `000_Free_Gift`) |
+| The gift | Drive `000_Free_Gift / Sentimentalica Free Gift Pack` — 100 pictures, shared anyone-with-link **viewer** (view + download, no edit) |
+| Telegram | reuses the pipeline bot (`~/sentimentalica-pipeline/config/config.yaml`) |
 
-All that's left: drop the freebie files into the inner folder (papers,
-ephemera, the quick-start guide). Only ever put things there that you're
-happy to give away — the outer `000_Free_Gift` folder stays private for
-working files.
+Links to the Sheet, the gift folder, and the script live in the Obsidian vault
+note **Workflows / Free Gift Funnel** — not here, since this repo is public.
 
-## Step 2 — The private email list + script (✅ Sheet created, just paste)
+## Everyday tasks
 
-The private Sheet **Sentimentalica gift signups** already exists inside the
-`000_Free_Gift` Drive folder (created 2026-07-16, header row prefilled,
-not shared with anyone). Link in the Obsidian note **Free Gift Funnel**.
-
-1. Open the Sheet → **Extensions → Apps Script**.
-2. Delete the placeholder code and paste the whole contents of
-   `~/sentimentalica-pipeline/config/gift_apps_script_FILLED.gs` — the gift
-   link and Telegram credentials are already filled in (that file is
-   gitignored; this repo only carries the scrubbed template in
-   `tools/gift_apps_script.gs`).
-3. Click the 💾 save icon. Nothing to edit.
-
-## Step 3 — Telegram notifications (✅ nothing to do)
-
-The pipeline's Telegram bot is reused — its token and chat id are already
-baked into the FILLED script from Step 2. Gift signups arrive in the same
-chat as pipeline alerts, prefixed with 🎁.
-
-## Step 4 — Test it (1 min)
-
-In the Apps Script editor, select the function **`testSetup`** in the toolbar
-dropdown and click **Run**. The first run asks for permissions — approve them
-(it needs Gmail-send + this Sheet + external requests for Telegram).
-You should receive the gift email yourself and a Telegram ping.
-This is your review buffer: check the email looks right before going live.
-
-## Step 5 — Deploy and connect (3 min)
-
-1. In the Apps Script editor: **Deploy → New deployment → Web app**.
-   - Execute as: **Me**
-   - Who has access: **Anyone**  ← required so the site form can post to it;
-     the URL only accepts signups, it can't read your Sheet.
-2. Copy the Web app URL (ends in `/exec`).
-3. In `public/freebie.html`, paste it into `FORM_ENDPOINT` (near the bottom
-   of the file), then commit + push.
-4. Open https://sentimentalica.com/freebie.html, sign up with a second email
-   address of yours, and confirm: row in the Sheet ✓ gift email ✓ Telegram ✓.
-
----
-
-## Afterwards
-
-- **Reading the list**: it's just the Google Sheet — sort, count, export CSV.
-  Later you can import it into Kit/MailerLite if you outgrow this.
-- **Changing the gift**: drop new files into the Drive folder — the link
-  stays the same, nothing to redeploy.
-- **Changing the email text**: edit `sendGiftEmail` in the Apps Script and
-  save. Code changes need **Deploy → Manage deployments → ✏️ → New version**
-  to go live (constants like `GIFT_LINK` too).
-- **Quota**: consumer Gmail sends ~100 emails/day via Apps Script — plenty
-  for a freebie list; if a viral pin ever exceeds it, signups still land in
-  the Sheet and the on-page "open your gift" button still works.
-- **Duplicates**: the script de-duplicates — a repeat signup re-sends the
-  gift email but doesn't add a row or ping Telegram.
-- **Spam bots**: the form has a hidden honeypot field; anything that fills
-  it is silently dropped.
+- **Read the list** — open the Sheet. Columns: `email · signed up · source ·
+  times`. Export CSV any time; importable into a mailing tool later.
+- **Change the gift** — drop files into the Drive folder. The link never
+  changes, nothing to redeploy.
+- **Change the backend code** — edit the FILLED copy, then from its folder:
+  `clasp push --force` and `clasp deploy --deploymentId <id> --description "…"`.
+  Keep `tools/gift_apps_script.gs` (scrubbed) in sync. The `/exec` URL survives
+  redeploys, so the site needs no change.
+- **Spam bots** — a hidden honeypot field on the form; anything that fills it is
+  silently dropped. Malformed emails are rejected both on the page and again in
+  the backend.
