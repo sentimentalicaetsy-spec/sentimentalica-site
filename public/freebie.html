@@ -326,7 +326,9 @@
              silently drops the signup. -->
         <input type="text" id="freebie-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0">
         <button type="submit" class="jb-cta" id="freebie-btn">Claim my free pack →</button>
-        <p class="freebie-fineprint">Instant access · gentle weekly letters · unsubscribe anytime.</p>
+        <!-- We never email users (see tools/gift_apps_script.gs) - this line
+             must not promise letters we don't send. -->
+        <p class="freebie-fineprint">Opens right here · no inbox needed · your email stays private.</p>
         <p class="freebie-message" id="freebie-message" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -404,11 +406,10 @@
 // gift link, pings Telegram. Set FORM_ENDPOINT to the deployed /exec URL.
 // The reveal is optimistic: it starts the moment a valid email is entered;
 // the signup request runs in the background and never blocks the moment.
-const FORM_ENDPOINT = ''; // e.g. 'https://script.google.com/macros/s/XXXX/exec'
-// TEMPORARY (2026-07-17): direct folder link so the reveal works before the
-// backend exists. Once FORM_ENDPOINT is live, set this back to '' - the link
-// then only arrives in the backend response, restoring the email gate.
-const FALLBACK_LINK = 'https://drive.google.com/drive/folders/1wkv_iYaQ3I345IYg7uGbKPZjOifNi_cx';
+const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVF3PjtU0Gia67q6ysho3_qlWLFensh8jG-ESZe7F8-YtSxzyOQ83YloHbyUQki2-V/exec';
+// The gift link is NOT in this page - it only arrives in the backend response
+// after a valid email, so the email really is the gate. We never email users
+// (see tools/gift_apps_script.gs): the present on this page IS the delivery.
 
 const form = document.getElementById('freebie-form');
 const msg = document.getElementById('freebie-message');
@@ -418,6 +419,7 @@ const giftPage = document.getElementById('gift-page');
 const presentLink = document.getElementById('present-link');
 
 let revealed = false;
+let giftLink = null; // promise of the gift-folder link, from the backend
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -430,35 +432,32 @@ form.addEventListener('submit', (e) => {
   // The reveal starts IMMEDIATELY - nobody waits on a network request.
   reveal();
 
-  // The signup itself happens in the background. If the backend confirms,
-  // the present link switches to the server-provided one and we mention
-  // the inbox copy; if it fails, the visitor still has their present.
-  if (FORM_ENDPOINT) {
-    // URLSearchParams keeps this a "simple" request (no CORS preflight),
-    // which is what Apps Script web apps require.
-    fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      body: new URLSearchParams({
-        email,
-        website: document.getElementById('freebie-hp').value, // honeypot
-        source: 'freebie page',
-      }),
-    })
-      .then((r) => r.json())
-      .then((data) => {
-        if (!data.ok) return;
-        if (data.link) presentLink.href = data.link;
-        show('Look at the right page - your present has arrived. A copy of the link is also on its way to your inbox. ✨', 'ok');
-      })
-      .catch(() => {}); // never interrupt the moment
-  }
+  // The signup runs in the background and brings back the gift link. The
+  // flip animation takes ~1.6s, so the link is almost always ready before
+  // the present is even visible; giftLink covers the rare slow case.
+  // URLSearchParams keeps this a "simple" request (no CORS preflight),
+  // which is what Apps Script web apps require.
+  giftLink = fetch(FORM_ENDPOINT, {
+    method: 'POST',
+    body: new URLSearchParams({
+      email,
+      website: document.getElementById('freebie-hp').value, // honeypot
+      source: 'freebie page',
+    }),
+  })
+    .then((r) => r.json())
+    .then((data) => {
+      if (!data.ok || !data.link) throw new Error('no link');
+      presentLink.href = data.link;
+      return data.link;
+    });
+  giftLink.catch(() => {}); // an unhandled rejection must never surface
 });
 
 function reveal() {
   revealed = true;
   btn.disabled = true;
   btn.textContent = 'Your pack is yours 🤍';
-  if (FALLBACK_LINK) presentLink.href = FALLBACK_LINK;
   show('Look at the right page - your present has arrived. ✨', 'ok');
   collage.classList.add('flip');
   // let the pictures finish turning, then the present pops in
@@ -470,9 +469,20 @@ function reveal() {
   }, 1650);
 }
 
-presentLink.addEventListener('click', () => {
+presentLink.addEventListener('click', (e) => {
   document.getElementById('follow-msg').textContent =
     'Hope you are enjoying your present 🤍 I would really appreciate it if you followed my shop - the button below takes you right there:';
+  if (presentLink.getAttribute('href') !== '#') return; // link ready, let it open
+
+  // Link still in flight (or it failed): hold the click, then open it.
+  e.preventDefault();
+  show('Untying the ribbon…', 'note');
+  Promise.resolve(giftLink)
+    .then((link) => {
+      show('Look at the right page - your present has arrived. ✨', 'ok');
+      window.location.href = link; // same tab: a popup blocker can't eat it
+    })
+    .catch(() => show('The present got stuck - please try your email once more.', 'err'));
 });
 
 function show(text, kind) {

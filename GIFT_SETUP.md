@@ -5,8 +5,10 @@ each signup once you finish the steps below — **all free, no paid services**:
 
 1. The visitor's email is saved to a **private Google Sheet in your Drive**
    (only you can see it — the list never touches this public repo).
-2. They instantly receive a **gift email from your Gmail** with the link,
-   plus an "open your gift right now" button on the page itself.
+2. The backend returns the gift-folder link, and the present on the page opens
+   it. **We never email users** (Ksenia, 2026-07-27) — sent links land in spam
+   and the Gmail account is used for other things. The script therefore asks
+   for NO mail permission; do not re-add `MailApp`/`GmailApp`.
 3. You get a **Telegram message**: who signed up + total list size.
 
 Everything runs on a free Google Apps Script in your own Google account.

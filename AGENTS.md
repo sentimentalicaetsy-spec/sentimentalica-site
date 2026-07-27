@@ -35,6 +35,14 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 - **Python with PIL:** `/Users/kseniateter/sentimentalica-pipeline/.venv/bin/python` (system python3 has no PIL).
 
 ## The non-negotiable rules (full list in ARTICLE_FUNCTION.md)
+0. **We NEVER email users.** (Ksenia, 2026-07-27.) No automation may send mail
+   to subscribers/visitors, and none may request a mail-send permission. The
+   freebie gift is delivered ON THE PAGE — the backend returns the folder link
+   and the present opens it (`tools/gift_apps_script.gs`; never re-add
+   `MailApp`/`GmailApp`). Emails are collected to a private Sheet for a future
+   list only. Reasons: sent links land in spam, and `sentimentalica.etsy@gmail.com`
+   is used for other things — a domain mailbox may come later. Page copy must
+   stay honest too: no "weekly letters", "check your inbox", or "unsubscribe".
 1. **Critic is a CODE GATE, not a wish.** `publish_post.py` refuses to publish
    unless every generated image has a PASS in `staging/overnight/critic/<slug>.json`.
    You cannot skip it — the code exits. (This holds for Codex too — it's in Python, not an agent.)
