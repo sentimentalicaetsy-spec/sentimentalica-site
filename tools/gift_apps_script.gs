@@ -66,7 +66,10 @@ function doPost(e) {
 
     // `link` is how the gift is delivered: the page opens it as the present.
     // It is never in the page source, so the email really is the gate.
-    return respond({ ok: true, already: already, link: GIFT_LINK });
+    // The reply is deliberately IDENTICAL for new and returning emails: an
+    // `already` flag would let anyone probe whether a given address is on the
+    // list. Never add per-email detail to this response.
+    return respond({ ok: true, link: GIFT_LINK });
   } finally {
     lock.releaseLock();
   }
