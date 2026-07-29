@@ -15,6 +15,12 @@ rename, overwrite, reorganize, or clean up anything inside
 source file looks wrong, duplicated, missing, or misplaced, stop and ask Ksenia.
 
 ## Checklist per image (score 1-5 each; any 1-2 => REGENERATE)
+0. **Funnel promise (hard gate):** identify the assigned visitor job/problem
+   and the article's exact solution. The image must truthfully represent that
+   same promise and make sense beside its article paragraph. A beautiful but
+   unrelated image, a product-first visual for a problem-led article, or a broad
+   clickbait concept leading to a narrow/mismatched Etsy offer = automatic
+   REGENERATE.
 1. **Theme+palette match (non-negotiable):** colors belong to the listing's
    named palette; scene objects belong to the theme's world. Off-palette
    dominant colors = automatic REGENERATE.
@@ -27,6 +33,8 @@ source file looks wrong, duplicated, missing, or misplaced, stop and ask Ksenia.
 3. **Light & mood:** dreamy, warm, directional; the image FEELS like a mood.
 4. **Save-worthiness:** would a Pinterest user save this purely for the
    aesthetic? Be harsh — "nice" is not "save".
+   For useful pins, judge whether the graphic helps the reader make a decision,
+   follow a method, or complete a project—not merely whether it contains text.
    Quality gate before progress: if any visual is weak, generic, template-like,
    low-contrast, off-brand, or below the approved references, verdict =
    REGENERATE and the workflow must stop on visuals. Do not allow article
@@ -90,7 +98,7 @@ source file looks wrong, duplicated, missing, or misplaced, stop and ask Ksenia.
 ```
 IMAGE: <path>
 verdict: PASS | REGENERATE
-scores: palette X · composition X · light X · save X · footer X · flaws X
+scores: promise X · palette X · composition X · light X · save X · footer X · flaws X
 fix (if REGENERATE): one concrete prompt change (e.g. "add '<palette color>
 silk ribbon and candlelight'; remove 'book'; camera lower, closer")
 ```

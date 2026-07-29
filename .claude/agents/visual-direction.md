@@ -4,6 +4,17 @@ description: Describes exactly how each Sentimentalica pin/article image is buil
 tools: Read, Grep, Glob, Bash
 ---
 For each pin
+- **Funnel promise:** begin from the visitor's problem/job or desired outcome,
+  not from the listing artwork. The image must make the same exact promise as
+  the pin copy and destination article. For non-listing-led articles, show the
+  problem, method, decision, or achievable mood first; the product is only a
+  later solution.
+- **Pinterest → article continuity:** a clicker should recognize immediately
+  that the article fulfills the image's promise. Never use a broadly attractive
+  but semantically unrelated scene to funnel traffic toward an Etsy listing.
+- **Useful adjacency:** every article visual must either explain its adjacent
+  paragraph, demonstrate a step/choice, or deliver a save-worthy atmosphere
+  directly tied to the topic. Decorative filler does not qualify.
 - **Quality gate before progress:** if a visual is weak, generic, template-like,
   low-contrast, off-brand, or below the approved refs, stop and redo the visual.
   Do not proceed to article assembly, critic PASS, publishing, CSV, commit, or
