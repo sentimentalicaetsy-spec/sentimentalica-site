@@ -52,6 +52,8 @@ def main():
                     help="explicit exception: allow a non-sentimentalica link")
     ap.add_argument("--keywords", default="")
     ap.add_argument("--publish-date", default="")
+    ap.add_argument("--no-drive", action="store_true",
+                    help="Keep the CSV local; do not mirror it to Google Drive.")
     args = ap.parse_args()
 
     if args.cmd == "mark-uploaded":
@@ -121,6 +123,9 @@ def main():
     print(f"✓ {p.name}: {len(rows)} pins")
     # Mirror to Google Drive so Ksenia gets the file automatically
     # (Drive Desktop syncs it; ready for Pinterest bulk upload).
+    if args.no_drive:
+        print("→ local only (--no-drive)")
+        return
     drive = Path("/Users/kseniateter/My Drive/Sentimentalica/Pinterest_CSV")
     try:
         drive.mkdir(parents=True, exist_ok=True)

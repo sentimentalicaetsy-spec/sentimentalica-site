@@ -20,6 +20,7 @@ import argparse
 import base64
 import io
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -27,7 +28,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 BLOG = REPO / "public" / "blog"
 PROMPTS = REPO / "staging" / "overnight" / "prompts"
-A1111 = "http://127.0.0.1:7860"
+A1111 = os.environ.get("SENTIMENTALICA_A1111_URL", "http://127.0.0.1:7860")
 
 # Realistic scenes/mockups negative. CHANGED 2026-07-09 (see refs/README.md):
 # the blanket ban on hands/fingers/scissors/people was REMOVED — cropped hands,
