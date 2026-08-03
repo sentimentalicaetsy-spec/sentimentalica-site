@@ -17,13 +17,43 @@ Usage:  python tools/content_planner.py slate 20 [--date YYYY-MM-DD]
 """
 import argparse
 import re
-from datetime import date
+from datetime import date, timedelta
 
 MONTHS = {m: i for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct",
      "nov", "dec"], start=1)}
 LEAD_FRAC = 0.65        # lead-magnet share
 SEASONAL_FRAC = 0.25    # max share given to seasonal when windows are open
+SEASONAL_COOLDOWN_DAYS = 30  # rotate away after a recently published season
+
+
+def _season_tokens(theme):
+    """Distinctive words used to match a calendar season to recent plan rows."""
+    generic = {"season", "peak", "planning", "content", "engagement"}
+    return [w for w in re.findall(r"[a-z0-9]+", theme.lower())
+            if len(w) >= 4 and w not in generic]
+
+
+def season_on_cooldown(theme, plan_rows, today, days=SEASONAL_COOLDOWN_DAYS):
+    """True when this season already produced a published article recently."""
+    tokens = _season_tokens(theme)
+    if not tokens:
+        return False
+    cutoff = today - timedelta(days=days)
+    for row in plan_rows or []:
+        if str(row.get("Status", "")).strip().lower() != "published":
+            continue
+        try:
+            published = date.fromisoformat(str(row.get("Date", "")).strip())
+        except ValueError:
+            continue
+        if published < cutoff or published > today:
+            continue
+        haystack = " ".join(str(row.get(k, "")) for k in
+                            ("Title / angle", "Theme", "Notes")).lower()
+        if any(token in haystack for token in tokens):
+            return True
+    return False
 
 
 def _doy(month, day):
@@ -85,7 +115,7 @@ def open_seasons(today, calendar_rows):
     return live
 
 
-def slate(n, today, calendar_rows):
+def slate(n, today, calendar_rows, plan_rows=None):
     """Return N slot dicts: {tie, time, season}. tie in lead|listing;
     time in eternal|seasonal; season = theme or ''."""
     n = max(1, int(n))
@@ -93,13 +123,15 @@ def slate(n, today, calendar_rows):
     ties = ["lead"] * n_lead + ["listing"] * (n - n_lead)
 
     live = open_seasons(today, calendar_rows)
-    n_season = min(round(SEASONAL_FRAC * n), len(live) * 3) if live else 0
+    eligible = [s for s in live
+                if not season_on_cooldown(s, plan_rows or [], today)]
+    n_season = min(round(SEASONAL_FRAC * n), len(eligible) * 3) if eligible else 0
 
     slots = []
     for i, tie in enumerate(ties):
-        if i < n_season and live:
+        if i < n_season and eligible:
             slots.append({"tie": tie, "time": "seasonal",
-                          "season": live[i % len(live)]})
+                          "season": eligible[i % len(eligible)]})
         else:
             slots.append({"tie": tie, "time": "eternal", "season": ""})
     return slots, live
@@ -115,14 +147,19 @@ def main():
     try:
         import plan_io
         cal = plan_io.seasonal_calendar()
+        plan = plan_io.sheet_rows("Plan")
     except Exception as e:
-        print(f"(calendar unreadable: {e}) — using empty calendar"); cal = []
+        print(f"(calendar unreadable: {e}) — using empty calendar"); cal = []; plan = []
 
     live = open_seasons(today, cal)
     print(f"Open seasonal windows on {today}: {live or '(none — all eternal)'}")
     if args.cmd == "seasons":
         return
-    slots, _ = slate(args.n, today, cal)
+    cooled = [s for s in live if season_on_cooldown(s, plan, today)]
+    if cooled:
+        print(f"Seasonal cooldown ({SEASONAL_COOLDOWN_DAYS}d): {cooled}"
+              " — those slots rotate to eternal")
+    slots, _ = slate(args.n, today, cal, plan)
     lead = sum(1 for s in slots if s['tie'] == 'lead')
     seas = sum(1 for s in slots if s['time'] == 'seasonal')
     print(f"\nSlate of {args.n}: {lead} lead-magnet / {args.n - lead} listing-bound"

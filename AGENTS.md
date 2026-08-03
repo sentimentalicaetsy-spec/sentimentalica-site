@@ -84,6 +84,16 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    the final infographic path; rough layout tests only. Every approved
    non-iPhone infographic includes a small `sentimentalica.com` centered at the
    bottom, with no extra CTA text.
+   **Reference-chain hard gate:** a non-iPhone infographic may be generated only
+   when the image-generation call actually includes approved files from BOTH
+   `refs/infographics/approved-codex/` (composition/utility) and
+   `refs/branding/` (Sentimentalica identity). Describing those references in a
+   text prompt is not equivalent. If the reference-enabled image endpoint fails,
+   STOP the visual workflow and retry later or ask Ksenia; never switch to a
+   reference-free generation, shortened generic prompt, plain torn-card layout,
+   local template, or other fallback just to obtain an image. A technically
+   attractive result that does not immediately read as Sentimentalica is
+   REGENERATE. This gate applies in every new chat and to every agent.
 3. **Images must be save-worthy/click-worthy** — branded, useful, realistic, or
    atmospheric depending on type. "Nice" is not "save"; "pretty but ignored" is
    not enough.
@@ -100,6 +110,16 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    `staging/` or `public/blog/img/`, but must never mutate the Drive originals.
    If a Drive file looks wrong, duplicated, missing, or misplaced, stop and ask
    Ksenia instead of "fixing" it.
+4a. **THE CUSTOMER MUST NEVER SEE REMOVED PHOTOS.** Rejected/removed images are
+   NEVER placed inside the customer (deliverable) folder — the folder named
+   after the theme, e.g. `205_Sunset_Rose/Sunset Rose/`. That folder contains
+   final images ONLY, and never a `removed/`, `to remove/`, `ai_qa/` or any
+   other subfolder. Rejects go to `to remove/` at the LISTING level, a sibling
+   of the customer folder. This applies to Drive AND local — with Drive Desktop
+   mirroring, anything written locally inside the customer folder syncs up and
+   becomes customer-visible. Any script that moves rejects must hard-fail rather
+   than write into the customer folder (see `scripts/move_to_remove.py` and
+   `scripts/renumber_listing.py`).
 5. **Product-language accuracy is absolute** — commercial-use watercolor IMAGE packs.
    Never "clipart / stickers / ephemera kit / seamless patterns / templates" unless the
    listing truly includes them.

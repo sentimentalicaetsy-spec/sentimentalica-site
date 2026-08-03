@@ -61,6 +61,12 @@ Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 iPhone Notes subtype with no emoji at the start of list items,
 `refs/scrapbook and junk jornal scenes/` = realistic journal/mockup/process,
 `refs/scenes/` = atmospheric mood and the mandatory thin article scene.
+For every non-iPhone infographic, the actual image-generation call MUST include
+approved files from both `refs/infographics/approved-codex/` and
+`refs/branding/`. If reference-enabled generation fails, stop; never replace it
+with a reference-free prompt, generic card grid, shortened prompt, PIL/template,
+or another improvised workflow. Do not publish until an unmistakably
+Sentimentalica, reference-grounded visual passes the critic.
 
 ## 6. Pins → CSV (MANDATORY finale of every article — do not skip)
 After each article is live, invoke the **pinterest-seo** agent on it: it writes

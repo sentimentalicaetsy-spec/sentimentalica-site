@@ -140,6 +140,15 @@
   `tools/render_list_infographic.py` / local PIL torn-card grid BANNED as final
   infographic path; только rough layout tests. Внизу по центру обязательно
   маленькое `sentimentalica.com`, без дополнительного CTA.
+- **HARD GATE — reference chain must be present in the actual generation call:**
+  every non-iPhone infographic call must include at least one approved file from
+  `refs/infographics/approved-codex/` AND at least one file from `refs/branding/`.
+  A prose description of the references is not a substitute. If the
+  reference-enabled image endpoint fails, STOP and retry later or ask Ksenia.
+  Never fall back to reference-free generation, a shortened generic prompt,
+  generic torn-paper cards, PIL/template composition, or another tool merely to
+  get an output. “Pretty but not unmistakably Sentimentalica” = REGENERATE.
+  This is a publish-blocking rule, including in a new chat.
 - **Никаких котов/собак в чужих темах; фото животного в нейтральной статье =
   брак:** карточки `{{etsy:}}` и картинки подбираются ТОЛЬКО по теме статьи;
   случайное фото кота/собаки в конце — запрещено (провал 2026-07-06).
