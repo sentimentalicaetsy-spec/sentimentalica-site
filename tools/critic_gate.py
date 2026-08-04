@@ -46,7 +46,7 @@ def record(slug, slot, verdict, scores="", fix=""):
 
 def slots_in(body_html):
     """Every generated image the article actually uses (gen1, gen2, ...)."""
-    return sorted(set(re.findall(r"\bgen(\d+)\.jpe?g\b", body_html)),
+    return sorted(set(re.findall(r"\bgen(\d+)\.(?:jpe?g|png|webp)\b", body_html)),
                   key=int)
 
 

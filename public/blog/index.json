@@ -1,6 +1,26 @@
 {
   "posts": [
     {
+      "slug": "how-to-make-a-cat-memory-journal-from-everyday-moments",
+      "title": "How to Make a Cat Memory Journal From Everyday Moments",
+      "category": "Journaling Ideas",
+      "excerpt": "A gentle method for preserving your cat's nicknames, habits, favorite places, and ordinary days in a memory journal that feels personal.",
+      "date": "2026-08-04",
+      "dateDisplay": "Aug 4",
+      "readTime": "3 min read",
+      "thumb": "blog/img/how-to-make-a-cat-memory-journal-from-everyday-moments/gen1.png"
+    },
+    {
+      "slug": "how-to-start-a-junk-journal-with-what-you-have",
+      "title": "How to Start a Junk Journal With What You Have",
+      "category": "Junk Journaling",
+      "excerpt": "A calm five-item method for starting a junk journal with an ordinary notebook, one picture, one scrap, and no special supply haul.",
+      "date": "2026-08-04",
+      "dateDisplay": "Aug 4",
+      "readTime": "3 min read",
+      "thumb": "blog/img/how-to-start-a-junk-journal-with-what-you-have/gen2.png"
+    },
+    {
       "slug": "a-gentle-new-moon-journal-ritual-for-beginning-again",
       "title": "A Gentle New Moon Journal Ritual for Beginning Again",
       "category": "Journaling Rituals",
