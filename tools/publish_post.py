@@ -15,7 +15,8 @@ Input file format — front matter between --- lines, then the body:
     excerpt: One or two sentences shown on the blog listing.
     date: 2026-07-05            (optional, defaults to today)
     thumb: ./cover.jpg          (optional, local path or URL)
-    related_ids: 123,456        (optional; freshly chosen on-theme LIVE listings)
+    related_ids: 123,456        (optional; unused, on-theme LIVE listings)
+    allow_repeated_listings: true (only after Ksenia explicitly requests reuse)
     ---
     Markdown body. Standard headings/bold/italic/links/lists/quotes.
     Local images: ![alt](./photo.jpg) — copied into public/blog/img/<slug>/.
@@ -64,6 +65,31 @@ def related_ids_for(meta, body_html):
         embedded = ",".join(re.findall(r'data-ids="([^"]+)"', body_html))
         ids = clean_id_list(embedded)
     return ids[:4]
+
+
+def require_unused_listings(meta, slug, body_html):
+    """Block accidental reuse of products already promoted elsewhere."""
+    ids = related_ids_for(meta, body_html)
+    if not ids:
+        return
+    allow = meta.get("allow_repeated_listings", "").strip().lower()
+    if allow in ("1", "true", "yes"):
+        return
+    from listing_rotation import repeated_usage
+    repeated = repeated_usage(ids, exclude_slug=slug)
+    if not repeated:
+        return
+    details = "\n".join(
+        f"  {listing_id}: {', '.join(slugs)}"
+        for listing_id, slugs in repeated.items()
+    )
+    sys.exit(
+        "LISTING ROTATION BLOCKED publish. These Etsy listings already appear "
+        "in other published articles:\n" + details +
+        "\nChoose unused LIVE listings instead. Only set "
+        "allow_repeated_listings: true when Ksenia explicitly asks to reuse "
+        "the exact listing."
+    )
 
 
 def article_afterword(meta, body_html):
@@ -351,6 +377,7 @@ def main():
 
     body_html = body if src.suffix == ".html" else md_to_html(body)
     body_html = expand_shortcodes(body_html)
+    require_unused_listings(meta, slug, body_html)
     body_html = localize_images(body_html, src.parent, slug)
 
     # Thumbnail: local file → copy next to the post images

@@ -1,6 +1,6 @@
 ---
 name: write-article
-description: Front door of the ideation funnel. Handles "напиши статью", "напиши N статей", "напиши статью под <листинг>", and "предложи/собери идеи". Runs the 5-agent marketing funnel (marketing-director → desire-scout → audience-strategist → product-bridge → marketing-critic) to fill a demand-first slate, writes ideas to content_plan.xlsx, then (auto mode) produces each article through the /article machinery with the image-critic and the critic code-gate.
+description: Front door of the ideation funnel. Handles requests to write one or more articles, write an article for a named listing, or propose article ideas. Runs the marketing funnel to fill a demand-first slate, writes ideas to content_plan.xlsx, then produces approved articles through the article machinery with listing-rotation and image-critic code gates.
 ---
 # /write-article — demand-first ideation funnel → articles
 
@@ -27,9 +27,12 @@ Do NOT override the allocator's 65/35 or its seasonal windows.
 For each slot, in order:
 1. **desire-scout** → one sharp, timely, save-worthy angle + target query.
 2. **audience-strategist** → who + emotional hook + article type.
-3. **product-bridge** → tie strength (center/end/none), on-theme LIVE listing(s)
-   or none, related_ids from fresh live-shop data, funnel stage. It MAY return
-   tie=none (pure lead magnet) — that's fine.
+3. **product-bridge** → first run `python3 tools/listing_rotation.py summary`,
+   then choose tie strength (center/end/none) and on-theme LIVE listing(s) that
+   have never appeared in another published article. Verify candidates with
+   `python3 tools/listing_rotation.py check <ID...>`. A used ID is ineligible,
+   even for an end-only bridge, unless Ksenia explicitly requested that exact
+   listing again. It MAY return tie=none (pure lead magnet) — that's fine.
 4. **marketing-critic** (ideation gate) → PASS or re-sharpen (max 2 rounds, then
    surface to Ksenia). Only PASS ideas proceed.
 Collect each PASS as a plan row (Title/angle, Type, Theme, Listings, Notes with
@@ -68,31 +71,29 @@ with a reference-free prompt, generic card grid, shortened prompt, PIL/template,
 or another improvised workflow. Do not publish until an unmistakably
 Sentimentalica, reference-grounded visual passes the critic.
 
-## 6. Pins → CSV (MANDATORY finale of every article — do not skip)
-After each article is live, invoke the **pinterest-seo** agent on it: it writes
-title/description/keywords/board/drip-date rows via `tools/pin_csv.py add ...`
-for every image worth pinning (mockups, palette, hero scenes, strong pages),
-using the sentimentalica.com article as the CSV Link by default. Pin titles
-must be CTA-to-article titles (search phrase + reason to click), and
-descriptions end with a gentle site CTA. Direct Etsy links are exceptions only
-when Ksenia explicitly asks. The CSV
-auto-mirrors to Google Drive → `Sentimentalica/Pinterest_CSV/`. Then run
-`python tools/pins_status.py` — every published article must show `✓ pins`.
-An article without pins is NOT done (this step was silently skipped for the
-first 6 articles — never again).
+## 6. Pinterest CSV is opt-in only
+Do not create, append, mirror, validate, or report a Pinterest CSV during the
+normal article workflow. Do not run `pin_csv.py`, `pins_status.py`, or the
+Pinterest CSV agent unless Ksenia explicitly asks for a CSV for named articles.
+When explicitly requested, use the sentimentalica.com article as the Link by
+default; direct Etsy links still require explicit instruction.
 
 ## 7. Report
-Per article: URL · angle & why · audience/hook · tie (center/end/none) · listings ·
-image status · pins added (CSV path). Plus the slate summary (how many
-lead/listing, seasonal/eternal), and the `pins_status.py` result.
+Per article: URL · angle & why · audience/hook · tie (center/end/none) · listing
+and confirmation it was previously unused · image status. Plus the slate
+summary (how many lead/listing, seasonal/eternal). Mention Pinterest CSV only
+when Ksenia explicitly requested one.
 
 ## Rules (inherited — never skip)
 - Демандный слейт: не переопределяй пропорции content_planner.py; сезон — только
   если окно открыто сегодня (никакого моря осенью).
 - Продукт едет следом, не впереди. product-bridge вправе сказать «никак».
 - Любой Etsy block / related_ids — только из свежей проверки live shop/feed
-  product-bridge и только по теме статьи. Fresh relevant new listings beat old
-  defaults; unrelated shop ads are forbidden.
+  product-bridge и только по теме статьи. Unused relevant LIVE listings are
+  mandatory; a listing already promoted in any published article must be
+  skipped. Reuse is allowed only when Ksenia explicitly requests that exact
+  listing; record `allow_repeated_listings: true` in that exceptional post.
+  Unrelated shop ads are forbidden.
 - image-critic смотрит ВСЁ визуальное; критик-гейт в коде блокирует публикацию.
 - Промпты сцен — по SCENE_STYLE.md и refs/scenes/ (файлы, не слова).
 - Один вызов может дать несколько статей (batch) — делай их последовательно.

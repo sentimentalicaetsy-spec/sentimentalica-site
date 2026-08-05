@@ -22,6 +22,18 @@
 (вплоть до общей трафиковой «50 things…»), печатаешь решение в 3 строки и
 исполняешь всю механику ниже без пауз.
 
+## Обязательная ротация листингов
+Перед любым product bridge выполни
+`python3 tools/listing_rotation.py summary`, затем
+`python3 tools/listing_rotation.py check <candidate Etsy ID...>`.
+По умолчанию разрешены только LIVE листинги, которые ещё не рекламировались ни
+в одной опубликованной статье. Это правило действует и для общей статьи, где
+листинг появляется только в финальном related-блоке. Если подходящего нового
+листинга нет, используй `tie=none`, а не повторяй старый. Повтор допустим только
+когда Ксения явно просит снова продвигать конкретный листинг; тогда добавь
+`allow_repeated_listings: true` во front matter. `publish_post.py` блокирует
+случайный повтор.
+
 ## Шаги
 1. `python3 tools/resolve_listing.py "<имя листинга>"` → `NNN_Theme|etsy_id|thumbs_dir`.
    Ошибки (NOT FOUND / NO ETSY_ID / NO IMAGES / AMBIGUOUS) — сообщить Ксении дословно и остановиться.
@@ -57,23 +69,12 @@
 8. Через ~60 с: `curl -sL "https://sentimentalica.com/blog/<slug>?cb=$RANDOM" | head -3` —
    и отчёт: живой URL · какие картинки · палитра · статус ген-сцен · что пропущено.
 
-9. **Пины и CSV (обязательный финал каждой статьи):** агент `pinterest-seo`
-   проходит по пинабельным картинкам статьи (мокапы, палитра, сцены, сильные
-   страницы) и для каждой добавляет строку: `python3 tools/pin_csv.py add
-   <листинг> ...` (title/description/keywords/board/link, капельные даты).
-   Pinterest = lead funnel на сайт: CSV `Link` по умолчанию ведёт на статью
-   `https://sentimentalica.com/blog/<slug>`, не напрямую на Etsy. Название пина
-   = search phrase + причина открыть статью; description заканчивается мягким
-   CTA (`see the full guide`, `more ideas on Sentimentalica`). Прямой Etsy-link
-   только если Ксения явно попросила.
-   CSV автоматически зеркалится в **Google Drive →
-   `Sentimentalica/Pinterest_CSV/<листинг>.csv`** — Ксения берёт файл там и
-   загружает в Pinterest балком. Мульти-листинговая статья = строки в CSV
-   каждого участника. В отчёте: путь CSV и сколько строк добавлено.
-**Когда загрузила CSV в Pinterest** — скажи в чат «я загрузила CSV» (можно
-конкретный листинг): выполняется `pin_csv.py mark-uploaded --all` — строки
-уезжают в `Pinterest_CSV/uploaded/<листинг>__uploaded_<дата>.csv`, активный
-файл продолжается пустым, повтор уже загруженного пина невозможен.
+9. **Pinterest CSV — только по явному запросу:** обычная публикация статьи не
+   создаёт, не дополняет, не зеркалит и не проверяет CSV. Не запускать
+   `pin_csv.py`, `pins_status.py` или pinterest-seo CSV workflow автоматически.
+   Если Ксения явно просит CSV для конкретных статей, тогда создать только
+   запрошенные строки; `Link` по умолчанию ведёт на статью Sentimentalica, а
+   прямой Etsy-link требует отдельного явного указания.
 
 ## Правила
 - **Критик — КОД-ГЕЙТ, не пожелание (2026-07-07):** `publish_post.py` физически
@@ -128,7 +129,7 @@
   маленькие floating text cards = REGENERATE, даже если брендово.
   **Quality gate before progress:** если визуал weak/generic/template-like/
   low-contrast/off-brand или ниже approved refs — остановиться и переделать.
-  Нельзя идти дальше к article assembly / critic PASS / publish / CSV / commit /
+  Нельзя идти дальше к article assembly / critic PASS / publish / commit /
   deploy просто чтобы закончить. Плохая картинка блокирует процесс.
   Faded generated background + transparent/white overlay panel + plain coded
   text = REGENERATE. Текст должен быть встроен в физические collage-объекты:
@@ -168,7 +169,8 @@
 - **Палитра = КАРТИНКА** (правило 2026-07-06): не CSS-блок, а изображение —
   `PY tools/render_palette_card.py <лучшая картинка по CLIP-скореру> "<Тема>"
   <out.jpg>` (сво́тчи с HEX и именами на красивом фото листинга, формат
-  референса). Вставляется в статью И уходит палитра-пином в CSV.
+  референса). Вставляется в статью; использовать её для CSV-пина только если
+  Ксения отдельно попросила CSV.
 - **Тон статей: успокаивать, радовать, давать пользу.** Аудитория — девочки,
   которые джорналят ради романтичной эстетики. Никаких стен текста: списки
   сканируемые (.keep-list), абзацы короткие, голос «ты молодец».
@@ -243,9 +245,10 @@
   `sentimentalica.com`, без CTA. Если у листинга нет трёх разных valid
   non-character pages для palette images, не дублировать слабые palette pins:
   оставить valid palette image(s) и добавить другие approved visuals.
-- **В статье**: мягкие CTA в тексте обязательны. Предлагай релевантные LIVE
-  листинги, когда это естественно, но neutral/listicle остаётся value-first,
-  продукт в конце.
+- **В статье**: мягкие CTA в тексте обязательны. Предлагай релевантный LIVE
+  листинг только если он ещё не использован в опубликованных статьях и это
+  естественно; иначе оставь статью без product bridge. Neutral/listicle
+  остаётся value-first, продукт в конце.
 - **AI disclosure**: внизу каждой статьи перед финальным related/shop блоком
   должна быть тихая, но читаемая строка: “Image note: Some visuals in this
   article were created with AI and curated by Sentimentalica.”
@@ -253,7 +256,8 @@
   hardcoded default listings. Если нужен финальный related-shop блок, статья
   должна иметь front matter `related_ids:` — максимум 4 LIVE ID, выбранных
   product-bridge из свежих данных live shop/feed на момент создания статьи.
-  IDs должны быть связаны с темой статьи: floral ephemera → floral options,
+  IDs должны быть ранее неиспользованными и связаны с темой статьи:
+  floral ephemera → floral options,
   dark academia → dark academia/library/gothic, animals → animals, etc. Если
   свежих релевантных листингов нет, related-shop block пропускается; не заменять
   его случайными товарами.
