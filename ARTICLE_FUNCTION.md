@@ -77,8 +77,8 @@
    Sentimentalica, которой принадлежит Media URL, никогда не прямо на Etsy. CSV обязан следовать
    разделу `Pinterest bulk-upload CSV contract` в `PIN_STRATEGY.md`: одна строка
    на каждую уникальную content image статьи, включая ВСЕ картинки каруселей;
-   board выбирается отдельно для каждой картинки точным именем из присланного
-   Ксенией списка, поэтому картинки одной статьи могут идти на разные boards.
+   board выбирается отдельно для каждой картинки точным именем из canonical
+   `PINTEREST_BOARDS.txt`, поэтому картинки одной статьи могут идти на разные boards.
    Keywords обязательны (5–10 strong Pinterest SEO phrases). Title и финальный
    CTA пишутся отдельно под тип картинки по CTA contract из `PIN_STRATEGY.md`.
 

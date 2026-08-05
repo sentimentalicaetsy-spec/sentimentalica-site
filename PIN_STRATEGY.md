@@ -144,8 +144,8 @@ Follow Pinterest's current bulk-upload template exactly. Header order:
 - `Media URL` is required and must be a public direct file URL. Sentimentalica
   image rows use the published `.jpg`, `.jpeg`, or `.png` URL, never a local
   path, Google Drive preview, article page URL, or dynamically loaded Etsy image.
-- `Pinterest board` is required. Wait for Ksenia's canonical board list, then
-  use an exact board name from that list for every row. Assign the board per
+- `Pinterest board` is required. The canonical exact-name allowlist is
+  `PINTEREST_BOARDS.txt`; use one name from that file for every row. Assign the board per
   image according to what that image actually solves or shows. Images from one
   article may and often should go to different boards. Never invent a new board,
   guess a near-match, or silently send every image to one generic board. A

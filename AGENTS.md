@@ -234,7 +234,7 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    include a gentle reason to click through to the article. CSV generation is
    opt-in only. When requested, follow `PIN_STRATEGY.md`: include every unique
    article content image (all carousel images included) and select each row's
-   exact board independently from Ksenia's supplied board list. Every Link must
+   exact board independently from `PINTEREST_BOARDS.txt`. Every Link must
    be the exact article that owns the image; every row needs 5–10 relevant
    Pinterest SEO keywords plus a search-led title and image-type-specific CTA.
 
