@@ -10,8 +10,8 @@ Usage:
       [--boards-file PINTEREST_BOARDS.txt]
   python3 tools/pin_csv.py list <csv-name>
 Dedup: each media URL is stored only once per active/archive batch.
-Default funnel: --link must be sentimentalica.com (Pinterest→site→Etsy).
-Use --allow-direct-etsy only when Ksenia explicitly requests direct Etsy pins.
+Funnel: --link must be the exact Sentimentalica article that owns the image
+(Pinterest→relevant article→Etsy/freebie).
 
 Pinterest limits enforced here (official bulk-upload help, checked 2026-08-05):
 up to 200 rows; Title <= 100 characters; Description <= 500 characters;
@@ -90,6 +90,42 @@ def media_kind(value):
     sys.exit("MEDIA URL must point directly to a JPG, JPEG, PNG, or MP4 file")
 
 
+def normalize_keywords(value):
+    terms = [term.strip() for term in value.split(",") if term.strip()]
+    unique = {term.casefold() for term in terms}
+    if not 5 <= len(terms) <= 10:
+        sys.exit(f"KEYWORDS must contain 5–10 comma-separated relevant terms "
+                 f"({len(terms)} supplied)")
+    if len(unique) != len(terms):
+        sys.exit("KEYWORDS must not contain duplicates")
+    return ", ".join(terms)
+
+
+def validate_article_link(link, media_url):
+    """Require the canonical article URL and its matching public image folder."""
+    link_parts = urlparse(link.strip())
+    if link_parts.scheme not in {"http", "https"} or not link_parts.netloc:
+        sys.exit("LINK must be a public http(s) URL")
+    host = (link_parts.hostname or "").lower()
+    if host != "sentimentalica.com" and not host.endswith(".sentimentalica.com"):
+        sys.exit("LINK must point to the relevant Sentimentalica article")
+    path = link_parts.path.rstrip("/")
+    if not path.startswith("/blog/") or not path.endswith(".html"):
+        sys.exit("LINK must be the canonical relevant article URL ending in .html")
+    slug = Path(path).stem
+    if not slug or slug in {"blog", "index"}:
+        sys.exit("LINK must identify one relevant article, not the blog index")
+    media_parts = urlparse(media_url.strip())
+    media_host = (media_parts.hostname or "").lower()
+    expected = f"/blog/img/{slug}/"
+    if (media_host != "sentimentalica.com"
+            and not media_host.endswith(".sentimentalica.com")):
+        sys.exit("MEDIA URL must use the public sentimentalica.com article image")
+    if not media_parts.path.startswith(expected):
+        sys.exit(f"MEDIA URL does not belong to the linked article; expected "
+                 f"an image under {expected}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["add", "list", "mark-uploaded"])
@@ -104,8 +140,6 @@ def main():
     ap.add_argument("--thumbnail", default="")
     ap.add_argument("--description", default="")
     ap.add_argument("--link", default="")
-    ap.add_argument("--allow-direct-etsy", action="store_true",
-                    help="explicit exception: allow a non-sentimentalica link")
     ap.add_argument("--keywords", default="")
     ap.add_argument("--publish-date", default="")
     ap.add_argument("--no-drive", action="store_true",
@@ -159,6 +193,7 @@ def main():
         sys.exit(f"TITLE TOO LONG ({len(args.title)} > 100)")
     if len(args.description) > 500:
         sys.exit(f"DESCRIPTION TOO LONG ({len(args.description)} > 500)")
+    keywords = normalize_keywords(args.keywords)
     if len(rows) >= MAX_ROWS:
         sys.exit(f"CSV ROW LIMIT REACHED ({MAX_ROWS}); start another upload batch")
     kind = media_kind(args.media_url)
@@ -171,16 +206,7 @@ def main():
         sys.exit(f"UNKNOWN BOARD: {args.board!r}. Use an exact name from "
                  f"{args.boards_file}; do not create boards by typo.")
     validate_publish_date(args.publish_date)
-    link_parts = urlparse(args.link.strip())
-    if link_parts.scheme not in {"http", "https"} or not link_parts.netloc:
-        sys.exit("LINK must be a public http(s) URL")
-    host = link_parts.netloc.lower()
-    if "sentimentalica.com" not in host and not args.allow_direct_etsy:
-        sys.exit(
-            "LINK MUST POINT TO sentimentalica.com for the Pinterest→site→Etsy "
-            "funnel. Use --allow-direct-etsy only when Ksenia explicitly asks "
-            "for direct Etsy pins."
-        )
+    validate_article_link(args.link, args.media_url)
     media_key = args.media_url.strip()
     seen = {r["Media URL"].strip() for r in rows}
     for arch in (PINS / "uploaded").glob(f"{args.listing}__uploaded_*.csv"):
@@ -192,7 +218,7 @@ def main():
         "Title": args.title.strip(), "Media URL": args.media_url.strip(),
         "Pinterest board": args.board, "Thumbnail": args.thumbnail,
         "Description": args.description.strip(), "Link": args.link.strip(),
-        "Publish date": args.publish_date, "Keywords": args.keywords.strip(),
+        "Publish date": args.publish_date, "Keywords": keywords,
     })
     with open(p, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)

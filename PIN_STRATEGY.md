@@ -155,13 +155,18 @@ Follow Pinterest's current bulk-upload template exactly. Header order:
   this article-image workflow does not generate video rows.
 - `Description` is optional in Pinterest's schema but required by the
   Sentimentalica workflow; keep it accurate and at most 500 characters.
-- `Link` points to the relevant Sentimentalica article so the funnel remains
-  Pinterest → useful article → Etsy. A direct Etsy link requires Ksenia's
-  explicit instruction.
+- `Link` is mandatory and points to the exact Sentimentalica article that owns
+  the image, so the funnel remains Pinterest → relevant useful article → Etsy
+  or freebie. Never use the shop homepage, blog index, unrelated article, or a
+  direct Etsy URL in this CSV workflow. The image URL and article link must
+  share the same article slug.
 - `Publish date` may be blank for immediate publishing, `YYYY-MM-DD`, or
   `YYYY-MM-DDTHH:MM:SS`; a timed value represents UTC.
-- `Keywords` is a comma-separated list of search terms genuinely relevant to
-  that specific image and its adjacent article section.
+- `Keywords` is mandatory: 5–10 unique comma-separated Pinterest search terms
+  genuinely relevant to that specific image and its adjacent article section.
+  Lead with the primary search phrase, then add close topic, technique,
+  aesthetic, and use-case phrases. No generic stuffing, duplicate phrases, or
+  irrelevant high-volume keywords.
 
 ### Article image coverage and board assignment
 
@@ -176,3 +181,33 @@ widget. Do not create multiple rows for the same Media URL in one batch.
 Write the title, description, keywords, and board independently for each image.
 Use the visible subject plus the problem or idea in its adjacent article section;
 do not copy one generic title/description/board across all images from an article.
+
+### Pinterest SEO title and CTA contract
+
+Every title must be a natural Pinterest search phrase first, with the concrete
+topic in the opening words. Keep it below 100 characters and add a short CTA
+that accurately matches both the image and the linked article. The description
+must expand the search intent naturally and end with the same promise. Do not
+use vague clickbait such as `Click here`, `You need this`, or `Learn more`.
+
+Match the CTA to the visual:
+
+- **Junk-journaling hack, infographic, or technique:** invite the reader to
+  check the article for the full method, more junk-journaling hacks, or the
+  remaining steps. Example title: `3 Junk Journal Pattern Hacks — See the Full Method`.
+- **Real listing/carousel picture:** invite the reader to see more pictures and,
+  when the linked article actually contains the freebie, to check the article
+  for more free pictures. Never call paid listing images free. Example title:
+  `Vintage Floral Journal Page — Find More Free Pictures`.
+- **Atmospheric scene:** invite the reader to get more inspiration or related
+  journal ideas from the article. Example title:
+  `Cozy Patchwork Journal Inspiration — See More Ideas`.
+- **Color palette:** invite the reader to explore the palette method, matching
+  color ideas, or the full color guide. Example title:
+  `Teal and Coral Junk Journal Palette — Get More Color Ideas`.
+- **Process/mockup scene:** invite the reader to see the complete process,
+  layout recipe, or step-by-step article.
+
+CTA wording must remain truthful to the landing article. If an article does not
+contain free pictures or a freebie link, use `see more printable inspiration`
+instead of promising free pictures.
