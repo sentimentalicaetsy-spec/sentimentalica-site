@@ -91,12 +91,13 @@ Ksenia's spec message dated 2026-07-05; this table is the working index.)
 - Composition building blocks (from validated mockups): "chaos scatter"
   (→ Variety/Problem), "bold hero + band" (→ Aesthetic/Theme), "big-number/
   question" (→ Stuck/Idea/Transformation). See `refs/mockups/`.
-- Every pin/article image meant for Pinterest should carry a small bottom
-  `sentimentalica.com` footer and, when composition allows, a gentle CTA such
-  as `full guide`, `more ideas`, `read the article`, or `save this`. The footer
-  should feel like part of the collage/brand system, not a loud ad. Exception:
-  authentic iPhone Notes images should not be forced to carry a footer inside
-  the Notes UI and should not be used as the blog thumbnail.
+- Never add a bird logo, bird-shaped brand mark, or any other graphic logo to a
+  Pin/article image. CSV rows reuse the published article images as they are;
+  do not alter them just for bulk upload. Only infographics and palette cards
+  may already carry the exact plain text `sentimentalica.com`. Atmospheric,
+  process, mockup, carousel/listing-page, and iPhone Notes images remain
+  unmarked. Do not add CTA overlays such as `full guide`, `more ideas`,
+  `read the article`, or `save this` to these exported article images.
 - New ref taxonomy (2026-07-09):
   `refs/branding/` defines the overall Sentimentalica visual identity and logo
   blue; `refs/infographics/` defines useful/saveable graphic structures and the
@@ -129,3 +130,49 @@ Pinterest description · Keywords (5–10).
 будущий пин. Картинка обязана быть либо потрясающе красивой, либо полезной
 (инфографика: список/problem-solution прямо НА картинке). Реклама листинга
 сама по себе — «nobody cares»: сперва польза, продукт — путь к ней.
+
+## Pinterest bulk-upload CSV contract (updated 2026-08-05)
+
+Official format source:
+`https://help.pinterest.com/en/business/article/bulk-upload-video-pins`.
+
+Follow Pinterest's current bulk-upload template exactly. Header order:
+`Title, Media URL, Pinterest board, Thumbnail, Description, Link, Publish date, Keywords`.
+
+- Maximum 200 rows per uploaded CSV.
+- `Title` is required and has a 100-character maximum.
+- `Media URL` is required and must be a public direct file URL. Sentimentalica
+  image rows use the published `.jpg`, `.jpeg`, or `.png` URL, never a local
+  path, Google Drive preview, article page URL, or dynamically loaded Etsy image.
+- `Pinterest board` is required. Wait for Ksenia's canonical board list, then
+  use an exact board name from that list for every row. Assign the board per
+  image according to what that image actually solves or shows. Images from one
+  article may and often should go to different boards. Never invent a new board,
+  guess a near-match, or silently send every image to one generic board. A
+  section is written as `Board name/Section name` only when that exact entry is
+  present in the supplied list.
+- `Thumbnail` stays blank for image Pins. It is required only for video Pins;
+  this article-image workflow does not generate video rows.
+- `Description` is optional in Pinterest's schema but required by the
+  Sentimentalica workflow; keep it accurate and at most 500 characters.
+- `Link` points to the relevant Sentimentalica article so the funnel remains
+  Pinterest → useful article → Etsy. A direct Etsy link requires Ksenia's
+  explicit instruction.
+- `Publish date` may be blank for immediate publishing, `YYYY-MM-DD`, or
+  `YYYY-MM-DDTHH:MM:SS`; a timed value represents UTC.
+- `Keywords` is a comma-separated list of search terms genuinely relevant to
+  that specific image and its adjacent article section.
+
+### Article image coverage and board assignment
+
+Create one row for every unique content image published in the article:
+infographics, atmospheric scenes, process/mockup images, palette images, and
+every image inside every real-page carousel. Include the article thumbnail only
+when it is a distinct content image not already represented by its Media URL.
+Exclude navigation/site logos, favicon, decorative CSS assets, AI disclosure
+elements, and Etsy thumbnails injected dynamically by the related-products
+widget. Do not create multiple rows for the same Media URL in one batch.
+
+Write the title, description, keywords, and board independently for each image.
+Use the visible subject plus the problem or idea in its adjacent article section;
+do not copy one generic title/description/board across all images from an article.

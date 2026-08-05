@@ -231,7 +231,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 8. pinterest-seo → pins → `pin_csv.py` (auto-mirrors CSV to Google Drive).
    Pinterest links go to sentimentalica.com articles by default; article pages
    then softly route to relevant Etsy listings. Pin titles/descriptions must
-   include a gentle reason to click through to the article.
+   include a gentle reason to click through to the article. CSV generation is
+   opt-in only. When requested, follow `PIN_STRATEGY.md`: include every unique
+   article content image (all carousel images included) and select each row's
+   exact board independently from Ksenia's supplied board list.
 
 ## The ideation funnel (how ideas get chosen — demand-first)
 Trigger: "напиши статью" / "напиши N статей" / "напиши статью под <listing>" /

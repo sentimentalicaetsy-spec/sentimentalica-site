@@ -82,7 +82,11 @@ Do not create, append, mirror, validate, or report a Pinterest CSV during the
 normal article workflow. Do not run `pin_csv.py`, `pins_status.py`, or the
 Pinterest CSV agent unless Ksenia explicitly asks for a CSV for named articles.
 When explicitly requested, use the sentimentalica.com article as the Link by
-default; direct Etsy links still require explicit instruction.
+default; direct Etsy links still require explicit instruction. Follow the
+canonical bulk-upload contract in `PIN_STRATEGY.md`: export every unique article
+content image, including every carousel image; assign each image independently
+to an exact name from Ksenia's board list, even when one article spans several
+boards. Never invent a board or reuse one generic board for the whole article.
 
 ## 7. Report
 Per article: URL · angle & why · audience/hook · tie (center/end/none) · listing
