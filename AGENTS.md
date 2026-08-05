@@ -63,8 +63,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    **Infographic two-source rule:** `refs/infographics/` is for composition
    inspiration and information archetypes only (grid, prompt list, diagram,
    checklist, object map). The final look must be rebuilt in the Sentimentalica
-   identity from `refs/branding/` (logo blue, paper collage, lace, flowers,
-   handwriting, bird/logo motifs, soft feminine scrapbook feel). Do not copy an
+   identity from `refs/branding/` (brand blue, paper collage, lace, flowers,
+   handwriting, soft feminine scrapbook feel). Bird/logo motifs visible in a
+   branding reference are style context only and must not appear as brand marks
+   in production images. Do not copy an
    infographic ref's outside brand, colors, logo, website, or exact artwork.
    Infographic backgrounds must vary per article/topic; never reuse one generic
    branded paper backdrop across a batch. The quality/brand language should stay
@@ -141,6 +143,8 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 11. **Only palette images and infographics carry the site text.** Add exactly
    `sentimentalica.com` on color-palette images and non-iPhone infographics.
    Do not add extra CTA text (`full guide`, `more ideas`, etc.) inside the image.
+   Never place the Sentimentalica bird, a bird-shaped brand mark, or any other
+   graphic logo on any article image.
    Do not stamp the site on atmospheric scenes, mockups, process scenes, real
    listing pages, or iPhone Notes screenshots.
    Color-palette images must always use one beautiful real listing page as the full-

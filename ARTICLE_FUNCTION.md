@@ -100,8 +100,9 @@
   сам референс в статью/пин, если Ксения явно не сказала, что этот конкретный
   файл можно использовать как production/brand-owned asset.
   Типы refs:
-  `refs/branding/` = общий Sentimentalica look (голубой логотипа, бумажность,
-  bird/logo мотивы); `refs/infographics/` = полезные графики; `refs/iphone notes/`
+  `refs/branding/` = общий Sentimentalica look (фирменный голубой, бумажность,
+  ботаника, мягкий feminine journal mood; bird/logo внутри ref — только контекст,
+  не элемент production image); `refs/infographics/` = полезные графики; `refs/iphone notes/`
   = authentic iPhone Notes subtype; `refs/scrapbook and junk jornal scenes/` = реалистичные journal/mockup/
   process сцены; `refs/scenes/` = атмосферные комнаты/столы/офисы; `refs/50things/`
   = спец-референс для 50 things.
@@ -109,8 +110,9 @@
   композиционную идею / тип полезности (сетку предметов, prompt list,
   checklist, diagram, annotated guide). Финальный визуальный стиль всегда
   перестраивается через `refs/branding/`: Sentimentalica blue, бумажный
-  scrapbook-collage, кружево, ботаника, handwritten texture, bird/logo motif,
-  мягкий женственный journal look. Нельзя тащить чужой бренд, чужую палитру,
+  scrapbook-collage, кружево, ботаника, handwritten texture и мягкий
+  женственный journal look. Нельзя воспроизводить bird/logo motif из branding
+  refs или ставить любой другой graphic logo. Нельзя тащить чужой бренд, чужую палитру,
   чужой URL, чужой логотип или точную картинку из infographic reference.
   `public/`, `staging/`, старые Claude/Codex outputs и demo-файлы запрещены как
   источники вдохновения.
@@ -202,8 +204,10 @@
 - **Текст на картинках:** только color-palette images и non-iPhone infographic
   получают site mark, и это ровно `sentimentalica.com`. Не добавлять внутрь
   картинки `full guide`, `more ideas`, `read the article`, `save this` или
-  другие CTA. Не ставить site mark на atmospheric scenes, mockups/process
-  scenes, реальные listing pages/carousels или iPhone Notes screenshots.
+  другие CTA. Никаких bird logo, bird-shaped brand marks или других graphic
+  logos на любых production images: логотип из branding refs не копируется.
+  Не ставить site mark на atmospheric scenes, mockups/process scenes, реальные
+  listing pages/carousels или iPhone Notes screenshots.
 - **Color-palette image standard:** ВСЕГДА одна красивая реальная страница листинга
   как full-bleed background. Никаких thumbnails, collage, split white side panel,
   framed/card stack, outer border вокруг палитры или outdated Pinterest-template

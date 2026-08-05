@@ -64,6 +64,12 @@ Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 iPhone Notes subtype with no emoji at the start of list items,
 `refs/scrapbook and junk jornal scenes/` = realistic journal/mockup/process,
 `refs/scenes/` = atmospheric mood and the mandatory thin article scene.
+Never place the Sentimentalica bird, a bird-shaped brand mark, or any other
+graphic logo inside article images. Branding references provide style context
+only; do not reproduce their logo motif. Infographics and palette images may
+carry only the exact plain text `sentimentalica.com` where the workflow requires
+it. Atmospheric, process, mockup, iPhone Notes, and real-listing images receive
+no logo, URL, or site mark.
 For every non-iPhone infographic, the actual image-generation call MUST include
 approved files from both `refs/infographics/approved-codex/` and
 `refs/branding/`. If reference-enabled generation fails, stop; never replace it
