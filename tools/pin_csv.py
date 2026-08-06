@@ -124,6 +124,13 @@ def validate_article_link(link, media_url):
     if not media_parts.path.startswith(expected):
         sys.exit(f"MEDIA URL does not belong to the linked article; expected "
                  f"an image under {expected}")
+    if link_parts.fragment:
+        article = REPO / "public" / "blog" / f"{slug}.html"
+        if article.exists():
+            marker = f'id="{link_parts.fragment}"'
+            if marker not in article.read_text(encoding="utf-8"):
+                sys.exit(f"LINK fragment #{link_parts.fragment} does not exist "
+                         f"in {article.name}")
 
 
 def main():
@@ -207,6 +214,12 @@ def main():
                  f"{args.boards_file}; do not create boards by typo.")
     validate_publish_date(args.publish_date)
     validate_article_link(args.link, args.media_url)
+    link_key = args.link.strip()
+    seen_links = {r["Link"].strip() for r in rows}
+    if link_key in seen_links:
+        sys.exit("DUPLICATE PIN LINK: Pinterest accepts only the first identical "
+                 "destination in one bulk CSV. Use a unique, real article "
+                 "section anchor for each image.")
     media_key = args.media_url.strip()
     seen = {r["Media URL"].strip() for r in rows}
     for arch in (PINS / "uploaded").glob(f"{args.listing}__uploaded_*.csv"):

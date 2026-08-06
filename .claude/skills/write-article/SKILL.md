@@ -89,7 +89,9 @@ to an exact name from `PINTEREST_BOARDS.txt`, even when one article spans severa
 boards. Never invent a board or reuse one generic board for the whole article.
 Keywords are mandatory (5–10 image-specific Pinterest search phrases). Write a
 search-led title and truthful image-type CTA for every row using the SEO/CTA
-mapping in `PIN_STRATEGY.md`.
+mapping in `PIN_STRATEGY.md`. Never repeat an identical Link within one CSV:
+multi-image articles require a unique real `#section-anchor` per row, present in
+the live article. Retry CSVs include failed rows only, not successful Pins.
 
 ## 7. Report
 Per article: URL · angle & why · audience/hook · tie (center/end/none) · listing

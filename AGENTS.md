@@ -237,6 +237,8 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    exact board independently from `PINTEREST_BOARDS.txt`. Every Link must
    be the exact article that owns the image; every row needs 5–10 relevant
    Pinterest SEO keywords plus a search-led title and image-type-specific CTA.
+   Repeated identical Links in one CSV are forbidden: use unique real article
+   section anchors for multi-image batches and omit already-successful rows from retries.
 
 ## The ideation funnel (how ideas get chosen — demand-first)
 Trigger: "напиши статью" / "напиши N статей" / "напиши статью под <listing>" /

@@ -160,6 +160,13 @@ Follow Pinterest's current bulk-upload template exactly. Header order:
   or freebie. Never use the shop homepage, blog index, unrelated article, or a
   direct Etsy URL in this CSV workflow. The image URL and article link must
   share the same article slug.
+- Pinterest's bulk importer rejects repeated identical destination strings in
+  one CSV as `Duplicate Pin link`, even when Media URLs differ. For a multi-image
+  article, give every row a unique, real section fragment such as
+  `article.html#palette-example`; the matching `id` must exist on that image or
+  section in the live article. Do not fabricate unrelated URLs or use tracking
+  parameters merely to bypass deduplication. A retry CSV contains only failed
+  rows, never the row Pinterest already created successfully.
 - `Publish date` may be blank for immediate publishing, `YYYY-MM-DD`, or
   `YYYY-MM-DDTHH:MM:SS`; a timed value represents UTC.
 - `Keywords` is mandatory: 5–10 unique comma-separated Pinterest search terms

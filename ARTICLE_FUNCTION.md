@@ -81,6 +81,10 @@
    `PINTEREST_BOARDS.txt`, поэтому картинки одной статьи могут идти на разные boards.
    Keywords обязательны (5–10 strong Pinterest SEO phrases). Title и финальный
    CTA пишутся отдельно под тип картинки по CTA contract из `PIN_STRATEGY.md`.
+   В одном CSV нельзя повторять identical `Link`: Pinterest вернёт
+   `Duplicate Pin link`. Для каждой картинки multi-image статьи создать real
+   unique `#section-anchor` в статье и использовать его в Link; retry включает
+   только failed rows, не уже созданные Pins.
 
 ## Правила
 - **Критик — КОД-ГЕЙТ, не пожелание (2026-07-07):** `publish_post.py` физически
