@@ -191,27 +191,32 @@ do not copy one generic title/description/board across all images from an articl
 
 ### Pinterest SEO title and CTA contract
 
-Every title must be a natural Pinterest search phrase first, with the concrete
-topic in the opening words. Keep it below 100 characters and add a short CTA
-that accurately matches both the image and the linked article. The description
-must expand the search intent naturally and end with the same promise. Do not
-use vague clickbait such as `Click here`, `You need this`, or `Learn more`.
+Every title uses **CTA first, keyword phrase second**, separated by a colon:
+`See More Pictures: Silver Wedding Junk Journal Pages`. Keep it below 100
+characters. The phrase after the colon must be a natural Pinterest keyword a
+searcher could use, not merely a poetic theme name. The description expands the
+search intent naturally and supports the same promise. Do not use vague
+clickbait such as `Click here`, `You need this`, or `Learn more`.
+
+Never use an em dash (`—`) or en dash (`–`) in Pinterest titles or descriptions.
+Use a colon in the title and ordinary short sentences in the description. This
+keeps the copy natural and avoids punctuation that reads like AI-generated text.
 
 Match the CTA to the visual:
 
 - **Junk-journaling hack, infographic, or technique:** invite the reader to
   check the article for the full method, more junk-journaling hacks, or the
-  remaining steps. Example title: `3 Junk Journal Pattern Hacks — See the Full Method`.
+  remaining steps. Example title: `See the Full Method: 3 Junk Journal Pattern Hacks`.
 - **Real listing/carousel picture:** invite the reader to see more pictures and,
   when the linked article actually contains the freebie, to check the article
   for more free pictures. Never call paid listing images free. Example title:
-  `Vintage Floral Journal Page — Find More Free Pictures`.
+  `Find More Free Pictures: Vintage Floral Journal Page`.
 - **Atmospheric scene:** invite the reader to get more inspiration or related
   journal ideas from the article. Example title:
-  `Cozy Patchwork Journal Inspiration — See More Ideas`.
+  `See More Ideas: Cozy Patchwork Journal Inspiration`.
 - **Color palette:** invite the reader to explore the palette method, matching
   color ideas, or the full color guide. Example title:
-  `Teal and Coral Junk Journal Palette — Get More Color Ideas`.
+  `Get More Color Ideas: Teal and Coral Junk Journal Palette`.
 - **Process/mockup scene:** invite the reader to see the complete process,
   layout recipe, or step-by-step article.
 

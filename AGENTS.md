@@ -239,6 +239,8 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    Pinterest SEO keywords plus a search-led title and image-type-specific CTA.
    Repeated identical Links in one CSV are forbidden: use unique real article
    section anchors for multi-image batches and omit already-successful rows from retries.
+   Pinterest titles use `CTA first: keyword phrase`; em/en dashes are forbidden
+   in both Title and Description because they make the copy read as AI-written.
 
 ## The ideation funnel (how ideas get chosen — demand-first)
 Trigger: "напиши статью" / "напиши N статей" / "напиши статью под <listing>" /

@@ -33,6 +33,9 @@ MAX_ROWS = 200
 IMAGE_EXTS = {".jpg", ".jpeg", ".png"}
 VIDEO_EXTS = {".mp4"}
 DEFAULT_BOARDS_FILE = REPO / "PINTEREST_BOARDS.txt"
+CTA_STARTS = ("See ", "Find ", "Get ", "Read ", "Explore ", "Try ",
+              "Discover ", "Save ", "Start ", "Create ", "Learn ",
+              "Use ", "Make ", "Build ", "Open ")
 
 
 def path_for(listing):
@@ -99,6 +102,19 @@ def normalize_keywords(value):
     if len(unique) != len(terms):
         sys.exit("KEYWORDS must not contain duplicates")
     return ", ".join(terms)
+
+
+def validate_pin_copy(title, description):
+    """Keep Pinterest copy human and action-led: CTA first, keyword second."""
+    if "—" in title or "–" in title or "—" in description or "–" in description:
+        sys.exit("Do not use em dashes or en dashes in Pinterest titles/descriptions")
+    if ":" not in title:
+        sys.exit("TITLE must use CTA first: keyword phrase")
+    cta, keyword = (part.strip() for part in title.split(":", 1))
+    if not any(cta == start.strip() or cta.startswith(start) for start in CTA_STARTS):
+        sys.exit("TITLE must begin with a clear action CTA, then a colon")
+    if len(keyword.split()) < 2:
+        sys.exit("TITLE must place a meaningful Pinterest keyword phrase after the CTA")
 
 
 def validate_article_link(link, media_url):
@@ -200,6 +216,7 @@ def main():
         sys.exit(f"TITLE TOO LONG ({len(args.title)} > 100)")
     if len(args.description) > 500:
         sys.exit(f"DESCRIPTION TOO LONG ({len(args.description)} > 500)")
+    validate_pin_copy(args.title.strip(), args.description.strip())
     keywords = normalize_keywords(args.keywords)
     if len(rows) >= MAX_ROWS:
         sys.exit(f"CSV ROW LIMIT REACHED ({MAX_ROWS}); start another upload batch")

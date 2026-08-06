@@ -85,6 +85,9 @@
    `Duplicate Pin link`. Для каждой картинки multi-image статьи создать real
    unique `#section-anchor` в статье и использовать его в Link; retry включает
    только failed rows, не уже созданные Pins.
+   Title всегда строится `CTA first: Pinterest keyword phrase`, например
+   `See More Pictures: Silver Wedding Junk Journal Pages`. Em dash/en dash
+   (`—`/`–`) в Title и Description запрещены; писать обычными предложениями.
 
 ## Правила
 - **Критик — КОД-ГЕЙТ, не пожелание (2026-07-07):** `publish_post.py` физически
