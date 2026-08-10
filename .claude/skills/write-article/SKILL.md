@@ -95,6 +95,17 @@ the live article. Retry CSVs include failed rows only, not successful Pins.
 Format every title as `CTA first: Pinterest keyword phrase`. Never use em/en
 dashes in Pinterest titles or descriptions; use plain human sentences.
 
+Every article must leave all content images Pinterest/CSV-ready even when CSV
+generation is not requested in that run. New generated visuals default to a
+portrait 2:3 canvas at 1000x1500 px or larger; real listing pages may retain
+their native readable portrait ratio. File extension, decoded bytes, and live
+HTTP MIME must match exactly: JPEG files use `.jpg`/`.jpeg` and `image/jpeg`;
+PNG files use `.png` and `image/png`. PNG bytes renamed to `.jpg` are a hard
+failure. Before any CSV handoff, fetch every exact live Media URL and require
+HTTP 200, matching MIME, and decodable matching still-image bytes. Repair
+deployed assets under a new versioned filename rather than relying on a CDN
+cache-busting query string.
+
 ## 7. Report
 Per article: URL · angle & why · audience/hook · tie (center/end/none) · listing
 and confirmation it was previously unused · image status. Plus the slate

@@ -131,7 +131,7 @@ Pinterest description · Keywords (5–10).
 (инфографика: список/problem-solution прямо НА картинке). Реклама листинга
 сама по себе — «nobody cares»: сперва польза, продукт — путь к ней.
 
-## Pinterest bulk-upload CSV contract (updated 2026-08-05)
+## Pinterest bulk-upload CSV contract (updated 2026-08-10)
 
 Official format source:
 `https://help.pinterest.com/en/business/article/bulk-upload-video-pins`.
@@ -144,6 +144,25 @@ Follow Pinterest's current bulk-upload template exactly. Header order:
 - `Media URL` is required and must be a public direct file URL. Sentimentalica
   image rows use the published `.jpg`, `.jpeg`, or `.png` URL, never a local
   path, Google Drive preview, article page URL, or dynamically loaded Etsy image.
+- **Pinterest-ready article image gate:** every future article content image must
+  be suitable for a later Pinterest CSV even when no CSV is requested during the
+  article run. New generated scenes, infographics, palette images, and mockups
+  should normally be portrait 2:3 at 1000x1500 px or larger. Real customer/listing
+  pages may keep their native portrait ratio, but must be large enough to read as
+  a Pin. Do not publish landscape-only, tiny, animated, or unsupported assets as
+  article content images that will later be expected in a CSV.
+- The filename extension, decoded file format, and public HTTP `Content-Type`
+  must agree exactly: `.jpg`/`.jpeg` = genuine JPEG bytes served as `image/jpeg`;
+  `.png` = genuine PNG bytes served as `image/png`. A PNG merely renamed to
+  `.jpg` is a hard failure even if browsers display it. JPEG output should be
+  RGB; PNG may be RGB or RGBA. Use one still frame only.
+- Before creating or handing off a CSV, validate every Media URL twice: locally
+  decode the file and confirm format/dimensions, then fetch the exact live URL
+  and require HTTP 200, the matching image MIME type, and decodable matching
+  bytes. CSV creation is blocked until every row passes. If a deployed image has
+  to be repaired, do not trust a query string to bypass CDN cache; publish a new
+  versioned filename in the same article image folder, use that new URL in the
+  retry CSV, and verify the exact URL live. Retry CSVs contain only failed rows.
 - `Pinterest board` is required. The canonical exact-name allowlist is
   `PINTEREST_BOARDS.txt`; use one name from that file for every row. Assign the board per
   image according to what that image actually solves or shows. Images from one

@@ -88,6 +88,16 @@
    Title всегда строится `CTA first: Pinterest keyword phrase`, например
    `See More Pictures: Silver Wedding Junk Journal Pages`. Em dash/en dash
    (`—`/`–`) в Title и Description запрещены; писать обычными предложениями.
+   **Pinterest-ready image gate действует для каждой будущей статьи,
+   даже если CSV сейчас не запрошен.** Каждая content image должна
+   быть portrait, достаточно большой и пригодной для Pin; для новых
+   generated visuals default = 2:3, 1000x1500 px или больше. Extension,
+   real decoded format и live HTTP MIME обязаны совпадать (`.jpg` =
+   JPEG bytes + `image/jpeg`; `.png` = PNG bytes + `image/png`). PNG bytes
+   внутри `.jpg` — hard failure. Перед CSV каждый exact Media URL
+   проверить после deploy: HTTP 200, correct MIME, decodable matching bytes.
+   После ремонта уже deployed image использовать новый versioned
+   filename, а не query string, чтобы не получить stale CDN bytes.
 
 ## Правила
 - **Критик — КОД-ГЕЙТ, не пожелание (2026-07-07):** `publish_post.py` физически

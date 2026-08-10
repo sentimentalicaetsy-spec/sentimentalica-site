@@ -241,6 +241,15 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    section anchors for multi-image batches and omit already-successful rows from retries.
    Pinterest titles use `CTA first: keyword phrase`; em/en dashes are forbidden
    in both Title and Description because they make the copy read as AI-written.
+   **Every future article image must be Pinterest/CSV-ready at publication time,
+   even when CSV generation was not requested.** New generated visuals default
+   to portrait 2:3 at 1000x1500 px or larger; native listing pages may retain a
+   readable portrait ratio. Extension, decoded bytes, and live MIME must match
+   exactly (`.jpg` = JPEG + `image/jpeg`; `.png` = PNG + `image/png`). Before CSV
+   handoff, require the exact public Media URL to return HTTP 200 and decode as
+   the declared still-image format. A renamed PNG-in-JPG is a hard failure. If a
+   deployed asset is repaired, publish a versioned filename instead of relying
+   on a cache-busting query string, then verify that exact new URL live.
 
 ## The ideation funnel (how ideas get chosen — demand-first)
 Trigger: "напиши статью" / "напиши N статей" / "напиши статью под <listing>" /
