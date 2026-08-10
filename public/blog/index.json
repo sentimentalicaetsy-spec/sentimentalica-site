@@ -1,6 +1,26 @@
 {
   "posts": [
     {
+      "slug": "how-to-turn-printable-art-into-a-digital-wallpaper",
+      "title": "How to Turn Printable Art Into a Digital Wallpaper",
+      "category": "Wallpaper Inspo",
+      "excerpt": "A practical guide to cropping printable art into calm personal phone and desktop wallpapers without stretching or losing the focal point.",
+      "date": "2026-08-10",
+      "dateDisplay": "Aug 10",
+      "readTime": "3 min read",
+      "thumb": "blog/img/how-to-turn-printable-art-into-a-digital-wallpaper/gen1.png"
+    },
+    {
+      "slug": "three-small-diy-paper-projects-from-one-printable-page",
+      "title": "3 Small DIY Paper Projects From One Printable Page",
+      "category": "DIY Ideas",
+      "excerpt": "Turn one printable page into a mini swatch book, a folded pocket, and a layered tag with three beginner-friendly paper craft ideas.",
+      "date": "2026-08-10",
+      "dateDisplay": "Aug 10",
+      "readTime": "3 min read",
+      "thumb": "blog/img/three-small-diy-paper-projects-from-one-printable-page/gen1.png"
+    },
+    {
       "slug": "how-to-choose-a-junk-journal-theme-you-will-not-get-tired-of",
       "title": "How to Choose a Junk Journal Theme You Won't Get Tired Of",
       "category": "Journaling Ideas",
