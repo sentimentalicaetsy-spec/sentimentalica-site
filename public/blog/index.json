@@ -1,6 +1,46 @@
 {
   "posts": [
     {
+      "slug": "an-autumn-junk-journal-page-from-one-walk-around-the-block",
+      "title": "An Autumn Junk Journal Page From One Walk Around the Block",
+      "category": "Autumn Junk Journal Ideas",
+      "excerpt": "Gather one color, sound, texture, and paper trace on a short autumn walk, then turn them into a journal page without relying on pumpkins.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/an-autumn-junk-journal-page-from-one-walk-around-the-block/gen1.png"
+    },
+    {
+      "slug": "botanical-wallpaper-ideas-that-feel-collected-not-crowded",
+      "title": "Botanical Wallpaper Ideas That Feel Collected, Not Crowded",
+      "category": "Botanical Wallpaper",
+      "excerpt": "Choose botanical wallpaper with one specimen, a calm background, and enough open space to keep your phone useful as well as beautiful.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "2 min read",
+      "thumb": "blog/img/botanical-wallpaper-ideas-that-feel-collected-not-crowded/gen1.png"
+    },
+    {
+      "slug": "a-cottagecore-journal-page-built-from-one-ordinary-morning",
+      "title": "A Cottagecore Journal Page Built From One Ordinary Morning",
+      "category": "Cottagecore Journal",
+      "excerpt": "Turn a cup of tea, a receipt, a garden color, and one remembered sentence into a cottagecore journal page that feels genuinely lived in.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-cottagecore-journal-page-built-from-one-ordinary-morning/gen1.png"
+    },
+    {
+      "slug": "how-to-make-a-shabby-chic-journal-feel-soft-not-sugary",
+      "title": "How to Make a Shabby Chic Journal Feel Soft, Not Sugary",
+      "category": "Shabby Chic Journal",
+      "excerpt": "Build a shabby chic journal page with faded florals, quiet neutrals, worn texture, and just enough pink to keep it romantic.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-make-a-shabby-chic-journal-feel-soft-not-sugary/gen1.png"
+    },
+    {
       "slug": "bird-journal-inspiration-that-feels-observed-not-decorated",
       "title": "Bird Journal Inspiration That Feels Observed, Not Decorated",
       "category": "Bird Journal Inspiration",
