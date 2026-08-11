@@ -1,6 +1,26 @@
 {
   "posts": [
     {
+      "slug": "a-lemon-themed-summer-junk-journal-without-too-much-yellow",
+      "title": "A Lemon-Themed Summer Junk Journal Without Too Much Yellow",
+      "category": "Summer Junk Journal Ideas",
+      "excerpt": "Balance lemon yellow with leaf green, paper cream, and one cool blue accent for a sunny summer journal page that still feels calm.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-lemon-themed-summer-junk-journal-without-too-much-yellow/gen1.png"
+    },
+    {
+      "slug": "how-to-make-a-spring-junk-journal-page-feel-fresh-not-busy",
+      "title": "How to Make a Spring Junk Journal Page Feel Fresh, Not Busy",
+      "category": "Spring Junk Journal Ideas",
+      "excerpt": "Use one spring signal, a restrained color palette, and generous quiet space to make fresh seasonal pages without piling on every flower you own.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/how-to-make-a-spring-junk-journal-page-feel-fresh-not-busy/gen2.png"
+    },
+    {
       "slug": "journal-mistakes-to-avoid-before-you-start-over",
       "title": "7 Journal Mistakes to Avoid Before You Start Over",
       "category": "Journal Mistakes to Avoid",
