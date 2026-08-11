@@ -1,6 +1,46 @@
 {
   "posts": [
     {
+      "slug": "journal-mistakes-to-avoid-before-you-start-over",
+      "title": "7 Journal Mistakes to Avoid Before You Start Over",
+      "category": "Journal Mistakes to Avoid",
+      "excerpt": "Fix a journal page that feels wrong by checking the focal point, visual space, handwriting, glue, and comparison habits before starting again.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/journal-mistakes-to-avoid-before-you-start-over/gen1.png"
+    },
+    {
+      "slug": "scrap-paper-project-ideas-for-pretty-leftovers",
+      "title": "Scrap Paper Project Ideas for Pretty Leftovers",
+      "category": "Scrap Paper Project Ideas",
+      "excerpt": "Turn small printed paper leftovers into useful page tabs, patchwork tags, tiny pockets, collage strips, gift flags, and swatch books.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/scrap-paper-project-ideas-for-pretty-leftovers/gen1.png"
+    },
+    {
+      "slug": "printable-cutting-tips-for-cleaner-craft-pieces",
+      "title": "7 Printable Cutting Tips for Cleaner Craft Pieces",
+      "category": "Printable Cutting Tips",
+      "excerpt": "Get cleaner printable flowers, tags, and paper pieces with seven practical cutting habits for curves, corners, tabs, and batch work.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/printable-cutting-tips-for-cleaner-craft-pieces/gen1.png"
+    },
+    {
+      "slug": "how-to-coffee-and-tea-dye-paper-without-warping-it",
+      "title": "How to Coffee and Tea Dye Paper Without Warping It",
+      "category": "Coffee and Tea Dyed Paper",
+      "excerpt": "Learn how to make soft tea stains and deeper coffee marks while keeping handmade paper flatter, cleaner, and easier to use in journals.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/how-to-coffee-and-tea-dye-paper-without-warping-it/gen1.png"
+    },
+    {
       "slug": "how-to-turn-printable-art-into-a-digital-wallpaper",
       "title": "How to Turn Printable Art Into a Digital Wallpaper",
       "category": "Wallpaper Inspo",
