@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "bird-journal-inspiration-that-feels-observed-not-decorated",
+      "title": "Bird Journal Inspiration That Feels Observed, Not Decorated",
+      "category": "Bird Journal Inspiration",
+      "excerpt": "Turn one ordinary bird sighting into a personal journal page by recording time, place, behavior, sound, and the colors around it.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/bird-journal-inspiration-that-feels-observed-not-decorated/gen2.png"
+    },
+    {
+      "slug": "how-to-make-forest-journal-pages-feel-deep-not-muddy",
+      "title": "How to Make Forest Journal Pages Feel Deep, Not Muddy",
+      "category": "Forest Journal Inspiration",
+      "excerpt": "Build forest journal depth with a dark anchor, a pale path of light, overlapping foliage, and one small warm accent.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-make-forest-journal-pages-feel-deep-not-muddy/gen1.png"
+    },
+    {
+      "slug": "vintage-wallpaper-ideas-that-keep-your-phone-icons-readable",
+      "title": "Vintage Wallpaper Ideas That Keep Your Phone Icons Readable",
+      "category": "Vintage Wallpaper Inspo",
+      "excerpt": "Use quiet shapes, open centers, and detail at the edges to turn vintage art into phone wallpaper that remains easy to read.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "2 min read",
+      "thumb": "blog/img/vintage-wallpaper-ideas-that-keep-your-phone-icons-readable/gen1.png"
+    },
+    {
+      "slug": "a-dark-academia-lock-screen-that-is-moody-not-muddy",
+      "title": "A Dark Academia Lock Screen That Is Moody, Not Muddy",
+      "category": "Dark Academia Wallpaper",
+      "excerpt": "Build a dark academia lock screen with readable shadows, one warm light source, and enough contrast for the clock and icons.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-dark-academia-lock-screen-that-is-moody-not-muddy/gen2.png"
+    },
+    {
+      "slug": "fantasy-wallpaper-art-that-leaves-room-for-your-lock-screen",
+      "title": "Fantasy Wallpaper Art That Leaves Room for Your Lock Screen",
+      "category": "Fantasy Wallpaper Art",
+      "excerpt": "Choose fantasy wallpaper art with a quiet clock area, one clear focal point, and enough softness for the icons you use every day.",
+      "date": "2026-08-11",
+      "dateDisplay": "Aug 11",
+      "readTime": "3 min read",
+      "thumb": "blog/img/fantasy-wallpaper-art-that-leaves-room-for-your-lock-screen/gen1.png"
+    },
+    {
       "slug": "a-lemon-themed-summer-junk-journal-without-too-much-yellow",
       "title": "A Lemon-Themed Summer Junk Journal Without Too Much Yellow",
       "category": "Summer Junk Journal Ideas",
