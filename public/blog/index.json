@@ -1,6 +1,26 @@
 {
   "posts": [
     {
+      "slug": "a-five-minute-journaling-routine-for-days-when-you-have-nothing-to-write",
+      "title": "A Five-Minute Journal Routine When You Have Nothing to Write",
+      "category": "Journaling Ideas",
+      "excerpt": "A tiny journaling routine for blank-minded days, built from time, weather, one sound, one detail, and a five-minute stopping point.",
+      "date": "2026-08-12",
+      "dateDisplay": "Aug 12",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-five-minute-journaling-routine-for-days-when-you-have-nothing-to-write/gen2.png"
+    },
+    {
+      "slug": "how-to-use-yellow-flowers-without-making-a-journal-page-too-sweet",
+      "title": "How to Use Yellow Flowers Without Making a Journal Page Too Sweet",
+      "category": "Color Palettes",
+      "excerpt": "Balance white daisies and yellow centers with ink green, olive, parchment, and irregular natural layers for a grown-up journal page.",
+      "date": "2026-08-12",
+      "dateDisplay": "Aug 12",
+      "readTime": "3 min read",
+      "thumb": "blog/img/how-to-use-yellow-flowers-without-making-a-journal-page-too-sweet/gen1.png"
+    },
+    {
       "slug": "copper-and-teal-junk-journal-colors-for-steampunk-pages",
       "title": "Copper and Teal Junk Journal Colors for Steampunk Pages",
       "category": "Color Palettes",
