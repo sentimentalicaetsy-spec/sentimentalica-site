@@ -242,3 +242,48 @@ Match the CTA to the visual:
 CTA wording must remain truthful to the landing article. If an article does not
 contain free pictures or a freebie link, use `see more printable inspiration`
 instead of promising free pictures.
+
+## Permanent Pinterest tracker contract
+
+The durable source of truth is stored in the tracked repository directory
+`data/pinterest/`, not only in ignored working files under `staging/pins/`:
+
+- `PINTEREST_ARTICLE_TRACKER.csv` is the readable one-row-per-article tracker.
+- `PIN_MEDIA_LEDGER.csv` is the exact Media URL ledger used for deduplication.
+- `PINTEREST_BATCH_LEDGER.csv` records each batch and its handoff state.
+- `batches/` contains durable copies of CSVs that were handed to Ksenia or
+  confirmed uploaded.
+
+Never treat these states as interchangeable:
+
+1. **Historical CSV record** means an image appeared in an older CSV, but its
+   delivery and Pinterest result were not independently confirmed.
+2. **CSV provided** means the finished file was handed to Ksenia (including a
+   confirmed Google Drive mirror). It does not mean Pinterest created the Pin.
+3. **Pinterest upload confirmed** is used only after Ksenia explicitly says the
+   batch was uploaded or supplies Pinterest's result. A schedule date alone is
+   not upload confirmation.
+
+Mandatory workflow whenever Ksenia requests a Pinterest CSV:
+
+1. Run `python3 tools/pinterest_tracker.py refresh` and then
+   `python3 tools/pinterest_tracker.py check <article-slug> [...]` before making
+   the batch. Read `PIN_MEDIA_LEDGER.csv` and exclude Media URLs that already
+   have a CSV record unless Ksenia explicitly requests a retry of failed rows.
+2. Create and fully validate only the missing/currently requested rows under
+   the bulk-upload contract above.
+3. After the complete validated CSV has actually been handed off or mirrored,
+   run `python3 tools/pinterest_tracker.py record-batch <csv-path> --status
+   provided --date YYYY-MM-DD`. This archives the exact batch, updates both
+   ledgers, and rebuilds the per-article tracker.
+4. If Ksenia later confirms the upload, run the same command with `--status
+   uploaded`. Do not infer this state from file creation, scheduling, or Drive.
+5. Run `check` again and report prepared/provided/upload-confirmed counts
+   separately. Commit and push the tracker, ledger, archived handed-off batch,
+   and any real article anchors needed by its Links so the next agent can use
+   the same source of truth.
+
+For a current article whose image set changes after a CSV was created, the
+tracker compares the ledger to the article's current `<div class="post-body">`
+images. New images appear as `Images with no CSV record`; removed images remain
+in the audit ledger but do not inflate current article coverage.

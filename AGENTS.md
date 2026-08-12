@@ -250,6 +250,15 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    the declared still-image format. A renamed PNG-in-JPG is a hard failure. If a
    deployed asset is repaired, publish a versioned filename instead of relying
    on a cache-busting query string, then verify that exact new URL live.
+   The permanent Pinterest source of truth is `data/pinterest/`. Before every
+   requested CSV, run `python3 tools/pinterest_tracker.py refresh` and
+   `python3 tools/pinterest_tracker.py check <slug> [...]`; exclude Media URLs
+   already present in `PIN_MEDIA_LEDGER.csv` unless Ksenia explicitly asks for
+   failed-row retries. After the complete validated CSV is handed off, run
+   `python3 tools/pinterest_tracker.py record-batch <path> --status provided`.
+   Use `--status uploaded` only after Ksenia explicitly confirms the Pinterest
+   upload. Prepared/provided/upload-confirmed are separate states. Commit the
+   updated tracker/ledgers and durable batch copy so future agents inherit them.
 
 ## The ideation funnel (how ideas get chosen — demand-first)
 Trigger: "напиши статью" / "напиши N статей" / "напиши статью под <listing>" /

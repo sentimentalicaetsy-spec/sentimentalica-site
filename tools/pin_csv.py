@@ -9,7 +9,10 @@ Usage:
       --description D --link L --keywords "k1, k2" [--publish-date YYYY-MM-DD] \
       [--boards-file PINTEREST_BOARDS.txt]
   python3 tools/pin_csv.py list <csv-name>
+  python3 tools/pin_csv.py mark-provided <csv-name>
+  python3 tools/pin_csv.py mark-uploaded <csv-name>
 Dedup: each media URL is stored only once per active/archive batch.
+The durable data/pinterest ledger is also checked across every batch.
 Funnel: --link must be the exact Sentimentalica article that owns the image
 (Pinterest→relevant article→Etsy/freebie).
 
@@ -33,6 +36,7 @@ MAX_ROWS = 200
 IMAGE_EXTS = {".jpg", ".jpeg", ".png"}
 VIDEO_EXTS = {".mp4"}
 DEFAULT_BOARDS_FILE = REPO / "PINTEREST_BOARDS.txt"
+PERMANENT_MEDIA_LEDGER = REPO / "data" / "pinterest" / "PIN_MEDIA_LEDGER.csv"
 CTA_STARTS = ("See ", "Find ", "Get ", "Read ", "Explore ", "Try ",
               "Discover ", "Save ", "Start ", "Create ", "Learn ",
               "Use ", "Make ", "Build ", "Open ")
@@ -46,7 +50,8 @@ def path_for(listing):
 def read_rows(p):
     if not p.exists():
         return []
-    with open(p, newline="", encoding="utf-8") as f:
+    # utf-8-sig accepts Pinterest CSVs with or without the common Excel BOM.
+    with open(p, newline="", encoding="utf-8-sig") as f:
         return list(csv.DictReader(f))
 
 
@@ -151,7 +156,7 @@ def validate_article_link(link, media_url):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["add", "list", "mark-uploaded"])
+    ap.add_argument("cmd", choices=["add", "list", "mark-provided", "mark-uploaded"])
     ap.add_argument("listing", nargs="?", default="")
     ap.add_argument("--all", action="store_true", help="mark-uploaded: all listings")
     ap.add_argument("--title")
@@ -167,14 +172,36 @@ def main():
     ap.add_argument("--publish-date", default="")
     ap.add_argument("--no-drive", action="store_true",
                     help="Keep the CSV local; do not mirror it to Google Drive.")
+    ap.add_argument("--allow-recorded-media", action="store_true",
+                    help="Allow a ledger-recorded Media URL only for an explicitly requested failed-row retry.")
+    ap.add_argument("--status-date", default="",
+                    help="mark-provided/mark-uploaded date in YYYY-MM-DD; default today")
+    ap.add_argument("--notes", default="", help="Optional durable batch-ledger note")
     args = ap.parse_args()
 
-    if args.cmd == "mark-uploaded":
+    if args.cmd in {"mark-provided", "mark-uploaded"}:
+        from datetime import date
+        sys.path.insert(0, str(REPO / "tools"))
+        import pinterest_tracker
+        status_day = args.status_date or date.today().isoformat()
+        pinterest_tracker.valid_day(status_day)
+        targets = sorted(PINS.glob("*.csv")) if getattr(args, "all", False) else [path_for(args.listing)]
+        for tp in targets:
+            if not read_rows(tp):
+                continue
+            status = "provided" if args.cmd == "mark-provided" else "uploaded"
+            count, articles = pinterest_tracker.record_batch(
+                tp, status, status_day, notes=args.notes
+            )
+            pinterest_tracker.refresh_tracker(status_day)
+            print(f"✓ tracker: {count} rows / {articles} articles marked {status}")
+
+        if args.cmd == "mark-provided":
+            return
+
         # Ksenia's flow: she says "I uploaded the CSV" -> current rows are
         # archived with the date; the active file restarts empty. Archived
         # pins can never be re-added (dedup below reads archives too).
-        from datetime import date
-        targets = sorted(PINS.glob("*.csv")) if getattr(args, "all", False) else [path_for(args.listing)]
         arch_dir = PINS / "uploaded"
         drive_arch = Path("/Users/kseniateter/My Drive/Sentimentalica/Pinterest_CSV/uploaded")
         for tp in targets:
@@ -243,6 +270,16 @@ def main():
         seen |= {r["Media URL"].strip() for r in read_rows(arch)}
     if media_key in seen:
         print("duplicate media URL (incl. already-uploaded) — skipped")
+        return
+    permanent = {
+        r.get("Media URL", "").strip(): r
+        for r in read_rows(PERMANENT_MEDIA_LEDGER)
+        if r.get("Media URL", "").strip()
+    }
+    if media_key in permanent and not args.allow_recorded_media:
+        record = permanent[media_key]
+        print(f"already in permanent Pinterest ledger as "
+              f"{record.get('CSV status', 'recorded')} — skipped")
         return
     rows.append({
         "Title": args.title.strip(), "Media URL": args.media_url.strip(),

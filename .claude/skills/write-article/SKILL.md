@@ -106,6 +106,17 @@ HTTP 200, matching MIME, and decodable matching still-image bytes. Repair
 deployed assets under a new versioned filename rather than relying on a CDN
 cache-busting query string.
 
+For every explicitly requested CSV, use the permanent tracker in
+`data/pinterest/`. Before building it, run `python3 tools/pinterest_tracker.py
+refresh` and `python3 tools/pinterest_tracker.py check <slug> [...]`, then omit
+Media URLs already recorded unless the request is specifically a failed-row
+retry. Once the complete validated CSV is handed to Ksenia, run
+`python3 tools/pinterest_tracker.py record-batch <csv-path> --status provided`.
+Use `--status uploaded` only after Ksenia explicitly confirms Pinterest's
+upload. Never describe a provided or scheduled CSV as successfully pinned.
+Commit the resulting tracked ledgers, per-article tracker, and durable batch
+copy so the state remains available to future agents.
+
 ## 7. Report
 Per article: URL · angle & why · audience/hook · tie (center/end/none) · listing
 and confirmation it was previously unused · image status. Plus the slate
