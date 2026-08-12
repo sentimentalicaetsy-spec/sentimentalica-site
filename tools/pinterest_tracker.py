@@ -14,6 +14,9 @@ Commands:
   record-batch PATH --status provided|uploaded [--date YYYY-MM-DD]
       Record every row in a handed-off or Pinterest-confirmed batch, archive an
       exact durable copy, and refresh the article tracker.
+  record-report PATH [--date YYYY-MM-DD]
+      Read Pinterest's downloaded result CSV. Blank error cells are recorded
+      as accepted; nonblank errors remain unconfirmed for failed-row retries.
   check [SLUG ...]
       Refresh and report image coverage. With no slugs, report every article.
 """
@@ -39,6 +42,7 @@ PUBLIC_BLOG = REPO / "public" / "blog"
 STAGING_PINS = REPO / "staging" / "pins"
 DATA_DIR = REPO / "data" / "pinterest"
 BATCH_ARCHIVE = DATA_DIR / "batches"
+REPORT_ARCHIVE = DATA_DIR / "reports"
 PIN_LEDGER = DATA_DIR / "PIN_MEDIA_LEDGER.csv"
 BATCH_LEDGER = DATA_DIR / "PINTEREST_BATCH_LEDGER.csv"
 ARTICLE_TRACKER = DATA_DIR / "PINTEREST_ARTICLE_TRACKER.csv"
@@ -53,6 +57,8 @@ PIN_FIELDS = [
     "CSV provided date",
     "Pinterest upload confirmed",
     "Pinterest uploaded date",
+    "Last Pinterest result",
+    "Last Pinterest error",
     "Scheduled publish dates",
     "Last updated",
 ]
@@ -66,6 +72,9 @@ BATCH_FIELDS = [
     "Handoff status",
     "CSV provided date",
     "Pinterest upload confirmed date",
+    "Pinterest accepted rows",
+    "Pinterest rejected rows",
+    "Pinterest report",
     "Durable archive",
     "Last updated",
     "Notes",
@@ -339,6 +348,79 @@ def record_batch(
     return len(rows), len(slugs)
 
 
+def record_report(path: Path, recorded_date: str) -> tuple[int, int]:
+    """Record Pinterest's row results without treating failures as uploads."""
+    if not path.exists():
+        raise SystemExit(f"Pinterest report not found: {path}")
+    rows = csv_rows(path)
+    if not rows or "error" not in rows[0]:
+        raise SystemExit("Pinterest result CSV must contain an error column")
+    current_pins = load_pin_ledger()
+    accepted = 0
+    rejected = 0
+    errors: set[str] = set()
+    for source in rows:
+        media = clean_url(source.get("Media URL", ""))
+        if not media:
+            continue
+        slug = slug_from_row(source)
+        existing = current_pins.get(media, {field: "" for field in PIN_FIELDS})
+        batch_files = split_values(existing.get("All batch files", ""))
+        batch_files.add(path.name)
+        existing.update({
+            "Article slug": slug,
+            "Article URL": canonical_article_url(slug),
+            "Media URL": media,
+            "First recorded batch": existing.get("First recorded batch", "") or path.name,
+            "All batch files": joined(batch_files),
+            "Last updated": recorded_date,
+        })
+        error = clean_url(source.get("error", ""))
+        if error:
+            rejected += 1
+            errors.add(error)
+            existing["Last Pinterest result"] = "Rejected"
+            existing["Last Pinterest error"] = error
+            if not existing.get("Pinterest upload confirmed"):
+                existing["Pinterest upload confirmed"] = "No"
+        else:
+            accepted += 1
+            existing["CSV status"] = "Pinterest upload confirmed by Ksenia"
+            existing["CSV provided date"] = existing.get("CSV provided date", "") or recorded_date
+            existing["Pinterest upload confirmed"] = "Yes"
+            existing["Pinterest uploaded date"] = recorded_date
+            existing["Last Pinterest result"] = "Accepted"
+            existing["Last Pinterest error"] = ""
+        current_pins[media] = existing
+    write_csv(PIN_LEDGER, PIN_FIELDS, sorted(current_pins.values(), key=lambda r: (r["Article slug"], r["Media URL"])))
+
+    REPORT_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    report_target = REPORT_ARCHIVE / f"{path.stem}__pinterest-report_{recorded_date}.csv"
+    write_csv(report_target, list(rows[0]), rows)
+
+    batches = load_batch_ledger()
+    batch = batches.get(path.name, {field: "" for field in BATCH_FIELDS})
+    handoff = (f"Partial Pinterest result: {accepted} accepted, {rejected} rejected"
+               if accepted and rejected else
+               "Pinterest upload confirmed by report" if accepted else
+               "Pinterest report rejected every row")
+    batch.update({
+        "Batch file": path.name,
+        "Row count": str(len(rows)),
+        "Handoff status": handoff,
+        "Pinterest upload confirmed date": recorded_date if accepted else "",
+        "Pinterest accepted rows": str(accepted),
+        "Pinterest rejected rows": str(rejected),
+        "Pinterest report": str(report_target.relative_to(REPO)),
+        "Last updated": recorded_date,
+        "Notes": "; ".join(sorted(errors)) or batch.get("Notes", ""),
+    })
+    batches[path.name] = batch
+    write_csv(BATCH_LEDGER, BATCH_FIELDS, sorted(batches.values(), key=lambda r: r["Batch file"]))
+    refresh_tracker(recorded_date)
+    return accepted, rejected
+
+
 def refresh_tracker(recorded_date: str | None = None) -> list[dict[str, object]]:
     recorded_date = recorded_date or date.today().isoformat()
     pins = load_pin_ledger()
@@ -458,6 +540,9 @@ def main() -> int:
     record.add_argument("--status", choices=["provided", "uploaded"], required=True)
     record.add_argument("--date", default=date.today().isoformat())
     record.add_argument("--notes", default="")
+    report = sub.add_parser("record-report")
+    report.add_argument("path", type=Path)
+    report.add_argument("--date", default=date.today().isoformat())
     check_parser = sub.add_parser("check")
     check_parser.add_argument("slugs", nargs="*")
     args = parser.parse_args()
@@ -476,6 +561,12 @@ def main() -> int:
         rows, articles = record_batch(args.path, args.status, day, notes=args.notes)
         refresh_tracker(day)
         print(f"Recorded {rows} rows across {articles} articles as {args.status}")
+        print(f"Tracker: {ARTICLE_TRACKER.relative_to(REPO)}")
+        return 0
+    if args.command == "record-report":
+        day = valid_day(args.date)
+        accepted, rejected = record_report(args.path, day)
+        print(f"Pinterest report recorded: {accepted} accepted, {rejected} rejected")
         print(f"Tracker: {ARTICLE_TRACKER.relative_to(REPO)}")
         return 0
     return check(args.slugs)

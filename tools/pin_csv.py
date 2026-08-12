@@ -264,6 +264,12 @@ def main():
         sys.exit("DUPLICATE PIN LINK: Pinterest accepts only the first identical "
                  "destination in one bulk CSV. Use a unique, real article "
                  "section anchor for each image.")
+    title_key = args.title.strip().casefold()
+    seen_titles = {r.get("Title", "").strip().casefold() for r in rows}
+    if title_key in seen_titles:
+        sys.exit("DUPLICATE PIN TITLE: Pinterest rejects later rows with the "
+                 "same title. Every Title in one CSV must be unique and "
+                 "describe that specific image.")
     media_key = args.media_url.strip()
     seen = {r["Media URL"].strip() for r in rows}
     for arch in (PINS / "uploaded").glob(f"{args.listing}__uploaded_*.csv"):

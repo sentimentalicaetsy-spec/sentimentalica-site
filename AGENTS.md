@@ -239,6 +239,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    Pinterest SEO keywords plus a search-led title and image-type-specific CTA.
    Repeated identical Links in one CSV are forbidden: use unique real article
    section anchors for multi-image batches and omit already-successful rows from retries.
+   Every Title in a CSV must also be unique; Pinterest rejects later repeats as
+   `Multiples rows with the same title`. For a downloaded result CSV with an
+   `error` column, run `pinterest_tracker.py record-report`: blank errors are
+   accepted rows and only nonblank-error rows belong in the retry.
    Pinterest titles use `CTA first: keyword phrase`; em/en dashes are forbidden
    in both Title and Description because they make the copy read as AI-written.
    **Every future article image must be Pinterest/CSV-ready at publication time,

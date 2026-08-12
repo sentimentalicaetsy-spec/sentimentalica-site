@@ -186,6 +186,12 @@ Follow Pinterest's current bulk-upload template exactly. Header order:
   section in the live article. Do not fabricate unrelated URLs or use tracking
   parameters merely to bypass deduplication. A retry CSV contains only failed
   rows, never the row Pinterest already created successfully.
+- Every `Title` in one CSV must also be unique. Pinterest reports later repeated
+  titles as `Multiples rows with the same title`, even when Media URL, Link,
+  description, and board differ. Add a truthful image-specific subject or
+  technique after the CTA; never use meaningless numbers. A downloaded result
+  CSV may add an `error` column: retry only rows with a nonblank error, remove
+  that report-only column, and never resend blank-error rows already accepted.
 - `Publish date` may be blank for immediate publishing, `YYYY-MM-DD`, or
   `YYYY-MM-DDTHH:MM:SS`; a timed value represents UTC.
 - `Keywords` is mandatory: 5–10 unique comma-separated Pinterest search terms
@@ -282,6 +288,11 @@ Mandatory workflow whenever Ksenia requests a Pinterest CSV:
    separately. Commit and push the tracker, ledger, archived handed-off batch,
    and any real article anchors needed by its Links so the next agent can use
    the same source of truth.
+
+When Pinterest supplies a downloaded result CSV, run `python3
+tools/pinterest_tracker.py record-report <downloaded-report.csv>`. It records
+blank-error rows as accepted and preserves rejected rows and their exact errors
+without falsely marking the entire batch successful.
 
 For a current article whose image set changes after a CSV was created, the
 tracker compares the ledger to the article's current `<div class="post-body">`

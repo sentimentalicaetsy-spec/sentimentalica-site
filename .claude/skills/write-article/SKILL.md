@@ -92,6 +92,9 @@ search-led title and truthful image-type CTA for every row using the SEO/CTA
 mapping in `PIN_STRATEGY.md`. Never repeat an identical Link within one CSV:
 multi-image articles require a unique real `#section-anchor` per row, present in
 the live article. Retry CSVs include failed rows only, not successful Pins.
+Every Title within one CSV must also be unique and image-specific. Pinterest's
+downloaded result marks later repeats as `Multiples rows with the same title`;
+retry only its nonblank-error rows and never resend blank-error rows.
 Format every title as `CTA first: Pinterest keyword phrase`. Never use em/en
 dashes in Pinterest titles or descriptions; use plain human sentences.
 
