@@ -1,6 +1,46 @@
 {
   "posts": [
     {
+      "slug": "a-christmas-junk-journal-made-from-one-day-at-home",
+      "title": "A Christmas Junk Journal Made From One Day at Home",
+      "category": "Christmas Junk Journal",
+      "excerpt": "Turn one ordinary December day into a Christmas junk journal spread using paper traces, winter light, a familiar scent, and one true sentence.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-christmas-junk-journal-made-from-one-day-at-home/gen2.png"
+    },
+    {
+      "slug": "how-to-choose-vintage-wallpaper-without-making-your-phone-feel-busy",
+      "title": "How to Choose Vintage Wallpaper Without Making Your Phone Feel Busy",
+      "category": "Vintage Wallpaper Inspo",
+      "excerpt": "Choose vintage wallpaper with one focal object, quiet clock space, restrained pattern, and enough contrast for a beautiful but usable phone.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-choose-vintage-wallpaper-without-making-your-phone-feel-busy/gen2.png"
+    },
+    {
+      "slug": "a-butterfly-specimen-journal-built-around-one-sighting",
+      "title": "A Butterfly Specimen Journal Built Around One Sighting",
+      "category": "Butterfly Journal Inspiration",
+      "excerpt": "Build a butterfly journal spread from one observed color, flight pattern, habitat clue, and unanswered question without making the page feel crowded.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-butterfly-specimen-journal-built-around-one-sighting/gen2.png"
+    },
+    {
+      "slug": "how-to-press-flowers-for-junk-journal-pages",
+      "title": "How to Press Flowers for Junk Journal Pages",
+      "category": "Pressed Flower Craft Ideas",
+      "excerpt": "Press small flowers safely, dry them fully, and add them to junk journal pages without trapped moisture, bulky stems, or fragile clutter.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-press-flowers-for-junk-journal-pages/gen2.png"
+    },
+    {
       "slug": "15-creative-journal-prompts-from-one-ordinary-object",
       "title": "15 Creative Journal Prompts From One Ordinary Object",
       "category": "Creative Journal Prompts",
