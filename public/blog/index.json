@@ -1,6 +1,76 @@
 {
   "posts": [
     {
+      "slug": "first-junk-journal-pocket-in-four-steps",
+      "title": "Your First Junk Journal Pocket in Four Steps",
+      "category": "Beginner Junk Journaling",
+      "excerpt": "Make a simple paper pocket that opens easily, holds one card, and lies flat inside a beginner journal.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "3 min read",
+      "thumb": "blog/img/first-junk-journal-pocket-in-four-steps/gen2.png"
+    },
+    {
+      "slug": "beginner-junk-journal-paper-picks",
+      "title": "Beginner Junk Journal Paper Picks: Start With Five",
+      "category": "Beginner Junk Journaling",
+      "excerpt": "Build a useful beginner paper collection from one base, book page, pattern, translucent layer, and writing card.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/beginner-junk-journal-paper-picks/gen2.png"
+    },
+    {
+      "slug": "easter-recipe-memory-page",
+      "title": "How to Make an Easter Recipe Memory Page",
+      "category": "Easter Journal Inspiration",
+      "excerpt": "Preserve an Easter recipe with its maker, table colors, ingredient trace, and the small story of the day.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/easter-recipe-memory-page/gen2.png"
+    },
+    {
+      "slug": "early-spring-junk-journal-color-palette",
+      "title": "An Early Spring Junk Journal Palette in Four Colors",
+      "category": "Spring Junk Journal Ideas",
+      "excerpt": "Combine rain blue, first green, blossom pink, and warm earth without making a spring page feel busy.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/early-spring-junk-journal-color-palette/gen2.png"
+    },
+    {
+      "slug": "spring-journal-pocket-from-one-garden-walk",
+      "title": "A Spring Journal Pocket From One Garden Walk",
+      "category": "Spring Junk Journal Ideas",
+      "excerpt": "Turn one slow garden walk into a spring memory pocket using color, shape, place, and one true sentence.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "2 min read",
+      "thumb": "blog/img/spring-journal-pocket-from-one-garden-walk/gen2.png"
+    },
+    {
+      "slug": "paper-storage-mistakes-that-hide-your-best-supplies",
+      "title": "5 Paper Storage Mistakes That Hide Your Best Supplies",
+      "category": "Journal Mistakes to Avoid",
+      "excerpt": "Make favorite papers easier to see and use by fixing five common storage habits.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "3 min read",
+      "thumb": "blog/img/paper-storage-mistakes-that-hide-your-best-supplies/gen2.png"
+    },
+    {
+      "slug": "glue-mistakes-to-avoid-in-a-junk-journal",
+      "title": "6 Glue Mistakes to Avoid in a Junk Journal",
+      "category": "Journal Mistakes to Avoid",
+      "excerpt": "Prevent warped paper, stiff folds, stains, and loose fabric by changing six small adhesive habits.",
+      "date": "2026-08-13",
+      "dateDisplay": "Aug 13",
+      "readTime": "3 min read",
+      "thumb": "blog/img/glue-mistakes-to-avoid-in-a-junk-journal/gen2.png"
+    },
+    {
       "slug": "first-junk-journal-spread-with-five-things",
       "title": "Your First Junk Journal Spread With Only Five Things",
       "category": "Beginner Junk Journaling",
