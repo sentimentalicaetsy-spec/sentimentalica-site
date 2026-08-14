@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "nectar-bloom-tropical-botanical-journal-palette",
+      "title": "A Nectar Bloom Palette for Tropical Botanical Journals",
+      "category": "Bird Journal Inspiration",
+      "excerpt": "Pair rainforest green, nectar cream, leaf sage, and coral bloom for tropical journal pages with warmth, movement, and calm.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "2 min read",
+      "thumb": "blog/img/nectar-bloom-tropical-botanical-journal-palette/palette-1.jpg"
+    },
+    {
+      "slug": "petal-mist-soft-floral-journal-color-palette",
+      "title": "A Petal Mist Palette for Soft Floral Journaling",
+      "category": "Spring Junk Journal Ideas",
+      "excerpt": "Balance poppy ink, petal ivory, misty rose, and burnished gold for soft floral pages with clear focal points and room to write.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "2 min read",
+      "thumb": "blog/img/petal-mist-soft-floral-journal-color-palette/palette-1.jpg"
+    },
+    {
+      "slug": "gilded-blush-elegant-journal-color-palette",
+      "title": "A Gilded Blush Palette for Elegant Journal Pages",
+      "category": "Vintage Wallpaper Inspo",
+      "excerpt": "Use rosewood, porcelain, antique blush, and gilded honey to make polished journal pages that still feel handmade.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "2 min read",
+      "thumb": "blog/img/gilded-blush-elegant-journal-color-palette/palette-1.jpg"
+    },
+    {
+      "slug": "foxglove-hollow-woodland-journal-color-palette",
+      "title": "A Foxglove Hollow Woodland Palette for Nature Journals",
+      "category": "Forest Journal Inspiration",
+      "excerpt": "Combine forest ink, parchment, moss fern, and foxglove gold for woodland pages that feel warm, layered, and easy to write in.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "2 min read",
+      "thumb": "blog/img/foxglove-hollow-woodland-journal-color-palette/palette-1.jpg"
+    },
+    {
+      "slug": "velvet-vow-romantic-junk-journal-color-palette",
+      "title": "A Velvet Vow Color Palette for Romantic Junk Journals",
+      "category": "Vintage Wallpaper Inspo",
+      "excerpt": "Build a romantic journal palette with midnight teal, vow ivory, dusty rose, and velvet plum\u2014then keep every layer balanced and usable.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "2 min read",
+      "thumb": "blog/img/velvet-vow-romantic-junk-journal-color-palette/palette-1.jpg"
+    },
+    {
       "slug": "vintage-collage-from-five-paper-clues",
       "title": "Build a Vintage Collage From Five Paper Clues",
       "category": "Vintage Collage Ideas",
