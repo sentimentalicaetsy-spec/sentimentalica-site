@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "vintage-collage-from-five-paper-clues",
+      "title": "Build a Vintage Collage From Five Paper Clues",
+      "category": "Vintage Collage Ideas",
+      "excerpt": "Combine a receipt, label, handwritten line, map fragment, and date stamp into one restrained story-led collage.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "3 min read",
+      "thumb": "blog/img/vintage-collage-from-five-paper-clues/gen2.png"
+    },
+    {
+      "slug": "first-envelope-flip-out-for-a-junk-journal",
+      "title": "Your First Envelope Flip-Out for a Junk Journal",
+      "category": "Beginner Junk Journaling",
+      "excerpt": "Turn one flat envelope into a light beginner flip-out with a paper hinge and one useful writing card.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "3 min read",
+      "thumb": "blog/img/first-envelope-flip-out-for-a-junk-journal/gen2.png"
+    },
+    {
+      "slug": "gentle-ways-to-repair-a-torn-journal-page",
+      "title": "5 Gentle Ways to Repair a Torn Journal Page",
+      "category": "Journal Mistakes to Avoid",
+      "excerpt": "Repair a dry torn page with thin backing paper, tissue, stitching, a pocket, or one visible clean scar.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "3 min read",
+      "thumb": "blog/img/gentle-ways-to-repair-a-torn-journal-page/gen2.png"
+    },
+    {
+      "slug": "journal-prompts-from-one-photograph",
+      "title": "12 Journal Prompts From One Photograph",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Use one photograph to remember place, sound, change, missing details, and the story outside the frame.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "2 min read",
+      "thumb": "blog/img/journal-prompts-from-one-photograph/gen2.png"
+    },
+    {
+      "slug": "balanced-junk-journal-spread-in-three-clusters",
+      "title": "A Balanced Junk Journal Spread in Three Clusters",
+      "category": "Junk Journal Layout Ideas",
+      "excerpt": "Arrange one main story, one supporting clue, and one quiet note to make a layered spread feel balanced.",
+      "date": "2026-08-14",
+      "dateDisplay": "Aug 14",
+      "readTime": "3 min read",
+      "thumb": "blog/img/balanced-junk-journal-spread-in-three-clusters/gen2.png"
+    },
+    {
       "slug": "first-junk-journal-pocket-in-four-steps",
       "title": "Your First Junk Journal Pocket in Four Steps",
       "category": "Beginner Junk Journaling",
