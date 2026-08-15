@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "moonlit-navy-cream-and-gold-journal-color-palette",
+      "title": "A Moonlit Navy, Cream, Mist Blue and Gold Journal Palette",
+      "category": "Color Palettes",
+      "excerpt": "Build an atmospheric moonlit junk journal palette with navy, cream, mist blue, and one restrained golden accent.",
+      "date": "2026-08-15",
+      "dateDisplay": "Aug 15",
+      "readTime": "1 min read",
+      "thumb": "blog/img/moonlit-navy-cream-and-gold-journal-color-palette/palette-1.jpg"
+    },
+    {
+      "slug": "bright-color-palette-for-junk-journals-without-chaos",
+      "title": "How to Use Bright Colors in a Junk Journal Without Chaos",
+      "category": "Color Palettes",
+      "excerpt": "A four-color method for turning rainbow watercolor pages into a bright, spacious junk journal that still feels calm.",
+      "date": "2026-08-15",
+      "dateDisplay": "Aug 15",
+      "readTime": "1 min read",
+      "thumb": "blog/img/bright-color-palette-for-junk-journals-without-chaos/palette-2.jpg"
+    },
+    {
+      "slug": "how-to-use-the-color-wheel-for-junk-journal-palettes",
+      "title": "How to Use the Color Wheel for Junk Journal Palettes",
+      "category": "Color Palettes",
+      "excerpt": "A complete 12-hue color wheel and a simple method for choosing balanced junk journal colors without overthinking every scrap.",
+      "date": "2026-08-15",
+      "dateDisplay": "Aug 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-use-the-color-wheel-for-junk-journal-palettes/color-wheel.png"
+    },
+    {
+      "slug": "one-photo-scrapbook-layout-with-five-scraps",
+      "title": "One-Photo Scrapbook Layout Using Just Five Paper Scraps",
+      "category": "Scrapbooking Inspo",
+      "excerpt": "Turn one favorite photograph and five leftover paper pieces into a spacious scrapbook layout with an easy visual path.",
+      "date": "2026-08-15",
+      "dateDisplay": "Aug 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/one-photo-scrapbook-layout-with-five-scraps/atmospheric.png"
+    },
+    {
+      "slug": "five-layer-junk-journal-page-tutorial",
+      "title": "How to Build a Junk Journal Page in Five Easy Layers",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "A beginner-friendly five-layer junk journal formula that makes collected scraps feel balanced, tactile, and complete.",
+      "date": "2026-08-15",
+      "dateDisplay": "Aug 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/five-layer-junk-journal-page-tutorial/atmospheric.png"
+    },
+    {
       "slug": "nectar-bloom-tropical-botanical-journal-palette",
       "title": "A Nectar Bloom Palette for Tropical Botanical Journals",
       "category": "Bird Journal Inspiration",
