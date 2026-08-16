@@ -1,6 +1,106 @@
 {
   "posts": [
     {
+      "slug": "a-ten-minute-journal-reset-for-a-low-energy-day",
+      "title": "A Ten-Minute Journal Reset for a Low-Energy Day",
+      "category": "Mood Boosting Journaling",
+      "excerpt": "Use color, one honest sentence, and a tiny physical action to make a journal page when your energy is low.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-ten-minute-journal-reset-for-a-low-energy-day/process.png"
+    },
+    {
+      "slug": "rainy-blue-linen-plum-and-brass-journal-palette",
+      "title": "Rainy Blue, Linen, Plum and Brass Journal Palette",
+      "category": "Cozy Season Color Palettes",
+      "excerpt": "Make cool rainy-day blues feel intimate with natural linen, muted plum, and a small antique-brass accent.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/rainy-blue-linen-plum-and-brass-journal-palette/palette.png"
+    },
+    {
+      "slug": "cocoa-oat-moss-and-ember-for-cozy-journal-pages",
+      "title": "Cocoa, Oat, Moss and Ember for Cozy Journal Pages",
+      "category": "Cozy Season Color Palettes",
+      "excerpt": "Balance deep cocoa, soft oat, muted moss, and ember orange for journal pages that feel warm without becoming dark.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/cocoa-oat-moss-and-ember-for-cozy-journal-pages/palette.png"
+    },
+    {
+      "slug": "how-to-create-softly-distressed-paper-edges",
+      "title": "How to Create Softly Distressed Paper Edges",
+      "category": "Paper Distressing Ideas",
+      "excerpt": "Combine tearing, sanding, brushing, and a restrained ink shadow for edges that look naturally handled rather than damaged.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-create-softly-distressed-paper-edges/atmospheric.png"
+    },
+    {
+      "slug": "tea-stain-paper-without-warping-or-brittle-edges",
+      "title": "Tea-Stain Paper Without Warping or Brittle Edges",
+      "category": "Paper Distressing Ideas",
+      "excerpt": "Create softly aged paper with controlled tea color, flat drying, and gentle handling that keeps sheets useful.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/tea-stain-paper-without-warping-or-brittle-edges/process.png"
+    },
+    {
+      "slug": "build-a-scrapbook-page-around-one-saved-object",
+      "title": "Build a Scrapbook Page Around One Saved Object",
+      "category": "Scrapbooking Inspo",
+      "excerpt": "Let an ordinary saved object lead the photograph, palette, texture, and writing on a meaningful scrapbook spread.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/build-a-scrapbook-page-around-one-saved-object/process.png"
+    },
+    {
+      "slug": "how-to-scrapbook-a-photo-backlog-without-the-pressure",
+      "title": "How to Scrapbook a Photo Backlog Without the Pressure",
+      "category": "Scrapbooking Tips",
+      "excerpt": "Turn an intimidating photo backlog into a small, enjoyable system that protects stories without demanding perfect albums.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-scrapbook-a-photo-backlog-without-the-pressure/atmospheric.png"
+    },
+    {
+      "slug": "use-a-visual-triangle-to-fix-a-flat-scrapbook-layout",
+      "title": "Use a Visual Triangle to Fix a Flat Scrapbook Layout",
+      "category": "Scrapbooking Tips",
+      "excerpt": "Repeat one accent color in three places to guide the eye around a scrapbook page without adding clutter.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/use-a-visual-triangle-to-fix-a-flat-scrapbook-layout/process.png"
+    },
+    {
+      "slug": "a-layered-vellum-window-page-for-your-junk-journal",
+      "title": "A Layered Vellum Window Page for Your Junk Journal",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Build a soft translucent journal window that reveals a botanical drawing one layer at a time.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-layered-vellum-window-page-for-your-junk-journal/atmospheric.png"
+    },
+    {
+      "slug": "how-to-make-a-hidden-envelope-hinge-in-a-junk-journal",
+      "title": "How to Make a Hidden Envelope Hinge in a Junk Journal",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Attach an envelope so it opens like a secret door while keeping the journal page flexible and tidy.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-make-a-hidden-envelope-hinge-in-a-junk-journal/process.png"
+    },
+    {
       "slug": "moon-forest-palette-for-quiet-halloween-journals",
       "title": "A Moon Forest Palette for Quiet Halloween Journals",
       "category": "Halloween Junk Journal Ideas",
