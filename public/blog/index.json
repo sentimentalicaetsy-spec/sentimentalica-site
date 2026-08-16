@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "slug": "honey-gold-olive-sunflower-journal-palette",
+      "title": "A Honey Gold and Olive Sunflower Journal Palette",
+      "category": "Color Palettes",
+      "excerpt": "Balance cheerful sunflower gold with parchment, olive, and deep umber for warm journal pages that never feel too bright.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "1 min read",
+      "thumb": "blog/img/honey-gold-olive-sunflower-journal-palette/palette-2.jpg"
+    },
+    {
+      "slug": "scrapbook-page-with-hidden-journaling",
+      "title": "Make a Scrapbook Page With Hidden Journaling",
+      "category": "Scrapbooking Inspo",
+      "excerpt": "Keep a scrapbook layout calm while preserving the full story beneath a simple hinged photograph.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/scrapbook-page-with-hidden-journaling/atmospheric.png"
+    },
+    {
+      "slug": "torn-paper-window-junk-journal-tutorial",
+      "title": "How to Make a Torn-Paper Window in a Junk Journal",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Create a soft torn-paper window that reveals a hidden image and adds depth without making your journal page bulky.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/torn-paper-window-junk-journal-tutorial/process.png"
+    },
+    {
       "slug": "moonlit-navy-cream-and-gold-journal-color-palette",
       "title": "A Moonlit Navy, Cream, Mist Blue and Gold Journal Palette",
       "category": "Color Palettes",
