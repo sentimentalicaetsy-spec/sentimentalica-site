@@ -11,26 +11,6 @@
       "thumb": "blog/img/a-ten-minute-journal-reset-for-a-low-energy-day/process.png"
     },
     {
-      "slug": "rainy-blue-linen-plum-and-brass-journal-palette",
-      "title": "Rainy Blue, Linen, Plum and Brass Journal Palette",
-      "category": "Cozy Season Color Palettes",
-      "excerpt": "Make cool rainy-day blues feel intimate with natural linen, muted plum, and a small antique-brass accent.",
-      "date": "2026-08-16",
-      "dateDisplay": "Aug 16",
-      "readTime": "2 min read",
-      "thumb": "blog/img/rainy-blue-linen-plum-and-brass-journal-palette/palette.png"
-    },
-    {
-      "slug": "cocoa-oat-moss-and-ember-for-cozy-journal-pages",
-      "title": "Cocoa, Oat, Moss and Ember for Cozy Journal Pages",
-      "category": "Cozy Season Color Palettes",
-      "excerpt": "Balance deep cocoa, soft oat, muted moss, and ember orange for journal pages that feel warm without becoming dark.",
-      "date": "2026-08-16",
-      "dateDisplay": "Aug 16",
-      "readTime": "2 min read",
-      "thumb": "blog/img/cocoa-oat-moss-and-ember-for-cozy-journal-pages/palette.png"
-    },
-    {
       "slug": "how-to-create-softly-distressed-paper-edges",
       "title": "How to Create Softly Distressed Paper Edges",
       "category": "Paper Distressing Ideas",
@@ -99,6 +79,26 @@
       "dateDisplay": "Aug 16",
       "readTime": "2 min read",
       "thumb": "blog/img/how-to-make-a-hidden-envelope-hinge-in-a-junk-journal/process.png"
+    },
+    {
+      "slug": "rainy-blue-linen-plum-and-brass-journal-palette",
+      "title": "Rainy Blue, Linen, Plum and Brass Journal Palette",
+      "category": "Cozy Season Color Palettes",
+      "excerpt": "Make cool rainy-day blues feel intimate with natural linen, muted plum, and a small antique-brass accent.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/rainy-blue-linen-plum-and-brass-journal-palette/palette.png"
+    },
+    {
+      "slug": "cocoa-oat-moss-and-ember-for-cozy-journal-pages",
+      "title": "Cocoa, Oat, Moss and Ember for Cozy Journal Pages",
+      "category": "Cozy Season Color Palettes",
+      "excerpt": "Balance deep cocoa, soft oat, muted moss, and ember orange for journal pages that feel warm without becoming dark.",
+      "date": "2026-08-16",
+      "dateDisplay": "Aug 16",
+      "readTime": "2 min read",
+      "thumb": "blog/img/cocoa-oat-moss-and-ember-for-cozy-journal-pages/palette.png"
     },
     {
       "slug": "moon-forest-palette-for-quiet-halloween-journals",
