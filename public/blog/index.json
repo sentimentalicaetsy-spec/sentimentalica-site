@@ -1,6 +1,116 @@
 {
   "posts": [
     {
+      "slug": "frost-pine-wool-and-berry-a-winter-journal-palette",
+      "title": "Frost, Pine, Wool and Berry: A Winter Journal Palette",
+      "category": "Winter Junk Journal Ideas",
+      "excerpt": "Build a calm winter journal palette with icy blue, deep pine, warm wool, and one restrained berry accent.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/frost-pine-wool-and-berry-a-winter-journal-palette/palette.png"
+    },
+    {
+      "slug": "a-wildflower-field-note-page-you-can-make-after-one-walk",
+      "title": "A Wildflower Field Note Page You Can Make After One Walk",
+      "category": "Wildflower Journal",
+      "excerpt": "Turn one ordinary walk into a useful wildflower field note with a specimen, place, palette, habitat, and sensory detail.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/a-wildflower-field-note-page-you-can-make-after-one-walk/infographic.png"
+    },
+    {
+      "slug": "duck-egg-faded-rose-parchment-and-walnut-wallpaper-palette",
+      "title": "Duck Egg, Faded Rose, Parchment and Walnut Wallpaper Palette",
+      "category": "Vintage Wallpaper Inspo",
+      "excerpt": "A faded floral wallpaper palette with four balanced colors for romantic rooms, paper crafts, and journal pages.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/duck-egg-faded-rose-parchment-and-walnut-wallpaper-palette/palette.png"
+    },
+    {
+      "slug": "ink-parchment-damask-rose-and-antique-gold",
+      "title": "Ink, Parchment, Damask Rose and Antique Gold",
+      "category": "Victorian Journal Inspiration",
+      "excerpt": "A restrained four-color Victorian journal palette that balances drama, romance, and readable aged-paper warmth.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/ink-parchment-damask-rose-and-antique-gold/palette.png"
+    },
+    {
+      "slug": "what-to-do-before-you-press-flowers-for-paper-crafts",
+      "title": "What to Do Before You Press Flowers for Paper Crafts",
+      "category": "Pressed Flower Craft Ideas",
+      "excerpt": "A practical preparation ritual that helps pressed flowers dry cleanly and keeps their date, place, and story attached.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/what-to-do-before-you-press-flowers-for-paper-crafts/notes.png"
+    },
+    {
+      "slug": "a-gentle-new-year-journal-reset-without-big-resolutions",
+      "title": "A Gentle New Year Journal Reset Without Big Resolutions",
+      "category": "New Year Journal Inspo",
+      "excerpt": "A softer New Year journal ritual for noticing what mattered, releasing pressure, and choosing one small direction for January.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/a-gentle-new-year-journal-reset-without-big-resolutions/notes.png"
+    },
+    {
+      "slug": "how-to-design-fantasy-wallpaper-that-keeps-icons-readable",
+      "title": "How to Design Fantasy Wallpaper That Keeps Icons Readable",
+      "category": "Fantasy Wallpaper Art",
+      "excerpt": "Use three calm zones, controlled contrast, and one focal point to make fantasy phone wallpaper that remains practical.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-design-fantasy-wallpaper-that-keeps-icons-readable/infographic.png"
+    },
+    {
+      "slug": "five-paper-distressing-effects-from-one-cream-sheet",
+      "title": "Five Paper Distressing Effects From One Cream Sheet",
+      "category": "Paper Distressing Ideas",
+      "excerpt": "Compare five controlled paper-distressing effects\u2014deckle, sanding, tea shadow, crumpling, and graphite\u2014without muddying the page.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/five-paper-distressing-effects-from-one-cream-sheet/infographic.png"
+    },
+    {
+      "slug": "clean-printable-cutting-where-to-start-and-when-to-turn",
+      "title": "Clean Printable Cutting: Where to Start and When to Turn",
+      "category": "Printable Cutting Tips",
+      "excerpt": "Five simple cutting habits for cleaner printable edges, smoother curves, and safer tiny paper details.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/clean-printable-cutting-where-to-start-and-when-to-turn/infographic.png"
+    },
+    {
+      "slug": "how-to-make-cottagecore-digital-pages-feel-handmade",
+      "title": "How to Make Cottagecore Digital Pages Feel Handmade",
+      "category": "Cottagecore Digital Pages",
+      "excerpt": "Five design choices that give cottagecore digital pages the softness, depth, and irregularity of handmade paper.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-make-cottagecore-digital-pages-feel-handmade/infographic.png"
+    },
+    {
+      "slug": "how-to-make-a-christmas-memory-pocket-that-feels-personal",
+      "title": "How to Make a Christmas Memory Pocket That Feels Personal",
+      "category": "Christmas Junk Journal",
+      "excerpt": "Turn one small holiday moment into a tactile Christmas journal pocket using a keepsake, a sensory detail, and one quiet finish.",
+      "date": "2026-08-18",
+      "dateDisplay": "Aug 18",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-make-a-christmas-memory-pocket-that-feels-personal/infographic.png"
+    },
+    {
       "slug": "a-ten-minute-journal-reset-for-a-low-energy-day",
       "title": "A Ten-Minute Journal Reset for a Low-Energy Day",
       "category": "Mood Boosting Journaling",
