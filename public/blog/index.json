@@ -1,6 +1,66 @@
 {
   "posts": [
     {
+      "slug": "how-to-make-a-wildflower-phenology-wheel",
+      "title": "How to Make a Wildflower Phenology Wheel",
+      "category": "Wildflower Journal",
+      "excerpt": "Track one small wildflower patch through four seasons with a circular field-note page and six repeatable observations.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-make-a-wildflower-phenology-wheel/infographic.png"
+    },
+    {
+      "slug": "how-to-build-a-waterfall-flip-from-printable-cards",
+      "title": "How to Build a Waterfall Flip From Printable Cards",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "A complete waterfall-flip tutorial with a cutting map, assembly sequence, spacing rule, and troubleshooting guide.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-build-a-waterfall-flip-from-printable-cards/assembly.png"
+    },
+    {
+      "slug": "how-to-print-and-frame-printable-wall-art-without-losing-detail",
+      "title": "How to Print and Frame Printable Wall Art Without Losing Detail",
+      "category": "Printable Wall Art",
+      "excerpt": "Match image ratio, paper, printer settings, and frame protection so printable wall art stays sharp and balanced.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-print-and-frame-printable-wall-art-without-losing-detail/infographic.png"
+    },
+    {
+      "slug": "how-to-fussy-cut-lace-leaves-and-tiny-curves-cleanly",
+      "title": "How to Fussy Cut Lace, Leaves and Tiny Curves Cleanly",
+      "category": "Printable Cutting Tips",
+      "excerpt": "A controlled five-step method for cutting intricate printable details without torn stems, flat curves, or white halos.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-fussy-cut-lace-leaves-and-tiny-curves-cleanly/infographic.png"
+    },
+    {
+      "slug": "how-to-bind-a-junk-journal-with-a-five-hole-pamphlet-stitch",
+      "title": "How to Bind a Junk Journal With a Five-Hole Pamphlet Stitch",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "A complete five-hole pamphlet-stitch tutorial with measuring, sewing-path, and troubleshooting diagrams.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-bind-a-junk-journal-with-a-five-hole-pamphlet-stitch/path.png"
+    },
+    {
+      "slug": "antique-library-journal-inspiration-from-shelf-to-page",
+      "title": "Antique Library Journal Inspiration From Shelf to Page",
+      "category": "Antique Library Inspiration",
+      "excerpt": "Translate walnut shelves, parchment cards, oxidized green, and brass details into a layered antique-library journal page.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "1 min read",
+      "thumb": "blog/img/antique-library-journal-inspiration-from-shelf-to-page/infographic.png"
+    },
+    {
       "slug": "frost-pine-wool-and-berry-a-winter-journal-palette",
       "title": "Frost, Pine, Wool and Berry: A Winter Journal Palette",
       "category": "Winter Junk Journal Ideas",
