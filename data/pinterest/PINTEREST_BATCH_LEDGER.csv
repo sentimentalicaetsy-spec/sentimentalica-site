@@ -23,6 +23,7 @@
 Dragon_Fire.csv,4,1,2026-08-08,2026-08-23,Historical CSV record; handoff status unknown,,,,,,,2026-08-12,
 Nouveau_Goddess.csv,4,1,2026-08-06,2026-08-21,Historical CSV record; handoff status unknown,,,,,,,2026-08-12,
 UPLOAD_NOW_RETRY_14-scheduling-limit_2026-08-11.csv,14,7,,,Historical CSV record; handoff status unknown,,,,,,,2026-08-12,
+UPLOAD_NOW_all_unpublished_articles_2026-08-21.csv,130,43,,,CSV provided to Ksenia; Pinterest upload not confirmed,2026-08-21,,,,,data/pinterest/batches/UPLOAD_NOW_all_unpublished_articles_2026-08-21.csv,2026-08-21,
 UPLOAD_RETRY_14-corrected-image-files_2026-08-10.csv,14,7,2026-08-11,2026-08-21,Historical CSV record; handoff status unknown,,,,,,,2026-08-12,
 UPLOAD_RETRY_ONLY_38-duplicate-titles-fixed_2026-08-12.csv,38,20,2026-08-12,2026-08-16,CSV provided to Ksenia; Pinterest upload not confirmed,2026-08-12,,,,,data/pinterest/batches/UPLOAD_RETRY_ONLY_38-duplicate-titles-fixed_2026-08-12.csv,2026-08-12,Retry contains only 38 rows Pinterest rejected for duplicate titles; titles corrected; original five-day publish dates retained.
 UPLOAD_THIS_11_articles_2026-08-29.csv,20,11,2026-08-29,2026-08-29,CSV provided to Ksenia; Pinterest upload not confirmed,2026-08-20,,,,,data/pinterest/batches/UPLOAD_THIS_11_articles_2026-08-29.csv,2026-08-20,20 approved article images scheduled for 2026-08-29; rejected iPhone Notes images excluded
