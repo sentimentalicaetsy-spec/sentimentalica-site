@@ -19,7 +19,9 @@ Usage:
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance, ImageFile, ImageFont, ImageOps
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gen_article_assets import name_of, palette_from  # noqa: E402
@@ -122,12 +124,17 @@ def fit_label(draw, text, max_width, base_size, bold=False):
 
 def main():
     img_path, _title, out = sys.argv[1], sys.argv[2], sys.argv[3]
+    source_name = Path(img_path).name.lower()
+    if "thumb" in source_name or "thumbnail" in source_name:
+        raise SystemExit(
+            "Palette source rejected: use an individual full-size listing page, never a thumbnail."
+        )
     layout = "allover"
     if "--layout" in sys.argv:
         layout = sys.argv[sys.argv.index("--layout") + 1].strip().lower()
     if layout not in {"allover"}:
         raise SystemExit("--layout must be allover")
-    shape = sys.argv[sys.argv.index("--shape") + 1].strip().lower() if "--shape" in sys.argv else "rect"
+    shape = sys.argv[sys.argv.index("--shape") + 1].strip().lower() if "--shape" in sys.argv else "square"
     if shape not in {"rect", "square"}:
         raise SystemExit("--shape must be rect or square")
     position = sys.argv[sys.argv.index("--position") + 1].strip().lower() if "--position" in sys.argv else "upper"

@@ -59,6 +59,39 @@ junk-journal/process scene, and a real-page carousel. Multi-listing comparison
 rows need up to 4 LIVE listings from one coherent category/theme cluster, one
 palette image per featured listing, plus one mockup/process image and a 2–3
 real-page carousel from a represented listing.
+
+### Listing palette protocol — hard publish gate
+
+Palette articles promote the listing through its real artwork. Fetch source pages
+from the shared Drive folder that contains the individual full-size printable
+JPEGs for that exact listing. A listing thumbnail, revised-thumbnail folder,
+Etsy collage, montage, mockup sheet, contact sheet, screenshot, or any filename
+containing `thumb`/`thumbnail` is forbidden. For a single-listing palette article,
+use three distinct showpiece pages from that listing; never repeat one page with
+different crops.
+
+Each palette visual is a portrait 1000x1500 composition with one real listing
+page full bleed and exactly four compact square swatches in one vertical column.
+Choose left, right, or center placement from genuine negative space so the
+swatches do not cover the page's focal artwork. Each swatch contains `01`–`04`,
+an elegant readable color name, and uppercase HEX. Curate four colors visibly
+present in the source page: a dark anchor, a light paper tone, a middle bridge,
+and a distinctive accent. The only footer is exactly `sentimentalica.com`.
+Never use wide horizontal bars, an opaque side panel, a generic card grid, or a
+palette detached from the promoted listing.
+
+Render these deterministic overlays with `tools/render_palette_card.py` and its
+square layout. This is the sole exception to the image-generation requirement
+below: the authenticated listing page is the artwork and code supplies only the
+precise swatch geometry and text. Before publication, compare the results at
+full size with these approved examples:
+`public/blog/img/velvet-vow-romantic-junk-journal-color-palette/palette-1.jpg`,
+`public/blog/img/foxglove-hollow-woodland-journal-color-palette/palette-2.jpg`,
+and `public/blog/img/moon-forest-palette-for-quiet-halloween-journals/palette-3.jpg`.
+Reject any image whose source identity is unclear, whose swatches hide the focal
+art, whose labels are cramped, or whose palette is not visibly grounded in the
+page. Repair deployed palette assets under versioned filenames to bypass CDN
+caches.
 Visual refs are typed: `refs/branding/` = global Sentimentalica look,
 `refs/infographics/` = useful graphics, `refs/iphone notes/` = authentic
 iPhone Notes subtype with no emoji at the start of list items,
@@ -70,7 +103,8 @@ only; do not reproduce their logo motif. Infographics and palette images may
 carry only the exact plain text `sentimentalica.com` where the workflow requires
 it. Atmospheric, process, mockup, iPhone Notes, and real-listing images receive
 no logo, URL, or site mark.
-For every non-iPhone infographic, the actual image-generation call MUST include
+For every non-iPhone infographic except the deterministic listing-page palette
+cards defined above, the actual image-generation call MUST include
 approved files from both `refs/infographics/approved-codex/` and
 `refs/branding/`. If reference-enabled generation fails, stop; never replace it
 with a reference-free prompt, generic card grid, shortened prompt, PIL/template,
