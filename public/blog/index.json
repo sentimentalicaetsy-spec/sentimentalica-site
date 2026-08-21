@@ -1,6 +1,46 @@
 {
   "posts": [
     {
+      "slug": "foxglove-hollow-color-palettes-for-autumn-woodland-journals",
+      "title": "Foxglove Hollow Color Palettes for Autumn Woodland Journals",
+      "category": "Color Palettes",
+      "excerpt": "Three woodland palettes sampled from Foxglove Hollow, with moss, fern, parchment, honey, and harvest gold for cozy autumn junk journals.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "2 min read",
+      "thumb": "blog/img/foxglove-hollow-color-palettes-for-autumn-woodland-journals/palette-1.jpg"
+    },
+    {
+      "slug": "firefly-glow-color-palettes-for-dark-academia-journals",
+      "title": "Firefly Glow Color Palettes for Dark Academia Journals",
+      "category": "Color Palettes",
+      "excerpt": "Three deep, luminous palettes sampled from Firefly Glow, balancing midnight blue, leather brown, aged vellum, candlelight, and amber for readable dark-academia pages.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "2 min read",
+      "thumb": "blog/img/firefly-glow-color-palettes-for-dark-academia-journals/palette-1.jpg"
+    },
+    {
+      "slug": "butterfly-study-color-palettes-for-naturalist-journals",
+      "title": "Butterfly Study Color Palettes for Naturalist Journals",
+      "category": "Color Palettes",
+      "excerpt": "Three quiet naturalist palettes drawn from the Butterfly Study printable pages, combining specimen cream, wing taupe, parchment, graphite, and amber.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "2 min read",
+      "thumb": "blog/img/butterfly-study-color-palettes-for-naturalist-journals/palette-1.jpg"
+    },
+    {
+      "slug": "velvet-archive-color-palettes-for-victorian-sewing-journals",
+      "title": "Velvet Archive Color Palettes for Victorian Sewing Journals",
+      "category": "Vintage Color Palettes",
+      "excerpt": "Three burgundy, parchment, rosewood, and antique-gold palettes sampled from the Velvet Archive printable pages, with practical formulas for cohesive Victorian sewing journals.",
+      "date": "2026-08-21",
+      "dateDisplay": "Aug 21",
+      "readTime": "2 min read",
+      "thumb": "blog/img/velvet-archive-color-palettes-for-victorian-sewing-journals/palette-1.jpg"
+    },
+    {
       "slug": "how-to-make-a-wildflower-phenology-wheel",
       "title": "How to Make a Wildflower Phenology Wheel",
       "category": "Wildflower Journal",
