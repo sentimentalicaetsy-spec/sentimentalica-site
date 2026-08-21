@@ -103,6 +103,23 @@ only; do not reproduce their logo motif. Infographics and palette images may
 carry only the exact plain text `sentimentalica.com` where the workflow requires
 it. Atmospheric, process, mockup, iPhone Notes, and real-listing images receive
 no logo, URL, or site mark.
+
+### iPhone Notes protocol — hard visual gate
+
+An iPhone Notes infographic must look like an authentic iOS Notes screenshot,
+not a decorative Notes-inspired poster. Use `tools/render_iphone_notes.py` and
+compare the result against `refs/iphone notes/` plus the approved production
+examples `public/blog/img/what-to-journal-when-you-have-nothing-to-say/blank-page-notes.png`
+and `public/blog/img/20-minute-creative-reset/creative-reset-notes.png`. Preserve
+the white iOS canvas, status bar, yellow Notes navigation, compact bold title,
+natural left-aligned list, grey checkbox circles or dashes, and bottom Notes
+toolbar. Use a small emoji cluster below or beside the title; emojis may trail a
+line but never begin list items. No botanical corner illustrations, ornamental
+sparkles, oversized poster typography, custom fonts, colored paper backgrounds,
+site mark, logo, or CTA. Reject the image if any list line is cramped, any emoji
+renders incorrectly, the toolbar is missing, or the result does not immediately
+read as a real Notes screenshot. Use a versioned filename for corrections.
+
 For every non-iPhone infographic except the deterministic listing-page palette
 cards defined above, the actual image-generation call MUST include
 approved files from both `refs/infographics/approved-codex/` and
