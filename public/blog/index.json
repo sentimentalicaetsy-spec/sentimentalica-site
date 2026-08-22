@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "one-handmade-card-recipe-for-any-occasion",
+      "title": "One Handmade Card Recipe for Any Occasion",
+      "category": "Printable Craft Projects",
+      "excerpt": "Use one reliable layered-card construction for birthdays, thank-yous, weddings and Christmas\u2014then change only the greeting and final details.",
+      "date": "2026-08-22",
+      "dateDisplay": "Aug 22",
+      "readTime": "2 min read",
+      "thumb": "blog/img/one-handmade-card-recipe-for-any-occasion/card-guide.png"
+    },
+    {
+      "slug": "spooky-secret-letter-pocket-for-a-junk-journal",
+      "title": "How to Make a Spooky Secret-Letter Pocket for a Junk Journal",
+      "category": "Halloween Scrapbooking",
+      "excerpt": "Fold a dark romantic secret-letter pocket with a vellum window, hidden note, dried-rose layers and a simple thread closure.",
+      "date": "2026-08-22",
+      "dateDisplay": "Aug 22",
+      "readTime": "2 min read",
+      "thumb": "blog/img/spooky-secret-letter-pocket-for-a-junk-journal/spooky-guide.png"
+    },
+    {
+      "slug": "cozy-autumn-color-palette-for-journal-pages",
+      "title": "Cozy Autumn Color Palette for Warm Journal Pages",
+      "category": "Vintage Color Palettes",
+      "excerpt": "Build a warm autumn journal palette with cream, rust, olive, walnut and a small touch of dusty blue\u2014using three real Cozy Autumn printable pages.",
+      "date": "2026-08-22",
+      "dateDisplay": "Aug 22",
+      "readTime": "2 min read",
+      "thumb": "blog/img/cozy-autumn-color-palette-for-journal-pages/palette-guide.png"
+    },
+    {
+      "slug": "how-to-use-busy-backgrounds-without-losing-the-message",
+      "title": "How to Use Busy Backgrounds Without Losing the Message",
+      "category": "Scrapbooking Tips",
+      "excerpt": "Five practical ways to make text readable on decorative printable papers without hiding the pattern that made you choose them.",
+      "date": "2026-08-22",
+      "dateDisplay": "Aug 22",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-use-busy-backgrounds-without-losing-the-message/tips-guide.png"
+    },
+    {
+      "slug": "an-autumn-memory-page-from-the-first-cool-evening",
+      "title": "An Autumn Memory Page From the First Cool Evening",
+      "category": "Autumn Junk Journal Ideas",
+      "excerpt": "Capture the first evening that truly feels like autumn with five small sensory details and a simple layered journal-page plan.",
+      "date": "2026-08-22",
+      "dateDisplay": "Aug 22",
+      "readTime": "2 min read",
+      "thumb": "blog/img/an-autumn-memory-page-from-the-first-cool-evening/autumn-guide.png"
+    },
+    {
       "slug": "foxglove-hollow-color-palettes-for-autumn-woodland-journals",
       "title": "Foxglove Hollow Color Palettes for Autumn Woodland Journals",
       "category": "Color Palettes",
