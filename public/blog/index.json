@@ -1,6 +1,106 @@
 {
   "posts": [
     {
+      "slug": "wild-deer-woodland-palettes-beyond-plain-brown",
+      "title": "Wild Deer Woodland Palettes Beyond Plain Brown",
+      "category": "Forest Journal Inspiration",
+      "excerpt": "Woodland color can move far beyond plain brown. The Wild Deer pages reveal pine green, botanical violet, blackberry black, and weathered cream\u2014colors that make forest journals feel deep and alive.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/wild-deer-woodland-palettes-beyond-plain-brown/gen1.png"
+    },
+    {
+      "slug": "tea-bloom-color-palettes-for-quiet-botanical-journals",
+      "title": "Tea Bloom Color Palettes for Quiet Botanical Journals",
+      "category": "Vintage Color Palettes",
+      "excerpt": "Quiet botanical pages need contrast, but they do not need harsh black. Tea Bloom finds depth in olive leaves and tea-stained brown, then keeps the page light with cream and a measured apricot glow.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/tea-bloom-color-palettes-for-quiet-botanical-journals/gen1.png"
+    },
+    {
+      "slug": "star-map-palettes-for-celestial-journal-pages",
+      "title": "Star Map Palettes for Celestial Journal Pages",
+      "category": "Fantasy Journal Inspiration",
+      "excerpt": "Celestial pages are strongest when midnight blue has somewhere quiet to rest. Star Map pairs deep sky tones with parchment, moon grey, and restrained antique gold for readable, layered journal spreads.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/star-map-palettes-for-celestial-journal-pages/gen1.png"
+    },
+    {
+      "slug": "seven-paper-texture-pairings-that-always-look-collected",
+      "title": "Seven Paper Texture Pairings That Always Look Collected",
+      "category": "Scrapbooking Inspo",
+      "excerpt": "Seven reliable paper texture pairings for layered journal and scrapbook pages that feel collected rather than cluttered.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/seven-paper-texture-pairings-that-always-look-collected/gen1.png"
+    },
+    {
+      "slug": "one-photo-three-scraps-a-balanced-scrapbook-layout",
+      "title": "One Photo, Three Scraps: A Balanced Scrapbook Layout",
+      "category": "Scrapbooking Tips",
+      "excerpt": "Create a balanced scrapbook layout with one photograph, three paper scraps, and a simple visual triangle.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/one-photo-three-scraps-a-balanced-scrapbook-layout/gen1.png"
+    },
+    {
+      "slug": "how-to-fold-an-envelope-from-any-square-of-paper",
+      "title": "How to Fold an Envelope From Any Square of Paper",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Fold a useful journal envelope from any square of paper with four simple creases, no template, and minimal glue.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-fold-an-envelope-from-any-square-of-paper/gen1.png"
+    },
+    {
+      "slug": "how-to-create-a-focal-point-without-hiding-the-paper",
+      "title": "How to Create a Focal Point Without Hiding the Paper",
+      "category": "Scrapbooking Tips",
+      "excerpt": "Build a clear journal-page focal point while preserving the texture, pattern, and breathing room of beautiful paper.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/how-to-create-a-focal-point-without-hiding-the-paper/gen1.png"
+    },
+    {
+      "slug": "grungy-distressed-palettes-for-strong-vintage-layers",
+      "title": "Grungy Distressed Palettes for Strong Vintage Layers",
+      "category": "Paper Distressing Ideas",
+      "excerpt": "A distressed page feels convincing when the dark and worn colors support a clear structure. These palettes pull rust, charcoal, parchment, and muted metal directly from three real Grungy Distressed pages.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/grungy-distressed-palettes-for-strong-vintage-layers/gen1.png"
+    },
+    {
+      "slug": "a-visible-paper-storage-system-for-scraps-you-actually-use",
+      "title": "A Visible Paper Storage System for Scraps You Actually Use",
+      "category": "Craft Paper Storage Ideas",
+      "excerpt": "Organize paper scraps by usable shape and size so favorite pieces stay visible, reachable, and ready for journal projects.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/a-visible-paper-storage-system-for-scraps-you-actually-use/gen1.png"
+    },
+    {
+      "slug": "a-ten-minute-journal-warm-up-for-creative-block",
+      "title": "A Ten-Minute Journal Warm-Up for Creative Block",
+      "category": "Creative Journal Prompts",
+      "excerpt": "A gentle ten-minute journal warm-up that replaces blank-page pressure with simple noticing, choosing, tearing, and writing.",
+      "date": "2026-08-24",
+      "dateDisplay": "Aug 24",
+      "readTime": "1 min read",
+      "thumb": "blog/img/a-ten-minute-journal-warm-up-for-creative-block/gen1.png"
+    },
+    {
       "slug": "one-handmade-card-recipe-for-any-occasion",
       "title": "One Handmade Card Recipe for Any Occasion",
       "category": "Printable Craft Projects",
