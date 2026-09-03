@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "add-a-removable-washi-tape-tip-in-to-a-junk-journal",
+      "title": "Add a Removable Washi-Tape Tip-In to a Junk Journal",
+      "category": "Junk Journaling",
+      "excerpt": "Attach vellum, artwork, or a note as a removable journal tip-in with a paper guard that protects the original page.",
+      "date": "2026-09-03",
+      "dateDisplay": "Sep 3",
+      "readTime": "3 min read",
+      "thumb": "blog/img/add-a-removable-washi-tape-tip-in-to-a-junk-journal/gen1.png"
+    },
+    {
+      "slug": "make-a-scrap-paper-mosaic-border-for-a-scrapbook-page",
+      "title": "Make a Scrap-Paper Mosaic Border for a Scrapbook Page",
+      "category": "Scrapbooking",
+      "excerpt": "Turn tiny paper leftovers into a soft mosaic border that frames one photograph without making the scrapbook layout feel busy.",
+      "date": "2026-09-03",
+      "dateDisplay": "Sep 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/make-a-scrap-paper-mosaic-border-for-a-scrapbook-page/gen1.png"
+    },
+    {
+      "slug": "the-card-mat-border-guide-for-clean-handmade-layers",
+      "title": "The Card Mat Border Guide for Clean Handmade Layers",
+      "category": "Card Making",
+      "excerpt": "Learn when to use a crisp, everyday, bold, or bottom-weighted mat border so handmade cards look balanced before you glue.",
+      "date": "2026-09-03",
+      "dateDisplay": "Sep 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/the-card-mat-border-guide-for-clean-handmade-layers/gen2.png"
+    },
+    {
+      "slug": "make-a-no-sew-accordion-pocket-book-from-one-strip",
+      "title": "Make a No-Sew Accordion Pocket Book From One Strip",
+      "category": "Junk Journaling",
+      "excerpt": "Fold one long strip of paper into a compact four-pocket book for journal cards, tiny photographs, notes, and collected paper scraps.",
+      "date": "2026-09-03",
+      "dateDisplay": "Sep 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/make-a-no-sew-accordion-pocket-book-from-one-strip/gen3.png"
+    },
+    {
+      "slug": "how-to-make-a-wedding-invitation-keepsake-folio",
+      "title": "How to Make a Wedding Invitation Keepsake Folio",
+      "category": "Paper Crafts",
+      "excerpt": "Turn one wedding invitation into a small protective folio with a pocket, a gentle hinge, and room for the details worth remembering.",
+      "date": "2026-09-03",
+      "dateDisplay": "Sep 3",
+      "readTime": "3 min read",
+      "thumb": "blog/img/how-to-make-a-wedding-invitation-keepsake-folio/gen3.png"
+    },
+    {
       "slug": "mysterious-night-journal-prompts-for-quiet-evenings",
       "title": "Mysterious Night Journal Prompts for Quiet Evenings",
       "category": "Journal Prompts",
