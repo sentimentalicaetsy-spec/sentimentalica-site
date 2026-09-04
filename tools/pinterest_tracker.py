@@ -46,6 +46,7 @@ REPORT_ARCHIVE = DATA_DIR / "reports"
 PIN_LEDGER = DATA_DIR / "PIN_MEDIA_LEDGER.csv"
 BATCH_LEDGER = DATA_DIR / "PINTEREST_BATCH_LEDGER.csv"
 ARTICLE_TRACKER = DATA_DIR / "PINTEREST_ARTICLE_TRACKER.csv"
+BOARDS_FILE = REPO / "PINTEREST_BOARDS.txt"
 
 PIN_FIELDS = [
     "Article slug",
@@ -109,6 +110,40 @@ def csv_rows(path: Path) -> list[dict[str, str]]:
         return []
     with path.open(newline="", encoding="utf-8-sig") as handle:
         return [dict(row) for row in csv.DictReader(handle)]
+
+
+def canonical_boards() -> set[str]:
+    if not BOARDS_FILE.exists():
+        raise SystemExit(f"Pinterest board gate blocked: missing {BOARDS_FILE}")
+    boards = {
+        line.strip()
+        for line in BOARDS_FILE.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    }
+    if not boards:
+        raise SystemExit(f"Pinterest board gate blocked: {BOARDS_FILE} is empty")
+    return boards
+
+
+def validate_batch_boards(path: Path, rows: list[dict[str, str]] | None = None) -> int:
+    """Reject any board name Pinterest could interpret as a new board."""
+    rows = csv_rows(path) if rows is None else rows
+    allowed = canonical_boards()
+    problems: list[str] = []
+    for row_number, row in enumerate(rows, start=2):
+        board = (row.get("Pinterest board") or "").strip()
+        if not board:
+            problems.append(f"row {row_number}: board is blank")
+        elif board not in allowed:
+            problems.append(f"row {row_number}: unknown board {board!r}")
+    if problems:
+        details = "\n".join(f"  {problem}" for problem in problems)
+        raise SystemExit(
+            "PINTEREST BOARD GATE BLOCKED this CSV. Pinterest may create a new "
+            "board from any unknown name. Every row must use an exact existing "
+            f"name from {BOARDS_FILE.name}:\n{details}"
+        )
+    return len(rows)
 
 
 def write_csv(path: Path, fields: list[str], rows: list[dict[str, object]]) -> None:
@@ -257,6 +292,7 @@ def record_batch(
     rows = csv_rows(path)
     if not rows:
         raise SystemExit(f"CSV has no data rows: {path}")
+    validate_batch_boards(path, rows)
     required = {"Media URL", "Link", "Publish date"}
     missing = required - set(rows[0])
     if missing:
@@ -533,6 +569,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("refresh")
+    validate = sub.add_parser("validate-batch")
+    validate.add_argument("path", type=Path)
     history = sub.add_parser("import-history")
     history.add_argument("--date", default=date.today().isoformat())
     record = sub.add_parser("record-batch")
@@ -550,6 +588,10 @@ def main() -> int:
     if args.command == "refresh":
         rows = refresh_tracker()
         print(f"Refreshed {ARTICLE_TRACKER.relative_to(REPO)} for {len(rows)} articles")
+        return 0
+    if args.command == "validate-batch":
+        count = validate_batch_boards(args.path)
+        print(f"Pinterest board gate PASS: {count} rows use canonical existing boards")
         return 0
     if args.command == "import-history":
         day = valid_day(args.date)

@@ -169,7 +169,10 @@ Follow Pinterest's current bulk-upload template exactly. Header order:
   article may and often should go to different boards. Never invent a new board,
   guess a near-match, or silently send every image to one generic board. A
   section is written as `Board name/Section name` only when that exact entry is
-  present in the supplied list.
+  present in the supplied allowlist. Pinterest can create a new board from an unknown CSV value,
+  so a plausible or well-written new name is still a hard failure. If no board
+  fits perfectly, choose the closest existing board. Before any CSV handoff run
+  `python3 tools/pinterest_tracker.py validate-batch <csv-path>`; PASS is required.
 - `Thumbnail` stays blank for image Pins. It is required only for video Pins;
   this article-image workflow does not generate video rows.
 - `Description` is optional in Pinterest's schema but required by the

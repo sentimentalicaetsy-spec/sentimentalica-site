@@ -79,6 +79,10 @@
    на каждую уникальную content image статьи, включая ВСЕ картинки каруселей;
    board выбирается отдельно для каждой картинки точным именем из canonical
    `PINTEREST_BOARDS.txt`, поэтому картинки одной статьи могут идти на разные boards.
+   Pinterest может создать новый board из неизвестного имени в CSV, поэтому
+   НИКОГДА не придумывать board name. Если идеального совпадения нет, выбрать
+   ближайший существующий board. Перед передачей любого CSV обязательно:
+   `python3 tools/pinterest_tracker.py validate-batch <csv-path>`; только PASS.
    Keywords обязательны (5–10 strong Pinterest SEO phrases). Title и финальный
    CTA пишутся отдельно под тип картинки по CTA contract из `PIN_STRATEGY.md`.
    В одном CSV нельзя повторять identical `Link`: Pinterest вернёт
