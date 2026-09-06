@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "firefly-glow-candlelit-autumn-collage",
+      "title": "A Candlelit Autumn Collage with Firefly Glow",
+      "category": "Scrapbooking",
+      "excerpt": "Create a warm dark-academia autumn collage by clustering glow, adding one story layer and keeping one quiet shadow corner, with three listing-derived palettes.",
+      "date": "2026-09-06",
+      "dateDisplay": "Sep 6",
+      "readTime": "2 min read",
+      "thumb": "blog/img/firefly-glow-candlelit-autumn-collage/infographic.png"
+    },
+    {
+      "slug": "moon-forest-autumn-pages-with-depth",
+      "title": "How to Give Moon Forest Autumn Pages Real Depth",
+      "category": "Junk Journaling",
+      "excerpt": "Layer moonlight, forest silhouettes and manuscript texture into a readable dark spread, with three palette cards and a light-mid-dark visual guide.",
+      "date": "2026-09-06",
+      "dateDisplay": "Sep 6",
+      "readTime": "1 min read",
+      "thumb": "blog/img/moon-forest-autumn-pages-with-depth/infographic.png"
+    },
+    {
+      "slug": "sunflower-pages-for-the-turn-into-autumn",
+      "title": "Sunflower Journal Pages for the Turn into Autumn",
+      "category": "Scrapbooking",
+      "excerpt": "Take sunflower artwork from late-summer brightness into early-autumn warmth with a 60-30-10 layout and three honey, olive and umber palettes.",
+      "date": "2026-09-06",
+      "dateDisplay": "Sep 6",
+      "readTime": "2 min read",
+      "thumb": "blog/img/sunflower-pages-for-the-turn-into-autumn/infographic.png"
+    },
+    {
+      "slug": "foxglove-hollow-autumn-woodland-collage",
+      "title": "A Foxglove Hollow Recipe for an Autumn Woodland Collage",
+      "category": "Scrapbooking",
+      "excerpt": "Combine a botanical focal, a woodland character and quiet natural texture using a triangle layout and three plum-and-moss palettes.",
+      "date": "2026-09-06",
+      "dateDisplay": "Sep 6",
+      "readTime": "2 min read",
+      "thumb": "blog/img/foxglove-hollow-autumn-woodland-collage/infographic.png"
+    },
+    {
+      "slug": "how-to-combine-cozy-autumn-printables",
+      "title": "How to Combine Cozy Autumn Printables in One Journal Spread",
+      "category": "Junk Journaling",
+      "excerpt": "A practical focal-support-texture formula for combining warm cottage pictures, plus three ready-made palettes for choosing paper, ribbon and ink.",
+      "date": "2026-09-06",
+      "dateDisplay": "Sep 6",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-combine-cozy-autumn-printables/infographic.png"
+    },
+    {
       "slug": "sweater-season-junk-journal-page-ideas-for-cozy-days",
       "title": "Sweater Season Junk Journal Page Ideas for Cozy Days",
       "category": "Seasonal Journaling",
