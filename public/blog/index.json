@@ -1,6 +1,96 @@
 {
   "posts": [
     {
+      "slug": "how-to-make-a-junk-journal-from-an-old-book",
+      "title": "How to Make a Junk Journal from an Old Book",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Turn a sturdy unwanted hardback into a usable junk journal by thinning pages, reinforcing weak hinges and keeping embellishments light.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-make-a-junk-journal-from-an-old-book/gen1.png"
+    },
+    {
+      "slug": "holiday-memories-to-write-down-before-you-forget",
+      "title": "Holiday Memories to Write Down Before You Forget",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Nine holiday details worth saving in your phone first, then turning into a warm journal page when the busy season becomes quiet.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/holiday-memories-to-write-down-before-you-forget/iphone-note.png"
+    },
+    {
+      "slug": "how-to-junk-journal-your-day",
+      "title": "How to Junk Journal Your Day in Six Small Moments",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Capture an ordinary day through morning light, a first drink, one receipt, something overheard, the weather and an evening reflection.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-junk-journal-your-day/gen1.png"
+    },
+    {
+      "slug": "junk-journal-materials-you-already-have-at-home",
+      "title": "15 Junk Journal Materials You Already Have at Home",
+      "category": "Beginner Junk Journaling",
+      "excerpt": "Make useful pages from envelopes, receipts, packaging, paper bags, thread, fabric, tea bags and other ordinary household materials.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/junk-journal-materials-you-already-have-at-home/gen1.png"
+    },
+    {
+      "slug": "how-to-generate-junk-journal-ideas",
+      "title": "How to Generate Junk Journal Ideas with One Simple Process Map",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Turn any receipt, photo, leaf or ordinary moment into a meaningful page with a repeatable seven-step idea map.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-generate-junk-journal-ideas/gen1.png"
+    },
+    {
+      "slug": "mood-boosting-junk-journal-ideas",
+      "title": "9 Mood-Boosting Junk Journal Ideas for a Brighter Day",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Use color, photographs, comforting textures and kind words to make a journal page that gently changes the emotional temperature of your day.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/mood-boosting-junk-journal-ideas/gen1.png"
+    },
+    {
+      "slug": "junk-journal-ideas-for-brain-fog",
+      "title": "Junk Journal Ideas for Brain Fog and Low-Energy Days",
+      "category": "Junk Journaling",
+      "excerpt": "Eight tiny page ideas for days when focus is difficult, including one-color pages, five-word lists and ten-minute creative resets.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/junk-journal-ideas-for-brain-fog/gen1.png"
+    },
+    {
+      "slug": "how-to-start-a-junk-journal-for-beginners",
+      "title": "How to Start a Junk Journal for Beginners in 7 Simple Steps",
+      "category": "Beginner Junk Journaling",
+      "excerpt": "Start your first junk journal with any notebook, five ordinary paper types and one small story\u2014without buying a complicated supply list.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-start-a-junk-journal-for-beginners/gen1.png"
+    },
+    {
+      "slug": "10-color-palette-mistakes",
+      "title": "10 Color Palette Mistakes That Make Journal Pages Feel Wrong",
+      "category": "Vintage Color Palettes",
+      "excerpt": "Fix the ten most common color mistakes in scrapbook and junk journal pages, from missing neutrals to muddy near-duplicates.",
+      "date": "2026-09-12",
+      "dateDisplay": "Sep 12",
+      "readTime": "3 min read",
+      "thumb": "blog/img/10-color-palette-mistakes/gen1.png"
+    },
+    {
       "slug": "firefly-glow-candlelit-autumn-collage",
       "title": "A Candlelit Autumn Collage with Firefly Glow",
       "category": "Scrapbooking",
