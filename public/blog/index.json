@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "5-dusty-blue-palettes-for-vintage-paper-crafts",
+      "title": "5 Dusty Blue Palettes for Vintage Paper Crafts",
+      "category": "Vintage Color Palettes",
+      "excerpt": "Combine dusty blue with parchment, faded rose, sage and warm brown using five balanced palettes for journals, cards and collage.",
+      "date": "2026-09-15",
+      "dateDisplay": "Sep 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/5-dusty-blue-palettes-for-vintage-paper-crafts/gen1.png"
+    },
+    {
+      "slug": "8-printable-paper-mistakes",
+      "title": "8 Printable Paper Craft Mistakes That Waste Ink and Paper",
+      "category": "Printable Craft Projects",
+      "excerpt": "Avoid eight common printing, scaling, cutting and gluing problems before they waste your best cardstock or printable paper.",
+      "date": "2026-09-15",
+      "dateDisplay": "Sep 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/8-printable-paper-mistakes/gen1.png"
+    },
+    {
+      "slug": "9-scrapbooking-mistakes-that-hide-the-story",
+      "title": "9 Scrapbooking Mistakes That Hide the Story",
+      "category": "Scrapbooking",
+      "excerpt": "Keep photographs and memories at the center of a scrapbook page by correcting nine common layout and embellishment mistakes.",
+      "date": "2026-09-15",
+      "dateDisplay": "Sep 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/9-scrapbooking-mistakes-that-hide-the-story/gen1.png"
+    },
+    {
+      "slug": "7-card-layering-mistakes",
+      "title": "7 Card Layering Mistakes That Make Cards Look Crooked",
+      "category": "Card Making",
+      "excerpt": "Learn why handmade card layers shift, warp or feel unbalanced, and use seven simple corrections for cleaner mats and better-fitting cards.",
+      "date": "2026-09-15",
+      "dateDisplay": "Sep 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/7-card-layering-mistakes/gen1.png"
+    },
+    {
+      "slug": "8-junk-journal-pocket-mistakes",
+      "title": "8 Junk Journal Pocket Mistakes to Avoid",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Fix the eight small construction mistakes that make journal pockets tight, fragile, awkward to reach or difficult to use.",
+      "date": "2026-09-15",
+      "dateDisplay": "Sep 15",
+      "readTime": "2 min read",
+      "thumb": "blog/img/8-junk-journal-pocket-mistakes/gen1.png"
+    },
+    {
       "slug": "one-photo-to-one-memory-page",
       "title": "How to Turn One Photo into a Memory Page",
       "category": "Scrapbooking",
