@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "slug": "thanksgiving-family-memory-folio",
+      "title": "A Thanksgiving Family Memory Folio in Six Folds",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Fold a small Thanksgiving keepsake for one photograph, a table detail, guest names and a private note without making a full album.",
+      "date": "2026-09-17",
+      "dateDisplay": "Sep 17",
+      "readTime": "2 min read",
+      "thumb": "blog/img/thanksgiving-family-memory-folio/gen1.png"
+    },
+    {
+      "slug": "thanksgiving-place-cards-guests-can-keep",
+      "title": "Thanksgiving Place Cards Guests Can Keep",
+      "category": "Printable Craft Projects",
+      "excerpt": "Make sturdy folded place cards with a hidden personal note so each guest can take home a small Thanksgiving keepsake.",
+      "date": "2026-09-17",
+      "dateDisplay": "Sep 17",
+      "readTime": "2 min read",
+      "thumb": "blog/img/thanksgiving-place-cards-guests-can-keep/gen1.png"
+    },
+    {
+      "slug": "one-photo-thanksgiving-table-scrapbook-page",
+      "title": "A One-Photo Thanksgiving Table Scrapbook Page",
+      "category": "Scrapbooking",
+      "excerpt": "Turn one Thanksgiving table photograph into a warm memory page with a menu detail, one spoken line and a restrained kitchen-inspired palette.",
+      "date": "2026-09-17",
+      "dateDisplay": "Sep 17",
+      "readTime": "2 min read",
+      "thumb": "blog/img/one-photo-thanksgiving-table-scrapbook-page/gen1.png"
+    },
+    {
+      "slug": "honest-thanksgiving-gratitude-journal-page",
+      "title": "A Thanksgiving Gratitude Journal Page That Feels Honest",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Build a meaningful gratitude page with one saved trace, three specific thanks and room for mixed feelings rather than forced positivity.",
+      "date": "2026-09-17",
+      "dateDisplay": "Sep 17",
+      "readTime": "3 min read",
+      "thumb": "blog/img/honest-thanksgiving-gratitude-journal-page/gen1.png"
+    },
+    {
+      "slug": "thank-you-card-12-specific-things",
+      "title": "A Thankful-for-You Card with 12 Specific Things to Say",
+      "category": "Card Making",
+      "excerpt": "Make a personal Thanksgiving thank-you card with a simple paper layout and twelve prompts that go beyond a generic message of gratitude.",
+      "date": "2026-09-17",
+      "dateDisplay": "Sep 17",
+      "readTime": "2 min read",
+      "thumb": "blog/img/thank-you-card-12-specific-things/gen1.png"
+    },
+    {
       "slug": "5-dusty-blue-palettes-for-vintage-paper-crafts",
       "title": "5 Dusty Blue Palettes for Vintage Paper Crafts",
       "category": "Vintage Color Palettes",
