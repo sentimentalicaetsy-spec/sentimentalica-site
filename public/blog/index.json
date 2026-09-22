@@ -1,6 +1,206 @@
 {
   "posts": [
     {
+      "slug": "a-cozy-reading-night-pocket-page",
+      "title": "A Cozy Reading-Night Pocket Page",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Make a calm pocket page from one quiet evening at home using a folded pocket, a tea label, a book line, and three paper scraps.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-cozy-reading-night-pocket-page/gen1.png"
+    },
+    {
+      "slug": "fall-scrapbook-mistakes-that-make-pages-feel-busy",
+      "title": "7 Fall Scrapbook Mistakes That Make Pages Feel Busy",
+      "category": "Scrapbooking Tips",
+      "excerpt": "Avoid seven common fall scrapbook mistakes so photographs, real memories, and warm seasonal color remain easy to see.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/fall-scrapbook-mistakes-that-make-pages-feel-busy/gen1.png"
+    },
+    {
+      "slug": "things-to-save-from-thanksgiving-weekend",
+      "title": "12 Things to Save From Thanksgiving Weekend",
+      "category": "Holiday Memory Keeping",
+      "excerpt": "Save twelve small Thanksgiving weekend details in your phone before turning the best ones into a relaxed scrapbook or journal page.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/things-to-save-from-thanksgiving-weekend/gen1.png"
+    },
+    {
+      "slug": "cranberry-sage-pecan-and-linen-for-thanksgiving-pages",
+      "title": "Cranberry, Sage, Pecan and Linen for Thanksgiving Pages",
+      "category": "Vintage Color Palettes",
+      "excerpt": "Build a Thanksgiving journal palette with linen breathing room, pecan warmth, muted sage, and a restrained cranberry accent.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/cranberry-sage-pecan-and-linen-for-thanksgiving-pages/gen1.png"
+    },
+    {
+      "slug": "a-calm-snow-day-memory-page",
+      "title": "A Calm Snow-Day Memory Page in Five Steps",
+      "category": "Scrapbooking Tutorials",
+      "excerpt": "Turn one snowy day at home into a simple memory page with one photograph, three winter colors, a paper trace, and a warm sentence.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-calm-snow-day-memory-page/gen1.png"
+    },
+    {
+      "slug": "christmas-scrapbook-mistakes-that-hide-the-story",
+      "title": "8 Christmas Scrapbook Mistakes That Hide the Story",
+      "category": "Christmas Junk Journal",
+      "excerpt": "Keep Christmas scrapbook pages personal and readable by avoiding eight habits that replace real memories with generic holiday decoration.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/christmas-scrapbook-mistakes-that-hide-the-story/gen1.png"
+    },
+    {
+      "slug": "tiny-christmas-eve-details-to-write-down",
+      "title": "15 Tiny Christmas-Eve Details to Write Down",
+      "category": "Christmas Junk Journal",
+      "excerpt": "Use an iPhone note to catch fifteen sensory Christmas Eve details before the wrapping paper, lights, sounds, and small remarks disappear.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/tiny-christmas-eve-details-to-write-down/gen1.png"
+    },
+    {
+      "slug": "pine-cranberry-candle-gold-and-cream-christmas-palette",
+      "title": "Pine, Cranberry, Candle Gold and Cream for Christmas Pages",
+      "category": "Christmas Junk Journal",
+      "excerpt": "Use pine as a dark anchor, cream as open space, cranberry for story details, and candle gold as a small Christmas accent.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/pine-cranberry-candle-gold-and-cream-christmas-palette/gen1.png"
+    },
+    {
+      "slug": "a-no-stress-holiday-photo-pocket",
+      "title": "A No-Stress Holiday Photo Pocket",
+      "category": "Christmas Junk Journal",
+      "excerpt": "Make one simple holiday photo pocket that holds a photograph, a date card, one paper trace, and four honest lines without documenting everything.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-no-stress-holiday-photo-pocket/gen1.png"
+    },
+    {
+      "slug": "winter-journal-mistakes-that-make-pages-feel-cold",
+      "title": "7 Winter Journal Mistakes That Make Pages Feel Cold",
+      "category": "Winter Junk Journal Ideas",
+      "excerpt": "Avoid seven winter journal mistakes that make pages feel flat, bulky, repetitive, or too cold to hold a personal story.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/winter-journal-mistakes-that-make-pages-feel-cold/gen1.png"
+    },
+    {
+      "slug": "things-to-journal-between-christmas-and-new-year",
+      "title": "14 Things to Journal Between Christmas and New Year",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Capture the soft in-between week with fourteen low-pressure prompts about leftovers, quiet rooms, changing light, rest, and what you are carrying forward.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/things-to-journal-between-christmas-and-new-year/gen1.png"
+    },
+    {
+      "slug": "frost-blue-wool-pine-and-berry-winter-cabin-palette",
+      "title": "Frost Blue, Wool, Pine and Berry for Winter Cabin Pages",
+      "category": "Winter Junk Journal Ideas",
+      "excerpt": "Balance cool winter blue with wool cream, deep pine, and one berry accent for journal pages that feel snowy but still warm.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/frost-blue-wool-pine-and-berry-winter-cabin-palette/gen1.png"
+    },
+    {
+      "slug": "a-gentle-new-year-reflection-spread",
+      "title": "A Gentle New-Year Reflection Spread",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Make a calm New Year reflection spread with one good moment, one hard truth, one small hope, and no pressure to reinvent yourself.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-gentle-new-year-reflection-spread/gen1.png"
+    },
+    {
+      "slug": "new-year-journal-mistakes-that-add-pressure",
+      "title": "6 New-Year Journal Mistakes That Add Pressure",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Avoid six New Year journaling mistakes that turn a reflective page into a scorecard, goal list, or demand for a perfect fresh start.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/new-year-journal-mistakes-that-add-pressure/gen1.png"
+    },
+    {
+      "slug": "gentle-january-journal-prompts-for-winter-days",
+      "title": "12 Gentle January Journal Prompts for Winter Days",
+      "category": "Creative Journal Prompts",
+      "excerpt": "Keep a simple January note with twelve prompts for dark mornings, small comforts, winter energy, and calm memory keeping at home.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/gentle-january-journal-prompts-for-winter-days/gen1.png"
+    },
+    {
+      "slug": "midnight-parchment-moon-gray-and-gold-new-year-palette",
+      "title": "Midnight, Parchment, Moon Gray and Gold for New-Year Pages",
+      "category": "Vintage Color Palettes",
+      "excerpt": "Create a quiet New Year palette with midnight depth, parchment space, moon gray support, and a restrained antique-gold accent.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/midnight-parchment-moon-gray-and-gold-new-year-palette/gen1.png"
+    },
+    {
+      "slug": "a-ten-minute-winter-collage-for-stressful-days",
+      "title": "A 10-Minute Winter Collage for Stressful Days",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "Use five paper scraps and ten quiet minutes to make a winter collage when you need movement without a complicated creative project.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-ten-minute-winter-collage-for-stressful-days/gen1.png"
+    },
+    {
+      "slug": "valentine-scrapbook-mistakes-that-flatten-real-stories",
+      "title": "7 Valentine Scrapbook Mistakes That Flatten Real Stories",
+      "category": "Scrapbooking Tips",
+      "excerpt": "Make Valentine scrapbook pages warmer and more inclusive by avoiding seven habits that crowd out real words, friendship, and family.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/valentine-scrapbook-mistakes-that-flatten-real-stories/gen1.png"
+    },
+    {
+      "slug": "valentine-memories-beyond-romance",
+      "title": "14 Valentine Memories Beyond Romance",
+      "category": "Holiday Memory Keeping",
+      "excerpt": "Collect fourteen Valentine memories about friendship, family, neighbors, pets, and everyday care before choosing one for a meaningful page.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/valentine-memories-beyond-romance/gen1.png"
+    },
+    {
+      "slug": "dusty-rose-oxblood-cocoa-and-ivory-valentine-palette",
+      "title": "Dusty Rose, Oxblood, Cocoa and Ivory for Valentine Pages",
+      "category": "Vintage Romance Inspiration",
+      "excerpt": "Use dusty rose and ivory for softness, cocoa for structure, and oxblood as a small mature Valentine accent.",
+      "date": "2026-09-22",
+      "dateDisplay": "Sep 22",
+      "readTime": "3 min read",
+      "thumb": "blog/img/dusty-rose-oxblood-cocoa-and-ivory-valentine-palette/gen1.png"
+    },
+    {
       "slug": "thanksgiving-family-memory-folio",
       "title": "A Thanksgiving Family Memory Folio in Six Folds",
       "category": "Junk Journal Tutorials",
