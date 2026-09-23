@@ -28,11 +28,11 @@ For each slot, in order:
 1. **desire-scout** → one sharp, timely, save-worthy angle + target query.
 2. **audience-strategist** → who + emotional hook + article type.
 3. **product-bridge** → first run `python3 tools/listing_rotation.py summary`,
-   then choose tie strength (center/end/none) and on-theme LIVE listing(s) that
-   have never appeared in another published article. Verify candidates with
-   `python3 tools/listing_rotation.py check <ID...>`. A used ID is ineligible,
-   even for an end-only bridge, unless Ksenia explicitly requested that exact
-   listing again. It MAY return tie=none (pure lead magnet) — that's fine.
+   then choose tie strength (center/end) and on-theme LIVE listing(s). Verify
+   candidates with `python3 tools/listing_rotation.py check <ID...>`. Prefer an
+   unused ID; if none fits, intentionally reuse the strongest relevant LIVE
+   listing and add `allow_repeated_listings: true`. Every article must have a
+   natural product bridge; lead magnets use `tie=end`, never `tie=none`.
 4. **marketing-critic** (ideation gate) → PASS or re-sharpen (max 2 rounds, then
    surface to Ksenia). Only PASS ideas proceed.
 Collect each PASS as a plan row (Title/angle, Type, Theme, Listings, Notes with
@@ -50,8 +50,10 @@ mandatory thin atmospheric scene for every article, scenes judged vs refs/scenes
 by the **image-critic**, then the **critic code-gate**
 in publish_post.py (publish is blocked without every image PASS). Then
 `plan_io.mark_published(slug)`.
-Lead-magnet/neutral rows: pure value, product at the END only, every image
-illustrates its adjacent paragraph. On-theme listings only — never off-theme animals.
+Lead-magnet/neutral rows: pure value first, product at the END only, every image
+illustrates its adjacent paragraph. At least one topic-matched LIVE listing is
+mandatory in a custom `related_heading` + `related_text` section. On-theme
+listings only — never off-theme animals.
 Every article gets a thin atmospheric scene from `refs/scenes/`; it is a mood
 image around the topic, not a junk-journal mockup. Single-listing rows also need
 3 palette images from 3 different showpiece real listing pages, one separate
@@ -172,20 +174,21 @@ Commit the resulting tracked ledgers, per-article tracker, and durable batch
 copy so the state remains available to future agents.
 
 ## 7. Report
-Per article: URL · angle & why · audience/hook · tie (center/end/none) · listing
-and confirmation it was previously unused · image status. Plus the slate
+Per article: URL · angle & why · audience/hook · tie (center/end) · listing
+and whether it is unused or an intentional relevant reuse · image status. Plus the slate
 summary (how many lead/listing, seasonal/eternal). Mention Pinterest CSV only
 when Ksenia explicitly requested one.
 
 ## Rules (inherited — never skip)
 - Демандный слейт: не переопределяй пропорции content_planner.py; сезон — только
   если окно открыто сегодня (никакого моря осенью).
-- Продукт едет следом, не впереди. product-bridge вправе сказать «никак».
+- Продукт едет следом, не впереди. Но каждая статья обязана естественно вести
+  минимум к одному LIVE листингу в финальном product bridge; `tie=none` запрещён.
 - Любой Etsy block / related_ids — только из свежей проверки live shop/feed
   product-bridge и только по теме статьи. Unused relevant LIVE listings are
-  mandatory; a listing already promoted in any published article must be
-  skipped. Reuse is allowed only when Ksenia explicitly requests that exact
-  listing; record `allow_repeated_listings: true` in that exceptional post.
+  preferred. If no unused relevant listing fits, intentionally reuse the
+  strongest topic-matched LIVE listing and record `allow_repeated_listings:
+  true` in that post.
   Unrelated shop ads are forbidden.
 - image-critic смотрит ВСЁ визуальное; критик-гейт в коде блокирует публикацию.
 - Промпты сцен — по SCENE_STYLE.md и refs/scenes/ (файлы, не слова).

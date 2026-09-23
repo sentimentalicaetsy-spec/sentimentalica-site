@@ -21,7 +21,9 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
    - Voice + structure reference (READ IT before writing):
      `public/blog/colorful-junk-journal-ideas-for-maximalists-and-a-palette-to-steal.html`
    - Front matter: `title / category / excerpt / thumb: ./img1.jpg /
-     related_ids: <fresh topic-related LIVE Etsy IDs from product-bridge>`.
+     related_ids: <fresh topic-related LIVE Etsy IDs from product-bridge> /
+     related_heading / related_text`. These fields are mandatory for every
+     article; the publisher blocks missing or generic product bridges.
      Title: buyer-intent, theme-specific, 45–70 chars, no listing numbers.
    - 550–850 words, warm small-studio voice, genuinely useful craft content.
      NO exclamation marks, no "digital/instant download" phrases, no page counts.
@@ -38,8 +40,8 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
     palette image per featured listing, plus one Pinterest-format atmospheric scene, one
      process image, and a 2–3 real-page carousel from a represented
      listing. Neutral/lead/listicle = useful graphic/infographic plus the
-    mandatory Pinterest-format atmospheric scene; product stays at the end only if it
-     honestly fits.
+    mandatory Pinterest-format atmospheric scene; a genuinely matching LIVE
+    product stays at the end in a custom article-specific bridge.
    - Add gentle article CTAs: "save this idea", "open the full guide", "browse
      more Sentimentalica journal ideas", or "use the matching printable pages"
      where natural. No hard sell.
@@ -138,16 +140,19 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
   must be either stunning or useful (infographic-style). Pure listing ads are
   banned — value first.
 - **Pinterest lead funnel:** pins should send people to the article on
-  sentimentalica.com first; the article should then softly propose relevant
-  live listings when possible. Neutral/listicle = value first, product at END.
+  sentimentalica.com first; the article must then softly propose at least one
+  relevant LIVE listing. Neutral/listicle = value first, product at END.
 - **Related ads are topic-matched and fresh:** every `{{etsy:...}}` block and
   front matter `related_ids:` must come from product-bridge's fresh live-shop
   check at article-creation time. Use up to 4 LIVE IDs that match the article's
   exact category/theme; prefer newer listings when equally relevant. Floral
   article -> floral options; dark academia -> dark academia/library/gothic;
   animals -> animals; backgrounds/swatches -> background/base-paper/swatches.
-  If no fresh relevant listing fits, omit `related_ids` and do not show random
-  shop ads.
+  If no relevant LIVE listing fits, revise the topic or product bridge before
+  publishing; never substitute a random shop ad and never publish without a
+  listing. Prefer unused listings, but an intentional relevant reuse may use
+  `allow_repeated_listings: true` when Ksenia has authorized listing bridges for
+  every article.
 - **Image site text:** only color-palette images and non-iPhone infographics
   carry site text, and it is exactly `sentimentalica.com`. No extra CTA text
   inside images. Do not stamp atmospheric scenes, mockups/process scenes, real

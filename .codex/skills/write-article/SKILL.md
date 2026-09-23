@@ -27,9 +27,10 @@ Do NOT override the allocator's 65/35 or its seasonal windows.
 For each slot, in order:
 1. **desire-scout** → one sharp, timely, save-worthy angle + target query.
 2. **audience-strategist** → who + emotional hook + article type.
-3. **product-bridge** → tie strength (center/end/none), on-theme LIVE listing(s)
-   or none, related_ids from fresh live-shop data, funnel stage. It MAY return
-   tie=none (pure lead magnet) — that's fine.
+3. **product-bridge** → tie strength (center/end), on-theme LIVE listing(s),
+   related_ids from fresh live-shop data, funnel stage. Every article must have
+   at least one natural product bridge. Lead magnets use `tie=end`; they never
+   become product-first, but they may not publish with `tie=none`.
 4. **marketing-critic** (ideation gate) → PASS or re-sharpen (max 2 rounds, then
    surface to Ksenia). Only PASS ideas proceed.
 Collect each PASS as a plan row (Title/angle, Type, Theme, Listings, Notes with
@@ -47,8 +48,10 @@ mandatory Pinterest-format atmospheric scene for every article, scenes judged vs
 by the **image-critic**, then the **critic code-gate**
 in publish_post.py (publish is blocked without every image PASS). Then
 `plan_io.mark_published(slug)`.
-Lead-magnet/neutral rows: pure value, product at the END only, every image
-illustrates its adjacent paragraph. On-theme listings only — never off-theme animals.
+Lead-magnet/neutral rows: pure value first, product at the END only, every image
+illustrates its adjacent paragraph. At least one topic-matched LIVE listing is
+mandatory in a custom `related_heading` + `related_text` section. On-theme
+listings only — never off-theme animals.
 Every article gets a portrait 2:3 Pinterest-format atmospheric scene from `refs/scenes/`; it is a mood
 image around the topic, not a junk-journal mockup. Single-listing rows also need
 3 palette images from 3 different showpiece real listing pages, one separate
@@ -153,7 +156,8 @@ lead/listing, seasonal/eternal), and the `pins_status.py` result.
   Agents may read/inspect Drive files and copy derivatives into `staging/` or
   `public/blog/img/`, but must never mutate the originals. If Drive looks wrong,
   stop and ask Ksenia.
-- Продукт едет следом, не впереди. product-bridge вправе сказать «никак».
+- Продукт едет следом, не впереди. Но каждая статья обязана естественно вести
+  минимум к одному LIVE листингу в финальном product bridge; `tie=none` запрещён.
 - Любой Etsy block / related_ids — только из свежей проверки live shop/feed
   product-bridge и только по теме статьи. Fresh relevant new listings beat old
   defaults; unrelated shop ads are forbidden.

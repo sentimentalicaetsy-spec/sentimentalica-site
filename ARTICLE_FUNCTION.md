@@ -26,13 +26,13 @@
 Перед любым product bridge выполни
 `python3 tools/listing_rotation.py summary`, затем
 `python3 tools/listing_rotation.py check <candidate Etsy ID...>`.
-По умолчанию разрешены только LIVE листинги, которые ещё не рекламировались ни
-в одной опубликованной статье. Это правило действует и для общей статьи, где
-листинг появляется только в финальном related-блоке. Если подходящего нового
-листинга нет, используй `tie=none`, а не повторяй старый. Повтор допустим только
-когда Ксения явно просит снова продвигать конкретный листинг; тогда добавь
+По умолчанию предпочитай LIVE листинги, которые ещё не рекламировались ни в
+одной опубликованной статье. Это правило действует и для общей статьи, где
+листинг появляется только в финальном related-блоке. Но каждая статья обязана
+иметь естественный product bridge. Если нового релевантного листинга нет,
+выбери самый сильный ранее использованный LIVE листинг по теме и добавь
 `allow_repeated_listings: true` во front matter. `publish_post.py` блокирует
-случайный повтор.
+случайный повтор и полностью блокирует статью без product bridge.
 
 ## Шаги
 1. `python3 tools/resolve_listing.py "<имя листинга>"` → `NNN_Theme|etsy_id|thumbs_dir`.
@@ -40,7 +40,8 @@
 2. `PY tools/gen_article_assets.py "<строка из шага 1>"` → `staging/overnight/assets/<listing>/{img1..img4.jpg, meta.json}`.
 3. Написать статью → `staging/overnight/assets/<listing>/post.html`:
    - Front matter: `title / category / excerpt / thumb: ./img1.jpg /
-     related_ids: <fresh related LIVE Etsy IDs>`; титул 45–70 зн.,
+     related_ids: <fresh related LIVE Etsy IDs> / related_heading / related_text`;
+     все три product-bridge поля обязательны; титул 45–70 зн.,
      buyer-intent, без номеров листинга; не совпадать с titles в `public/blog/index.json`.
    - 550–850 слов, тёплый small-studio голос (см. референс), реально полезный крафт-контент.
      Запрещено: восклицательные, «digital/instant download» как продажа, счётчики страниц, хайп.
@@ -276,22 +277,23 @@
   `sentimentalica.com`, без CTA. Если у листинга нет трёх разных valid
   non-character pages для palette images, не дублировать слабые palette pins:
   оставить valid palette image(s) и добавить другие approved visuals.
-- **В статье**: мягкие CTA в тексте обязательны. Предлагай релевантный LIVE
-  листинг только если он ещё не использован в опубликованных статьях и это
-  естественно; иначе оставь статью без product bridge. Neutral/listicle
-  остаётся value-first, продукт в конце.
+- **В статье**: мягкие CTA в тексте обязательны. Каждая статья должна иметь
+  минимум один релевантный LIVE листинг в естественном финальном product bridge.
+  Сначала предпочитай неиспользованный листинг; если его нет, используй самый
+  сильный тематический повтор с `allow_repeated_listings: true`. Neutral/listicle
+  остаётся value-first, продукт всегда в конце.
 - **AI disclosure**: внизу каждой статьи перед финальным related/shop блоком
   должна быть тихая, но читаемая строка: “Image note: Some visuals in this
   article were created with AI and curated by Sentimentalica.”
-- **Related/shop block is not random.** `publish_post.py` больше не добавляет
-  hardcoded default listings. Если нужен финальный related-shop блок, статья
-  должна иметь front matter `related_ids:` — максимум 4 LIVE ID, выбранных
+- **Related/shop block is mandatory and not random.** `publish_post.py` больше
+  не добавляет hardcoded default listings. Каждая статья должна иметь front
+  matter `related_ids:`, `related_heading:` и `related_text:` — максимум 4 LIVE ID, выбранных
   product-bridge из свежих данных live shop/feed на момент создания статьи.
-  IDs должны быть ранее неиспользованными и связаны с темой статьи:
+  IDs должны быть связаны с темой статьи; ранее неиспользованные предпочтительны:
   floral ephemera → floral options,
   dark academia → dark academia/library/gothic, animals → animals, etc. Если
-  свежих релевантных листингов нет, related-shop block пропускается; не заменять
-  его случайными товарами.
+  свежих релевантных листингов нет, выбери самый сильный релевантный LIVE повтор
+  и пометь intentional reuse; случайные товары запрещены.
 - **Amazon affiliate links**: не добавлять без affiliate/tag системы Ксении.
   Когда появятся Amazon-ссылки, disclosure должен стоять до первой affiliate
   ссылки, а рекомендации должны быть реально полезны для junk journal.

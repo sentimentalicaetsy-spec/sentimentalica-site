@@ -15,7 +15,9 @@ Input file format — front matter between --- lines, then the body:
     excerpt: One or two sentences shown on the blog listing.
     date: 2026-07-05            (optional, defaults to today)
     thumb: ./cover.jpg          (optional, local path or URL)
-    related_ids: 123,456        (optional; unused, on-theme LIVE listings)
+    related_ids: 123,456        (required; on-theme LIVE listings)
+    related_heading: A natural, article-specific product bridge heading
+    related_text: Why these exact printable pages help with this article's project.
     allow_repeated_listings: true (only after Ksenia explicitly requests reuse)
     ---
     Markdown body. Standard headings/bold/italic/links/lists/quotes.
@@ -90,6 +92,24 @@ def require_unused_listings(meta, slug, body_html):
         "allow_repeated_listings: true when Ksenia explicitly asks to reuse "
         "the exact listing."
     )
+
+
+def require_product_bridge(meta, body_html):
+    """Every article must lead naturally to at least one relevant product."""
+    ids = related_ids_for(meta, body_html)
+    if not ids:
+        sys.exit(
+            "PRODUCT BRIDGE BLOCKED publish. Every Sentimentalica article must "
+            "include at least one freshly verified, topic-matched LIVE Etsy "
+            "listing via front matter related_ids: or an {{etsy:...}} block."
+        )
+    missing = [key for key in ("related_heading", "related_text")
+               if not meta.get(key, "").strip()]
+    if missing:
+        sys.exit(
+            "PRODUCT BRIDGE BLOCKED publish. A natural listing section needs "
+            "article-specific copy; add front matter: " + ", ".join(missing)
+        )
 
 
 def article_afterword(meta, body_html):
@@ -377,6 +397,7 @@ def main():
 
     body_html = body if src.suffix == ".html" else md_to_html(body)
     body_html = expand_shortcodes(body_html)
+    require_product_bridge(meta, body_html)
     require_unused_listings(meta, slug, body_html)
     body_html = localize_images(body_html, src.parent, slug)
 

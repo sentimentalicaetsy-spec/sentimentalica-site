@@ -138,8 +138,10 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    article-creation time and related to that exact topic/category. Floral article
    → floral options; dark academia → dark academia; animals → animals. No random
    "other shop listings" and no stale hardcoded defaults.
-10. **Neutral/listicle article = pure value**; products at the END only; every image
-   illustrates its adjacent paragraph. Listicle → full infographic in Ksenia's ref style.
+10. **Neutral/listicle article = pure value first**; products at the END only;
+   every image illustrates its adjacent paragraph. Every article must still end
+   with at least one topic-matched LIVE listing in an article-specific product
+   bridge. Listicle → full infographic in Ksenia's ref style.
 11. **Only palette images and infographics carry the site text.** Add exactly
    `sentimentalica.com` on color-palette images and non-iPhone infographics.
    Do not add extra CTA text (`full guide`, `more ideas`, etc.) inside the image.
