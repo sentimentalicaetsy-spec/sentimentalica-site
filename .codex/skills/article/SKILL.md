@@ -42,9 +42,10 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
      listing. Neutral/lead/listicle = useful graphic/infographic plus the
     mandatory Pinterest-format atmospheric scene; a genuinely matching LIVE
     product stays at the end in a custom article-specific bridge.
-   - Add gentle article CTAs: "save this idea", "open the full guide", "browse
-     more Sentimentalica journal ideas", or "use the matching printable pages"
-     where natural. No hard sell.
+   - Add gentle article CTAs, but make the matching paid collection the clear
+     primary next step. Its bridge must explain why that exact product makes the
+     project easier, more cohesive, or more beautiful and use a calm decision
+     phrase such as “Choose,” “Make it with,” or “Use.” No hype or pressure.
 4. **Prompts file** `staging/overnight/prompts/<slug>.json` (slug = the one
    publish will produce — lowercase-hyphenated title): create every generated
    slot needed by the visual package, schema:
@@ -139,9 +140,11 @@ PY = /Users/kseniateter/sentimentalica-pipeline/.venv/bin/python
 - **The article is built FOR Pinterest**: every block is a future pin. Images
   must be either stunning or useful (infographic-style). Pure listing ads are
   banned — value first.
-- **Pinterest lead funnel:** pins should send people to the article on
-  sentimentalica.com first; the article must then softly propose at least one
-  relevant LIVE listing. Neutral/listicle = value first, product at END.
+- **Pinterest purchase funnel:** pins send people to the article on
+  sentimentalica.com first; useful content earns trust, then the article
+  gracefully but decisively makes one relevant LIVE listing the primary next
+  step. Final order: AI disclosure → paid product bridge → optional freebie
+  fallback. Neutral/listicle = value first before this conversion ending.
 - **Related ads are topic-matched and fresh:** every `{{etsy:...}}` block and
   front matter `related_ids:` must come from product-bridge's fresh live-shop
   check at article-creation time. Use up to 4 LIVE IDs that match the article's

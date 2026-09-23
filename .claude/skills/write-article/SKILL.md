@@ -4,8 +4,10 @@ description: Front door of the ideation funnel. Handles requests to write one or
 ---
 # /write-article — demand-first ideation funnel → articles
 
-Philosophy (AGENTS.md, PIN_STRATEGY.md): lead with what a person WANTS; the
-product rides along. ~65% of articles are lead magnets, not product pieces.
+Philosophy (AGENTS.md, PIN_STRATEGY.md): lead with what a person WANTS and give
+real value; then make the best-matched paid product the clear primary next step.
+~65% of topics may still begin as lead magnets, but every published article
+must contain a credible purchase bridge.
 
 ## 1. Parse the request
 - **N** = number of articles (default 1). "напиши 5 статей" → N=5.
@@ -32,7 +34,8 @@ For each slot, in order:
    candidates with `python3 tools/listing_rotation.py check <ID...>`. Prefer an
    unused ID; if none fits, intentionally reuse the strongest relevant LIVE
    listing and add `allow_repeated_listings: true`. Every article must have a
-   natural product bridge; lead magnets use `tie=end`, never `tie=none`.
+   natural product bridge; lead magnets use `tie=end`: value comes first, then
+   the paid collection becomes the primary conversion. Never use `tie=none`.
 4. **marketing-critic** (ideation gate) → PASS or re-sharpen (max 2 rounds, then
    surface to Ksenia). Only PASS ideas proceed.
 Collect each PASS as a plan row (Title/angle, Type, Theme, Listings, Notes with
@@ -51,8 +54,11 @@ by the **image-critic**, then the **critic code-gate**
 in publish_post.py (publish is blocked without every image PASS). Then
 `plan_io.mark_published(slug)`.
 Lead-magnet/neutral rows: pure value first, product at the END only, every image
-illustrates its adjacent paragraph. At least one topic-matched LIVE listing is
-mandatory in a custom `related_heading` + `related_text` section. On-theme
+illustrates its adjacent paragraph. The final order is AI disclosure → paid
+product bridge → optional freebie fallback. At least one topic-matched LIVE
+listing is mandatory in a custom `related_heading` + `related_text` section;
+the copy must explain the concrete benefit and use a calm decision phrase such
+as “Choose,” “Make it with,” or “Use.” On-theme
 listings only — never off-theme animals.
 Every article gets a thin atmospheric scene from `refs/scenes/`; it is a mood
 image around the topic, not a junk-journal mockup. Single-listing rows also need
@@ -182,8 +188,9 @@ when Ksenia explicitly requested one.
 ## Rules (inherited — never skip)
 - Демандный слейт: не переопределяй пропорции content_planner.py; сезон — только
   если окно открыто сегодня (никакого моря осенью).
-- Продукт едет следом, не впереди. Но каждая статья обязана естественно вести
-  минимум к одному LIVE листингу в финальном product bridge; `tie=none` запрещён.
+- Полезность идёт первой, затем статья спокойно, но определённо ведёт к покупке
+  одного релевантного LIVE листинга как главному следующему шагу. Бесплатный
+  оффер может стоять только после paid product bridge; `tie=none` запрещён.
 - Любой Etsy block / related_ids — только из свежей проверки live shop/feed
   product-bridge и только по теме статьи. Unused relevant LIVE listings are
   preferred. If no unused relevant listing fits, intentionally reuse the

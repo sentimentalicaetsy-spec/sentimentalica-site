@@ -277,11 +277,15 @@
   `sentimentalica.com`, без CTA. Если у листинга нет трёх разных valid
   non-character pages для palette images, не дублировать слабые palette pins:
   оставить valid palette image(s) и добавить другие approved visuals.
-- **В статье**: мягкие CTA в тексте обязательны. Каждая статья должна иметь
-  минимум один релевантный LIVE листинг в естественном финальном product bridge.
-  Сначала предпочитай неиспользованный листинг; если его нет, используй самый
-  сильный тематический повтор с `allow_repeated_listings: true`. Neutral/listicle
-  остаётся value-first, продукт всегда в конце.
+- **Главная конверсия статьи — покупка релевантного продукта.** Полезный контент
+  сначала заслуживает доверие, затем финальный product bridge спокойно, но
+  определённо делает один LIVE листинг главным следующим шагом. Copy обязана
+  объяснять, почему именно эта коллекция делает проект проще, цельнее или
+  красивее, и использовать ясную decision-фразу: “Choose”, “Make it with” или
+  “Use”. Сначала предпочитай неиспользованный листинг; если его нет, используй
+  самый сильный тематический повтор с `allow_repeated_listings: true`.
+  Финальный порядок фиксирован: AI disclosure → paid product bridge → optional
+  freebie fallback. Neutral/listicle остаётся value-first до этого окончания.
 - **AI disclosure**: внизу каждой статьи перед финальным related/shop блоком
   должна быть тихая, но читаемая строка: “Image note: Some visuals in this
   article were created with AI and curated by Sentimentalica.”

@@ -95,7 +95,7 @@ def require_unused_listings(meta, slug, body_html):
 
 
 def require_product_bridge(meta, body_html):
-    """Every article must lead naturally to at least one relevant product."""
+    """Every article must make one relevant product the primary next step."""
     ids = related_ids_for(meta, body_html)
     if not ids:
         sys.exit(
@@ -110,6 +110,38 @@ def require_product_bridge(meta, body_html):
             "PRODUCT BRIDGE BLOCKED publish. A natural listing section needs "
             "article-specific copy; add front matter: " + ", ".join(missing)
         )
+    bridge_text = meta["related_text"].strip()
+    bridge_copy = f'{meta["related_heading"]} {bridge_text}'
+    decision_verbs = r"\b(choose|use|make|start|create|build|try|get|recreate|give|set|pair)\b"
+    if len(bridge_text) < 100 or not re.search(decision_verbs, bridge_copy, re.I):
+        sys.exit(
+            "PRODUCT BRIDGE BLOCKED publish. related_text must give a concrete "
+            "reason to buy this exact collection (at least 100 characters), "
+            "and the bridge needs a clear decision verb such as Choose, Use, "
+            "or Make."
+        )
+
+
+def extract_freebie_cta(body_html):
+    """Move the optional free gift behind the paid product bridge.
+
+    Articles may contain one author-written freebie CTA. Keeping it in the
+    source body makes the article easy to edit, while extracting it here makes
+    the conversion order deterministic: useful article, disclosure, paid
+    product, then the free alternative.
+    """
+    freebie_pattern = re.compile(
+        r'<aside\b(?=[^>]*\bclass="[^"]*\bpost-freebie-cta\b[^"]*")[^>]*>'
+        r'.*?</aside>',
+        re.I | re.S,
+    )
+    match = freebie_pattern.search(body_html)
+    if not match:
+        return body_html, ""
+    return (
+        body_html[:match.start()] + body_html[match.end():],
+        match.group(0),
+    )
 
 
 def article_afterword(meta, body_html):
@@ -129,7 +161,7 @@ def article_afterword(meta, body_html):
     ids = ",".join(related_ids)
     return disclosure + f"""
     <section class="post-related-shop" aria-label="Continue with Sentimentalica">
-      <p class="post-related-kicker">Keep going</p>
+      <p class="post-related-kicker">Your matching collection</p>
       <h2>{heading}</h2>
       <p>{text}</p>
       <div class="etsy-products" data-ids="{ids}" aria-busy="true"></div>
@@ -256,6 +288,7 @@ def localize_images(html, src_dir: Path, slug: str):
 # ── Page template ─────────────────────────────────────────────────────────────
 
 def render_page(meta, slug, body_html):
+    body_html, freebie_cta = extract_freebie_cta(body_html)
     title = escape(meta["title"])
     desc = escape(meta.get("excerpt", ""))
     category = escape(meta.get("category", "Journal"))
@@ -292,7 +325,7 @@ def render_page(meta, slug, body_html):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css?v=4">
-<link rel="stylesheet" href="../assets/post.css?v=13">
+<link rel="stylesheet" href="../assets/post.css?v=14">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
@@ -325,6 +358,7 @@ def render_page(meta, slug, body_html):
   <div class="post-body ql-content">
 {body_html}
 {article_afterword(meta, body_html)}
+{freebie_cta}
   </div>
 </article>
 

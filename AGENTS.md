@@ -138,10 +138,14 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
    article-creation time and related to that exact topic/category. Floral article
    → floral options; dark academia → dark academia; animals → animals. No random
    "other shop listings" and no stale hardcoded defaults.
-10. **Neutral/listicle article = pure value first**; products at the END only;
-   every image illustrates its adjacent paragraph. Every article must still end
-   with at least one topic-matched LIVE listing in an article-specific product
-   bridge. Listicle → full infographic in Ksenia's ref style.
+10. **Useful content earns the click; the paid product closes it.** Every
+   article must make one topic-matched LIVE listing the clear primary next step
+   in an article-specific product bridge. The bridge must say why that exact
+   collection makes this project easier, more cohesive, or more beautiful and
+   use a calm decision phrase such as “Choose,” “Make it with,” or “Use.” Final
+   conversion order is fixed: AI disclosure → paid product bridge → optional
+   freebie fallback. Neutral/listicle articles still deliver pure value before
+   this ending. Listicle → full infographic in Ksenia's ref style.
 11. **Only palette images and infographics carry the site text.** Add exactly
    `sentimentalica.com` on color-palette images and non-iPhone infographics.
    Do not add extra CTA text (`full guide`, `more ideas`, etc.) inside the image.
@@ -232,7 +236,8 @@ Owner: Ksenia. She dictates visual taste; agents execute. Tool is chosen LAST.
 7. Mark the `content_plan.xlsx` row used (status=published + date + slug).
 8. pinterest-seo → pins → `pin_csv.py` (auto-mirrors CSV to Google Drive).
    Pinterest links go to sentimentalica.com articles by default; article pages
-   then softly route to relevant Etsy listings. Pin titles/descriptions must
+   then gracefully but decisively route to relevant Etsy listings as the
+   primary conversion. Pin titles/descriptions must
    include a gentle reason to click through to the article. CSV generation is
    opt-in only. When requested, follow `PIN_STRATEGY.md`: include every unique
    article content image (all carousel images included) and select each row's
@@ -276,8 +281,9 @@ Trigger: "напиши статью" / "напиши N статей" / "напи
   rows (auto-dedup), marks published.
 - 5 agents: **marketing-director** (allocates the slate + assigns territories) →
   **desire-scout** (sharp timely angle) → **audience-strategist** (who + hook) →
-  **product-bridge** (product center/end/NONE — reach is valid) →
-  **marketing-critic** (ideation gate: kills product-first + off-season).
+  **product-bridge** (product center/end; `NONE` may not publish) →
+  **marketing-critic** (ideation gate: rejects thin-value or off-season ideas,
+  and requires a credible purchase bridge).
 - Modes: *auto* writes the articles; *curated* just fills `idea` rows for Ksenia
   to tick `approved`. Everything flows through the /article machinery + critic gate.
 Inputs Ksenia owns: `refs/branding/`, `refs/infographics/`,
