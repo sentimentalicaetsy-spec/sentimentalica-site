@@ -58,6 +58,33 @@
   padding-top: 1rem;
   border-top: 1px solid rgba(120, 104, 78, .22);
 }
+.post-freebie-cta {
+  margin: 2.8rem 0 1.4rem;
+  padding: 2rem;
+  border: 1px solid #d8cbb8;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f7efe1, #eef1fb);
+  text-align: center;
+}
+.post-freebie-cta .post-cta-kicker {
+  margin: 0 0 .45rem;
+  color: #9b6468;
+  font: 700 .75rem 'Lora', Georgia, serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.post-freebie-cta h2 { margin: 0 0 .55rem; font-size: 1.7rem; }
+.post-freebie-cta p { margin: 0 auto 1rem; max-width: 34rem; color: #5f5446; }
+.post-freebie-cta a {
+  display: inline-block;
+  padding: .8rem 1.4rem;
+  border-radius: 999px;
+  background: #163087;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.post-freebie-cta a:hover { background: #0f2466; color: #fff; }
 .post-disclosure p {
   margin: 0;
   color: #9a8b75;

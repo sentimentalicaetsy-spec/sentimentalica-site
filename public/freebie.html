@@ -402,8 +402,9 @@
 <script>
 // --- Email signup + gift reveal -------------------------------------------
 // Backend is our own free Google Apps Script (see tools/gift_apps_script.gs
-// and GIFT_SETUP.md): stores the email in a PRIVATE Google Sheet, emails the
-// gift link, pings Telegram. Set FORM_ENDPOINT to the deployed /exec URL.
+// and GIFT_SETUP.md): stores the email and attribution in a PRIVATE Google
+// Sheet, returns the gift link on-page, and pings Telegram. Set FORM_ENDPOINT
+// to the deployed /exec URL.
 // The reveal is optimistic: it starts the moment a valid email is entered;
 // the signup request runs in the background and never blocks the moment.
 const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVF3PjtU0Gia67q6ysho3_qlWLFensh8jG-ESZe7F8-YtSxzyOQ83YloHbyUQki2-V/exec';
@@ -420,6 +421,17 @@ const presentLink = document.getElementById('present-link');
 
 let revealed = false;
 let giftLink = null; // promise of the gift-folder link, from the backend
+
+function signupSource() {
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get('utm_source');
+  const medium = params.get('utm_medium');
+  const campaign = params.get('utm_campaign');
+  const content = params.get('utm_content');
+  const term = params.get('utm_term');
+  if (!source && !medium && !campaign && !content && !term) return 'freebie page';
+  return [source, medium, campaign, content, term].filter(Boolean).join(' | ').slice(0, 240);
+}
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -442,7 +454,7 @@ form.addEventListener('submit', (e) => {
     body: new URLSearchParams({
       email,
       website: document.getElementById('freebie-hp').value, // honeypot
-      source: 'freebie page',
+      source: signupSource(),
     }),
   })
     .then((r) => r.json())

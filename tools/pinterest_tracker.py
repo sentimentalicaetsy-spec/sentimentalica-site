@@ -245,7 +245,21 @@ def article_metadata(path: Path) -> dict[str, object] | None:
     article_date = str(schema.get("datePublished") or "").strip()
     parser = ContentImageParser(article_url)
     parser.feed(text)
-    images = list(dict.fromkeys(parser.images))
+    # When a dedicated marketing layer exists, track those designed Pin assets
+    # instead of raw editorial/source images. This prevents atmospheric AI
+    # scenes from being uploaded without a readable promise and brand context.
+    pin_dir = PUBLIC_BLOG / "img" / slug / "pins"
+    pin_files = sorted(
+        p for p in pin_dir.glob("*")
+        if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png"}
+    )
+    if pin_files:
+        images = [
+            f"https://sentimentalica.com/blog/img/{slug}/pins/{p.name}"
+            for p in pin_files
+        ]
+    else:
+        images = list(dict.fromkeys(parser.images))
     return {
         "date": article_date,
         "title": html.unescape(title),

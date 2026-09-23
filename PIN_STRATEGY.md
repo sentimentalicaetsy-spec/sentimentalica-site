@@ -301,3 +301,27 @@ For a current article whose image set changes after a CSV was created, the
 tracker compares the ledger to the article's current `<div class="post-body">`
 images. New images appear as `Images with no CSV record`; removed images remain
 in the audit ledger but do not inflate current article coverage.
+
+## Article conversion layer (2026-09-23)
+
+Article illustrations and Pinterest marketing assets now have separate jobs.
+Atmospheric scenes stay clean inside the article, but a raw scene is never sent
+to Pinterest. Use `tools/render_pin_variants.py` to derive three branded
+1000×1500 pins per article: a useful guide, a benefit-led mood pin, and a
+free-practice/next-step pin. Each needs a distinct 4–9 word mobile-readable
+promise and a descriptive hyphenated filename.
+
+When an article has `public/blog/img/<slug>/pins/`, that folder is the current
+Pinterest inventory. `pinterest_tracker.py` deliberately tracks those designed
+assets instead of the source illustrations in the article body.
+
+Every landing article in this workflow must provide three matching fragment
+destinations: `#pin-guide`, `#pin-mood`, and `#free-gift`. The page has one
+primary conversion goal, repeated softly where useful, with UTM parameters that
+identify the article. Run the hard audit before handoff:
+
+`PY tools/funnel_audit.py <slug>`
+
+The audit checks the promise-led hook, single CTA block, tracked URL, natural
+image alt text, unique fragment destinations, and three correctly sized Pin
+assets. A failed audit blocks CSV creation and publication.

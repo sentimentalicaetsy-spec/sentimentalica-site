@@ -344,6 +344,17 @@
     });
   }
 
+  function preservePinAttribution() {
+    var incoming = new URLSearchParams(window.location.search);
+    var pinVariant = incoming.get('utm_content');
+    if (!pinVariant) return;
+    document.querySelectorAll('.post-freebie-cta a[href*="freebie.html"], .post-body a[href*="freebie.html"]').forEach(function (link) {
+      var url = new URL(link.href, window.location.href);
+      url.searchParams.set('utm_term', pinVariant);
+      link.href = url.toString();
+    });
+  }
+
   function init() {
     enhanceCarousels();
     document.querySelectorAll('.etsy-products[data-ids]').forEach(hydrate);
@@ -353,6 +364,7 @@
     shopStrip();
     adminEditPill();
     heroImage();
+    preservePinAttribution();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
