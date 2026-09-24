@@ -65,6 +65,7 @@
         var items = d.listings || [];
         if (!items.length) { el.remove(); return; } // sold out / delisted — vanish quietly
         el.classList.add('product-grid', 'post-products');
+        if (items.length === 1) el.classList.add('post-products-single');
         el.innerHTML = items.map(cardHtml).join('');
         el.removeAttribute('aria-busy');
         wireVideoHover(el);
