@@ -1,6 +1,106 @@
 {
   "posts": [
     {
+      "slug": "how-to-write-about-a-hard-day-without-turning-it-into-an-essay",
+      "title": "How to Write About a Hard Day Without Turning It Into an Essay",
+      "category": "Gentle Journaling",
+      "excerpt": "A small, contained journaling method for naming a difficult day without explaining every part of it.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-write-about-a-hard-day-without-turning-it-into-an-essay/gen1.jpg"
+    },
+    {
+      "slug": "how-to-return-to-an-unfinished-journal-page-without-starting-over",
+      "title": "How to Return to an Unfinished Journal Page Without Starting Over",
+      "category": "Junk Journal Tutorials",
+      "excerpt": "A forgiving method for finishing an abandoned journal page without covering it up or beginning again.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-return-to-an-unfinished-journal-page-without-starting-over/gen1.jpg"
+    },
+    {
+      "slug": "how-to-make-a-walk-memory-page-from-one-small-trace",
+      "title": "How to Make a Walk Memory Page From One Small Trace",
+      "category": "Memory Keeping",
+      "excerpt": "Turn one leaf, ticket, or tiny observation from a walk into a quiet journal page with a clear sense of place.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-make-a-walk-memory-page-from-one-small-trace/gen1.jpg"
+    },
+    {
+      "slug": "how-to-keep-one-ordinary-weekday-without-documenting-everything",
+      "title": "How to Keep One Ordinary Weekday Without Documenting Everything",
+      "category": "Memory Keeping",
+      "excerpt": "A gentle way to preserve one ordinary weekday through a single trace, one sentence, and one small page.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-keep-one-ordinary-weekday-without-documenting-everything/gen1.jpg"
+    },
+    {
+      "slug": "how-to-journal-a-memory-you-can-hear-but-cannot-picture",
+      "title": "How to Journal a Memory You Can Hear but Cannot Picture",
+      "category": "Memory Keeping",
+      "excerpt": "A practical way to preserve a remembered voice, song, or household sound when no photograph exists.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/how-to-journal-a-memory-you-can-hear-but-cannot-picture/gen1.jpg"
+    },
+    {
+      "slug": "antique-ledger-pages-for-a-family-history-journal",
+      "title": "Antique Ledger Pages for a Family History Journal",
+      "category": "Junk Journal Inspiration",
+      "excerpt": "Use antique ledger pages to give names, dates, and small family facts a calm structure without making the journal feel formal.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/antique-ledger-pages-for-a-family-history-journal/gen1.jpg"
+    },
+    {
+      "slug": "a-vintage-travel-journal-that-begins-before-the-trip",
+      "title": "A Vintage Travel Journal That Begins Before the Trip",
+      "category": "Travel Journaling",
+      "excerpt": "Start a travel journal before departure with one route, one expectation, and a pocket for the evidence that comes home.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-vintage-travel-journal-that-begins-before-the-trip/gen1.jpg"
+    },
+    {
+      "slug": "a-quiet-log-cabin-journal-theme-for-nature-notes",
+      "title": "A Quiet Log Cabin Journal Theme for Nature Notes",
+      "category": "Junk Journal Inspiration",
+      "excerpt": "Build a woodland journal around timber, pine, field notes, and the small seasonal changes you actually notice.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-quiet-log-cabin-journal-theme-for-nature-notes/gen1.jpg"
+    },
+    {
+      "slug": "a-five-minute-bedside-journal-ritual-for-tired-nights",
+      "title": "A Five-Minute Bedside Journal Ritual for Tired Nights",
+      "category": "Creative Rituals",
+      "excerpt": "A five-minute bedside ritual that keeps a journal close without turning the end of the day into another task.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-five-minute-bedside-journal-ritual-for-tired-nights/gen1.jpg"
+    },
+    {
+      "slug": "a-colorful-dog-memory-journal-that-still-feels-grown-up",
+      "title": "A Colorful Dog Memory Journal That Still Feels Grown-Up",
+      "category": "Memory Keeping",
+      "excerpt": "Use clear color roles, ordinary photographs, and specific details to make a joyful dog memory journal without cartoon clutter.",
+      "date": "2026-10-03",
+      "dateDisplay": "Oct 3",
+      "readTime": "2 min read",
+      "thumb": "blog/img/a-colorful-dog-memory-journal-that-still-feels-grown-up/gen1.jpg"
+    },
+    {
       "slug": "a-one-day-fold-out-timeline-for-your-journal",
       "title": "A One-Day Fold-Out Timeline for Your Journal",
       "category": "Junk Journal Tutorials",
