@@ -1,6 +1,106 @@
 {
   "posts": [
     {
+      "slug": "build-a-wizard-journal-around-an-invented-place",
+      "title": "Build a Wizard Journal Around an Invented Place",
+      "category": "Junk Journal Inspiration",
+      "excerpt": "Give an imagined place a landmark, an everyday rule, and a resident\u2019s note to make your fantasy journal feel inhabited.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/build-a-wizard-journal-around-an-invented-place/gen1.png"
+    },
+    {
+      "slug": "fairy-garden-journal-colors-for-an-airy-written-story",
+      "title": "Fairy Garden Journal Colors for an Airy Written Story",
+      "category": "Junk Journal Inspiration",
+      "excerpt": "Let fairy-garden colors frame a small scene while keeping light paper and your own words visible.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/fairy-garden-journal-colors-for-an-airy-written-story/palette1.jpg"
+    },
+    {
+      "slug": "folk-floral-journal-pages-with-a-handmade-rhythm",
+      "title": "Folk Floral Journal Pages with a Handmade Rhythm",
+      "category": "Memory Keeping",
+      "excerpt": "Use recurring floral shapes, handmade borders, and breathing space to give a folk-inspired journal page rhythm.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/folk-floral-journal-pages-with-a-handmade-rhythm/gen2.png"
+    },
+    {
+      "slug": "gothic-journal-colors-that-leave-room-for-handwriting",
+      "title": "Gothic Journal Colors That Leave Room for Handwriting",
+      "category": "Junk Journal Inspiration",
+      "excerpt": "Balance a moody gothic palette with quiet paper so your own handwriting stays at the heart of the spread.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/gothic-journal-colors-that-leave-room-for-handwriting/palette1.jpg"
+    },
+    {
+      "slug": "a-plant-care-journal-that-remembers-more-than-watering",
+      "title": "A Plant-Care Journal That Remembers More Than Watering",
+      "category": "Creative Rituals",
+      "excerpt": "Make repeatable observation cards that record visible changes, the care you gave, and what you want to notice next.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-plant-care-journal-that-remembers-more-than-watering/gen2.png"
+    },
+    {
+      "slug": "write-a-letter-to-a-friend-that-feels-like-being-there",
+      "title": "Write a Letter to a Friend That Feels Like Being There",
+      "category": "Creative Rituals",
+      "excerpt": "Build a meaningful handwritten letter around one ordinary scene, one shared memory, and an easy question.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/write-a-letter-to-a-friend-that-feels-like-being-there/gen1.png"
+    },
+    {
+      "slug": "make-a-garden-vision-page-for-the-life-you-want",
+      "title": "Make a Garden Vision Page for the Life You Want",
+      "category": "Creative Rituals",
+      "excerpt": "Picture a garden corner, name how you want it to feel, and choose one small action you can take this week.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/make-a-garden-vision-page-for-the-life-you-want/gen2.png"
+    },
+    {
+      "slug": "make-a-small-journal-desk-that-packs-away-in-minutes",
+      "title": "Make a Small Journal Desk That Packs Away in Minutes",
+      "category": "Creative Rituals",
+      "excerpt": "Set up a portable journaling tray with clear places for your active page, tools, offcuts, and drying work.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/make-a-small-journal-desk-that-packs-away-in-minutes/gen1.png"
+    },
+    {
+      "slug": "keep-your-wedding-dress-shopping-day-in-one-spread",
+      "title": "Keep Your Wedding Dress Shopping Day in One Spread",
+      "category": "Memory Keeping",
+      "excerpt": "Keep the hope before your fitting, the moment in the mirror, and the small details you want to remember.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/keep-your-wedding-dress-shopping-day-in-one-spread/gen2.png"
+    },
+    {
+      "slug": "keep-the-story-behind-your-halloween-costume-on-paper",
+      "title": "Keep the Story Behind Your Halloween Costume on Paper",
+      "category": "Memory Keeping",
+      "excerpt": "Keep the costume idea, a trace of its making, and a moment from Halloween night together in one memory spread.",
+      "date": "2026-10-09",
+      "dateDisplay": "Oct 9",
+      "readTime": "3 min read",
+      "thumb": "blog/img/keep-the-story-behind-your-halloween-costume-on-paper/gen1.png"
+    },
+    {
       "slug": "how-to-write-about-a-hard-day-without-turning-it-into-an-essay",
       "title": "How to Write About a Hard Day Without Turning It Into an Essay",
       "category": "Gentle Journaling",
