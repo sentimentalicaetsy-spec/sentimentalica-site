@@ -981,5 +981,7 @@
       "inspected_full_size": true,
       "sha256": "8c61f91fbe618aacd1c12843250202a03c6198963a225a4df34f5b26c4964862"
     }
-  ]
+  ],
+  "csv_sha256": "cb8a875952ddd4065f753e37879ecc87c7ba37ba6a04a37bb298c4e6ec41941d",
+  "csv_encoding": "UTF-8 with BOM; LF line endings"
 }
