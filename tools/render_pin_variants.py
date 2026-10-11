@@ -75,7 +75,7 @@ def centered_text(draw, box, text, text_font, fill, spacing=10):
         y += height + spacing
 
 
-def brand_footer(canvas: Image.Image, label: str = "SENTIMENTALICA.COM") -> None:
+def brand_footer(canvas: Image.Image, label: str = "sentimentalica.com") -> None:
     draw = ImageDraw.Draw(canvas, "RGBA")
     draw.rectangle((0, 1400, 1000, 1500), fill=(*NAVY, 255))
     fnt = font(30, bold=True)
@@ -83,9 +83,17 @@ def brand_footer(canvas: Image.Image, label: str = "SENTIMENTALICA.COM") -> None
     draw.text(((1000 - width) // 2, 1431), label, font=fnt, fill=CREAM)
 
 
-def render_guide(primary: Image.Image, headline: str) -> Image.Image:
+def render_guide(primary: Image.Image, headline: str, overlay: bool = False,
+                 detail: str = "") -> Image.Image:
     canvas = Image.new("RGB", SIZE, CREAM)
-    canvas.paste(contain(primary, (1000, 1400), CREAM), (0, 0))
+    if overlay:
+        draw = ImageDraw.Draw(canvas)
+        centered_text(draw, (65, 40, 935, 340), headline, font(62, bold=True), NAVY, 12)
+        canvas.paste(contain(primary, (1000, 830 if detail else 1020), CREAM), (0, 370))
+        if detail:
+            centered_text(draw, (60, 1220, 940, 1380), detail, font(44, bold=True), NAVY, 8)
+    else:
+        return cover(primary, SIZE)
     brand_footer(canvas)
     return canvas
 
@@ -99,18 +107,18 @@ def render_mood(mood: Image.Image, headline: str) -> Image.Image:
     return canvas
 
 
-def render_split(primary: Image.Image, mood: Image.Image, headline: str) -> Image.Image:
+def render_split(primary: Image.Image, mood: Image.Image, headline: str,
+                 label: str = "FREE PRACTICE PICTURES INSIDE") -> Image.Image:
     canvas = Image.new("RGB", SIZE, CREAM)
-    canvas.paste(cover(mood, (1000, 720)), (0, 0))
-    canvas.paste(cover(primary, (1000, 500)), (0, 720))
+    canvas.paste(cover(mood, (1000, 960)), (0, 0))
     draw = ImageDraw.Draw(canvas, "RGBA")
-    draw.rectangle((0, 1220, 1000, 1500), fill=(*CREAM, 255))
-    draw.rectangle((0, 1220, 18, 1500), fill=(*ROSE, 255))
-    centered_text(draw, (70, 1240, 930, 1415), headline, font(50, bold=True), INK, 8)
+    draw.rectangle((0, 960, 1000, 1500), fill=(*CREAM, 255))
+    draw.rectangle((0, 960, 18, 1500), fill=(*ROSE, 255))
+    centered_text(draw, (70, 985, 930, 1330), headline, font(62, bold=True), INK, 12)
     fnt = font(25, bold=True)
-    label = "FREE PRACTICE PICTURES INSIDE"
     width = draw.textbbox((0, 0), label, font=fnt)[2]
-    draw.text(((1000 - width) // 2, 1445), label, font=fnt, fill=NAVY)
+    draw.text(((1000 - width) // 2, 1355), label, font=fnt, fill=NAVY)
+    brand_footer(canvas)
     return canvas
 
 
@@ -120,6 +128,17 @@ def main() -> None:
     parser.add_argument("--headline", required=True)
     parser.add_argument("--mood-headline", required=True)
     parser.add_argument("--cta-headline", default="TRY THIS WITH FREE FLORALS")
+    parser.add_argument("--primary", type=Path, help="Explicit existing guide or palette source")
+    parser.add_argument("--mood", type=Path, help="Explicit existing atmospheric source")
+    parser.add_argument("--practice-source", type=Path,
+                        help="Existing process photo for the practice variant")
+    parser.add_argument("--guide-overlay", action="store_true",
+                        help="Add the guide promise when the source has no title")
+    parser.add_argument("--guide-detail", default="",
+                        help="Short article-specific method beneath a photo guide")
+    parser.add_argument("--cta-label", default="FREE PRACTICE PICTURES INSIDE")
+    parser.add_argument("--filenames", choices=("legacy", "journal"), default="legacy",
+                        help="Use neutral journal filenames for a new inventory")
     args = parser.parse_args()
 
     for label, value in (("mood headline", args.mood_headline),
@@ -130,19 +149,24 @@ def main() -> None:
 
     article_dir = ROOT / "public/blog/img" / args.slug
     primary_candidates = [article_dir / "gen1.png", article_dir / "gen1.jpg"]
-    primary_path = next((p for p in primary_candidates if p.exists()), None)
-    mood_path = article_dir / "gen2.jpg"
-    if not primary_path or not mood_path.exists():
+    primary_path = args.primary or next((p for p in primary_candidates if p.exists()), None)
+    mood_path = args.mood or next((article_dir / name for name in ("gen2.jpg", "gen2.png")
+                                  if (article_dir / name).exists()), None)
+    if not primary_path or not primary_path.exists() or not mood_path or not mood_path.exists():
         raise SystemExit(f"Missing gen1/gen2 assets for {args.slug}")
 
     primary = Image.open(primary_path)
     mood = Image.open(mood_path)
+    practice = Image.open(args.practice_source) if args.practice_source else mood
     output = article_dir / "pins"
     output.mkdir(exist_ok=True)
     outputs = [
-        (output / f"{args.slug}-step-by-step-guide.jpg", render_guide(primary, args.headline)),
-        (output / f"{args.slug}-cozy-seasonal-idea.jpg", render_mood(mood, args.mood_headline)),
-        (output / f"{args.slug}-free-practice-idea.jpg", render_split(primary, mood, args.cta_headline)),
+        (output / f"{args.slug}-step-by-step-guide.jpg",
+         render_guide(primary, args.headline, args.guide_overlay, args.guide_detail)),
+        (output / f"{args.slug}-{'journal-inspiration' if args.filenames == 'journal' else 'cozy-seasonal-idea'}.jpg",
+         render_mood(mood, args.mood_headline)),
+        (output / f"{args.slug}-{'paper-practice-idea' if args.filenames == 'journal' else 'free-practice-idea'}.jpg",
+         render_split(primary, practice, args.cta_headline, args.cta_label)),
     ]
     for path, image in outputs:
         image.save(path, "JPEG", quality=92, optimize=True, progressive=True)
