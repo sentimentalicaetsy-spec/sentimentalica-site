@@ -1,0 +1,985 @@
+{
+  "status": "PASS",
+  "articles": [
+    {
+      "url": "https://sentimentalica.com/blog/a-colorful-dog-memory-journal-that-still-feels-grown-up.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/a-five-minute-bedside-journal-ritual-for-tired-nights.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/a-plant-care-journal-that-remembers-more-than-watering.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/a-quiet-log-cabin-journal-theme-for-nature-notes.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/a-vintage-travel-journal-that-begins-before-the-trip.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/antique-ledger-pages-for-a-family-history-journal.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/build-a-wizard-journal-around-an-invented-place.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/fairy-garden-journal-colors-for-an-airy-written-story.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/folk-floral-journal-pages-with-a-handmade-rhythm.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/gothic-journal-colors-that-leave-room-for-handwriting.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/how-to-journal-a-memory-you-can-hear-but-cannot-picture.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/how-to-keep-one-ordinary-weekday-without-documenting-everything.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/how-to-make-a-walk-memory-page-from-one-small-trace.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/how-to-return-to-an-unfinished-journal-page-without-starting-over.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/how-to-write-about-a-hard-day-without-turning-it-into-an-essay.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/keep-the-story-behind-your-halloween-costume-on-paper.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/keep-your-wedding-dress-shopping-day-in-one-spread.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/make-a-garden-vision-page-for-the-life-you-want.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/make-a-small-journal-desk-that-packs-away-in-minutes.html",
+      "status": "PASS"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/write-a-letter-to-a-friend-that-feels-like-being-there.html",
+      "status": "PASS"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://sentimentalica.com/blog/img/write-a-letter-to-a-friend-that-feels-like-being-there/pins/write-a-letter-to-a-friend-that-feels-like-being-there-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/write-a-letter-to-a-friend-that-feels-like-being-there/pins/write-a-letter-to-a-friend-that-feels-like-being-there-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/write-a-letter-to-a-friend-that-feels-like-being-there/pins/write-a-letter-to-a-friend-that-feels-like-being-there-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-a-small-journal-desk-that-packs-away-in-minutes/pins/make-a-small-journal-desk-that-packs-away-in-minutes-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-a-small-journal-desk-that-packs-away-in-minutes/pins/make-a-small-journal-desk-that-packs-away-in-minutes-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-a-small-journal-desk-that-packs-away-in-minutes/pins/make-a-small-journal-desk-that-packs-away-in-minutes-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-a-garden-vision-page-for-the-life-you-want/pins/make-a-garden-vision-page-for-the-life-you-want-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-a-garden-vision-page-for-the-life-you-want/pins/make-a-garden-vision-page-for-the-life-you-want-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-a-garden-vision-page-for-the-life-you-want/pins/make-a-garden-vision-page-for-the-life-you-want-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-your-wedding-dress-shopping-day-in-one-spread/pins/keep-your-wedding-dress-shopping-day-in-one-spread-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-your-wedding-dress-shopping-day-in-one-spread/pins/keep-your-wedding-dress-shopping-day-in-one-spread-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-your-wedding-dress-shopping-day-in-one-spread/pins/keep-your-wedding-dress-shopping-day-in-one-spread-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-the-story-behind-your-halloween-costume-on-paper/pins/keep-the-story-behind-your-halloween-costume-on-paper-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-the-story-behind-your-halloween-costume-on-paper/pins/keep-the-story-behind-your-halloween-costume-on-paper-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-the-story-behind-your-halloween-costume-on-paper/pins/keep-the-story-behind-your-halloween-costume-on-paper-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/gothic-journal-colors-that-leave-room-for-handwriting/pins/gothic-journal-colors-that-leave-room-for-handwriting-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/gothic-journal-colors-that-leave-room-for-handwriting/pins/gothic-journal-colors-that-leave-room-for-handwriting-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/gothic-journal-colors-that-leave-room-for-handwriting/pins/gothic-journal-colors-that-leave-room-for-handwriting-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/folk-floral-journal-pages-with-a-handmade-rhythm/pins/folk-floral-journal-pages-with-a-handmade-rhythm-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/folk-floral-journal-pages-with-a-handmade-rhythm/pins/folk-floral-journal-pages-with-a-handmade-rhythm-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/folk-floral-journal-pages-with-a-handmade-rhythm/pins/folk-floral-journal-pages-with-a-handmade-rhythm-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/fairy-garden-journal-colors-for-an-airy-written-story/pins/fairy-garden-journal-colors-for-an-airy-written-story-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/fairy-garden-journal-colors-for-an-airy-written-story/pins/fairy-garden-journal-colors-for-an-airy-written-story-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/fairy-garden-journal-colors-for-an-airy-written-story/pins/fairy-garden-journal-colors-for-an-airy-written-story-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-wizard-journal-around-an-invented-place/pins/build-a-wizard-journal-around-an-invented-place-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-wizard-journal-around-an-invented-place/pins/build-a-wizard-journal-around-an-invented-place-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-wizard-journal-around-an-invented-place/pins/build-a-wizard-journal-around-an-invented-place-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-plant-care-journal-that-remembers-more-than-watering/pins/a-plant-care-journal-that-remembers-more-than-watering-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-plant-care-journal-that-remembers-more-than-watering/pins/a-plant-care-journal-that-remembers-more-than-watering-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-plant-care-journal-that-remembers-more-than-watering/pins/a-plant-care-journal-that-remembers-more-than-watering-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-write-about-a-hard-day-without-turning-it-into-an-essay/pins/how-to-write-about-a-hard-day-without-turning-it-into-an-essay-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-write-about-a-hard-day-without-turning-it-into-an-essay/pins/how-to-write-about-a-hard-day-without-turning-it-into-an-essay-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-write-about-a-hard-day-without-turning-it-into-an-essay/pins/how-to-write-about-a-hard-day-without-turning-it-into-an-essay-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-return-to-an-unfinished-journal-page-without-starting-over/pins/how-to-return-to-an-unfinished-journal-page-without-starting-over-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-return-to-an-unfinished-journal-page-without-starting-over/pins/how-to-return-to-an-unfinished-journal-page-without-starting-over-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-return-to-an-unfinished-journal-page-without-starting-over/pins/how-to-return-to-an-unfinished-journal-page-without-starting-over-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-make-a-walk-memory-page-from-one-small-trace/pins/how-to-make-a-walk-memory-page-from-one-small-trace-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-make-a-walk-memory-page-from-one-small-trace/pins/how-to-make-a-walk-memory-page-from-one-small-trace-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-make-a-walk-memory-page-from-one-small-trace/pins/how-to-make-a-walk-memory-page-from-one-small-trace-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-keep-one-ordinary-weekday-without-documenting-everything/pins/how-to-keep-one-ordinary-weekday-without-documenting-everything-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-keep-one-ordinary-weekday-without-documenting-everything/pins/how-to-keep-one-ordinary-weekday-without-documenting-everything-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-keep-one-ordinary-weekday-without-documenting-everything/pins/how-to-keep-one-ordinary-weekday-without-documenting-everything-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-journal-a-memory-you-can-hear-but-cannot-picture/pins/how-to-journal-a-memory-you-can-hear-but-cannot-picture-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-journal-a-memory-you-can-hear-but-cannot-picture/pins/how-to-journal-a-memory-you-can-hear-but-cannot-picture-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/how-to-journal-a-memory-you-can-hear-but-cannot-picture/pins/how-to-journal-a-memory-you-can-hear-but-cannot-picture-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/antique-ledger-pages-for-a-family-history-journal/pins/antique-ledger-pages-for-a-family-history-journal-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/antique-ledger-pages-for-a-family-history-journal/pins/antique-ledger-pages-for-a-family-history-journal-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/antique-ledger-pages-for-a-family-history-journal/pins/antique-ledger-pages-for-a-family-history-journal-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-vintage-travel-journal-that-begins-before-the-trip/pins/a-vintage-travel-journal-that-begins-before-the-trip-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-vintage-travel-journal-that-begins-before-the-trip/pins/a-vintage-travel-journal-that-begins-before-the-trip-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-vintage-travel-journal-that-begins-before-the-trip/pins/a-vintage-travel-journal-that-begins-before-the-trip-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-quiet-log-cabin-journal-theme-for-nature-notes/pins/a-quiet-log-cabin-journal-theme-for-nature-notes-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-quiet-log-cabin-journal-theme-for-nature-notes/pins/a-quiet-log-cabin-journal-theme-for-nature-notes-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-quiet-log-cabin-journal-theme-for-nature-notes/pins/a-quiet-log-cabin-journal-theme-for-nature-notes-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-five-minute-bedside-journal-ritual-for-tired-nights/pins/a-five-minute-bedside-journal-ritual-for-tired-nights-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-five-minute-bedside-journal-ritual-for-tired-nights/pins/a-five-minute-bedside-journal-ritual-for-tired-nights-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-five-minute-bedside-journal-ritual-for-tired-nights/pins/a-five-minute-bedside-journal-ritual-for-tired-nights-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-colorful-dog-memory-journal-that-still-feels-grown-up/pins/a-colorful-dog-memory-journal-that-still-feels-grown-up-step-by-step-guide.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-colorful-dog-memory-journal-that-still-feels-grown-up/pins/a-colorful-dog-memory-journal-that-still-feels-grown-up-journal-inspiration.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-colorful-dog-memory-journal-that-still-feels-grown-up/pins/a-colorful-dog-memory-journal-that-still-feels-grown-up-paper-practice-idea.jpg",
+      "status": "PASS",
+      "mime": "image/jpeg"
+    }
+  ],
+  "csv": "UPLOAD_THIS_all_unpublished_articles_2026-10-11.csv",
+  "rows": 60,
+  "date": "2026-10-11",
+  "provided_pins": 60,
+  "upload_confirmed_pins": 0,
+  "visual_review": {
+    "total": 60,
+    "pass": 60,
+    "repair": 0,
+    "changed_outputs_reinspected": 15
+  },
+  "visual_notes": [
+    {
+      "index": 0,
+      "slug": "write-a-letter-to-a-friend-that-feels-like-being-there",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Scene-memory-question letter method readable; folded paper collage and cafe example support promise.",
+      "inspected_full_size": true,
+      "sha256": "793476b3d34ea6013fba2eb52e68b88b0c4eabeda61777ccc30defa735bdcb00"
+    },
+    {
+      "index": 1,
+      "slug": "write-a-letter-to-a-friend-that-feels-like-being-there",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Warm envelope/rose scene supports personal correspondence; benefit headline complete and readable.",
+      "inspected_full_size": true,
+      "sha256": "14e42086f4fc7c0bd2c16a979921dea94b18296e6645d4e4e705d7e326145b0b"
+    },
+    {
+      "index": 2,
+      "slug": "write-a-letter-to-a-friend-that-feels-like-being-there",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Envelope focal object retained; concrete ordinary-scene exercise clear; no false free claim.",
+      "inspected_full_size": true,
+      "sha256": "c07345ad86a5627b8d1ff845873d3d426914b5e11caede5280b568370eae1f3a"
+    },
+    {
+      "index": 3,
+      "slug": "make-a-small-journal-desk-that-packs-away-in-minutes",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Tray zones, scraps and separate drying instruction visible and readable.",
+      "inspected_full_size": true,
+      "sha256": "356ab7185b9c270c2f8ae214df42e10c3c4b43e361e8dfe3dab4ab765c7fce26"
+    },
+    {
+      "index": 4,
+      "slug": "make-a-small-journal-desk-that-packs-away-in-minutes",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Cleared table and tray remain visible enough; home journaling promise readable.",
+      "inspected_full_size": true,
+      "sha256": "63a0ea16bb57211af7c3fd58de8df86a67a505072d3442b0a68f9e53db03ca8e"
+    },
+    {
+      "index": 5,
+      "slug": "make-a-small-journal-desk-that-packs-away-in-minutes",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Existing tray remains pictured; instruction to begin with owned tray readable.",
+      "inspected_full_size": true,
+      "sha256": "a5ff6594dea8594801227d62c8d98b7fc9a37729111db583e6d2474297b867e4"
+    },
+    {
+      "index": 6,
+      "slug": "make-a-garden-vision-page-for-the-life-you-want",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Corrected restrained garden guide: Place/Feeling/This week legible, calm objects and clear method.",
+      "inspected_full_size": true,
+      "sha256": "015b3ed9c6d738da7db8440d5429116135122dcbeea9f4134fe9ee1084908802"
+    },
+    {
+      "index": 7,
+      "slug": "make-a-garden-vision-page-for-the-life-you-want",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Chair/garden corner visible above overlay; concrete attainable place promise readable.",
+      "inspected_full_size": true,
+      "sha256": "fd6637d1772024760253ca8602db38dde8c7416837772c3b26770ad8848a5c70"
+    },
+    {
+      "index": 8,
+      "slug": "make-a-garden-vision-page-for-the-life-you-want",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Chair crop natural; one-corner/one-step practice promise complete.",
+      "inspected_full_size": true,
+      "sha256": "b3a7cebd8ad82f4ead22ad666fd088bd79f42c768778682fa68f85b6f4c31db9"
+    },
+    {
+      "index": 9,
+      "slug": "keep-your-wedding-dress-shopping-day-in-one-spread",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Dress memory zones readable with sketch, reaction field and detail; no crop loss.",
+      "inspected_full_size": true,
+      "sha256": "407c5589f910b2c255c6dbe1c913e8923624d3ff6513b719150615091703ca61"
+    },
+    {
+      "index": 10,
+      "slug": "keep-your-wedding-dress-shopping-day-in-one-spread",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Lace gown retained; sentimental dress-day promise legible.",
+      "inspected_full_size": true,
+      "sha256": "024aec903aa39719d5232e1717cfd25d6c5086a316a91afcf998c4f9b55488fc"
+    },
+    {
+      "index": 11,
+      "slug": "keep-your-wedding-dress-shopping-day-in-one-spread",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Gown remains recognizable; sketch/words practice invitation clear.",
+      "inspected_full_size": true,
+      "sha256": "93eca5e8c55d1f17a979eb7c386e4917aabe8e99060ec529e0a5062f6e8282f0"
+    },
+    {
+      "index": 12,
+      "slug": "keep-the-story-behind-your-halloween-costume-on-paper",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Costume idea/making/night graphic legible; dated tag and swatch make method tangible.",
+      "inspected_full_size": true,
+      "sha256": "b79fa9aeadefab427d18ada10032eafb95aa15b15b81bfba8120ae9e11343901"
+    },
+    {
+      "index": 13,
+      "slug": "keep-the-story-behind-your-halloween-costume-on-paper",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Velvet costume cape visible; haunted-setting promise tied to article.",
+      "inspected_full_size": true,
+      "sha256": "0bfd4c5ad4a83f00e69b27c8b46ff54e2899dc522570a387839eaca43afbfa65"
+    },
+    {
+      "index": 14,
+      "slug": "keep-the-story-behind-your-halloween-costume-on-paper",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Costume fabrics retained; initial idea-on-paper invitation readable.",
+      "inspected_full_size": true,
+      "sha256": "1ede57a90781e8fec7f472fe1301607a56ec03c7e08d36a0ab0761b4072bbf6a"
+    },
+    {
+      "index": 15,
+      "slug": "gothic-journal-colors-that-leave-room-for-handwriting",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: torn ivory field framed by charcoal/wine shows preserving writing room; headline intact, one site mark.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: headline promises writing-space layout but palette-only artwork shows color selection. Use existing process gen2 or rename promise to palette. Two site marks; source lower-right faux signature visible.",
+      "final_reinspected_full_size": true,
+      "sha256": "332c55f183c8683e9d07afbc7361b41b7494bce633572116448c5926562f0fc5"
+    },
+    {
+      "index": 16,
+      "slug": "gothic-journal-colors-that-leave-room-for-handwriting",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Gothic stone/rain scene supports atmosphere promise; complete text readable.",
+      "inspected_full_size": true,
+      "sha256": "b927431f43341f97b2c224b010e8ea3fdc00e63a65e0d0b4250e81cd11c241dc"
+    },
+    {
+      "index": 17,
+      "slug": "gothic-journal-colors-that-leave-room-for-handwriting",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Repaired: process crop shows framed writing field and physical scraps, matching practice.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: writing-space exercise uses atmosphere image instead of existing process illustration. Replace photo with gen2 framed torn-paper writing field.",
+      "final_reinspected_full_size": true,
+      "sha256": "0ccb4a6f8d93de3300a780b8c60a0c8588b8145dac38d65bc9eba8d94e7cc3de"
+    },
+    {
+      "index": 18,
+      "slug": "folk-floral-journal-pages-with-a-handmade-rhythm",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: tactile paper flower and loose petals demonstrate repeating floral shapes with clear writing area; one footer.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: floral-repeat method headline paired palette-only card. Use process gen2 assembly. Two site marks.",
+      "final_reinspected_full_size": true,
+      "sha256": "5582150c61f3113445d79de9bca852ce826dbed550a6d3e710a380edc16bee38"
+    },
+    {
+      "index": 19,
+      "slug": "folk-floral-journal-pages-with-a-handmade-rhythm",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Rose/teal gate image supports floral rhythm; typography intact.",
+      "inspected_full_size": true,
+      "sha256": "a66ff1b99327ae2f27bc14c3934ba05fc4311dc0bb435ce193efbf0be4691882"
+    },
+    {
+      "index": 20,
+      "slug": "folk-floral-journal-pages-with-a-handmade-rhythm",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Repaired: flower assembly crop supports floral-shape practice; complete readable headline.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: use existing paper-flower assembly process photo to support label/floral shapes exercise; atmosphere repeats mood.",
+      "final_reinspected_full_size": true,
+      "sha256": "068d18f37bfa7719bab8212f477fc83b4b237ed86ab77a24a1ce77bd0aba10fe"
+    },
+    {
+      "index": 21,
+      "slug": "fairy-garden-journal-colors-for-an-airy-written-story",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: fern/tag/mint corner beside broad ivory writing field demonstrates airy restraint; one footer.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: airy written-story method paired palette-only card. Use process gen2. Two site marks.",
+      "final_reinspected_full_size": true,
+      "sha256": "211d998566a77d20b53b7bb8de9ec9ef977a0c13af37c665e435da6a6a5a76c5"
+    },
+    {
+      "index": 22,
+      "slug": "fairy-garden-journal-colors-for-an-airy-written-story",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Woodland bridge and light visible; wonder promise clear.",
+      "inspected_full_size": true,
+      "sha256": "e48722ca1289a324bbe498e69fff9953d96f9892ba6069b9b2e902515f45af8a"
+    },
+    {
+      "index": 23,
+      "slug": "fairy-garden-journal-colors-for-an-airy-written-story",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Repaired: discovery corner and plain writing space visible in process crop.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: use existing fern/tag process photo for discovery-on-scrap exercise rather than bridge mood photo.",
+      "final_reinspected_full_size": true,
+      "sha256": "eb1cc7e829c5dd1a67e56472a6a696fb2059f74c491efbf5f08e7287c67eead9"
+    },
+    {
+      "index": 24,
+      "slug": "build-a-wizard-journal-around-an-invented-place",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: pencil map, landmark and small note visibly show world-building method; one footer.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: inhabited-world method paired palette-only castle artwork. Use process gen2 map. Two site marks.",
+      "final_reinspected_full_size": true,
+      "sha256": "909392e56130826023f4474d143e5b0f3e33e0bf6383340ecfa81f6219f68756"
+    },
+    {
+      "index": 25,
+      "slug": "build-a-wizard-journal-around-an-invented-place",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Tower door and lantern recognizable; moonlit paper-world promise legible.",
+      "inspected_full_size": true,
+      "sha256": "165f67f0e57381e066a3f278c9ad927422b89110c59e36576011747b45433284"
+    },
+    {
+      "index": 26,
+      "slug": "build-a-wizard-journal-around-an-invented-place",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Repaired: pencil map and correct note words visible; practice headline complete.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: use existing pencil-map process image for landmark/rule/resident exercise.",
+      "final_reinspected_full_size": true,
+      "sha256": "098fd5111dcb6aabc734dcc1e2a4d555f28d6fa8313713c9841d3daa6d629142"
+    },
+    {
+      "index": 27,
+      "slug": "a-plant-care-journal-that-remembers-more-than-watering",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Plant observation card fields legible; visible sample distinguishes observation from watering advice.",
+      "inspected_full_size": true,
+      "sha256": "ca5adfc4d134e774c4cb6aa044ce30406034dfbd6f481b4698bcb1d689d6e784"
+    },
+    {
+      "index": 28,
+      "slug": "a-plant-care-journal-that-remembers-more-than-watering",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "New leaf and plant remain prominent; changes-in-garden benefit readable.",
+      "inspected_full_size": true,
+      "sha256": "5295503db475fad5ab58773cc8f683a3914ff99b463386ae3a27258d7276dae5"
+    },
+    {
+      "index": 29,
+      "slug": "a-plant-care-journal-that-remembers-more-than-watering",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Potted plant crop attractive; observation-card invitation complete.",
+      "inspected_full_size": true,
+      "sha256": "cbdd85226d19e697768e2b24a7a0436cbe86febcd787eae6f3b955ad4e714c72"
+    },
+    {
+      "index": 30,
+      "slug": "how-to-write-about-a-hard-day-without-turning-it-into-an-essay",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: added readable One moment/One phrase/A quiet margin method line; photograph no longer sole utility.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: guide contains only blank notebook/table; add article-specific concise method steps into coded layout to deliver utility.",
+      "final_reinspected_full_size": true,
+      "sha256": "ab6a0235b49f427a39b6b2025daf0f9b11305c2a4d0a4fcb43acc3e415fad151"
+    },
+    {
+      "index": 31,
+      "slug": "how-to-write-about-a-hard-day-without-turning-it-into-an-essay",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Rainy evening writing corner supports honest sentence mood; readable.",
+      "inspected_full_size": true,
+      "sha256": "bce3a93f32bfacf408cd05718ea264a9a07e4b8f4a6e47c8eb7532284b83b623"
+    },
+    {
+      "index": 32,
+      "slug": "how-to-write-about-a-hard-day-without-turning-it-into-an-essay",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Notebook and spare-paper invitation readable; truthful next-step invitation.",
+      "inspected_full_size": true,
+      "sha256": "8eaca3186eb1ef60f4d684deec39f802805b231d2604254e4117ce3d74b3820f"
+    },
+    {
+      "index": 33,
+      "slug": "how-to-return-to-an-unfinished-journal-page-without-starting-over",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Existing collage and empty next area visibly support returning without restart.",
+      "inspected_full_size": true,
+      "sha256": "aa5fa2a3e060add5c52f7cc4b299f26a4a8c54e535ae668fef45d1177342e1d5"
+    },
+    {
+      "index": 34,
+      "slug": "how-to-return-to-an-unfinished-journal-page-without-starting-over",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Unfinished page visible under overlay; invitation readable.",
+      "inspected_full_size": true,
+      "sha256": "b2e3afd7c293e6afe19921593b63df6016c0cddbdace07275e1f377b29c3aa5e"
+    },
+    {
+      "index": 35,
+      "slug": "how-to-return-to-an-unfinished-journal-page-without-starting-over",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Existing collage retained in crop; one-small-note exercise clear.",
+      "inspected_full_size": true,
+      "sha256": "f58d959d3de9e90f198be01f7f648668ddfffbe8dbb6621f59c2685305fc3e87"
+    },
+    {
+      "index": 36,
+      "slug": "how-to-make-a-walk-memory-page-from-one-small-trace",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Map/trace/book shows walk-memory materials; full headline intact.",
+      "inspected_full_size": true,
+      "sha256": "6ed16b95e5fc915b2074dcbeaa9f49960093de6b8c857bab871e1d8a3e4e4234"
+    },
+    {
+      "index": 37,
+      "slug": "how-to-make-a-walk-memory-page-from-one-small-trace",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Collected trace scene supports walk memory, readable.",
+      "inspected_full_size": true,
+      "sha256": "5b116bfb01e9b9c8c86e69f3d2153dc0b0f9f19f8cb8b02c50fdf00bc8110a81"
+    },
+    {
+      "index": 38,
+      "slug": "how-to-make-a-walk-memory-page-from-one-small-trace",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Map and physical trace visible; route/detail practice invitation complete.",
+      "inspected_full_size": true,
+      "sha256": "cac7604d8334945d9d141dd34ce500fbe9eabeaa8e2441bdec8acecb4fd5c269"
+    },
+    {
+      "index": 39,
+      "slug": "how-to-keep-one-ordinary-weekday-without-documenting-everything",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Receipt/leaf and blank writing field show single weekday trace; clear hook.",
+      "inspected_full_size": true,
+      "sha256": "79b3d75834133e9499593eb0083b5a21a64d76c18b2d864a8eec8fc699167674"
+    },
+    {
+      "index": 40,
+      "slug": "how-to-keep-one-ordinary-weekday-without-documenting-everything",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Ordinary table supports weekday memory benefit; readable.",
+      "inspected_full_size": true,
+      "sha256": "2f36902d5f7a85ef43a00104c0f8e071b6d8ed99d5dba4b48342c66afd9556f0"
+    },
+    {
+      "index": 41,
+      "slug": "how-to-keep-one-ordinary-weekday-without-documenting-everything",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Receipt/leaf retained in crop; trace + sentence prompt visible.",
+      "inspected_full_size": true,
+      "sha256": "ba92c1091b1a4cd72c0af1477b1b7ebdab534bc7b798cd5c7d73efe944cd7370"
+    },
+    {
+      "index": 42,
+      "slug": "how-to-journal-a-memory-you-can-hear-but-cannot-picture",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: Name the sound/Save three words/Add a place method line clear and unclipped; radio matches subject.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: guide contains radio/closed notebook only, lacks usable method; add article-specific sound/place/three-words steps in coded layout.",
+      "final_reinspected_full_size": true,
+      "sha256": "31fcf5a9f04e01220b25d22489452e77a4f65e3cf1633e27784870b630155c3f"
+    },
+    {
+      "index": 43,
+      "slug": "how-to-journal-a-memory-you-can-hear-but-cannot-picture",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Radio visible and matches sound-memory promise; headline complete.",
+      "inspected_full_size": true,
+      "sha256": "28651a5505913770160e5a3311fa9cb102da6eb4ce0834867e994310863e3af0"
+    },
+    {
+      "index": 44,
+      "slug": "how-to-journal-a-memory-you-can-hear-but-cannot-picture",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Radio close crop appropriate; three-words exercise readable.",
+      "inspected_full_size": true,
+      "sha256": "145e7ac8ac3277862e39f312820def22c840fe6fc3e358c8ef2c5dfd882275c5"
+    },
+    {
+      "index": 45,
+      "slug": "antique-ledger-pages-for-a-family-history-journal",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: real ledger page replaces palette card; all decorative field visible, one footer, visual-home promise matches.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: family fragments method paired palette-only ledger. Use real page1 or method composition; two site marks, no clean light neutral in palette.",
+      "final_reinspected_full_size": true,
+      "sha256": "5d54b8ae0e1d93e992a0f766c9463692fbb34e134145145be405706e62a95098"
+    },
+    {
+      "index": 46,
+      "slug": "antique-ledger-pages-for-a-family-history-journal",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Ledger desk and old paper match family-story mood; no cut typography.",
+      "inspected_full_size": true,
+      "sha256": "6fbf4afae03a897b64641b3e969caffc571cb1629133f382b89fa70809321ec4"
+    },
+    {
+      "index": 47,
+      "slug": "antique-ledger-pages-for-a-family-history-journal",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Family-memory first-entry invitation clear; antique paper visible.",
+      "inspected_full_size": true,
+      "sha256": "8830dc7bc7cd9291eba1dfc81fe04a38b29dc8c232e623ff6db867af9e157cd2"
+    },
+    {
+      "index": 48,
+      "slug": "a-vintage-travel-journal-that-begins-before-the-trip",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: real map page replaces palette card; complete map shown, one footer and readable pre-trip promise.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: pre-trip method paired palette-only map; use real page1 or method composition. Two site marks and palette lacks strict light neutral.",
+      "final_reinspected_full_size": true,
+      "sha256": "358d49159c269fcdab8f3b3d230de5ebaabbd82a34354ef81a01e27afceeecb9"
+    },
+    {
+      "index": 49,
+      "slug": "a-vintage-travel-journal-that-begins-before-the-trip",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Suitcase/map support future journey promise; no crop loss.",
+      "inspected_full_size": true,
+      "sha256": "9b121844268199b325d0449e245ea68b36403c3b5f3585dfb39d8408d3b7e0ec"
+    },
+    {
+      "index": 50,
+      "slug": "a-vintage-travel-journal-that-begins-before-the-trip",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Map/pencil visible; route-page practice invitation complete.",
+      "inspected_full_size": true,
+      "sha256": "7574190a0c5d27529ffe4bc6dc74167aa4f93f38a83232dfbb4c5779a498db7d"
+    },
+    {
+      "index": 51,
+      "slug": "a-quiet-log-cabin-journal-theme-for-nature-notes",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Final source rechecked: real cabin page intact, nature-note setting headline readable and one footer.",
+      "inspected_full_size": true,
+      "initial_verdict": "PASS",
+      "initial_notes": "Woodland cabin scene retained; nature-notes setting promise fits real page.",
+      "final_reinspected_full_size": true,
+      "sha256": "30bec2210c4ce1ca438080616b5224cfb881a887045bdc7b464d793b7073a045"
+    },
+    {
+      "index": 52,
+      "slug": "a-quiet-log-cabin-journal-theme-for-nature-notes",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Cabin workspace and natural light support quiet mood, readable.",
+      "inspected_full_size": true,
+      "sha256": "498ab061bd22ffdcad5eadee524feec07712fefb424d4764d9822f31171943f7"
+    },
+    {
+      "index": 53,
+      "slug": "a-quiet-log-cabin-journal-theme-for-nature-notes",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Nature notebook visible; weather/margin practice invitation clear.",
+      "inspected_full_size": true,
+      "sha256": "dd8e5f965e6e778e633788bccf00bffca14c7073a016c20e40af6ed86a64f1fd"
+    },
+    {
+      "index": 54,
+      "slug": "a-five-minute-bedside-journal-ritual-for-tired-nights",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Repaired: One small trace/One sentence/Stop there method line legible; bounded bedtime exercise now actionable.",
+      "inspected_full_size": true,
+      "initial_verdict": "REPAIR",
+      "initial_notes": "REPAIR: guide is blank book/table with headline only; add one-word/one-sentence/close-book method to coded layout.",
+      "final_reinspected_full_size": true,
+      "sha256": "ef516db7ee8c634753a14a131aa811e707b2a8c87c829d8ef816f5ba725dd04b"
+    },
+    {
+      "index": 55,
+      "slug": "a-five-minute-bedside-journal-ritual-for-tired-nights",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Bedside lamp/lavender scene supports evening-fragments benefit; no clipping.",
+      "inspected_full_size": true,
+      "sha256": "81eef942401621d6c9191140367a6d2e097e317956b216999ac193cfb2fb3e42"
+    },
+    {
+      "index": 56,
+      "slug": "a-five-minute-bedside-journal-ritual-for-tired-nights",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Evening notebook retained; word+sentence practice prompt complete.",
+      "inspected_full_size": true,
+      "sha256": "cc1498435cfa7e15bb1faa8d99dd6ec9571efba99257f2e1f455b7a4d2aebd32"
+    },
+    {
+      "index": 57,
+      "slug": "a-colorful-dog-memory-journal-that-still-feels-grown-up",
+      "kind": "guide",
+      "verdict": "PASS",
+      "notes": "Final source rechecked: real bright floral page intact; color-around-dog-story promise fits supporting materials, no false free claim.",
+      "inspected_full_size": true,
+      "initial_verdict": "PASS",
+      "initial_notes": "Bright floral page matches color-around-story promise; paid collection not called free.",
+      "final_reinspected_full_size": true,
+      "sha256": "e269f516bb2dd5dd9be10be484dc4bb517fc8ef474c3dba3ac47ff2e8beab4dc"
+    },
+    {
+      "index": 58,
+      "slug": "a-colorful-dog-memory-journal-that-still-feels-grown-up",
+      "kind": "mood",
+      "verdict": "PASS",
+      "notes": "Album/collar/bone tag make dog-memory topic clear; no unrelated animal.",
+      "inspected_full_size": true,
+      "sha256": "1a7cc41329a3aa37d6c194ef01165f241936a98be180846dcf440aae28953f5d"
+    },
+    {
+      "index": 59,
+      "slug": "a-colorful-dog-memory-journal-that-still-feels-grown-up",
+      "kind": "practice",
+      "verdict": "PASS",
+      "notes": "Dog collar and tag retained; photo+words first step invitation clear.",
+      "inspected_full_size": true,
+      "sha256": "8c61f91fbe618aacd1c12843250202a03c6198963a225a4df34f5b26c4964862"
+    }
+  ]
+}
