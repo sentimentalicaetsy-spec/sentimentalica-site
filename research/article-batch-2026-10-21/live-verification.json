@@ -1,0 +1,539 @@
+{
+  "checked_utc": "2026-10-21T19:42:10.896946+00:00",
+  "pages": 10,
+  "images": 44,
+  "passed": 54,
+  "failed": [],
+  "results": [
+    {
+      "url": "https://sentimentalica.com/blog/a-christmas-card-that-feels-personal.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 9913,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "f83091abadd028ecfe4972b5f71010d64dc00a000ae911bf772c38b4f915a1ac"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-christmas-card-that-feels-personal/gen3.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3168260,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "28fa089ed8f16338ae3eaea0027f4f325b97950544b35925e0683adc78ab89d4"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-christmas-card-that-feels-personal/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2319139,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "8980fdcceba4df3c1eabf69f7a12f861a35230ea8227e678e81390ae601bd98b"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/burgundy-plaid-christmas-cards-without-pattern-overload.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 11517,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "03b8af83fdb373782fe0ebe9b5095371427a479eec4b4346fda7b73e1183c4b9"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/gen1.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2913878,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "2d221e3d87954c6894773d4f574ada5f3901031099b423e6db96e3d5d58c8e46"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/palette-1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 433200,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "74853de2aca141cd6cc204a6c292c42ad46da8519f157f0c055b4b8b18080e09"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/palette-2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 376619,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "84ae2fd34963dcb26f8b4848c3c2fa42c679ad9b267597481e3bf92e57a2ec9b"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/page1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2719911,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "8d5818dd03e73751603e4f29e8a956b4cf7717cfe48c8ebac16f5eae52a608e4"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/page2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2346533,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "f1148bfd0d15b49b219f04491ec9ef93eb80342c517a72d0b5f7df2dc063dcb5"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/page3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2527694,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "135dad9a4b24083d650cc7fc7fd18768011d629a6d940817ee2db9bd49089f2f"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3081561,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "ed4be5b003db285a4c1aad3f211a44cee0a81c5843b14442efe7a668173eb764"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/palette-3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 397284,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "a1571a4d287df39d69415759579d4fb5c9bf07a364454549d37dd3bb6a54ec13"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/make-christmas-gift-tags-that-match-your-cards.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 10045,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "c792552326ec80f242e4e4f94204e1f1661e05f18273dfde159c37f2d5561e67"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-christmas-gift-tags-that-match-your-cards/gen1.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3492372,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "732599bbce133c0add5910ed74605d169faecbcbbdb7e90b056f67ea9e8fbd21"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/make-christmas-gift-tags-that-match-your-cards/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2563949,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "b5116b88c7798f2c28c4e353c5f5313ea3085b7fb237ee488dba26707b12f611"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/build-a-winter-letter-set-with-one-printable-collection.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 11412,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "1a6e9a7bb1be82818425bc7ca74956cd03a008425e0ebec0d4c83db0d346b924"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/gen1.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2765850,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "c89e1f45a510c4dd6b4dc2dc548e4fcef25108c95ba9345ae557c1d03f7d5d1a"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/palette-1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 415812,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "3687ab1b2f45a5ea26d18c3aa686dab3f8a01041b7756a5bd77ba9aa7ccfac73"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/palette-2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 428593,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "1544a5275cd8fef234dda4ad91412736db3c175f4e10600011e07dc901aa42ac"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/page1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2537879,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "8fcbb3268438112358adbd5ad4371bbdd1a62faae8d9f366208e9a5c5128c1d1"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/page2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2629158,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "8b253a429f37c72f968dab2f9b2401fd4ed50b2f64ce88499681213bfe0bbe26"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/page3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2427740,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "5f4659751662e13325a502c201b2ea83cbae1c6d10dcb079f0cc8420fdb78fde"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2980524,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "7634a92586594abc891894694adb16717242e9c69bcf9670a00465a0a37824c0"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/palette-3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 421325,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "0f6b6b06ff32e70778f9f51b052365d1cd29b24b6bb9d3ec42323eafc093cb6f"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/tiny-advent-notes-for-someone-you-love.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 9876,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "536878bdb350cf76503117dec5d1bb9c07c8d3f770f34e008772fb8a0c15a6b9"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/tiny-advent-notes-for-someone-you-love/gen1.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3612365,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "108eedd2ba0a3bc174e50ea1dded44c7f4754c4965012c0bd1232cc0f891b770"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/tiny-advent-notes-for-someone-you-love/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2889435,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "39882ac2a51628f1125b1caed92eec189f996fabdfcf26769292a79ad7f69c35"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/snowflake-christmas-card-that-becomes-a-bookmark.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 11694,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "f3f28e00438b651abcab17921a335458ae4429addbda9a62be543607545826dd"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/gen1.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2832039,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "aee2d9387948850eed3a6c7777489a89e7cbca06d4675e7f184f457f367eaabc"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/palette-1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 338088,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "4df0fbe93756c31dbf82aee8b03ad34843c729ff576dfd583f52f779f8eac86a"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/palette-2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 356201,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "d87ed5e70be8598e4c7771bd06a37b1598ed764a6cc0eac58e1581885345c548"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/page1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 1990980,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "6856668576445e4c00293ee78d2d51e4f3a732e224505409f4bcd06c23217849"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/page2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2084604,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "36e071fa3e005726a6e5405a09f79454565341eb801bf680188e9771da847ca7"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/page3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2086961,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "4b2c811b8aa7c049e16cf871a25d45ff8dbe9ab98b0ba90a6a594866b0f89e0a"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2965013,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "ef8da6202fa9e85a10b343fb762b7d740db117380a0d3a5dd10ddccf868b5132"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/palette-3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 355080,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "cff3f92a5114de3aa33bce523c84f703c3452a2a5f2e2a9782f6af54520e8df2"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/keep-a-handwritten-christmas-recipe-without-hiding-the-original.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 10286,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "cbbe80e86fbe363e589a1f12b931ddfaf438f9ee9558aa7676b731de2f6355e2"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-a-handwritten-christmas-recipe-without-hiding-the-original/gen3.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3063222,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "5a0213795ac41af6f299a6c681b554fada2d197b7d94a375f82d16d96ef31795"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/keep-a-handwritten-christmas-recipe-without-hiding-the-original/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2781428,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "9f07753a630292e057c64bed05627f2133fa8b742bae24d2b6185c51531e5dac"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/winter-reading-journal-cover-with-breathing-room.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 11315,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "43c8020df2c567f6fc50d2fcf604eec12db661a2c2f840f8a4a29db23d24e291"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/gen1.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2504379,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "7ca0780bdc2e0fc12b6306fbc25754aef6e744f28d501559c5c6bffac80a5bef"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/palette-1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 419745,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "7b486549df9f178c80d00b7ddd32a1d7fb394071a853fa23ca5453081dbf9d63"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/palette-2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 409957,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "bc2133690346bbad3708acf91c84f89006d45f4e64bec50adb6fdc1afe172c39"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/page1.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2471548,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "de53cfb31848aa05de7b1d01085a8a10060dc730a8a5cfd09ed804144d9af9ee"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/page2.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2386171,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "2c3e2231da720d5e1ff793702e0a215da4c98c95c61a6d186408864b75dc312e"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/page3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 2579161,
+      "format": "JPEG",
+      "width": 2550,
+      "height": 3300,
+      "sha256": "04a683cfe97835d642481af5b298a95e91415f39155279dd4bdd61a89aa5490f"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3313935,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "71a1281deb7bd9c37a88e8abac74163b11b322dfa9e418663632a79840f771ef"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/palette-3.jpg",
+      "ok": true,
+      "mime": "image/jpeg",
+      "bytes": 418878,
+      "format": "JPEG",
+      "width": 1000,
+      "height": 1500,
+      "sha256": "f175090fad04e02d9e91e1eb76ac80ffa279f2462c6dc165bd15087bb5e5511b"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/winter-happy-mail-for-friends-far-away.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 10028,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "8677858d598232dd98e498bfc89bd53135cace13e2ea748dc0ef208304288a3e"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-happy-mail-for-friends-far-away/gen3.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3151557,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "8d6b2a8cda9d677d3ba369e32563642f2e2f72f5d6d7ae5e04586201b3851bc5"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/winter-happy-mail-for-friends-far-away/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3272244,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "6086f24c5f77e491e98fa4080b43c0cbd38bf3714473d6208ab3db0007f163cd"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/a-winter-window-journal-page-for-early-dark-evenings.html",
+      "ok": true,
+      "mime": "text/html",
+      "bytes": 10261,
+      "article_content_matches": true,
+      "cdn_note": "Cloudflare injects its challenge script outside article content",
+      "sha256": "7e49cc143a71b4be479b1d6eba1cbcd4f386ce22ad68c654e17e44780cb285bd"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-winter-window-journal-page-for-early-dark-evenings/gen1.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 3949706,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "07724072bf398c0f57f054aba197011a86c4ab7456123b09f53ad77b0f537fb9"
+    },
+    {
+      "url": "https://sentimentalica.com/blog/img/a-winter-window-journal-page-for-early-dark-evenings/gen2.png",
+      "ok": true,
+      "mime": "image/png",
+      "bytes": 2544551,
+      "format": "PNG",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "d94d8553f6d0b0076cf178e4c22f8b4c2148ac3d40f952a1da685b17ff7155e5"
+    }
+  ]
+}
