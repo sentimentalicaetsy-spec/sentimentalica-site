@@ -48,3 +48,7 @@ Prompt set and built-in imagegen mode: [generation-briefs.md](article-batch-2026
 ## Live publication result
 
 Deploy commit `4ea1f1c` completed successfully. Checked at 2026-10-21T19:42:10.896946+00:00: **54 / 54 PASS**, zero failures. All 10 `.html` links follow the site’s standard redirect to the clean article URL and end in HTTP200. Exact article-body content matches local output; Cloudflare adds its challenge script outside article content. All 44 exact media URLs return200, correct MIME, decode to their declared PNG/JPEG format and match the local image SHA256. No browser-rendering claim is made.
+
+## Requested Pinterest CSV
+
+`data/pinterest/batches/UPLOAD_NOW_10-christmas-winter-articles_2026-10-21.csv`:44 pins covering all current images of all 10 articles,15 exact existing boards, unique titles/media/real article fragment links,5–7 keywords per image. Blank Publish date for immediate publication when uploaded. Canonical board gate and all local/live image checks PASS. UTF-8 BOM, official8-column format. Exact copy saved in Drive Desktop mirror `Sentimentalica/Pinterest_CSV/`. Tracker status:44 provided,0 upload-confirmed,0 missing. See pinterest-csv-validation.json and live-verification.json.

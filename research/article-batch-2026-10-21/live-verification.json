@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-21T19:42:10.896946+00:00",
+  "checked_utc": "2026-10-21T19:58:11.912067+00:00",
   "pages": 10,
   "images": 44,
   "passed": 54,
@@ -12,7 +12,7 @@
       "bytes": 9913,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "f83091abadd028ecfe4972b5f71010d64dc00a000ae911bf772c38b4f915a1ac"
+      "sha256": "4bd25571aa89a9ad56f5b4797357be4debc8c22e76d3eab2d49eef5405e9fc18"
     },
     {
       "url": "https://sentimentalica.com/blog/img/a-christmas-card-that-feels-personal/gen3.png",
@@ -41,7 +41,7 @@
       "bytes": 11517,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "03b8af83fdb373782fe0ebe9b5095371427a479eec4b4346fda7b73e1183c4b9"
+      "sha256": "a8dcbe90fa51efa10d9abff174050181f2d73647fe7b4f1d585861bbd46a8e8d"
     },
     {
       "url": "https://sentimentalica.com/blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/gen1.png",
@@ -130,7 +130,7 @@
       "bytes": 10045,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "c792552326ec80f242e4e4f94204e1f1661e05f18273dfde159c37f2d5561e67"
+      "sha256": "93669bc4c1e52d382b06ae884227dc93610ce24be7ca4f9643b1b7d5538f0072"
     },
     {
       "url": "https://sentimentalica.com/blog/img/make-christmas-gift-tags-that-match-your-cards/gen1.png",
@@ -159,7 +159,7 @@
       "bytes": 11412,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "1a6e9a7bb1be82818425bc7ca74956cd03a008425e0ebec0d4c83db0d346b924"
+      "sha256": "bb69f093173cd70fa977240f0f6975114fb0b3f8fd138923017d2da6b328f586"
     },
     {
       "url": "https://sentimentalica.com/blog/img/build-a-winter-letter-set-with-one-printable-collection/gen1.png",
@@ -248,7 +248,7 @@
       "bytes": 9876,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "536878bdb350cf76503117dec5d1bb9c07c8d3f770f34e008772fb8a0c15a6b9"
+      "sha256": "34191b2de5723d01412e76a2a9f720d4f46617a2fddfb29134d7fd2b4d0b6ea0"
     },
     {
       "url": "https://sentimentalica.com/blog/img/tiny-advent-notes-for-someone-you-love/gen1.png",
@@ -277,7 +277,7 @@
       "bytes": 11694,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "f3f28e00438b651abcab17921a335458ae4429addbda9a62be543607545826dd"
+      "sha256": "cb61928a0c9243e42f410b26451d57a07e761c80ccf027705a479a526372285d"
     },
     {
       "url": "https://sentimentalica.com/blog/img/snowflake-christmas-card-that-becomes-a-bookmark/gen1.png",
@@ -366,7 +366,7 @@
       "bytes": 10286,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "cbbe80e86fbe363e589a1f12b931ddfaf438f9ee9558aa7676b731de2f6355e2"
+      "sha256": "3966e34433e1921451381c2e23a8d3f6f6420c73dccf38e49b5ae1ddf99f340e"
     },
     {
       "url": "https://sentimentalica.com/blog/img/keep-a-handwritten-christmas-recipe-without-hiding-the-original/gen3.png",
@@ -395,7 +395,7 @@
       "bytes": 11315,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "43c8020df2c567f6fc50d2fcf604eec12db661a2c2f840f8a4a29db23d24e291"
+      "sha256": "658b683255895024fc87d2999101994696675299ced0616a525b611902beefc6"
     },
     {
       "url": "https://sentimentalica.com/blog/img/winter-reading-journal-cover-with-breathing-room/gen1.png",
@@ -484,7 +484,7 @@
       "bytes": 10028,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "8677858d598232dd98e498bfc89bd53135cace13e2ea748dc0ef208304288a3e"
+      "sha256": "ac544af71c922a097ab7c2fc2c391218ce34f0836e9f2a77cb7fa4e4c74026d3"
     },
     {
       "url": "https://sentimentalica.com/blog/img/winter-happy-mail-for-friends-far-away/gen3.png",
@@ -513,7 +513,7 @@
       "bytes": 10261,
       "article_content_matches": true,
       "cdn_note": "Cloudflare injects its challenge script outside article content",
-      "sha256": "7e49cc143a71b4be479b1d6eba1cbcd4f386ce22ad68c654e17e44780cb285bd"
+      "sha256": "08a389638ec1a03bdb1f204b7dce1890265e3c9b3e1494bb67541f32c0e376f4"
     },
     {
       "url": "https://sentimentalica.com/blog/img/a-winter-window-journal-page-for-early-dark-evenings/gen1.png",
