@@ -1,0 +1,614 @@
+{
+  "burgundy-plaid-christmas-cards-without-pattern-overload": {
+    "slug": "burgundy-plaid-christmas-cards-without-pattern-overload",
+    "review": "All 12 actual source pages viewed individually; all 12 renders inspected in 3-across review sheets. No thumbnails, rejects, portraits, characters, grid backgrounds or source mutations.",
+    "palettes": [
+      {
+        "palette": "palette-1.jpg",
+        "carousel": "page1.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/211/1262_Rustic_Plaid/Rustic Plaid/Rustic_Plaid_092.jpg",
+        "source_sha256": "8d5818dd03e73751603e4f29e8a956b4cf7717cfe48c8ebac16f5eae52a608e4",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-1-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Pine Ink",
+            "hex": "#253D28",
+            "hsl_lightness": 19.2
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Warm Ivory",
+            "hex": "#F7E8CB",
+            "hsl_lightness": 88.2
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Cone Ochre",
+            "hex": "#B58554",
+            "hsl_lightness": 52.0
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Burgundy Cone",
+            "hex": "#792D38",
+            "hsl_lightness": 32.5
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Pinecone clusters remain visible at center and right; four separated values and burgundy hero accent echo cone tips. Repeated botanical motifs are non-geometric.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-2.jpg",
+        "carousel": "page2.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/211/1262_Rustic_Plaid/Rustic Plaid/Rustic_Plaid_193.jpg",
+        "source_sha256": "f1148bfd0d15b49b219f04491ec9ef93eb80342c517a72d0b5f7df2dc063dcb5",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-2-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Fir Shadow",
+            "hex": "#244536",
+            "hsl_lightness": 20.6
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Candle Cream",
+            "hex": "#F9E9CE",
+            "hsl_lightness": 89.2
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Soft Brass",
+            "hex": "#B99861",
+            "hsl_lightness": 55.3
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Candle Amber",
+            "hex": "#D89438",
+            "hsl_lightness": 53.3
+          }
+        ],
+        "shape": "square",
+        "position": "right",
+        "verdict": "PASS",
+        "critique": "Center candle groups and warm flame remain visible; clean cream neutral separates brass support and amber accent.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-3.jpg",
+        "carousel": "page3.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/211/1262_Rustic_Plaid/Rustic Plaid/Rustic_Plaid_234.jpg",
+        "source_sha256": "135dad9a4b24083d650cc7fc7fd18768011d629a6d940817ee2db9bd49089f2f",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-3-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Holly Shadow",
+            "hex": "#304938",
+            "hsl_lightness": 23.7
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Soft Ivory",
+            "hex": "#FAF3E7",
+            "hsl_lightness": 94.3
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Warm Wax",
+            "hex": "#E3B776",
+            "hsl_lightness": 67.6
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Ribbon Red",
+            "hex": "#A33444",
+            "hsl_lightness": 42.2
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Right red candle and central wax candles remain readable; plaid appears only as ribbon detail, not an all-over grid.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      }
+    ]
+  },
+  "build-a-winter-letter-set-with-one-printable-collection": {
+    "slug": "build-a-winter-letter-set-with-one-printable-collection",
+    "review": "All 12 actual source pages viewed individually; all 12 renders inspected in 3-across review sheets. No thumbnails, rejects, portraits, characters, grid backgrounds or source mutations.",
+    "palettes": [
+      {
+        "palette": "palette-1.jpg",
+        "carousel": "page1.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/204/1221_Winter_Blue/Winter Blue/Winter_Blue_070.jpg",
+        "source_sha256": "8fcbb3268438112358adbd5ad4371bbdd1a62faae8d9f366208e9a5c5128c1d1",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-1-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Stream Ink",
+            "hex": "#173448",
+            "hsl_lightness": 18.6
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Snow Linen",
+            "hex": "#F6EFDF",
+            "hsl_lightness": 92.0
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Winter Blue",
+            "hex": "#8DA9BA",
+            "hsl_lightness": 64.1
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Sunset Rose",
+            "hex": "#D9AFA4",
+            "hsl_lightness": 74.7
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Stream and sunset remain visible to right of left swatches; rose accent belongs to the large sunset wash.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-2.jpg",
+        "carousel": "page2.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/204/1221_Winter_Blue/Winter Blue/Winter_Blue_132.jpg",
+        "source_sha256": "8b253a429f37c72f968dab2f9b2401fd4ed50b2f64ce88499681213bfe0bbe26",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-2-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Pine Shadow",
+            "hex": "#2B443D",
+            "hsl_lightness": 21.8
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Snow Ivory",
+            "hex": "#F7EDDA",
+            "hsl_lightness": 91.2
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Forest Blue",
+            "hex": "#8B9EAD",
+            "hsl_lightness": 61.2
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Needle Gold",
+            "hex": "#B1A052",
+            "hsl_lightness": 50.8
+          }
+        ],
+        "shape": "square",
+        "position": "right",
+        "verdict": "PASS",
+        "critique": "Left pines and receding forest path remain visible; pale ivory is clean, and needle gold draws from broad illuminated foliage. Native page has a small artist-like mark at lower right; preserved as source artwork.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-3.jpg",
+        "carousel": "page3.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/204/1221_Winter_Blue/Winter Blue/Winter_Blue_096.jpg",
+        "source_sha256": "5f4659751662e13325a502c201b2ea83cbae1c6d10dcb079f0cc8420fdb78fde",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-3-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Midnight Blue",
+            "hex": "#193854",
+            "hsl_lightness": 21.4
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Paper Ivory",
+            "hex": "#FAF1DF",
+            "hsl_lightness": 92.7
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Frost Blue",
+            "hex": "#A3BEC6",
+            "hsl_lightness": 70.8
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Snow Sapphire",
+            "hex": "#446F97",
+            "hsl_lightness": 42.9
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Right snowflakes remain large and clear; cream, frost blue and sapphire span light to dark without muddy middle colors.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      }
+    ]
+  },
+  "snowflake-christmas-card-that-becomes-a-bookmark": {
+    "slug": "snowflake-christmas-card-that-becomes-a-bookmark",
+    "review": "All 12 actual source pages viewed individually; all 12 renders inspected in 3-across review sheets. No thumbnails, rejects, portraits, characters, grid backgrounds or source mutations.",
+    "palettes": [
+      {
+        "palette": "palette-1.jpg",
+        "carousel": "page1.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/212/1267_Winter_Wallpaper/Winter Wallpaper/Winter_Wallpaper_031.jpg",
+        "source_sha256": "6856668576445e4c00293ee78d2d51e4f3a732e224505409f4bcd06c23217849",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-1-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Winter Ink",
+            "hex": "#172D4B",
+            "hsl_lightness": 19.2
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Frost Ivory",
+            "hex": "#F8F2E5",
+            "hsl_lightness": 93.5
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Icy Blue",
+            "hex": "#AFC9D3",
+            "hsl_lightness": 75.7
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Holly Blue",
+            "hex": "#527DA5",
+            "hsl_lightness": 48.4
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Silver-blue holly star remains clear at center-right; ivory neutral is clean and pale, with navy anchor and cool hero blue.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-2.jpg",
+        "carousel": "page2.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/212/1267_Winter_Wallpaper/Winter Wallpaper/Winter_Wallpaper_121.jpg",
+        "source_sha256": "36e071fa3e005726a6e5405a09f79454565341eb801bf680188e9771da847ca7",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-2-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Pine Ink",
+            "hex": "#233D32",
+            "hsl_lightness": 18.8
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Snow Ivory",
+            "hex": "#FAF3E8",
+            "hsl_lightness": 94.5
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Winter Sage",
+            "hex": "#819989",
+            "hsl_lightness": 55.3
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Ornament Blue",
+            "hex": "#315B8C",
+            "hsl_lightness": 37.1
+          }
+        ],
+        "shape": "square",
+        "position": "right",
+        "verdict": "PASS",
+        "critique": "Central ornament and snowflake remain identifiable to left of right swatches; ornament blue is the hero and evergreen is substantial support.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-3.jpg",
+        "carousel": "page3.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/212/1267_Winter_Wallpaper/Winter Wallpaper/Winter_Wallpaper_151.jpg",
+        "source_sha256": "4b2c811b8aa7c049e16cf871a25d45ff8dbe9ab98b0ba90a6a594866b0f89e0a",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-3-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Night Blue",
+            "hex": "#173A57",
+            "hsl_lightness": 21.6
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Wax Ivory",
+            "hex": "#FBF0DD",
+            "hsl_lightness": 92.5
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Glacier Blue",
+            "hex": "#A4C1CC",
+            "hsl_lightness": 72.2
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Flame Amber",
+            "hex": "#D7A463",
+            "hsl_lightness": 61.6
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Tall center and right candles remain visible; pale wax neutral and flame amber echo real hero objects.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      }
+    ]
+  },
+  "winter-reading-journal-cover-with-breathing-room": {
+    "slug": "winter-reading-journal-cover-with-breathing-room",
+    "review": "All 12 actual source pages viewed individually; all 12 renders inspected in 3-across review sheets. No thumbnails, rejects, portraits, characters, grid backgrounds or source mutations.",
+    "palettes": [
+      {
+        "palette": "palette-1.jpg",
+        "carousel": "page1.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/205/1228_Winter_Wonderland/Winter Wonderland/Winter_Wonderland_028.jpg",
+        "source_sha256": "de53cfb31848aa05de7b1d01085a8a10060dc730a8a5cfd09ed804144d9af9ee",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-1-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Pine Midnight",
+            "hex": "#1E3B50",
+            "hsl_lightness": 21.6
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Snow Linen",
+            "hex": "#F8F0DE",
+            "hsl_lightness": 92.2
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Snow Blue",
+            "hex": "#9DB9C6",
+            "hsl_lightness": 69.6
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Evergreen",
+            "hex": "#557A60",
+            "hsl_lightness": 40.6
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Snow-covered pine sprig remains visible across center-right; evergreen accent belongs to needles, against broad blue support.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-2.jpg",
+        "carousel": "page2.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/205/1228_Winter_Wonderland/Winter Wonderland/Winter_Wonderland_147.jpg",
+        "source_sha256": "2c3e2231da720d5e1ff793702e0a215da4c98c95c61a6d186408864b75dc312e",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-2-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Mountain Ink",
+            "hex": "#243F5C",
+            "hsl_lightness": 25.1
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Snow Ivory",
+            "hex": "#FAF2DF",
+            "hsl_lightness": 92.7
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Mountain Blue",
+            "hex": "#99AFCE",
+            "hsl_lightness": 70.4
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Meadow Amber",
+            "hex": "#C78C4E",
+            "hsl_lightness": 54.3
+          }
+        ],
+        "shape": "square",
+        "position": "right",
+        "verdict": "PASS",
+        "critique": "Cabin remains entirely visible left of right swatches; amber foreground branches supply accent, blue mountains supply support.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      },
+      {
+        "palette": "palette-3.jpg",
+        "carousel": "page3.jpg",
+        "source": "/Users/kseniateter/sentimentalica-pipeline/Sentimentalica_batches/Listing_batches/205/1228_Winter_Wonderland/Winter Wonderland/Winter_Wonderland_229.jpg",
+        "source_sha256": "04a683cfe97835d642481af5b298a95e91415f39155279dd4bdd61a89aa5490f",
+        "source_immutable": true,
+        "actual_source_viewed": true,
+        "render_viewed": true,
+        "extraction": "palette-3-extraction.json",
+        "curation": "Human visual designer selection after tool over-extraction; slight vintage hue/lightness adjustment.",
+        "roles": [
+          {
+            "role": "Dark Anchor",
+            "name": "Stream Ink",
+            "hex": "#203D48",
+            "hsl_lightness": 20.4
+          },
+          {
+            "role": "Strict Light Neutral",
+            "name": "Snow Linen",
+            "hex": "#F9EFD8",
+            "hsl_lightness": 91.2
+          },
+          {
+            "role": "Support Mid-tone",
+            "name": "Dusk Blue",
+            "hex": "#94A9C1",
+            "hsl_lightness": 66.9
+          },
+          {
+            "role": "Hero Accent",
+            "name": "Winter Sunset",
+            "hex": "#E5B77D",
+            "hsl_lightness": 69.4
+          }
+        ],
+        "shape": "square",
+        "position": "left",
+        "verdict": "PASS",
+        "critique": "Sunset, central stream and right pine trunks remain visible; amber sunset accent gives clear warm/cool separation.",
+        "scores": {
+          "theme_palette": 5,
+          "composition": 4,
+          "light_mood": 4,
+          "save_worthiness": 4,
+          "footer": 4,
+          "flaws": 4
+        }
+      }
+    ]
+  }
+}

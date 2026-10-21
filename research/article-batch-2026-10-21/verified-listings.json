@@ -1,0 +1,47 @@
+{
+  "checked_utc": "2026-10-21T19:16:00Z",
+  "source": "Authenticated active Etsy shop catalog and read-only listing files metadata",
+  "active_shop_count": 185,
+  "listings": [
+    {
+      "id": 4598839600,
+      "title": "Winter Watercolor Junk Journal Pages, Snowy Forest Landscape Paper, Blue Snowflake Scrapbook Printable, Vintage Lantern Winter Ephemera Set",
+      "state": "active",
+      "url": "https://www.etsy.com/listing/4598839600/winter-watercolor-junk-journal-pages",
+      "delivery_filenames": [
+        "sentimentalica_winter_blue.pdf",
+        "sentimentalica_winter_blue.txt"
+      ]
+    },
+    {
+      "id": 4593150648,
+      "title": "Burgundy Plaid Christmas Junk Journal Printable, Rustic Holiday Ephemera, Gingerbread Houses Jingle Bells Candles Wreath, Red Gold Paper",
+      "state": "active",
+      "url": "https://www.etsy.com/listing/4593150648/burgundy-plaid-christmas-junk-journal",
+      "delivery_filenames": [
+        "sentimentalica_holiday_wallpaper.pdf",
+        "sentimentalica_holiday_wallpaper.txt"
+      ]
+    },
+    {
+      "id": 4593150728,
+      "title": "Navy Blue Snowflake Junk Journal Printable, Frosted Winter Ephemera, Gingerbread Cookies Holly Pinecones Snowy Cottage, Icy Watercolor Paper",
+      "state": "active",
+      "url": "https://www.etsy.com/listing/4593150728/navy-blue-snowflake-junk-journal",
+      "delivery_filenames": [
+        "sentimentalica_winter_wallpaper.pdf",
+        "sentimentalica_winter_wallpaper.txt"
+      ]
+    },
+    {
+      "id": 4593089360,
+      "title": "Snowy Watercolor Winter Junk Journal Printable, Christmas Ephemera, Snowflakes Gingerbread House Candles Florals, Navy Blue Coral Paper",
+      "state": "active",
+      "url": "https://www.etsy.com/listing/4593089360/snowy-watercolor-winter-junk-journal",
+      "delivery_filenames": [
+        "sentimentalica_winter_wonderland.pdf",
+        "sentimentalica_winter_wonderland.txt"
+      ]
+    }
+  ]
+}

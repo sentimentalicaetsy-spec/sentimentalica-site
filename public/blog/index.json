@@ -1,6 +1,106 @@
 {
   "posts": [
     {
+      "slug": "a-winter-window-journal-page-for-early-dark-evenings",
+      "title": "A Winter Window Journal Page for Early Dark Evenings",
+      "category": "Winter & Christmas Crafts",
+      "excerpt": "Use the view from your own window, even without snow, to make a quiet winter journal page with a paper frame and a few observed lines.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-winter-window-journal-page-for-early-dark-evenings/gen1.png"
+    },
+    {
+      "slug": "winter-happy-mail-for-friends-far-away",
+      "title": "Make Winter Happy Mail for Friends Who Live Far Away",
+      "category": "Winter & Christmas Crafts",
+      "excerpt": "Build a small winter letter around one honest update, one answerable question, and a flat paper extra your friend can enjoy.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/winter-happy-mail-for-friends-far-away/gen3.png"
+    },
+    {
+      "slug": "winter-reading-journal-cover-with-breathing-room",
+      "title": "Make a Winter Reading Journal Cover With Breathing Room",
+      "category": "Paper Crafts",
+      "excerpt": "Create a winter reading journal cover with one image panel, a clear title, and a calm margin.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/winter-reading-journal-cover-with-breathing-room/palette-2.jpg"
+    },
+    {
+      "slug": "keep-a-handwritten-christmas-recipe-without-hiding-the-original",
+      "title": "Keep a Handwritten Christmas Recipe Without Hiding the Original",
+      "category": "Winter & Christmas Crafts",
+      "excerpt": "Build a readable Christmas recipe page around a working copy, with space for the story, your kitchen notes, and the familiar handwriting.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/keep-a-handwritten-christmas-recipe-without-hiding-the-original/gen3.png"
+    },
+    {
+      "slug": "snowflake-christmas-card-that-becomes-a-bookmark",
+      "title": "A Snowflake Christmas Card That Becomes a Bookmark",
+      "category": "Paper Crafts",
+      "excerpt": "Make a Christmas card with a removable snowflake bookmark held by two corner slits in a separate front panel.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/snowflake-christmas-card-that-becomes-a-bookmark/gen2.png"
+    },
+    {
+      "slug": "tiny-advent-notes-for-someone-you-love",
+      "title": "Make Tiny Advent Notes for Someone You Love This Christmas",
+      "category": "Winter & Christmas Crafts",
+      "excerpt": "Make a small, flexible Advent exchange with short handwritten notes, simple paper sleeves, and messages that feel kind rather than demanding.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/tiny-advent-notes-for-someone-you-love/gen1.png"
+    },
+    {
+      "slug": "build-a-winter-letter-set-with-one-printable-collection",
+      "title": "Build a Winter Letter Set With One Printable Collection",
+      "category": "Paper Crafts",
+      "excerpt": "Coordinate a handwritten winter letter, envelope liner, and small keepsake with a restrained blue palette.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/build-a-winter-letter-set-with-one-printable-collection/gen1.png"
+    },
+    {
+      "slug": "make-christmas-gift-tags-that-match-your-cards",
+      "title": "Make Christmas Gift Tags That Match Handmade Cards",
+      "category": "Winter & Christmas Crafts",
+      "excerpt": "Turn the colours and paper offcuts from one handmade Christmas card into matching gift tags with room for a useful personal message.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/make-christmas-gift-tags-that-match-your-cards/gen2.png"
+    },
+    {
+      "slug": "burgundy-plaid-christmas-cards-without-pattern-overload",
+      "title": "Burgundy Plaid Christmas Cards Without Pattern Overload",
+      "category": "Paper Crafts",
+      "excerpt": "Make a warm Christmas card with one plaid panel, a quiet greeting, and enough cream space to keep the pattern beautiful.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/burgundy-plaid-christmas-cards-without-pattern-overload/gen1.png"
+    },
+    {
+      "slug": "a-christmas-card-that-feels-personal",
+      "title": "Make a Christmas Card With a Memory and a Wish",
+      "category": "Winter & Christmas Crafts",
+      "excerpt": "Choose one image, remember one shared moment, and write one specific wish for a handmade Christmas card that sounds like you.",
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "readTime": "3 min read",
+      "thumb": "blog/img/a-christmas-card-that-feels-personal/gen3.png"
+    },
+    {
       "slug": "build-a-wizard-journal-around-an-invented-place",
       "title": "Build a Wizard Journal Around an Invented Place",
       "category": "Junk Journal Inspiration",

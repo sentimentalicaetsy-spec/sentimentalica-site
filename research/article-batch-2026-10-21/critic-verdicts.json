@@ -1,0 +1,160 @@
+{
+  "a-christmas-card-that-feels-personal": {
+    "gen3": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, legibility 5, utility 5, brand 5, artifacts 4. Repaired arrow now identifies distinct next-year wish; readable memory and wish; deep blue/ivory branded physical card collage. Both approved-codex composition and branding images included in imagegen call.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, light 5, save-worthiness 5, artifacts 4. Cream envelopes in brass tray at warmly lit front door; burgundy ribbon, frosted garden beyond. No site mark, text or product pages. Viewed refs/scenes collection; no close winter/Christmas scene reference existed; used saved cottage/window atmosphere anchor.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen1": {
+      "verdict": "REGENERATE",
+      "scores": "Original beautiful but wish arrow pointed at memory sentence. Superseded by reviewed gen3.",
+      "fix": "Separate actual wish sentence and redirect arrow.",
+      "checked": "2026-10-21"
+    }
+  },
+  "burgundy-plaid-christmas-cards-without-pattern-overload": {
+    "gen1": {
+      "verdict": "PASS",
+      "scores": "promise 5; palette 5; composition 5; light 5; save-worthiness 5; site-text 5; flaws 5. Burgundy checked throw anchors cream chair, antique gold candlelight and frosted window; deep layered Christmas hearth composition. Inspected against perfect-workplace_0013 window-led cottage atmosphere; no close scene reference existed. No product pages, text, people or logo.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5; palette 5; composition 5; light 4; save-worthiness 4; site-text 5; flaws 4. Cream card has one restrained burgundy checked strip with ample greeting space; loose blank label demonstrates next assembly step. Warm wood, lace and believable paper edges recall scrapbook0048 tactile overhead craft composition. Ruler marks slightly imperfect but peripheral, no pseudo-wording; no embedded listing art or site mark.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "make-christmas-gift-tags-that-match-your-cards": {
+    "gen1": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, legibility 5, utility 5, brand 5, artifacts 4. Card and tag visibly repeat holly and narrow burgundy strip; name area legible; object-led useful blue/cream collage. Both approved-codex composition and branding images included in imagegen call.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, light 5, save-worthiness 5, artifacts 4. Wrapped gifts under fir tree, burgundy ribbon, warm hearth, cream knit. No site mark, text or product pages. Viewed refs/scenes collection; no close winter/Christmas scene reference existed; used saved cottage/window atmosphere anchor.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "build-a-winter-letter-set-with-one-printable-collection": {
+    "gen1": {
+      "verdict": "PASS",
+      "scores": "promise 5; palette 5; composition 5; light 5; save-worthiness 5; site-text 5; flaws 5. Blue-white porcelain, indigo textiles, snow and amber sun create winter-letter mood; closed plain envelope supplies topic connection without product proof. Window-depth and cottage detail match scene0013 atmosphere; no close scene reference existed. No site text/logo.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5; palette 5; composition 5; light 5; save-worthiness 5; site-text 5; flaws 5. Plain cream writing sheet with narrow navy heading strip, separate pale blue lined envelope, navy keepsake tag. Correct distinct functions and scale, clean writing area. Tactile torn layers and overhead workspace match process0048; no pasted real product pages or pseudo-text.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "tiny-advent-notes-for-someone-you-love": {
+    "gen1": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, legibility 5, utility 5, brand 5, artifacts 4. Readable note/sleeve/date construction with three sample message types; physical folded notes; no bird/logo. Both approved-codex composition and branding images included in imagegen call.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, light 5, save-worthiness 5, artifacts 4. Cream envelope garland on winter kitchen dresser; blue ceramic and warm dawn. No site mark, text or product pages. Viewed refs/scenes collection; no close winter/Christmas scene reference existed; used saved cottage/window atmosphere anchor.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "snowflake-christmas-card-that-becomes-a-bookmark": {
+    "gen1": {
+      "verdict": "PASS",
+      "scores": "promise 5; palette 5; composition 5; light 5; save-worthiness 5; site-text 5; flaws 5. Navy reading chair, ivory knit, small berry/rust accent and snow make topic-specific winter reading atmosphere; book includes a visible blue marker. Deep window-led room inspired by scene0013; no close scene reference existed. No text/logo or product art.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5; palette 5; composition 5; light 4; save-worthiness 5; site-text 5; flaws 5. Long navy tag bookmark with clear white snowflake held at opposite corners under two cream diagonal retaining flaps. Tutorial corrected to separate front-panel slits, away from folded base. Tactile paper craft and overhead wood match process0048. No text, logo or copied product pages.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "keep-a-handwritten-christmas-recipe-without-hiding-the-original": {
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, light 5, save-worthiness 5, artifacts 4. Blue ceramic baking bowl, biscuits, closed family book and frosted kitchen window. No site mark, text or product pages. Viewed refs/scenes collection; no close winter/Christmas scene reference existed; used saved cottage/window atmosphere anchor.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen1": {
+      "verdict": "REGENERATE",
+      "scores": "Original missing mandatory site footer and suggests rewriting rather than preserving handwriting. Replacement pending.",
+      "fix": "Add exact footer and scan/photograph instruction.",
+      "checked": "2026-10-21"
+    },
+    "gen3": {
+      "verdict": "PASS",
+      "scores": "promise5, brand5, legibility5, usefulness5, composition5, artifacts4. Viewed corrected full-size infographic: clear scan/photograph instruction preserves handwriting, separately sleeved original, readable family notes and exact centered sentimentalica.com footer. Approved composition and branding files included in generation and correction calls.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "winter-reading-journal-cover-with-breathing-room": {
+    "gen1": {
+      "verdict": "PASS",
+      "scores": "promise 5; palette 5; composition 5; light 5; save-worthiness 5; site-text 5; flaws 5. Navy window frame, plum cushion, coral knit and amber sunset reflect exact collection roles. Books and plain closed notebook sit naturally in layered snowy reading nook. Scene0013 window/cottage atmosphere; no close scene reference existed. No site text or embedded art.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 4; palette 5; composition 5; light 5; save-worthiness 5; site-text 5; flaws 5. Clearly readable blank cream label on cream/plum botanical handmade cover with navy hinge and coral cut-paper sprig. More layered than simplest tutorial option, but label retains ample writing area and hinge remains free. Truthful caption identifies decorative illustrative variation. Lace, tactile paper and overhead angle align process0048. No pseudo-text or real product-page insertion.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "winter-happy-mail-for-friends-far-away": {
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, light 5, save-worthiness 5, artifacts 4. Envelope at snow-dusted postbox by blue gate, warmly glowing cottage beyond. No site mark, text or product pages. Viewed refs/scenes collection; no close winter/Christmas scene reference existed; used saved cottage/window atmosphere anchor.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen1": {
+      "verdict": "REGENERATE",
+      "scores": "Original bookmark tassel contradicts flat-mail instruction. Replacement pending.",
+      "fix": "Remove bulky tassel and plant sprig inside envelope.",
+      "checked": "2026-10-21"
+    },
+    "gen3": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, utility 5, brand 5, legibility 5, artifacts 4. Flat paper bookmark now has no cord or tassel; paper tuck contains a flat botanical print. Clear letter/bookmark/surprise object map; exact footer. Both approved composition and branding references included in repair call.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  },
+  "a-winter-window-journal-page-for-early-dark-evenings": {
+    "gen1": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, legibility 5, utility 5, brand 5, artifacts 4. Paper-window construction and observation labels clear; physical objects explain outer frame and optional dividers; brand blue/ivory and exact footer. Both approved-codex composition and branding images included in imagegen call.",
+      "fix": "",
+      "checked": "2026-10-21"
+    },
+    "gen2": {
+      "verdict": "PASS",
+      "scores": "promise 5, palette 5, composition 5, light 5, save-worthiness 5, artifacts 4. Rainy city roofs at early dark, warm window reflection, blue mug and knit; winter without snow. No site mark, text or product pages. Viewed refs/scenes collection; no close winter/Christmas scene reference existed; used saved cottage/window atmosphere anchor.",
+      "fix": "",
+      "checked": "2026-10-21"
+    }
+  }
+}

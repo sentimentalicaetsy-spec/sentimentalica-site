@@ -1,0 +1,178 @@
+[
+  {
+    "key": "card-atmo",
+    "slug": "a-christmas-card-that-feels-personal",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-bd747534-c266-4b69-bfb5-99b8828f40dd.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "tags-atmo",
+    "slug": "make-christmas-gift-tags-that-match-your-cards",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-c705d2ab-6840-4103-9c98-e32f8ccc65f3.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "advent-atmo",
+    "slug": "tiny-advent-notes-for-someone-you-love",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-e747e745-92f1-46b9-afff-239d2579fc53.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "recipe-atmo",
+    "slug": "keep-a-handwritten-christmas-recipe-without-hiding-the-original",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-3c9e32aa-3454-4391-9786-e89a59dcd27c.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "mail-atmo",
+    "slug": "winter-happy-mail-for-friends-far-away",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-17072471-145b-46b9-9116-6c68090dd772.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "window-atmo",
+    "slug": "a-winter-window-journal-page-for-early-dark-evenings",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-df3d5037-00c8-487e-81b1-2ed729b33d4f.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "mail",
+    "slug": "winter-happy-mail-for-friends-far-away",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-027cb90b-7220-40ab-89eb-cbc4f27b46ca.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "window",
+    "slug": "a-winter-window-journal-page-for-early-dark-evenings",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-5ced6502-a228-4d41-95ad-ee939209ddef.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "plaid-atmo",
+    "slug": "burgundy-plaid-christmas-cards-without-pattern-overload",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-7ae798d6-e2b9-4887-8c01-015b20227994.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "plaid-process",
+    "slug": "burgundy-plaid-christmas-cards-without-pattern-overload",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-fcc36de8-493c-41f7-bce2-785fe4e0d83a.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "letter-atmo",
+    "slug": "build-a-winter-letter-set-with-one-printable-collection",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-b65c0719-3c4a-400e-894d-b192cd9fd639.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "letter-process",
+    "slug": "build-a-winter-letter-set-with-one-printable-collection",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-03eb54d3-e74a-4991-b969-518d40796992.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "bookmark-atmo",
+    "slug": "snowflake-christmas-card-that-becomes-a-bookmark",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-e8ecb207-3e13-4f8e-866c-bd70e5774e9f.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "bookmark-process",
+    "slug": "snowflake-christmas-card-that-becomes-a-bookmark",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-9df78337-3db6-4acd-b74b-40908d092425.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "reading-atmo",
+    "slug": "winter-reading-journal-cover-with-breathing-room",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-1c25ad1e-511c-43bb-903e-186f5c731219.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "reading-process",
+    "slug": "winter-reading-journal-cover-with-breathing-room",
+    "file": "gen2.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-cf079e3d-414b-43fb-b6b6-eab2525f09eb.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "tags",
+    "slug": "make-christmas-gift-tags-that-match-your-cards",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-642a983b-1947-4caf-b4a9-2619c28bdb9b.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "advent",
+    "slug": "tiny-advent-notes-for-someone-you-love",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-900fbe58-1939-43d1-bafc-01c08a1c49fe.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "recipe",
+    "slug": "keep-a-handwritten-christmas-recipe-without-hiding-the-original",
+    "file": "gen1.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-7fef55af-3497-4a83-8ae4-e633d56d0a57.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "card-fixed",
+    "slug": "a-christmas-card-that-feels-personal",
+    "file": "gen3.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-73336f96-a1bd-42d2-a95d-cf318bfd7cfe.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "mail-fixed",
+    "slug": "winter-happy-mail-for-friends-far-away",
+    "file": "gen3.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-1b2624e9-f334-4b68-8970-79618e901230.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  },
+  {
+    "key": "recipe-fixed",
+    "slug": "keep-a-handwritten-christmas-recipe-without-hiding-the-original",
+    "file": "gen3.png",
+    "source": "/Users/kseniateter/.codex/generated_images/01a15fe1-b890-7f90-9f80-3d352a5b9409/exec-02ab890a-ec75-481d-bb6b-27fa29ea72b2.png",
+    "tool": "built-in imagegen",
+    "reference_grounded": true
+  }
+]
